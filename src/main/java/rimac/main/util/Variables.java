@@ -1,4 +1,4 @@
-package rimac.test.util;
+package rimac.main.util;
 
 public class Variables {
 

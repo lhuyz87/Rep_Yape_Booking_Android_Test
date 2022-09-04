@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 import io.cucumber.junit.CucumberOptions;
 import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
-import rimac.test.util.UtilDef;
+import rimac.main.util.UtilDef;
 
 @RunWith(RunPersonalizar.class)
 

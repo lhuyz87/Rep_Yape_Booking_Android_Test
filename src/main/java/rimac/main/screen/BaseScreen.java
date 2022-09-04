@@ -1,5 +1,6 @@
-package rimac.test.screen;
+package rimac.main.screen;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import net.serenitybdd.core.pages.PageObject;
@@ -17,4 +18,8 @@ public class BaseScreen extends PageObject {
                 ((WebDriverFacade) getDriver()).getProxiedDriver();
     }
     
+	public AppiumDriver appiumDriver() {
+        return (AppiumDriver)
+                ((WebDriverFacade) getDriver()).getProxiedDriver();
+    }
 }

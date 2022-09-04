@@ -1,5 +1,5 @@
 
-package rimac.test.util;
+package rimac.main.util;
 
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -28,12 +28,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import rimac.main.util.PageObjectUtil2;
 
 import static java.time.Duration.ofMillis;
 import static org.openqa.selenium.interactions.PointerInput.Kind.TOUCH;
@@ -60,7 +62,7 @@ public class PageObjectUtil2 {
         driver.perform(Arrays.asList(swipe));
     }
 
-    public static void doTap(WebDriver webDriver, Point point, int duration) {
+    public void doTap(WebDriver webDriver, Point point, int duration) {
         Sequence tap = new Sequence(FINGER, 1)
                 .addAction(FINGER.createPointerMove(ofMillis(0), viewport(), point.getX(), point.getY()))
                 .addAction(FINGER.createPointerDown(LEFT.asArg()))

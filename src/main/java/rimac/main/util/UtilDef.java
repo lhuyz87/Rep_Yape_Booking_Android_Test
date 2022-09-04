@@ -1,4 +1,4 @@
-package rimac.test.util;
+package rimac.main.util;
 
 import java.util.Properties;
 
@@ -6,6 +6,7 @@ import org.apache.commons.io.filefilter.WildcardFileFilter;
 
 import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
+import rimac.main.util.UtilDef;
 
 import java.io.File;
 import java.io.FileFilter;

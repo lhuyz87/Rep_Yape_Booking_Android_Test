@@ -1,4 +1,4 @@
-package rimac.test.util;
+package rimac.main.util;
 
 import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;

@@ -1,9 +1,9 @@
-package rimac.test.stepdefinition;
+package rimac.main.stepdefinition;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import rimac.test.screen.AppLoginPage;
+import rimac.main.screen.AppLoginPage;
 
 public class LoginDefinition {
 	

@@ -1,4 +1,10 @@
-package rimac.test.xpath;
+package rimac.main.xpath;
+
+import org.openqa.selenium.WebElement;
+
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITBy;
+import rimac.main.xpath.XPathLoginScreen;
 
 public class XPathLoginScreen {
 	
@@ -40,4 +46,13 @@ public class XPathLoginScreen {
 		else
 			return "com.rimac.rimac_surrogas:id/materialBtn";
 	}
+	
+	public final String txtNroDocumento(String platformName) {
+		if(platformName.compareTo("IOS")==0)
+			return "//XCUIElementTypeTextField[@name='Nº de documento']";
+		else
+			return "com.rimac.rimac_surrogas:id/materialBtn";
+	}
+	
+	
 }
