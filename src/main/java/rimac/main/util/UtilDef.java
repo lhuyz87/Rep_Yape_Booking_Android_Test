@@ -3,16 +3,20 @@ package rimac.main.util;
 import java.util.Properties;
 
 import org.apache.commons.io.filefilter.WildcardFileFilter;
+import org.openqa.selenium.WebElement;
+
+import com.gargoylesoftware.htmlunit.WebConsole.Logger;
 
 import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
+import rimac.main.screen.BaseScreen;
 import rimac.main.util.UtilDef;
 
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileReader;
 
-public class UtilDef {
+public class UtilDef  extends BaseScreen{
 
 	public static Properties p;
 	private static UtilDef obj = null;
@@ -101,5 +105,17 @@ public class UtilDef {
 	    }
 
 		return nombreDocumentoDescargado;
+	}
+	
+	public void esperarElemento(int intentos, WebElement elemento) {
+		int contador=0;
+		while(element(elemento).isEnabled()==false) {
+			contador++;
+			if(element(elemento).isEnabled()==true||contador==intentos) {
+				System.out.println("Se encuentra elemento");			
+				break;
+			}
+				
+		}
 	}
 }

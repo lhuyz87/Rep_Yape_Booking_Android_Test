@@ -1,27 +1,27 @@
-package rimac.main.xpath;
+package rimac.main.object;
 
 import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITBy;
-import rimac.main.xpath.XPathLoginScreen;
+import rimac.main.object.ObjectLoginScreen;
 
-public class XPathLoginScreen {
+public class ObjectLoginScreen {
 	
 	// singleton
-	private static XPathLoginScreen obj = null;
+	private static ObjectLoginScreen obj = null;
 
-	private XPathLoginScreen() {
+	private ObjectLoginScreen() {
 	}
 
-	public static XPathLoginScreen getInstancia() {
+	public static ObjectLoginScreen getInstancia() {
 		instanciar();
 		return obj;
 	}
 
 	private synchronized static void instanciar() {
 		if (obj == null) {
-			obj = new XPathLoginScreen();
+			obj = new ObjectLoginScreen();
 		}
 	}
 
@@ -30,10 +30,6 @@ public class XPathLoginScreen {
 		throw new CloneNotSupportedException();
 	}
 	
-	//XCUIElementTypeButton[contains(@text, 'Iniciar sesión')]
-	//XCUIElementTypeStaticText[@name='193930 Copy 1']/following-sibling::XCUIElementTypeButton
-	//*[@class='UIAButton' and (./preceding-sibling::* | ./following-sibling::*)[@class='UIAView' and ./*[./*[@text='Iniciar sesión']]] and ./*[@class='UIAStaticText']]
-	//*[@class='UIAView' and ./*[@class='UIAView' and ./*[@class='UIAView' and ./*[@class='UIAView'] and ./*[@class='UIAButton']]]]
 	public final String btnIniciarSesion ="//*[@text='Iniciar sesión']";
 	public final String txtUsername = "//*[@name='test-Username']";
 	public final String txtPassword = "//*[@name='test-Password']";

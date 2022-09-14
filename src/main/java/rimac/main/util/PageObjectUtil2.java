@@ -115,7 +115,7 @@ public class PageObjectUtil2 {
 		throw new CloneNotSupportedException();
 	}
 
-	public void seleniumClick(WebDriver webDriver, final String xpath, int pos) {
+	public void seleniumClick(AppiumDriver webDriver, final String xpath, int pos) {
 		By by = AppiumBy.xpath(xpath);
 		List<WebElement> lista = webDriver.findElements(by);
 
