@@ -114,7 +114,8 @@ public class UtilDef  extends BaseScreen{
 			if(element(elemento).isEnabled()==true||contador==intentos) {
 				System.out.println("Se encuentra elemento");			
 				break;
-			}
+			}else
+				System.out.println("contador: " + contador);
 				
 		}
 	}

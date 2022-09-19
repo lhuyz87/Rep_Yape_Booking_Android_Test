@@ -3,10 +3,11 @@ package rimac.main.object;
 import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.iOSXCUITBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import rimac.main.object.ObjectLoginScreen;
+import rimac.main.screen.BaseScreen;
 
-public class ObjectLoginScreen {
+public class ObjectLoginScreen extends BaseScreen{
 	
 	// singleton
 	private static ObjectLoginScreen obj = null;
@@ -30,25 +31,20 @@ public class ObjectLoginScreen {
 		throw new CloneNotSupportedException();
 	}
 	
-	public final String btnIniciarSesion ="//*[@text='Iniciar sesión']";
-	public final String txtUsername = "//*[@name='test-Username']";
-	public final String txtPassword = "//*[@name='test-Password']";
-	public final String btnLogin = "//*[@name='test-LOGINxxx']";
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND (label == 'Iniciar sesión') AND visible == 1")
+	@AndroidFindBy(xpath = "//*[@text='Iniciar sesión']")
+	public WebElement btnIngresarSesion;
 	
-	public final String btnIniciarSesion(String platformName) {
-		System.out.println("La plataforma es: "+platformName);
-		if(platformName.compareTo("IOS")==0)
-			return "sx";
-		else
-			return "com.rimac.rimac_surrogas:id/materialBtn";
-	}
-	
-	public final String txtNroDocumento(String platformName) {
-		if(platformName.compareTo("IOS")==0)
-			return "//XCUIElementTypeTextField[@name='Nº de documento']";
-		else
-			return "com.rimac.rimac_surrogas:id/materialBtn";
-	}
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeTextField' AND (label == 'Nº de documento') AND visible == 1")
+    @AndroidFindBy(xpath = "//*[@text='Nº de documento']")
+	public WebElement txtNumDocumento;
+    
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeSecureTextField' AND (label == 'Contraseña') AND visible == 1")
+    @AndroidFindBy(xpath = "//*[@text='Contraseña']")
+	public WebElement txtPassword;
+    
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND (label == 'Done') AND visible == 1")
+	public WebElement btnDone;
 	
 	
 }

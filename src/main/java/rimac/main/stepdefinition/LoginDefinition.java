@@ -10,10 +10,11 @@ public class LoginDefinition {
 	@Steps
 	AppLoginPage appLoginPage;
 	
-	@Given("inicio el app Mundo Rimac")
-	public void inicio_el_app_mundo_rimac() {
-		appLoginPage.login();
+	@Given("inicio el app Mundo Rimac {string}, {string}")
+	public void inicio_el_app_mundo_rimac(String dniUser, String passUser) {
+		appLoginPage.login(dniUser, passUser);
 	}
+	
 	@When("selecciono el producto {string}")
 	public void selecciono_el_producto(String string) {
 
