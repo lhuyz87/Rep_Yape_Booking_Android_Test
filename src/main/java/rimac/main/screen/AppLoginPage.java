@@ -36,14 +36,21 @@ private long wdwTimeOut = 300L;
 		element(xpathLoginScreen.txtPassword).click();
 		element(xpathLoginScreen.txtPassword).sendKeys(passUser);
 		
-		/**
-		 * btnDone solo aplica a iOS, para ocultar el teclado
-		 */
-		if(element(xpathLoginScreen.btnDone).isClickable()) {
-			element(xpathLoginScreen.btnDone).click();
-		}
+//		/**
+//		 * btnDone solo aplica a iOS, para ocultar el teclado
+//		 */
+//		if(element(xpathLoginScreen.btnDone).isClickable()) {
+//			element(xpathLoginScreen.btnDone).click();
+//		}
 		
 		element(xpathLoginScreen.btnIngresarSesion).click();
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 	

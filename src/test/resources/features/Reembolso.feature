@@ -2,7 +2,7 @@
 @FeatureReembolso
 Feature: Reembolso
 
-	@regresionReembolso @reembolsoSinBeneficiario
+  @regresionReembolso @reembolsoSinBeneficiario
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
