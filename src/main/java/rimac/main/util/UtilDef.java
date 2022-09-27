@@ -4,9 +4,12 @@ import java.util.Properties;
 
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 
 import com.gargoylesoftware.htmlunit.WebConsole.Logger;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
 import rimac.main.screen.BaseScreen;
@@ -15,6 +18,8 @@ import rimac.main.util.UtilDef;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileReader;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class UtilDef  extends BaseScreen{
 
@@ -118,5 +123,85 @@ public class UtilDef  extends BaseScreen{
 				System.out.println("contador: " + contador);
 				
 		}
+	}	
+	
+	public void esperarElementoClick(int intentos, WebElement elemento) {
+		int contador=0;
+		while(element(elemento).isEnabled()==false) {
+			contador++;
+			if(element(elemento).isClickable()==true||contador==intentos) {
+				System.out.println("Se encuentra elemento");			
+				break;
+			}else
+				System.out.println("contador: " + contador);
+				
+		}
 	}
+	
+//	public static void scrollToElement(AppiumDriver driver, String elementName, boolean scrollDown){
+//		String listID = ((RemoteWebElement) driver.findElementByAndroidUIAutomator("new UiSelector().className(\"android.widget.ListView\")")).getId();
+//		String direction;
+//		if (scrollDown) {
+//			direction = "down";
+//		} else {
+//			direction = "up";
+//		}
+//		HashMap<String, String> scrollObject = new HashMap<String, String>();
+//		scrollObject.put("direction", direction);
+//		scrollObject.put("element", listID);
+//		scrollObject.put("text", elementName);
+//		driver.executeScript("mobile: scrollTo", scrollObject);
+//	}
+	
+	public void scroll() {
+//		driver.findElementByAndroidUIAutomator("new UiScrollable(new    UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"WebView\").instance(0))").click(); //scroll down to the element and click
+//		
+//		System.out.println("Obejeto "  + tramitesObject.btnReembolsoSalud.getText());
+//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+tramitesObject.btnReembolsoSalud.getText()+"\").instance(0))"));
+//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollToEnd(100000)"));
+//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollToEnd(1000)"));
+//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollToBeginning(1000)"));
+					
+//		util.esperarElemento(10, tramitesObject.btnReembolsoSalud);
+		
+//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))" +
+//        ".scrollIntoView(new UiSelector().text(\"prueba\"))"));
+//		
+//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))" +
+//		        ".scrollIntoView(new UiSelector().textContains(\"reembolso\"))"));
+
+		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollForward()"));
+
+	}
+	
+	//No funciona
+	public void scrollToElemento(String text) {
+		String auxiliar = "\"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\\\"" + text +"\\\").instance(0))\"";
+		System.out.println("********"  + auxiliar);
+		appiumDriver().findElement(MobileBy.AndroidUIAutomator(auxiliar));
+		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Empezar reembolso\").instance(0))"));
+//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Empezar reembolso\").instance(0))"));
+
+	}
+	
+	public void esperarSegundos(int tipoEspera) {
+		
+		try {
+			Thread.sleep(tipoEspera*1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public String obtenerFechayHora() {
+//		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd"); 
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyMMddHHmmssSSS"); 
+		 
+		LocalDateTime today = LocalDateTime.now();     //Today
+
+        String fecha =today.format(dtf);           
+        System.out.println(" horaaaa"  + fecha);
+        return fecha;          
+    }
 }

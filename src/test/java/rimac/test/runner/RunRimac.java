@@ -9,7 +9,7 @@ import rimac.main.util.UtilDef;
 
 @RunWith(RunPersonalizar.class)
 
-@CucumberOptions(features = "src/test/resources/features", tags =  "@Login" , glue = "rimac")
+@CucumberOptions(features = "src/test/resources/features", tags =  "@reembolsoSinBeneficiario" , glue = "rimac")
 
 public class RunRimac {
 	

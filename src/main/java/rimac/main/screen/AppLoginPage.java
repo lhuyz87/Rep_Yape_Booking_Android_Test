@@ -1,20 +1,26 @@
 package rimac.main.screen;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Logger;
 
+import com.github.dockerjava.api.model.Driver;
+
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.PushesFiles;
+import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.pages.PageObject;
 import rimac.main.util.PageObjectUtil2;
 import rimac.main.util.UtilDef;
 import rimac.main.util.VariablesAppNativa;
-import rimac.main.object.ObjectLoginScreen;
+import rimac.main.object.LoginObject;
 import rimac.main.screen.AppLoginPage;
 
 public class AppLoginPage extends BaseScreen{
 
 private long wdwTimeOut = 300L;
 	
-	protected ObjectLoginScreen xpathLoginScreen = ObjectLoginScreen.getInstancia();
+	protected LoginObject objLoginScreen = LoginObject.getInstancia();
 
 	// util
 	protected PageObjectUtil2 pageObjectUtil2 = PageObjectUtil2.getInstancia();
@@ -25,17 +31,27 @@ private long wdwTimeOut = 300L;
 	}
 	
 	UtilDef util = new UtilDef();
+	AppiumDriver driver;
 	
 	public void login(String dniUser, String passUser) {
 		looger.info("aplicación iniciada");
-		util.esperarElemento(10, xpathLoginScreen.btnIngresarSesion);
+		util.esperarElemento(10, objLoginScreen.btnIngresarSesion);
 		
-		element(xpathLoginScreen.btnIngresarSesion).click();
-		element(xpathLoginScreen.txtNumDocumento).click();
-		element(xpathLoginScreen.txtNumDocumento).sendKeys(dniUser);
-		element(xpathLoginScreen.txtPassword).click();
-		element(xpathLoginScreen.txtPassword).sendKeys(passUser);
+		element(objLoginScreen.btnIngresarSesion).click();
+		element(objLoginScreen.txtNumDocumento).click();
+		element(objLoginScreen.txtNumDocumento).sendKeys(dniUser);
+		element(objLoginScreen.txtPassword).click();
+		element(objLoginScreen.txtPassword).sendKeys(passUser);
 		
+
+//		try {
+//			((PushesFiles) appiumDriver()).pushFile("/data/local/tmp/foo.bar", new File("/Users/johndoe/files/foo.bar"));
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+
+
 //		/**
 //		 * btnDone solo aplica a iOS, para ocultar el teclado
 //		 */
@@ -43,7 +59,7 @@ private long wdwTimeOut = 300L;
 //			element(xpathLoginScreen.btnDone).click();
 //		}
 		
-		element(xpathLoginScreen.btnIngresarSesion).click();
+		element(objLoginScreen.btnIngresarSesion).click();
 		
 		try {
 			Thread.sleep(5000);

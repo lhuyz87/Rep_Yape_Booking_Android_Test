@@ -1,0 +1,14 @@
+Feature: CU01 Ingresar PDD
+
+Scenario Outiline: Validar acceso a la plataforma
+Given Ingreso a la URL del PDD
+When seleccionamos opcion ingresa
+And ingreso usuario "<usuario>" y password "<password>"
+And seleccionas iniciar sesion
+Then se debe mostrar el módulo de busqueda de solicitudes
+
+Examples:
+|usuario|password|
+|angelica|passangi| 
+|angelica2|passangi| 
+|angelica3|passangi| 

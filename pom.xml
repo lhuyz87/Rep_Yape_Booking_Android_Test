@@ -24,11 +24,6 @@
 
 	<repositories>
 		<repository>
-			<id>rimac-nexus</id>
-			<name>maven-public</name>
-			<url>http://172.29.113.232:10002/repository/maven-public</url>
-		</repository>
-		<repository>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
@@ -36,6 +31,13 @@
 			<name>bintray</name>
 			<url>https://jcenter.bintray.com</url>
 		</repository>
+
+		<repository>
+			<id>rimac-nexus</id>
+			<name>maven-public</name>
+			<url>http://172.29.113.232:10002/repository/maven-public</url>
+		</repository>
+		
 	</repositories>
 
 	<dependencies>

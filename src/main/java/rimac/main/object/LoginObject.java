@@ -1,28 +1,30 @@
 package rimac.main.object;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import rimac.main.object.ObjectLoginScreen;
+import rimac.main.object.LoginObject;
 import rimac.main.screen.BaseScreen;
 
-public class ObjectLoginScreen extends BaseScreen{
+public class LoginObject extends BaseScreen{
 	
 	// singleton
-	private static ObjectLoginScreen obj = null;
+	private static LoginObject obj = null;
 
-	private ObjectLoginScreen() {
+	private LoginObject() {
 	}
 
-	public static ObjectLoginScreen getInstancia() {
+	public static LoginObject getInstancia() {
 		instanciar();
 		return obj;
 	}
 
 	private synchronized static void instanciar() {
 		if (obj == null) {
-			obj = new ObjectLoginScreen();
+			obj = new LoginObject();
 		}
 	}
 
@@ -45,6 +47,12 @@ public class ObjectLoginScreen extends BaseScreen{
     
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND (label == 'Done') AND visible == 1")
 	public WebElement btnDone;
+	
+	public WebElement diaAtencion(WebDriver webDriver, String dia) {
+		By by = By.xpath("//*[@text='"+dia+"']");
+		WebElement diaAtencion = webDriver.findElement(by);
+		return diaAtencion;
+	}
 	
 	
 }
