@@ -3,12 +3,12 @@ package rimac.main.stepdefinition;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import rimac.main.screen.AppLoginPage;
+import rimac.main.screen.AppLoginScreen;
 
 public class LoginDefinition {
 	
 	@Steps
-	AppLoginPage appLoginPage;
+	AppLoginScreen appLoginPage;
 	
 	@Given("inicio el app Mundo Rimac {string}, {string}")
 	public void inicio_el_app_mundo_rimac(String dniUser, String passUser) {

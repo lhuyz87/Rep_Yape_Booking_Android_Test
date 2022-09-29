@@ -117,7 +117,7 @@ public class UtilDef  extends BaseScreen{
 		while(element(elemento).isEnabled()==false) {
 			contador++;
 			if(element(elemento).isEnabled()==true||contador==intentos) {
-				System.out.println("Se encuentra elemento");			
+				System.out.println("Se encuentra elemento o contador finalizo");			
 				break;
 			}else
 				System.out.println("contador: " + contador);
@@ -179,7 +179,7 @@ public class UtilDef  extends BaseScreen{
 		String auxiliar = "\"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\\\"" + text +"\\\").instance(0))\"";
 		System.out.println("********"  + auxiliar);
 		appiumDriver().findElement(MobileBy.AndroidUIAutomator(auxiliar));
-		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Empezar reembolso\").instance(0))"));
+//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Empezar reembolso\").instance(0))"));
 //		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Empezar reembolso\").instance(0))"));
 
 	}

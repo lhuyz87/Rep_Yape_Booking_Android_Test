@@ -45,6 +45,11 @@ public class ReemDocCobertMedicaObject extends BaseScreen{
 	
 	@AndroidFindBy(xpath = "//*[@text='Tomar una foto']")
 	public WebElement selTomarFoto;
+
+	@AndroidFindBy(xpath = "//*[@text='Continuar']")
+	public WebElement btnContinuar;
+	
+	
 	
 	
 

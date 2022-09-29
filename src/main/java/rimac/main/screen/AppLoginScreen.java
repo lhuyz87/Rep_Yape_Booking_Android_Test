@@ -14,9 +14,9 @@ import rimac.main.util.PageObjectUtil2;
 import rimac.main.util.UtilDef;
 import rimac.main.util.VariablesAppNativa;
 import rimac.main.object.LoginObject;
-import rimac.main.screen.AppLoginPage;
+import rimac.main.screen.AppLoginScreen;
 
-public class AppLoginPage extends BaseScreen{
+public class AppLoginScreen extends BaseScreen{
 
 private long wdwTimeOut = 300L;
 	
@@ -24,7 +24,7 @@ private long wdwTimeOut = 300L;
 
 	// util
 	protected PageObjectUtil2 pageObjectUtil2 = PageObjectUtil2.getInstancia();
-	public static Logger looger = Logger.getLogger(AppLoginPage.class.getName());
+	public static Logger looger = Logger.getLogger(AppLoginScreen.class.getName());
 	
 	public long getWdwTimeOut() {
 		return wdwTimeOut;

@@ -46,6 +46,9 @@ public class ComencemosReembolsoSaludObject extends BaseScreen{
 	@AndroidFindBy(xpath = "//*[@text='Fecha de atención']")
 	public WebElement selFechaAtencion;
 	
+	@AndroidFindBy(xpath = "//*[@text='Paciente']")
+	public WebElement selPaciente;
+	
 	
 	public WebElement diaAtencion(WebDriver webDriver, String dia) {
 		By by = By.xpath("//*[@text='"+dia+"']");
@@ -69,6 +72,12 @@ public class ComencemosReembolsoSaludObject extends BaseScreen{
 		By by = By.xpath("//*[@text='"+cobertura+"']");
 		WebElement diaAtencion = webDriver.findElement(by);
 		return diaAtencion;
+	}
+	
+	public WebElement getPaciente(WebDriver webDriver, String paciente) {
+		By by = By.xpath("//*[@text='"+paciente+"']");
+		WebElement elementPaciente = webDriver.findElement(by);
+		return elementPaciente;
 	}
 	
 	

@@ -43,12 +43,26 @@ private long wdwTimeOut = 300L;
 	public void llenarDatosDireccion(String departamento, String provincia, String distrito, String direccion) {
 		util.esperarElemento(15, confirmarDatosReembolsoSaludObject.lblDni);
 		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Dirección\").instance(0))"));
-		element(confirmarDatosReembolsoSaludObject.selDepartamento).click();
-		element(confirmarDatosReembolsoSaludObject.departamento(appiumDriver(), departamento)).click();
-		element(confirmarDatosReembolsoSaludObject.selProvincia).click();
-		element(confirmarDatosReembolsoSaludObject.provincia(appiumDriver(), provincia)).click();
-		element(confirmarDatosReembolsoSaludObject.selDistrito).click();
-		element(confirmarDatosReembolsoSaludObject.distrito(appiumDriver(), distrito)).click();
+		System.out.println("******"   + confirmarDatosReembolsoSaludObject.selDepartamento.getText());
+		if(confirmarDatosReembolsoSaludObject.selDepartamento.getText()=="Departamento") {
+			element(confirmarDatosReembolsoSaludObject.selDepartamento).click();
+			element(confirmarDatosReembolsoSaludObject.departamento(appiumDriver(), departamento)).click();
+				
+		}
+		
+		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Distrito\").instance(0))"));
+		if(confirmarDatosReembolsoSaludObject.selProvincia.getText()=="Provincia") {
+			element(confirmarDatosReembolsoSaludObject.selProvincia).click();
+			element(confirmarDatosReembolsoSaludObject.provincia(appiumDriver(), provincia)).click();
+	
+		}
+		
+		if(confirmarDatosReembolsoSaludObject.selDistrito.getText()=="Distrito") {
+			element(confirmarDatosReembolsoSaludObject.selDistrito).click();
+			element(confirmarDatosReembolsoSaludObject.distrito(appiumDriver(), distrito)).click();
+			
+		}
+		
 		System.out.println("******"   + direccion);
 		try {
 			util.scroll();
@@ -56,18 +70,6 @@ private long wdwTimeOut = 300L;
 			System.out.println("****** FAlla");
 		}
 		
-//		Actions action = new Actions(appiumDriver());
-//		action.sendKeys("direccion").perform();
-		
-//		appiumDriver().findElement(By.xpath("//*[@text='Dirección']")).click();
-		System.out.println("****** ENTRA");
-//		List<WebElement> links = appiumDriver().findElements(By.xpath("//*[@text='Dirección']"));
-//		appiumDriver().findElement(By.xpath("//*[@text='Dirección']")).sendKeys("asdasdasd");
-//		System.out.println("********** " + links.get(0).getText());
-//		System.out.println("********** " + links.get(1).getText());
-//		PageObjectUtil2.getInstancia().seleniumClick(appiumDriver(), "//*[@text='Dirección']", 1);
-//		element(links.get(1)).click();
-//		element(links.get(1)).sendKeys(direccion);
 		element(confirmarDatosReembolsoSaludObject.direccion()).click();
 		element(confirmarDatosReembolsoSaludObject.direccion()).sendKeys(direccion);
 		((HidesKeyboard) appiumDriver()).hideKeyboard();

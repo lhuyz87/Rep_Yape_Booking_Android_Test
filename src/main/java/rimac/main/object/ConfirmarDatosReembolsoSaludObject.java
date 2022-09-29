@@ -43,14 +43,17 @@ public class ConfirmarDatosReembolsoSaludObject extends BaseScreen{
 	@AndroidFindBy(xpath = "//*[@text='DNI del titular']")
 	public WebElement lblDni;
 	
-	@AndroidFindBy(xpath = "//*[@text='Departamento']")
+	//*[@class='android.widget.EditText' and ./parent::*[./parent::*[@id='uiEditDepartment']]]
+//	@AndroidFindBy(xpath = "//*[@text='Departamento']")
+	@AndroidFindBy(xpath = "//*[@id='uiEditDepartment']")
 	public WebElement selDepartamento;
 	
 	
-	@AndroidFindBy(xpath = "//*[@text='Provincia']")
+//	@AndroidFindBy(xpath = "//*[@text='Provincia']")
+	@AndroidFindBy(xpath = "//*[@id='uiEditProvince']")
 	public WebElement selProvincia;
 	
-	@AndroidFindBy(xpath = "//*[@text='Distrito']")
+	@AndroidFindBy(xpath = "//*[@id='uiEditDistrict']")
 	public WebElement selDistrito;
 	
 	

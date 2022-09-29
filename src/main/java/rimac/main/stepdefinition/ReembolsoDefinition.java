@@ -5,7 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import rimac.main.screen.AppLoginPage;
+import rimac.main.screen.AppLoginScreen;
 import rimac.main.screen.PaginaPrincipalScreen;
 import rimac.main.screen.ReemDocCobertMedicaScreen;
 import rimac.main.screen.TusTramitesScreen;
@@ -14,11 +14,14 @@ import rimac.main.screen.ComencemosReembolsoSaludScreen;
 import rimac.main.screen.ConfirmarDatosReembolsoSaludScreen;
 import rimac.main.screen.DocRequeridosReembolsoSaludScreen;
 import rimac.main.screen.RegistrarHuellaScreen;
+import rimac.main.screen.AgregarNuevoDocumentoScreen;
+import rimac.main.screen.CuentaDeAbonoScreen;
+import rimac.main.screen.SolicitudReembolsoRecibidaScreen;
 
 public class ReembolsoDefinition {
 	
 	@Steps
-	AppLoginPage appLoginPage;
+	AppLoginScreen appLoginPage;
 	
 	@Steps
 	PaginaPrincipalScreen paginaPrincipalScreen;
@@ -44,8 +47,14 @@ public class ReembolsoDefinition {
 	@Steps
 	ReemDocCobertMedicaScreen reemDocCobertMedicaScreen;
 	
+	@Steps
+	AgregarNuevoDocumentoScreen agregarNuevoDocumentoScreen;
 	
+	@Steps
+	CuentaDeAbonoScreen cuentaDeAbonoScreen;
 	
+	@Steps
+	SolicitudReembolsoRecibidaScreen solicitudReembolsoRecibidaScreen;
 	
 	
 	@Given("realiza el login con credenciales {string}, {string} y {string}")
@@ -80,12 +89,27 @@ public class ReembolsoDefinition {
 	    // Write code here that turns the phrase above into concrete actions
 		docRequeridosReembolsoSaludScreen.continuarDocRequeridos();
 		reemDocCobertMedicaScreen.AdjuntarFotoArchivo("AdjuntarArchivo");
+		agregarNuevoDocumentoScreen.seleccionarTipoDocuem("Factura");
+		agregarNuevoDocumentoScreen.llenarDatosFactura("1234", "1234567", "Soles (S/)", "1000");
+		reemDocCobertMedicaScreen.AdjuntarFotoArchivo("AdjuntarArchivo");
+		agregarNuevoDocumentoScreen.seleccionarTipoDocuem("Receta médica");
+		agregarNuevoDocumentoScreen.llenarDatosRecetaMedica("Prueba");
 	}
 
 	@Then("podra validar la notificacion: Solicitud de reembolso recibida")
 	public void podra_validar_la_notificacion_solicitud_de_reembolso_recibida() {
 	    // Write code here that turns the phrase above into concrete actions
-		
+		reemDocCobertMedicaScreen.continuar();
+		cuentaDeAbonoScreen.llenarDatosDeCuenta("Interbank", "Cuenta de ahorros", "Soles (S/)", "1234567891234", "aba@abc.com");
+		cuentaDeAbonoScreen.comentariosAdicionales("Comentario Prueba");
+		solicitudReembolsoRecibidaScreen.obtenerMensaje();
+	}
+	
+	
+	@When("se registra los datos del reembolso {string} ,{string}, {string}, {string} y {string}")
+	public void se_registra_los_datos_del_reembolso_con_beneficiario(String prodContratante,String beneficiario, String lugarAtencion, String fechaAtencion, String tipoCobert) {
+	    // Write code here that turns the phrase above into concrete actions
+		comencemosReembolsoSaludScreen.llenarDatosTramitesConBeneficiario(prodContratante,beneficiario, lugarAtencion, fechaAtencion, tipoCobert);
 	}
 	
 	

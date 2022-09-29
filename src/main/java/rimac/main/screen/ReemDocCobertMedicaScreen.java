@@ -32,6 +32,8 @@ private long wdwTimeOut = 300L;
 	// util
 	public static Logger looger = Logger.getLogger(ReemDocCobertMedicaScreen.class.getName());
 	
+	int contador=0;
+	
 	public long getWdwTimeOut() {
 		return wdwTimeOut;
 	}
@@ -44,8 +46,13 @@ private long wdwTimeOut = 300L;
 		
 		util.esperarElemento(5, reemDocCobertMedicaObject.selFotosArchivos);
 		element(reemDocCobertMedicaObject.selFotosArchivos).click();
-		element(alertasObject.btnAppEnUso).click();	
-		element(alertasObject.btnPermitir).click();	
+		
+		if(contador==0) {
+			element(alertasObject.btnAppEnUso).click();	
+			element(alertasObject.btnPermitir).click();	
+			contador++;
+		}
+
 		if(tipo.compareTo("AdjuntarArchivo")==0) {
 			element(reemDocCobertMedicaObject.selAdjuntarAtchivo).click();
 			
@@ -61,15 +68,18 @@ private long wdwTimeOut = 300L;
 				System.out.println(e.getMessage());
 			}
 			util.esperarSegundos(2);
-			
-//			element(directorioObject.lblArchivo).click();
 			element(directorioObject.nombreArchivo(appiumDriver(), nombreArchivo)).click();
-			util.esperarSegundos(5);
+//			util.esperarSegundos(5);
 		
 		}else {
 			
 		}
 		
+	}
+	
+	public void continuar() {
+		element(reemDocCobertMedicaObject.btnContinuar).click();
+		util.esperarSegundos(5);
 	}
 	
 	
