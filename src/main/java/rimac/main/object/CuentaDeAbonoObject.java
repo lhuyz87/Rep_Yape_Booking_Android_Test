@@ -7,6 +7,9 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 //import net.thucydides.core.annotations.findby.By;
 import rimac.main.object.CuentaDeAbonoObject;
+
+import java.util.List;
+
 import org.openqa.selenium.By;
 import rimac.main.screen.BaseScreen;
 
@@ -34,19 +37,26 @@ public class CuentaDeAbonoObject extends BaseScreen{
 		throw new CloneNotSupportedException();
 	}
 	
-	@AndroidFindBy(xpath = "//*[@text='Entidad bancaria']")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/uiEditBankEntity")
 	public WebElement lstEntidadBancaria;
 	
 
 	//Interbank, BBVA, Scotiabank, Scotiabank
 	public WebElement getEntidadBancaria(WebDriver driver, String  entidad){
-			By by = By.xpath("//*[@text='"+entidad+"']");
-			WebElement elementoEntidad = driver.findElement(by);
-			return elementoEntidad;
+			try {
+				By by = By.xpath("//*[@text='"+entidad+"']");
+				WebElement elementoEntidad = driver.findElement(by);
+				return elementoEntidad;
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			return null;
+
 	}
 	
 	
-	@AndroidFindBy(xpath = "//*[@text='Tipo de cuenta']")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/uiEditAccountType")
 	public WebElement lstTipoCuenta;
 	
 
@@ -58,7 +68,7 @@ public class CuentaDeAbonoObject extends BaseScreen{
 	}
 	
 
-	@AndroidFindBy(xpath = "//*[@text='Tipo de moneda']")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/uiEditCurrencyType")
 	public WebElement lstTipoMoneda;
 	
 
@@ -71,6 +81,17 @@ public class CuentaDeAbonoObject extends BaseScreen{
 	
 	@AndroidFindBy(xpath = "//*[@text='Número de cuenta']")
 	public WebElement txtNumeroCuenta;
+	
+	@AndroidFindBy(xpath = "//*[@text='Entidad bancaria']")
+	public WebElement txtEntBancaria;
+	
+	
+	public WebElement elemententBancaria() {
+		List<WebElement> elementEntBancaria = appiumDriver().findElements(By.xpath("//*[@text='Entidad bancaria']"));
+		
+		return elementEntBancaria.get(1);
+	}
+	
 	
 	@AndroidFindBy(xpath = "//*[@text='Correo electrónico']")
 	public WebElement txtCorreo;

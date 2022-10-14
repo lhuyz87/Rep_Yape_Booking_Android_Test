@@ -45,15 +45,26 @@ private long wdwTimeOut = 300L;
 		element(comencemosReembolsoSaludObject.lugarAtencion(appiumDriver(), lugarAtencion)).click();
 		util.esperarSegundos(1);
 		element(comencemosReembolsoSaludObject.selFechaAtencion).click();
-		element(comencemosReembolsoSaludObject.diaAtencion(appiumDriver(), fechaAtencion.substring(0,2))).click();
+//		element(comencemosReembolsoSaludObject.diaAtencion(appiumDriver(), fechaAtencion.substring(0,2))).click();
 		element(comencemosReembolsoSaludObject.selAceptarDiaAtencion).click();
 		util.esperarElemento(5, comencemosReembolsoSaludObject.selTipoCobertura);
 		element(comencemosReembolsoSaludObject.selTipoCobertura).click();
 		element(comencemosReembolsoSaludObject.tipoCobertura(appiumDriver(), tipoCobert)).click();
 		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
-
-		element(comencemosReembolsoSaludObject.btnContinuar).click();
 		
+		
+	}
+	
+	
+	public void coberturaOdontologica(String tipoTratamiento) {
+		
+		element(comencemosReembolsoSaludObject.lstTipoTramiento).click();
+		element(comencemosReembolsoSaludObject.getTratamiendo(appiumDriver(), tipoTratamiento)).click();
+	}
+	
+	
+	public void continuar() {
+		element(comencemosReembolsoSaludObject.btnContinuar).click();
 	}
 	
 	public void llenarDatosTramitesConBeneficiario(String prodContratante,String beneficiario,String lugarAtencion, String fechaAtencion, String tipoCobert) {
@@ -77,7 +88,6 @@ private long wdwTimeOut = 300L;
 		element(comencemosReembolsoSaludObject.tipoCobertura(appiumDriver(), tipoCobert)).click();
 		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
 
-		element(comencemosReembolsoSaludObject.btnContinuar).click();
 		
 	}
 	

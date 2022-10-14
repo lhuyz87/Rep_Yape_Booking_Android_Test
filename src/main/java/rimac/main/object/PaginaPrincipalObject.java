@@ -34,9 +34,17 @@ public class PaginaPrincipalObject extends BaseScreen{
 	@AndroidFindBy(xpath = "//*[@text='Trámites']")
 	public WebElement btnTramite;
 	
-	
-	
+	//*[@index='3']
+	//*[contains(text(),'Reembolso')]
+	//*[@text='Reembolso de salud']//preceding::*[1]
+	@AndroidFindBy(xpath = "//*[@text='Reembolso de salud']//ancestor::*[1]")
+	public WebElement btnReembolsoSalud;
 
+	
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/bottom_nav_home")
+	public WebElement btnHome;
+	
+	//Inicio	
 	
 	
 }

@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,16 +15,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.interactions.PointerInput.Kind;
+import org.openqa.selenium.interactions.PointerInput.MouseButton;
+import org.openqa.selenium.interactions.PointerInput.Origin;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.google.common.collect.ImmutableList;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
@@ -70,6 +77,29 @@ public class PageObjectUtil2 {
                 .addAction(FINGER.createPointerUp(LEFT.asArg()));
         ((RemoteWebDriver) webDriver).perform(Arrays.asList(tap));
     }
+    
+    
+    public void tapElement(AppiumDriver webDriver, WebElement el) {
+    	System.out.println("Entra tap element");
+	    Rectangle elRect = el.getRect();
+	    Point point = new Point(
+	        elRect.x + (int)(elRect.getWidth() / 2.0),
+	        elRect.y + (int)(elRect.getHeight() / 2.0)
+	    );
+	    tapAtPoint(webDriver, point);
+	}
+    
+    public void tapAtPoint(AppiumDriver webDriver, Point point) {
+//	    AppiumDriver<MobileElement> d = getDriver();  // assuming here a getDriver method
+	    PointerInput input = new PointerInput(Kind.TOUCH, "finger1");
+	    Sequence tap = new Sequence(input, 0);
+	    tap.addAction(input.createPointerMove(Duration.ZERO, Origin.viewport(), point.x, point.y));
+	    tap.addAction(input.createPointerDown(MouseButton.LEFT.asArg()));
+	    tap.addAction(new Pause(input, Duration.ofMillis(200)));
+	    tap.addAction(input.createPointerUp(MouseButton.LEFT.asArg()));
+	    webDriver.perform(ImmutableList.of(tap));
+	}
+    
     
 	public void seleniumMobileClick(AndroidDriver androidDriver, final String xpath, int pos){
         By by = MobileBy.id(xpath);

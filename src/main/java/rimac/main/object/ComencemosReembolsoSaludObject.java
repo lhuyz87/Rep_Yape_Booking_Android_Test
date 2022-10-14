@@ -92,6 +92,16 @@ public class ComencemosReembolsoSaludObject extends BaseScreen{
 	@AndroidFindBy(xpath = "//*[@text='Continuar']")
 	public WebElement btnContinuar;
 	
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas:id/uiEditTreatmentType")
+	public WebElement lstTipoTramiento;
+	
+	public WebElement getTratamiendo(WebDriver driver, String tratamiento) {
+		
+		By by = By.xpath("//*[@text='"+tratamiento+"']");
+		WebElement elementoTratamiendo = driver.findElement(by);
+		return elementoTratamiendo;
+		
+	}
 	
 
 	

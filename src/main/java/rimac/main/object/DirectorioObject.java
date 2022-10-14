@@ -37,6 +37,7 @@ public class DirectorioObject extends BaseScreen{
 	public WebElement lblArchivo;
 	
 	public WebElement nombreArchivo(WebDriver webDriver, String nombre) {
+//		By by = By.xpath("//[contains(text(),'Prueba')]");
 		By by = By.xpath("//*[@text='"+nombre+"']");
 		WebElement nombreArchivo = webDriver.findElement(by);
 		System.out.println("***" + nombreArchivo.getText());

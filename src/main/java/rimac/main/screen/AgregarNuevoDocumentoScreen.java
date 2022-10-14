@@ -16,14 +16,14 @@ import rimac.main.util.PageObjectUtil2;
 import rimac.main.util.UtilDef;
 import rimac.main.util.VariablesAppNativa;
 import rimac.main.object.LoginObject;
-import rimac.main.object.AgregarNuevoDocumentoObject;
+import rimac.main.object.DocumentoComprobantesObject;
 import rimac.main.object.DocumentosObject;
 
 public class AgregarNuevoDocumentoScreen extends BaseScreen{
 
 private long wdwTimeOut = 300L;
 	
-	protected AgregarNuevoDocumentoObject agregarNuevoDocumentoObject = AgregarNuevoDocumentoObject.getInstancia();
+	protected DocumentoComprobantesObject agregarNuevoDocumentoObject = DocumentoComprobantesObject.getInstancia();
 	protected DocumentosObject documentosObject = DocumentosObject.getInstancia();
 
 	// util
@@ -66,7 +66,7 @@ private long wdwTimeOut = 300L;
 		element(agregarNuevoDocumentoObject.lstFechaEmision).click();
 		element(agregarNuevoDocumentoObject.btnAceptar).click();
 		element(agregarNuevoDocumentoObject.btnSubirDocumento).click();
-		util.esperarSegundos(10);
+		util.esperarSegundos(5);
 	}
 	
 	

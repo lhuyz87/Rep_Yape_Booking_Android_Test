@@ -6,26 +6,26 @@ import org.openqa.selenium.WebElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 //import net.thucydides.core.annotations.findby.By;
-import rimac.main.object.AgregarNuevoDocumentoObject;
+import rimac.main.object.DocumentoComprobantesObject;
 import org.openqa.selenium.By;
 import rimac.main.screen.BaseScreen;
 
-public class AgregarNuevoDocumentoObject extends BaseScreen{
+public class DocumentoComprobantesObject extends BaseScreen{
 	
 	// singleton
-	private static AgregarNuevoDocumentoObject obj = null;
+	private static DocumentoComprobantesObject obj = null;
 
-	private AgregarNuevoDocumentoObject() {
+	private DocumentoComprobantesObject() {
 	}
 
-	public static AgregarNuevoDocumentoObject getInstancia() {
+	public static DocumentoComprobantesObject getInstancia() {
 		instanciar();
 		return obj;
 	}
 
 	private synchronized static void instanciar() {
 		if (obj == null) {
-			obj = new AgregarNuevoDocumentoObject();
+			obj = new DocumentoComprobantesObject();
 		}
 	}
 
@@ -40,12 +40,18 @@ public class AgregarNuevoDocumentoObject extends BaseScreen{
 	@AndroidFindBy(xpath = "//*[@text='Subir documento']")
 	public WebElement btnSubirDocumento;	
 	
-
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/documentVoucherUploadTitle")
+	public WebElement btnSubirComprobantes;
 	
-	//*[@class='android.widget.EditText' and ./parent::*[./parent::*[@id='informationEditSerie']]]
 	
-	//Factura
-		
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/documentUploadTitle")
+	public WebElement btnSubirDocumentos;
+	
+	
+	@AndroidFindBy(xpath = "//*[@text='Continuar']")
+	public WebElement btnContinuar;	
+	
+	
 	@AndroidFindBy(xpath = "//*[@text='Serie de documento']")
 	public WebElement txtSerieDocumento;
 	

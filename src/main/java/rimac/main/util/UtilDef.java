@@ -1,9 +1,15 @@
 package rimac.main.util;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.io.filefilter.WildcardFileFilter;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.RemoteWebElement;
 
 import com.gargoylesoftware.htmlunit.WebConsole.Logger;
@@ -14,7 +20,10 @@ import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
 import rimac.main.screen.BaseScreen;
 import rimac.main.util.UtilDef;
-
+import static java.time.Duration.ofMillis;
+import static org.openqa.selenium.interactions.PointerInput.Origin.viewport;
+import static org.openqa.selenium.interactions.PointerInput.Kind.TOUCH;
+import static org.openqa.selenium.interactions.PointerInput.MouseButton.LEFT;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileReader;
@@ -25,6 +34,8 @@ public class UtilDef  extends BaseScreen{
 
 	public static Properties p;
 	private static UtilDef obj = null;
+	
+	private final static PointerInput FINGER = new PointerInput(TOUCH, "finger");
 
 	public static UtilDef getInstancia() {
 		instanciar();
@@ -204,4 +215,50 @@ public class UtilDef  extends BaseScreen{
         System.out.println(" horaaaa"  + fecha);
         return fecha;          
     }
+	
+	
+	public int existeWebElementPorTexto(List<WebElement> elementos) {
+		int conincidencia=0;
+		for(int i=0; i<elementos.size(); i++) {
+			try {
+				if(elementos.get(i).isDisplayed()==true) {
+					conincidencia++;
+				}
+			}catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+			
+		}
+		
+		
+		return conincidencia;
+		
+	}
+	
+	
+	public void localizarElementoScroll(AppiumDriver driver, WebElement elemento) {
+		while(element(elemento).isCurrentlyEnabled()==false) {
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			//arrastrar hacia arriba, como deslizando la app para ver más contenido
+			Point start= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.8));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2)); 
+			doSwipe(appiumDriver(), start, end, 1000); //with duration 1s
+			System.out.println("Localizar ");
+		}
+		
+		System.out.println("Encuentra ");
+	}
+	
+	
+	public static void doSwipe(AppiumDriver driver, Point start, Point end, int duration) {
+        Sequence swipe = new Sequence(FINGER, 1)
+                .addAction(FINGER.createPointerMove(ofMillis(0), viewport(), start.getX(), start.getY()))
+                .addAction(FINGER.createPointerDown(LEFT.asArg()))
+                .addAction(FINGER.createPointerMove(ofMillis(duration), viewport(), end.getX(), end.getY()))
+                .addAction(FINGER.createPointerUp(LEFT.asArg()));
+        driver.perform(Arrays.asList(swipe));
+    }
+	
+
+	
 }

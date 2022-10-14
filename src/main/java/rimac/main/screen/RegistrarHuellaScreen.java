@@ -15,6 +15,7 @@ import rimac.main.util.UtilDef;
 import rimac.main.util.VariablesAppNativa;
 import rimac.main.object.LoginObject;
 import rimac.main.object.RegistrarHuellaObject;
+import rimac.main.object.AlertasObject;
 
 
 public class RegistrarHuellaScreen extends BaseScreen{
@@ -25,6 +26,7 @@ private long wdwTimeOut = 300L;
 
 	// util
 	protected PageObjectUtil2 pageObjectUtil2 = PageObjectUtil2.getInstancia();
+	protected AlertasObject alertasObject = AlertasObject.getInstancia();
 	public static Logger looger = Logger.getLogger(RegistrarHuellaScreen.class.getName());
 	
 	public long getWdwTimeOut() {
@@ -48,6 +50,8 @@ private long wdwTimeOut = 300L;
 			
 			util.esperarElemento(10, registrarHuellaObject.btnPorAhoraNo);
 			element(registrarHuellaObject.btnPorAhoraNo).click();
+			util.esperarSegundos(5);
+			
 			
 		case "Tienda":
 			

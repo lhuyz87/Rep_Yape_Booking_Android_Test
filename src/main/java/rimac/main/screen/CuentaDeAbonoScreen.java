@@ -2,7 +2,11 @@ package rimac.main.screen;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
+
+import org.openqa.selenium.WebElement;
 
 import com.gargoylesoftware.htmlunit.html.Keyboard;
 import com.github.dockerjava.api.model.Driver;
@@ -40,26 +44,42 @@ private long wdwTimeOut = 300L;
 	UtilDef util = new UtilDef();
 	AppiumDriver driver;
 	
+	@SuppressWarnings("null")
 	public void llenarDatosDeCuenta(String entidad, String tipoCuenta, String moneda, String numCuenta, String correo) {
-		looger.info("Registro de Huella");
-		
-		util.esperarElemento(10, cuentaDeAbonoObject.lstEntidadBancaria);
-		util.esperarSegundos(4);
-		element(cuentaDeAbonoObject.lstEntidadBancaria).click();
-		element(cuentaDeAbonoObject.getEntidadBancaria(appiumDriver(), entidad)).click();
-		util.esperarSegundos(4);
-		element(cuentaDeAbonoObject.lstTipoCuenta).click();
-		element(cuentaDeAbonoObject.getTipoCuenta(appiumDriver(), tipoCuenta)).click();
-		element(cuentaDeAbonoObject.lstTipoMoneda).click();
-		element(cuentaDeAbonoObject.getTipoMoneda(appiumDriver(), moneda)).click();	
-		element(cuentaDeAbonoObject.txtNumeroCuenta).click();
-		element(cuentaDeAbonoObject.txtNumeroCuenta).sendKeys(numCuenta);
-		((HidesKeyboard) appiumDriver()).hideKeyboard();
-		try {
-			util.scroll();
-		} catch (Exception e) {
-			// TODO: handle exception
+		looger.info("LLenar Cuenta");
+		util.esperarElemento(5, cuentaDeAbonoObject.lstEntidadBancaria);
+//		util.esperarSegundos(5);
+		List<WebElement> elementos = new ArrayList<>();
+
+		//Interbank, BBVA, Scotiabank, Scotiabank
+		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(appiumDriver(), "Interbank"));
+		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(appiumDriver(), "BBVA"));
+		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(appiumDriver(), "Scotiabank"));
+		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(appiumDriver(), "BCP"));
+		int auxEntidad=util.existeWebElementPorTexto(elementos);
+				System.out.println("Cantidad de entidades "   + auxEntidad);
+		if(auxEntidad==0) {
+			util.esperarSegundos(4);
+			element(cuentaDeAbonoObject.lstEntidadBancaria).click();
+			element(cuentaDeAbonoObject.getEntidadBancaria(appiumDriver(), entidad)).click();
+			util.esperarSegundos(4);
+			element(cuentaDeAbonoObject.lstTipoCuenta).click();
+			element(cuentaDeAbonoObject.getTipoCuenta(appiumDriver(), tipoCuenta)).click();
+			element(cuentaDeAbonoObject.lstTipoMoneda).click();
+			element(cuentaDeAbonoObject.getTipoMoneda(appiumDriver(), moneda)).click();	
+			element(cuentaDeAbonoObject.txtNumeroCuenta).click();
+			element(cuentaDeAbonoObject.txtNumeroCuenta).sendKeys(numCuenta);
+			((HidesKeyboard) appiumDriver()).hideKeyboard();
+			try {
+				util.scroll();
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 		}
+		
+//		util.scroll();
+		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Correo electrónico\").instance(0))"));
+		
 		element(cuentaDeAbonoObject.txtCorreo).click();
 		element(cuentaDeAbonoObject.txtCorreo).sendKeys(correo);
 		((HidesKeyboard) appiumDriver()).hideKeyboard();		

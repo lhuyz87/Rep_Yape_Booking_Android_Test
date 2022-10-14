@@ -42,24 +42,36 @@ public class ConfirmarDatosReembolsoSaludObject extends BaseScreen{
 	
 	@AndroidFindBy(xpath = "//*[@text='DNI del titular']")
 	public WebElement lblDni;
+	//*[@text='Dirección']/following :: *[3]
+	//*[@class='android.widget.FrameLayout' and ./parent::*[@id='uiEditDepartment'] and ./*[@text]]
+//	@AndroidFindBy(xpath = "//*[@class='android.widget.EditText' and ./parent::*[./parent::*[@id='uiEditDepartment']]]") 
 	
-	//*[@class='android.widget.EditText' and ./parent::*[./parent::*[@id='uiEditDepartment']]]
-//	@AndroidFindBy(xpath = "//*[@text='Departamento']")
-	@AndroidFindBy(xpath = "//*[@id='uiEditDepartment']")
+	
+	
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas:id/uiEditDepartment")
 	public WebElement selDepartamento;
 	
 	
-//	@AndroidFindBy(xpath = "//*[@text='Provincia']")
-	@AndroidFindBy(xpath = "//*[@id='uiEditProvince']")
+	public WebElement getDepartamento(WebDriver webDriver) {
+		By by = By.xpath("//*[@class='android.widget.EditText' and ./parent::*[./parent::*[@id='uiEditDepartment']]]");
+		WebElement elementDepar = webDriver.findElement(by);
+		return elementDepar;
+	}
+	
+	
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/uiEditProvince")
 	public WebElement selProvincia;
 	
-	@AndroidFindBy(xpath = "//*[@id='uiEditDistrict']")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/uiEditDistrict")
 	public WebElement selDistrito;
 	
 	
-//	@AndroidFindBy(xpath = "//*[@id='uiEditAddress']")
-	@AndroidFindBy(xpath = "//*[@class='android.widget.EditText' and ./parent::*[./parent::*[@id='uiEditAddress']]]")
-	public WebElement selDireccion;
+
+//	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/uiEditDistrict")
+//	public WebElement selDireccion;
+//	
+	
+	
 	
 	public WebElement departamento(WebDriver webDriver, String departamento) {
 		By by = By.xpath("//*[@text='"+departamento+"']");
@@ -91,7 +103,8 @@ public class ConfirmarDatosReembolsoSaludObject extends BaseScreen{
 	public WebElement btnContinuar;
 	
 	
-
+	@AndroidFindBy(xpath = "//*[@text='Departamento']")
+	public WebElement txtDepartamento;
 	
 	
 }

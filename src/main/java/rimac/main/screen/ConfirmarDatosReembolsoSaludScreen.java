@@ -41,38 +41,60 @@ private long wdwTimeOut = 300L;
 	AppiumDriver driver;
 	
 	public void llenarDatosDireccion(String departamento, String provincia, String distrito, String direccion) {
+		
+		looger.info("LLena datos dirección");
+		System.out.println("***************************************************");
+		util.esperarSegundos(3);
 		util.esperarElemento(15, confirmarDatosReembolsoSaludObject.lblDni);
 		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Dirección\").instance(0))"));
-		System.out.println("******"   + confirmarDatosReembolsoSaludObject.selDepartamento.getText());
-		if(confirmarDatosReembolsoSaludObject.selDepartamento.getText()=="Departamento") {
-			element(confirmarDatosReembolsoSaludObject.selDepartamento).click();
-			element(confirmarDatosReembolsoSaludObject.departamento(appiumDriver(), departamento)).click();
+//		util.esperarElemento(5, confirmarDatosReembolsoSaludObject.selDepartamento);
+		util.esperarSegundos(3);
+		
+		//
+		int depAux=0;
+		try {
+			if(confirmarDatosReembolsoSaludObject.departamento(appiumDriver(), departamento).isDisplayed()==true) {
+				depAux++;	
+			}}catch (Exception e) {
+			System.out.println( "Mensaje 1: " + e.getMessage());
+		}
+		
+//		try {
+//			if(confirmarDatosReembolsoSaludObject.txtDepartamento.getText()=="Departamento") {
+//				depAux++;	
+//			}}catch (Exception e) {
+//			System.out.println(e.getMessage());
+//			System.out.println( "Mensaje 2: " + e.getMessage());
+//		}
+		
+		
+			if(depAux==0) {
+				System.out.println("ENTRA a llenar departamento");
+				util.esperarSegundos(3);
+				element(confirmarDatosReembolsoSaludObject.selDepartamento).click();
+				element(confirmarDatosReembolsoSaludObject.departamento(appiumDriver(), departamento)).click();
+				appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Distrito\").instance(0))"));
+				element(confirmarDatosReembolsoSaludObject.selProvincia).click();
+				element(confirmarDatosReembolsoSaludObject.provincia(appiumDriver(), provincia)).click();
+				element(confirmarDatosReembolsoSaludObject.selDistrito).click();
+				element(confirmarDatosReembolsoSaludObject.distrito(appiumDriver(), distrito)).click();
 				
-		}
+			}
 		
-		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Distrito\").instance(0))"));
-		if(confirmarDatosReembolsoSaludObject.selProvincia.getText()=="Provincia") {
-			element(confirmarDatosReembolsoSaludObject.selProvincia).click();
-			element(confirmarDatosReembolsoSaludObject.provincia(appiumDriver(), provincia)).click();
-	
-		}
-		
-		if(confirmarDatosReembolsoSaludObject.selDistrito.getText()=="Distrito") {
-			element(confirmarDatosReembolsoSaludObject.selDistrito).click();
-			element(confirmarDatosReembolsoSaludObject.distrito(appiumDriver(), distrito)).click();
-			
-		}
-		
-		System.out.println("******"   + direccion);
 		try {
 			util.scroll();
 		} catch (Exception e) {
-			System.out.println("****** FAlla");
+			System.out.println(e.getMessage());
 		}
 		
-		element(confirmarDatosReembolsoSaludObject.direccion()).click();
-		element(confirmarDatosReembolsoSaludObject.direccion()).sendKeys(direccion);
-		((HidesKeyboard) appiumDriver()).hideKeyboard();
+		try {
+			element(confirmarDatosReembolsoSaludObject.direccion()).click();
+			element(confirmarDatosReembolsoSaludObject.direccion()).sendKeys(direccion);
+			((HidesKeyboard) appiumDriver()).hideKeyboard();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		element(confirmarDatosReembolsoSaludObject.btnContinuar).click();
 		util.esperarSegundos(5);
 	}
