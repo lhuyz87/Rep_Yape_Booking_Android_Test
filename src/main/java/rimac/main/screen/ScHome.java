@@ -15,32 +15,33 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.PushesFiles;
 import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.pages.PageObject;
-import rimac.main.util.PageObjectUtil2;
+import rimac.main.util.BaseDriver;
+import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilDef;
 import rimac.main.util.VariablesAppNativa;
-import rimac.main.object.LoginObject;
-import rimac.main.object.PaginaPrincipalObject;
+import rimac.main.object.ObjLogin;
+import rimac.main.object.ObjPaginaPrincipal;
 import rimac.main.screen.ScHome;
-import rimac.main.object.AlertasObject;
-import rimac.main.object.RegistrarHuellaObject;
+import rimac.main.object.ObjAlertas;
+import rimac.main.object.ObjRegistrarHuella;
 
 
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class ScHome extends BaseScreen{
+public class ScHome extends BaseDriver{
 
 	
 	
 	private long wdwTimeOut = 300L;
 	
-	protected PaginaPrincipalObject objectPrincipalScreen = PaginaPrincipalObject.getInstancia();
-	protected RegistrarHuellaObject registrarHuellaObject = RegistrarHuellaObject.getInstancia();
-	protected AlertasObject alertasObject = AlertasObject.getInstancia();
+	protected ObjPaginaPrincipal objectPrincipalScreen = ObjPaginaPrincipal.getInstancia();
+	protected ObjRegistrarHuella registrarHuellaObject = ObjRegistrarHuella.getInstancia();
+	protected ObjAlertas alertasObject = ObjAlertas.getInstancia();
 	
 	// util
-	protected PageObjectUtil2 pageObjectUtil2 = PageObjectUtil2.getInstancia();
+	protected MobileObjectUtil pageObjectUtil2 = MobileObjectUtil.getInstancia();
 	public static Logger looger = Logger.getLogger(ScHome.class.getName());
 	
 	
@@ -59,8 +60,7 @@ public class ScHome extends BaseScreen{
 	
 	public void seleccionarOpcionPrincipal(String opcion) {
 		looger.info("aplicación iniciada");
-		util.esperarElemento(10, objectPrincipalScreen.btnTramite);
-		
+			
 		
 		switch (opcion) {
 		case "Home":
@@ -68,13 +68,18 @@ public class ScHome extends BaseScreen{
 			break;
 			
 		case "Seguros":
-			
+			util.esperarSegundos(8);
+			util.esperarElemento(10, objectPrincipalScreen.btnSeguros);
+			util.esperarSegundos(3);
+			element(objectPrincipalScreen.btnSeguros).click();
 			break;
 			
 		case "Tramites":
-			util.esperarElemento(5, objectPrincipalScreen.btnTramite);
-			util.esperarSegundos(3);
+			
+			util.esperarSegundos(8);
+			util.esperarElemento(10, objectPrincipalScreen.btnTramite);
 			element(objectPrincipalScreen.btnTramite).click();
+			break;
 		
 		case "Tienda":
 			
@@ -145,7 +150,7 @@ public class ScHome extends BaseScreen{
 			
 			timer = new Timer();
 	        System.out.println("Se inicia el JOB de cerrar alertas");
-	        timer.scheduleAtFixedRate(alertas,new Date(),1000);
+	        timer.scheduleAtFixedRate(alertas,new Date(),500);
 			
 	}
 	

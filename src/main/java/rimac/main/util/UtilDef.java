@@ -1,24 +1,41 @@
 package rimac.main.util;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.io.filefilter.WildcardFileFilter;
+import org.openqa.selenium.By.ByXPath;
+import org.openqa.selenium.By.ById;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.InvalidSelectorException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.RemoteWebElement;
 
+import static io.appium.java_client.touch.TapOptions.tapOptions;
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static io.appium.java_client.touch.offset.ElementOption.element;
+import static io.appium.java_client.touch.offset.PointOption.point;
+
 import com.gargoylesoftware.htmlunit.WebConsole.Logger;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.PerformsTouchActions;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
+import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
+import net.serenitybdd.core.Serenity;
+import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
-import rimac.main.screen.BaseScreen;
 import rimac.main.util.UtilDef;
 import static java.time.Duration.ofMillis;
 import static org.openqa.selenium.interactions.PointerInput.Origin.viewport;
@@ -27,10 +44,11 @@ import static org.openqa.selenium.interactions.PointerInput.MouseButton.LEFT;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileReader;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class UtilDef  extends BaseScreen{
+public class UtilDef  extends BaseDriver{
 
 	public static Properties p;
 	private static UtilDef obj = null;
@@ -125,6 +143,8 @@ public class UtilDef  extends BaseScreen{
 	
 	public void esperarElemento(int intentos, WebElement elemento) {
 		int contador=0;
+		System.out.println("Espera Elemento : "  + elemento.toString());
+		Serenity.takeScreenshot();
 		while(element(elemento).isEnabled()==false) {
 			contador++;
 			if(element(elemento).isEnabled()==true||contador==intentos) {
@@ -132,6 +152,25 @@ public class UtilDef  extends BaseScreen{
 				break;
 			}else
 				System.out.println("contador: " + contador);
+				
+		}
+	}
+	
+	
+	public void esperarActivoClick(int intentos, WebElement elemento) {
+		int contador=0;
+		System.out.println("Espera Elemento : "  + elemento.toString());
+		Serenity.takeScreenshot();
+		while(element(elemento).isEnabled()==false) {
+			contador++;
+			if(element(elemento).isEnabled()==true&&element(elemento).isClickable()==true) {
+				System.out.println("Se encuentra elemento o contador finalizo");			
+				break;
+			}else
+				System.out.println("contador: " + contador);
+			
+			if(contador==intentos)
+				break;
 				
 		}
 	}	
@@ -187,7 +226,7 @@ public class UtilDef  extends BaseScreen{
 	
 	//No funciona
 	public void scrollToElemento(String text) {
-		String auxiliar = "\"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\\\"" + text +"\\\").instance(0))\"";
+		String auxiliar = "\"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"" + text +"\").instance(0))\"";
 		System.out.println("********"  + auxiliar);
 		appiumDriver().findElement(MobileBy.AndroidUIAutomator(auxiliar));
 //		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Empezar reembolso\").instance(0))"));
@@ -212,7 +251,7 @@ public class UtilDef  extends BaseScreen{
 		LocalDateTime today = LocalDateTime.now();     //Today
 
         String fecha =today.format(dtf);           
-        System.out.println(" horaaaa"  + fecha);
+//        System.out.println(" horaaaa"  + fecha);
         return fecha;          
     }
 	
@@ -232,6 +271,29 @@ public class UtilDef  extends BaseScreen{
 		
 		
 		return conincidencia;
+		
+	}
+	
+	
+	public boolean existeEntidadBancaria(WebElement elemento) {
+		System.out.println("Entidad Bancaria "   + elemento.getText());
+		if(elemento.getText().compareTo("BBVA")==0||elemento.getText().compareTo("Interbank")==0||elemento.getText().compareTo("Scotiabank")==0||elemento.getText().compareTo("BCP")==0) {
+			return true;	
+		}else {
+			return false;
+		}
+		
+		
+	}
+	
+	public boolean existeEntidadBancaria2(WebElement elemento) {
+		System.out.println("Entidad Bancaria "   + elemento.getText());
+		if(elemento.isDisplayed()==true) {
+			return false;	
+		}else {
+			return true;
+		}
+		
 		
 	}
 	
@@ -259,6 +321,226 @@ public class UtilDef  extends BaseScreen{
         driver.perform(Arrays.asList(swipe));
     }
 	
+	
+	
 
+	public void scrollUno(WebDriver driver, String elementText) {
+		
+		try {
+			driver.findElement(MobileBy.AndroidUIAutomator(
+	                "new UiScrollable(new UiSelector().scrollable(true).instance(0))" +
+	                        ".scrollIntoView(new UiSelector()" +
+	                        ".textMatches(\"" + elementText + "\").instance(0))"));
+			
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+	
+	public void scrolldos(WebDriver driver) {
+		try {
+		    driver.findElement(MobileBy.AndroidUIAutomator(
+		            "new UiScrollable(new UiSelector().scrollable(true)).scrollBackward()"));
+		} catch (InvalidSelectorException e) {
+			
+			System.out.println(e.getMessage());
+		    // ignore
+		}
+	}
+	
+
+	
+	
+	public void scrollUp(WebDriver driver) {
+		
+
+		try {
+		    driver.findElement(MobileBy.AndroidUIAutomator(
+		            "new UiScrollable(new UiSelector().scrollable(true)).scrollBackward()"));
+		} catch (InvalidSelectorException e) {
+			
+			System.out.println(e.getMessage());
+		    // ignore
+		}
+	}
+	
+	public boolean buscarTextoLista(List<WebElement> elementos, String texto) {
+		boolean exacto = false;		
+		for(int i=0; i<elementos.size(); i++) {
+//					System.out.println("Elemento " + elementos.get(i).getText() );
+					if(elementos.get(i).getText().compareTo(texto)==0) {
+						elementos.get(i).click();
+						exacto = true;
+					}
+					}
+				return exacto;
+		
+	}
+	
+	
+	 public void verticalSwipeByPercentages(WebDriver driver, double startPercentage, double endPercentage, double anchorPercentage) {
+	        Dimension size = driver.manage().window().getSize();
+	        int anchor = (int) (size.width * anchorPercentage);
+	        int startPoint = (int) (size.height * startPercentage);
+	        int endPoint = (int) (size.height * endPercentage);
+	        new TouchAction((PerformsTouchActions) driver)
+	            .press(point(anchor, startPoint))
+	            .waitAction(waitOptions(ofMillis(1000)))
+	            .moveTo(point(anchor, endPoint))
+	            .release().perform();
+	    }
+	 
+	 
+	 public static void scrollUp(WebDriver driver, String xpath) {
+	        WebElement element = driver.findElement(ById.id(xpath));
+	        if (element == null){
+	            return;
+	        }
+	        int numberOfTimes = 10;
+	        Dimension dimension = driver.manage().window().getSize();
+	        int windowsHeight = dimension.getHeight();
+//	        int scrollStart = (int) (windowsHeight * 0.5);
+//	        int scrollEnd = (int) (windowsHeight * 0.3);
+//	        
+	   	 int scrollStart = (int) (windowsHeight * 0.3);
+	   	 int scrollEnd = (int) (windowsHeight * 0.7);
+	        int elementLocationOffset = windowsHeight-500;
+	        for (int i = 0; i < numberOfTimes; i++) {
+	            int elementLocationY = (element).getLocation().y;
+	            if (elementLocationY < elementLocationOffset){
+//	                i = numberOfTimes;
+	                System.out.println("Element available.");
+	                scroll(driver, scrollStart, scrollEnd);
+	            }else {
+	                scroll(driver, scrollStart, scrollEnd);
+	                System.out.println("Element not available. Scrolling...");
+	            }
+	        }
+	    }
+	 
+	  static void scroll(WebDriver driver, int scrollStart, int scrollEnd) {
+	        new TouchAction((PerformsTouchActions) driver)
+	                .press(point(0, scrollStart))
+	                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(10)))
+	                .moveTo(point(0, scrollEnd))
+	                .release().perform();
+	    }
+	  
+	  
+
+		public void mobileSwipeScreenIOS() {
+			
+			HashMap<String, String> scrollObject = new HashMap<>();
+			JavascriptExecutor js = appiumDriver(); 
+			scrollObject.put("direction", "up");
+			js.executeScript("mobile: scroll", scrollObject); //or "mobile: swipe"
+			
+		}
+		
+		
+		public void mobileSwipeScreenIOS2() {
+			PointOption pointOptionStart, pointOptionEnd;
+
+		    // init screen variables
+		    Dimension dims = appiumDriver().manage().window().getSize();
+
+		    // init start point = center of screen
+		    pointOptionStart = PointOption.point(dims.width / 2, dims.height / 2);
+		    pointOptionEnd = PointOption.point(dims.width / 2, (int)(dims.height*0.4));   
+		    
+			try {
+		        new TouchAction((PerformsTouchActions) appiumDriver())
+		                .press(pointOptionStart)
+		                // a bit more reliable when we add small wait
+		                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(200)))
+		                .moveTo(pointOptionEnd)
+		                .release().perform();
+		    } catch (Exception e) {
+		        System.err.println("swipeScreen(): TouchAction FAILED\n" + e.getMessage());
+		        return;
+		    }
+			
+		}
+		
+		public void scrollTres(WebDriver driver) {
+			PointOption pointOptionStart, pointOptionEnd;
+			
+			 Dimension dims = driver.manage().window().getSize();
+		    pointOptionStart = PointOption.point(dims.width / 2, dims.height / 2);
+		    pointOptionEnd = PointOption.point(dims.width / 2, (int)(dims.height*0.4));  
+		    
+		    System.out.println("Coordenadas "  + pointOptionStart  + " : "  + pointOptionEnd);
+			TouchAction touchAction = new TouchAction((PerformsTouchActions) driver);
+			touchAction.press(pointOptionStart)
+			           .waitAction(WaitOptions.waitOptions(Duration.ofMillis(3000)))
+			           .moveTo(pointOptionEnd)
+			           .release()
+			           .perform();
+		}
+		
+		
+		public String numeroMes(String mes) {
+			String mesNumero="";
+			
+			switch (mes) {
+			case "enero":
+				mesNumero="01";
+				break;
+				
+			case "febrero":
+				mesNumero="02";
+				break;
+				
+			case "marzo":
+				mesNumero="03";
+				break;
+				
+			case "abri":
+				mesNumero="04";
+				break;
+				
+			case "mayo":
+				mesNumero="05";
+				break;
+				
+			case "junio":
+				mesNumero="06";
+				break;
+				
+			case "julio":
+				mesNumero="06";
+				break;
+				
+			case "agosto":
+				mesNumero="08";
+				break;
+				
+			case "setiembre":
+				mesNumero="09";
+				break;
+				
+			case "octubre":
+				mesNumero="10";
+				break;
+				
+			case "noviembre":
+				mesNumero="11";
+				break;
+				
+			case "diciembre":
+				mesNumero="12";
+				break;
+				
+				default:
+				break;
+			}
+			
+			return mesNumero;
+			
+		}
+		
+		
+	
 	
 }

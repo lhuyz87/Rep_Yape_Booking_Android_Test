@@ -20,6 +20,7 @@
 		<webdriver.base.url></webdriver.base.url>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<browserstack.local.version>1.0.3</browserstack.local.version>
 	</properties>
 
 	<repositories>
@@ -109,6 +110,11 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.6.1</version>
 		</dependency>
+		<dependency>
+            <groupId>com.browserstack</groupId>
+            <artifactId>browserstack-local-java</artifactId>
+            <version>${browserstack.local.version}</version>
+        </dependency>
 	</dependencies>
 
 	<profiles>
