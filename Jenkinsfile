@@ -4,18 +4,18 @@ def defDateFormat = new SimpleDateFormat("yyyyMMddHHmm")
 def defDate = new Date()
 def defTimestamp = defDateFormat.format(defDate).toString()
 
-def secrets = [
-  [path: 'AutoRimac/AppNativa-auto-def-iOS', engineVersion: 2, secretValues: [
-  	    [envVar: 'v_appiumUdidIOS', vaultKey: 'v_appiumUdidIOS'],
-	    [envVar: 'v_appiumXcodeOrgId', vaultKey: 'v_appiumXcodeOrgId'],
-	    [envVar: 'v_appiumXcodeSigningId', vaultKey: 'v_appiumXcodeSigningId'],
-	    [envVar: 'DniUser', vaultKey: 'DniUser'],
-	    [envVar: 'PassUser', vaultKey: 'PassUser']
- 	]
-  ]
-]
+//def secrets = [
+//  [path: 'AutoRimac/AppNativa-auto-def-iOS', engineVersion: 2, secretValues: [
+//  	    [envVar: 'v_appiumUdidIOS', vaultKey: 'v_appiumUdidIOS'],
+//	    [envVar: 'v_appiumXcodeOrgId', vaultKey: 'v_appiumXcodeOrgId'],
+//	    [envVar: 'v_appiumXcodeSigningId', vaultKey: 'v_appiumXcodeSigningId'],
+//	    [envVar: 'DniUser', vaultKey: 'DniUser'],
+//	    [envVar: 'PassUser', vaultKey: 'PassUser']
+// 	]
+//  ]
+//]
 
-def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'VaultCredential', engineVersion: 2]
+//def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'VaultCredential', engineVersion: 2]
 
 pipeline {
 
@@ -45,7 +45,9 @@ pipeline {
         			script {
 	        			try {
 	        				//sh ("mvn verify package -P Rimac")
-	        				sh ("mvn test -Dcucumber.options=\"src/test/resources/features/ --tags \'${ESCENARIO}\' --plugin json:target/site/result.json --glue rimac\" -P Rimac")
+	        				//sh ("mvn test -Dcucumber.options=\"src/test/resources/features/ --tags \'${ESCENARIO}\' --plugin json:target/site/result.json --glue rimac\" -P Rimac")
+	        				sh ("mvn test -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac'")
+					            
 	        				sh ("mvn serenity:aggregate")
 	        				echo 'Ejecucion de pruebas sin errores...'
 	        			}
