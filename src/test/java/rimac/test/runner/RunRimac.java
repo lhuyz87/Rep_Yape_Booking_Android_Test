@@ -11,6 +11,7 @@ import rimac.main.util.UtilDef;
 
 //@CucumberOptions(features = "src/test/resources/features", tags =  "@OlvidePassword" , glue = "rimac")
 
+
 public class RunRimac {
 	
 	@RunBefore
