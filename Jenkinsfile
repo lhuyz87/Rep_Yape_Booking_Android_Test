@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat
 def defDateFormat = new SimpleDateFormat("yyyyMMddHHmm")
 def defDate = new Date()
 def defTimestamp = defDateFormat.format(defDate).toString()
-
+currentBuild.displayName="API-Automation-#"+currentBuild.number
 //def secrets = [
 //  [path: 'AutoRimac/AppNativa-auto-def-iOS', engineVersion: 2, secretValues: [
 //  	    [envVar: 'v_appiumUdidIOS', vaultKey: 'v_appiumUdidIOS'],
@@ -75,6 +75,16 @@ pipeline {
                     }
                 }
             }
+            
+            post {                
+                       always {                  
+                         echo "Enviar correo"
+                         echo "Send notifications for result: ${currentBuild.result}"                  
+                         mail to: "luis.retamozoa@rimac.com.pe",
+                         subject: "${currentBuild.result} Pipeline: ${currentBuild.fullDisplayName}",
+                         body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: \n ${env.BUILD_URL}Evidencias_20de_20Prueba/"                    
+                        }
+               }       
         }
     }
 }
