@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat
 def defDateFormat = new SimpleDateFormat("yyyyMMddHHmm")
 def defDate = new Date()
 def defTimestamp = defDateFormat.format(defDate).toString()
-currentBuild.displayName="API-Automation-#"+currentBuild.number
+currentBuild.displayName="Canal APP-Android-#"+currentBuild.number
 //def secrets = [
 //  [path: 'AutoRimac/AppNativa-auto-def-iOS', engineVersion: 2, secretValues: [
 //  	    [envVar: 'v_appiumUdidIOS', vaultKey: 'v_appiumUdidIOS'],
@@ -40,25 +40,6 @@ pipeline {
     
     stages {
     
-		stage ('Enviroment') {
-           steps {
-        			script {
-	        			echo 'Inicia fase de enviroment'
-	        			bat ("echo ${workspace}")
-	        			echo "Current workspace is ${env.WORKSPACE}"
-					    path = "${env.WORKSPACE}" + "/"
-					    echo "Current workspace is $path"
-					    props = readProperties  file:'serenity.properties'
-					    def Var2= props['serenity.project.name']
-					    echo "Current workspace is $Var2"
-					    //    bat ("mvn test -Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=${ESCENARIO} -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue=rimac.main.definition")  
-	        			//	bat ("mvn serenity:aggregate")
-	        			//	echo 'Ejecucion de pruebas sin errores...'
-	        			
-                    }
-            }
-        }
-		
 	
         stage ('Build') {
             steps {
@@ -89,7 +70,10 @@ pipeline {
         	steps {
         		script {
                      try {
-                    	//bat ("echo ${WORKSPACE}")
+                    	
+                    	props = readProperties  file:'serenity.properties'
+					    def nombreProyecto= props['serenity.project.name']
+					    echo "Current workspace is $nombreProyecto"
                     	bat ("echo ${defTimestamp}")
                     	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
                     	//publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}/target/site/serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
@@ -106,10 +90,10 @@ pipeline {
             
             post {                
                        always {                  
-                         echo "Enviar correo"
-                         echo "Send notifications for result: ${currentBuild.result}"                  
+                         echo "Se envía correo de resultados"
+                         //echo "Send notifications for result: ${currentBuild.result}"                  
                          mail to: "luis.retamozoa@rimac.com.pe",
-                         subject: "${currentBuild.result} Pipeline: ${currentBuild.fullDisplayName}",
+                         subject: "$nombreProyecto-${currentBuild.result} Pipeline: ${currentBuild.fullDisplayName}",
                          body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: \n ${env.BUILD_URL}Evidencias_20de_20Prueba/"                    
                         }
                }       
