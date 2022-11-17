@@ -43,7 +43,7 @@ pipeline {
            steps {
         			script {
 	        			echo 'Inicia fase de enviroment'
-	        			bat ("echo ${WORKSPACE}")
+	        			bat ("echo ${workspace}")
 					    //def path = "${WORKSPACE}" + "/"
 					    //    bat ("mvn test -Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=${ESCENARIO} -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue=rimac.main.definition")  
 	        			//	bat ("mvn serenity:aggregate")
