@@ -17,7 +17,7 @@ currentBuild.displayName="API-Automation-#"+currentBuild.number
 
 //def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'VaultCredential', engineVersion: 2]
 //def workspace = pwd()
-def path = "${WORKSPACE}" + "/"
+def path = ""
 
 //def Var2= props['Tuesday']
 
@@ -45,7 +45,7 @@ pipeline {
 	        			echo 'Inicia fase de enviroment'
 	        			bat ("echo ${workspace}")
 	        			echo "Current workspace is ${env.WORKSPACE}"
-					    def path = "${env.WORKSPACE}" + "/"
+					    path = "${env.WORKSPACE}" + "/"
 					    echo "Current workspace is $path"
 					    //    bat ("mvn test -Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=${ESCENARIO} -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue=rimac.main.definition")  
 	        			//	bat ("mvn serenity:aggregate")
