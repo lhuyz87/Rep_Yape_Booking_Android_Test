@@ -17,7 +17,7 @@ currentBuild.displayName="API-Automation-#"+currentBuild.number
 
 //def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'VaultCredential', engineVersion: 2]
 
-def path = "${env.WORKSPACE}" + "/"
+def path = "${WORKSPACE}" + "/"
 echo 'Reporte realizado con Fallos'
 echo path
 def props = readProperties  file:'${env.WORKSPACE}/serenity.properties'
