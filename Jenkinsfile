@@ -17,12 +17,8 @@ currentBuild.displayName="API-Automation-#"+currentBuild.number
 
 //def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'VaultCredential', engineVersion: 2]
 //def workspace = pwd()
-def path = "${WORKSPACE}" + "/"
-echo 'Reporte realizado con Fallos'
-echo workspace
-echo path
-def props = readProperties  file:'workspace/serenity.properties'
-def name_project= props['*/serenity.project.name']
+
+
 //def Var2= props['Tuesday']
 
 
@@ -42,10 +38,26 @@ pipeline {
 	}
     
     stages {
+    
+    	stage ('Enviroment') {
+    	
+			echo 'Inicia fase de enviroment'
+            steps {
+        			script {
+	        			
+	        			bat ("echo ${WORKSPACE}")
+					    //def path = "${WORKSPACE}" + "/"
+					    //    bat ("mvn test -Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=${ESCENARIO} -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue=rimac.main.definition")  
+	        			//	bat ("mvn serenity:aggregate")
+	        			//	echo 'Ejecucion de pruebas sin errores...'
+	        			
+                    }
+            }
+        }
 	
         stage ('Build') {
             steps {
-            	echo "name_project=${name_project}"
+            	//echo "name_project=${name_project}"
                 bat ("mvn -X clean verify")
             }
         }
