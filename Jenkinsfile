@@ -41,7 +41,7 @@ pipeline {
         
         stage('Ejecutar Pruebas'){
             steps{
-                withVault([configuration: configuration, vaultSecrets: secrets]) {
+                
         			script {
 	        			try {
 	        				//sh ("mvn verify package -P Rimac")
@@ -58,8 +58,7 @@ pipeline {
                     }
                 }
             }
-        }
-            
+                   
         stage ('Reporte') {
         	steps {
         		script {
