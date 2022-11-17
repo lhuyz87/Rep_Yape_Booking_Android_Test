@@ -1,27 +1,11 @@
 import java.text.SimpleDateFormat
 
+currentBuild.displayName="Canal APP-Android-#"+currentBuild.number
 def defDateFormat = new SimpleDateFormat("yyyyMMddHHmm")
 def defDate = new Date()
 def defTimestamp = defDateFormat.format(defDate).toString()
-currentBuild.displayName="Canal APP-Android-#"+currentBuild.number
-//def secrets = [
-//  [path: 'AutoRimac/AppNativa-auto-def-iOS', engineVersion: 2, secretValues: [
-//  	    [envVar: 'v_appiumUdidIOS', vaultKey: 'v_appiumUdidIOS'],
-//	    [envVar: 'v_appiumXcodeOrgId', vaultKey: 'v_appiumXcodeOrgId'],
-//	    [envVar: 'v_appiumXcodeSigningId', vaultKey: 'v_appiumXcodeSigningId'],
-//	    [envVar: 'DniUser', vaultKey: 'DniUser'],
-//	    [envVar: 'PassUser', vaultKey: 'PassUser']
-// 	]
-//  ]
-//]
-
-//def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'VaultCredential', engineVersion: 2]
-//def workspace = pwd()
-def path = ""
+def nombreProyecto=""
 def props =""
-
-//def Var2= props['Tuesday']
-
 
 
 pipeline {
@@ -72,7 +56,7 @@ pipeline {
                      try {
                     	
                     	props = readProperties  file:'serenity.properties'
-					    def nombreProyecto= props['serenity.project.name']
+					    nombreProyecto= props['serenity.project.name']
 					    echo "Current workspace is $nombreProyecto"
                     	bat ("echo ${defTimestamp}")
                     	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
