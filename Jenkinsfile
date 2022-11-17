@@ -48,7 +48,7 @@ pipeline {
 	        			echo "Current workspace is ${env.WORKSPACE}"
 					    path = "${env.WORKSPACE}" + "/"
 					    echo "Current workspace is $path"
-					    props = readProperties  file:'dir/serenity.properties'
+					    props = readProperties  file:'/serenity.properties'
 					    //    bat ("mvn test -Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=${ESCENARIO} -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue=rimac.main.definition")  
 	        			//	bat ("mvn serenity:aggregate")
 	        			//	echo 'Ejecucion de pruebas sin errores...'
