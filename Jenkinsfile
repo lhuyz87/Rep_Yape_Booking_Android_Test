@@ -16,6 +16,11 @@ currentBuild.displayName="API-Automation-#"+currentBuild.number
 //]
 
 //def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'VaultCredential', engineVersion: 2]
+def props = readProperties  file:'{WORKSPACE}/serenity.properties'
+def name_project= props['serenity.project.name']
+//def Var2= props['Tuesday']
+
+
 
 pipeline {
 
@@ -35,6 +40,7 @@ pipeline {
 	
         stage ('Build') {
             steps {
+            	echo "name_project=${name_project}"
                 bat ("mvn -X clean verify")
             }
         }
