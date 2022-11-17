@@ -46,8 +46,8 @@ pipeline {
 	        			try {
 	        				//sh ("mvn verify package -P Rimac")
 	        				//sh ("mvn test -Dcucumber.options=\"src/test/resources/features/ --tags \'${ESCENARIO}\' --plugin json:target/site/result.json --glue rimac\" -P Rimac")
-	        				bat ("mvn test -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac'")
-					            
+	        				//bat ("mvn test -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac'")
+					          bat ("mvn test -Dcucumber.options=\"src/test/resources/features/ --tags \'${ESCENARIO}\' --plugin json:target/site/result.json --glue rimac\"")  
 	        				bat ("mvn serenity:aggregate")
 	        				echo 'Ejecucion de pruebas sin errores...'
 	        			}
