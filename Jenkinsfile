@@ -17,7 +17,7 @@ currentBuild.displayName="API-Automation-#"+currentBuild.number
 
 //def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'VaultCredential', engineVersion: 2]
 def props = readProperties  file:'serenity.properties'
-def name_project= props['serenity.project.name']
+def name_project= props['./serenity.project.name']
 //def Var2= props['Tuesday']
 
 
