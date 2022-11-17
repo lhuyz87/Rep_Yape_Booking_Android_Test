@@ -16,7 +16,7 @@ currentBuild.displayName="API-Automation-#"+currentBuild.number
 //]
 
 //def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'VaultCredential', engineVersion: 2]
-def workspace = pwd()
+//def workspace = pwd()
 def path = "${WORKSPACE}" + "/"
 echo 'Reporte realizado con Fallos'
 echo workspace
