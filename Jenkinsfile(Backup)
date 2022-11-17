@@ -3,19 +3,19 @@ import java.text.SimpleDateFormat
 def defDateFormat = new SimpleDateFormat("yyyyMMddHHmm")
 def defDate = new Date()
 def defTimestamp = defDateFormat.format(defDate).toString()
-currentBuild.displayName="API-Automation-#"+currentBuild.number
-def secrets = [
-  [path: 'AutoRimac/SwagLabs-auto-def-iOS-demo-v1', engineVersion: 2, secretValues: [
-  	    [envVar: 'appiumUdid', vaultKey: 'appiumUdid'],
-	    [envVar: 'appiumXcodeOrgId', vaultKey: 'appiumXcodeOrgId'],
-	    [envVar: 'appiumXcodeSigningId', vaultKey: 'appiumXcodeSigningId'],
-	    [envVar: 'SwagLabsUser', vaultKey: 'SwagLabsUser'],
-	    [envVar: 'SwagLabsPass', vaultKey: 'SwagLabsPass']
- 	]
-  ]
-]
 
-def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'VaultCredential', engineVersion: 2]
+//def secrets = [
+//  [path: 'AutoRimac/AppNativa-auto-def-iOS', engineVersion: 2, secretValues: [
+//  	    [envVar: 'v_appiumUdidIOS', vaultKey: 'v_appiumUdidIOS'],
+//	    [envVar: 'v_appiumXcodeOrgId', vaultKey: 'v_appiumXcodeOrgId'],
+//	    [envVar: 'v_appiumXcodeSigningId', vaultKey: 'v_appiumXcodeSigningId'],
+//	    [envVar: 'DniUser', vaultKey: 'DniUser'],
+//	    [envVar: 'PassUser', vaultKey: 'PassUser']
+// 	]
+//  ]
+//]
+
+//def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'VaultCredential', engineVersion: 2]
 
 pipeline {
 
@@ -27,25 +27,25 @@ pipeline {
     }
     
     options {
-        buildDiscarder(logRotator(numToKeepStr: '20'))
-        disableConcurrentBuilds()
-    }
+		buildDiscarder(logRotator(numToKeepStr: '20'))
+	    disableConcurrentBuilds()
+	}
     
     stages {
-    
+	
         stage ('Build') {
             steps {
-                bat ("mvn clean verify")
+                bat ("mvn -X clean verify")
             }
         }
         
-        stage ('Ejecutar Pruebas') {
-        	steps {	
-        		withVault([configuration: configuration, vaultSecrets: secrets]) {
+        stage('Ejecutar Pruebas'){
+            steps{
+                
         			script {
 	        			try {
 	        				//sh ("mvn verify package -P Rimac")
-	        				bat ("mvn test -Dcucumber.options=\"src/test/resources/features/ --tags \'${ESCENARIO}\' --plugin json:target/site/result.json --glue rimac\"")
+					          bat ("mvn test -Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=${ESCENARIO} -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue=rimac.main.definition")  
 	        				bat ("mvn serenity:aggregate")
 	        				echo 'Ejecucion de pruebas sin errores...'
 	        			}
@@ -56,8 +56,7 @@ pipeline {
                     }
                 }
             }
-        }
-        
+                   
         stage ('Reporte') {
         	steps {
         		script {
@@ -76,16 +75,6 @@ pipeline {
                     }
                 }
             }
-            
-            post {                
-                       always {                  
-                         echo "Enviar correo"
-                         echo "Send notifications for result: ${currentBuild.result}"                  
-                         mail to: "luis.retamozoa@rimac.com.pe",
-                         subject: "${currentBuild.result} Pipeline: ${currentBuild.fullDisplayName}",
-                         body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: \n ${env.BUILD_URL}Evidencias_20de_20Prueba/"                    
-                        }
-               }       
         }
     }
 }
