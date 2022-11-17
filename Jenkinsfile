@@ -21,7 +21,7 @@ def path = "${WORKSPACE}" + "/"
 echo 'Reporte realizado con Fallos'
 echo workspace
 echo path
-def props = readProperties  file:'${env.WORKSPACE}/serenity.properties'
+def props = readProperties  file:'workspace/serenity.properties'
 def name_project= props['*/serenity.project.name']
 //def Var2= props['Tuesday']
 
