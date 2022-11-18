@@ -14,10 +14,14 @@ Properties properties = new Properties()
 //File propertiesFile = new File('${WORKSPACE}/serenity.properties')
 File propertiesFile = null
 
-def getProps(path) {
-    Properties props = new Properties()
-    props.load(new FileInputStream(file(path)))
-    return props
+def loadProperties() {
+    node {
+        checkout scm
+        properties = new Properties()
+        File propertiesFile = new File("${workspace}/serenity.properties")
+        properties.load(propertiesFile.newDataInputStream())
+        //echo "Immediate one ${properties.repo}"
+    }
 }
 
 pipeline {
@@ -71,14 +75,17 @@ pipeline {
 					    nombreProyecto= props['serenity.project.name']
 					    aux = "${WORKSPACE}\\serenity.properties"
 					    echo "Ruta  es $aux"
-					    propertiesFile = new File(aux)
-					    propertiesFile.withInputStream {
-   						properties.load(propertiesFile)
-						}
-						
-						nombreProyecto2 =properties.serenity.project.name
 					    
-					    echo "EL nombre de proyecto es $nombreProyecto2"
+					     loadProperties()
+                    		echo "Later one ${properties.serenity.project.name}"
+					    //propertiesFile = new File(aux)
+					    //propertiesFile.withInputStream {
+   						//properties.load(propertiesFile)
+						//}
+						
+						//nombreProyecto2 =properties.serenity.project.name
+					    
+					    //echo "EL nombre de proyecto es $nombreProyecto2"
                     	bat ("echo ${defTimestamp}")
                     	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
                         echo 'Reporte realizado con exito'
