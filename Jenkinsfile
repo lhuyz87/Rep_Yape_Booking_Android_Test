@@ -80,8 +80,9 @@ pipeline {
                         echo 'Reporte realizado con exito'
                     }
 
-                    catch (ex) {
+                    catch (error) {
                         echo 'Reporte realizado con Fallos'
+                        logger.error(error);
                         error ('Failed')
                     }
                 }
