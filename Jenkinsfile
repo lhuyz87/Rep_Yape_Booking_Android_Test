@@ -66,7 +66,7 @@ pipeline {
                      try {
                     	checkout scm
                     	props = readProperties  file:'serenity.properties'
-					    nombreProyecto= props['serenity.project.name']
+					    nombreProyecto= props['${WORKSPACE}/serenity.project.name']
 					    
 					    propertiesFile.withInputStream {
    						properties.load(it)
