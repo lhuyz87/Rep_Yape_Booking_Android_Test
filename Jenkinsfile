@@ -81,7 +81,7 @@ pipeline {
                     	 echo "Later one1 ${properties.name}"
                     	// echo "Later one2${properties.serenity.project.name}"
 					    
-   						/properties.load(propertiesFile)
+   						//properties.load(propertiesFile)
 						
 						
 						//nombreProyecto2 =props2.getProperty("serenity.project.name");
