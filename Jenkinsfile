@@ -8,6 +8,7 @@ String nombreProyecto=""
 String nombreProyecto2=""
 def props =""
 def props2 =""
+String aux =""
 //Properties props = new Properties()
 Properties properties = new Properties()
 //File propertiesFile = new File('${WORKSPACE}/serenity.properties')
@@ -68,7 +69,9 @@ pipeline {
                     	checkout scm
                     	props = readProperties  file:'serenity.properties'
 					    nombreProyecto= props['serenity.project.name']
-					    propertiesFile = new File('${WORKSPACE}/serenity.properties')
+					    aux = "${WORKSPACE}/serenity.properties"
+					    echo "Ruta  es $aux"
+					    propertiesFile = new File(aux)
 					    propertiesFile.withInputStream {
    						properties.load(it)
 						}
