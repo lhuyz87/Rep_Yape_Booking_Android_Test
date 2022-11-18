@@ -60,8 +60,6 @@ pipeline {
 					    echo "Current workspace is $nombreProyecto"
                     	bat ("echo ${defTimestamp}")
                     	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
-                    	//publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}/target/site/serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
-                    	//publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}\\target\\site\\serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
                         echo 'Reporte realizado con exito'
                     }
 
@@ -77,8 +75,8 @@ pipeline {
                          echo "Se envía correo de resultados"
                          //echo "Send notifications for result: ${currentBuild.result}"                  
                          mail to: "luis.retamozoa@rimac.com.pe",
-                         subject: "$nombreProyecto-${currentBuild.result} Pipeline: ${currentBuild.fullDisplayName}",
-                         body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: \n ${env.BUILD_URL}Evidencias_20de_20Prueba/"                    
+                         subject: "$nombreProyecto-${currentBuild.result} Ejecución: ${currentBuild.number}",
+                         body: "${currentBuild.currentResult}: ${ESCENARIO}\nMore Info can be found here: \n ${env.BUILD_URL}Evidencias_20de_20Prueba/"                    
                         }
                }       
         }
