@@ -5,8 +5,16 @@ def defDateFormat = new SimpleDateFormat("yyyyMMddHHmm")
 def defDate = new Date()
 def defTimestamp = defDateFormat.format(defDate).toString()
 String nombreProyecto=""
-//def props =""
-Properties props = new Properties()
+String nombreProyecto2=""
+def props =""
+def props2 =""
+//Properties props = new Properties()
+
+def getProps(path) {
+    Properties props = new Properties()
+    props.load(new FileInputStream(file(path)))
+    return props
+}
 
 pipeline {
 
@@ -56,8 +64,10 @@ pipeline {
                      try {
                     	checkout scm
                     	props = readProperties  file:'serenity.properties'
+					    props2 = getProps('serenity.properties')
 					    nombreProyecto= props['serenity.project.name']
-					    echo "EL nombre de proyecto es $nombreProyecto"
+					    nombreProyecto2= props2['serenity.project.name']
+					    echo "EL nombre de proyecto es $nombreProyecto2"
                     	bat ("echo ${defTimestamp}")
                     	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
                         echo 'Reporte realizado con exito'
