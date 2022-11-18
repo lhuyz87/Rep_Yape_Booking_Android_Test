@@ -75,7 +75,7 @@ pipeline {
                          echo "Se envía correo de resultados"
                          //echo "Send notifications for result: ${currentBuild.result}"                  
                          mail to: "luis.retamozoa@rimac.com.pe",
-                         subject: "$nombreProyecto-${currentBuild.result} Ejecución: ${currentBuild.number}",
+                         subject: "$nombreProyecto-${currentBuild.result} Ejec-#: ${currentBuild.number}",
                          body: "${currentBuild.currentResult}: ${ESCENARIO}\nMore Info can be found here: \n ${env.BUILD_URL}Evidencias_20de_20Prueba/"                    
                         }
                }       
