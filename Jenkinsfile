@@ -10,7 +10,7 @@ def props =""
 def props2 =""
 //Properties props = new Properties()
 Properties properties = new Properties()
-File propertiesFile = new File('${env.WORKSPACE}/serenity.properties')
+File propertiesFile = new File('${WORKSPACE}/serenity.properties')
 
 def getProps(path) {
     Properties props = new Properties()
