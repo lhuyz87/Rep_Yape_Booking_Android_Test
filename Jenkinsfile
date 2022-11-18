@@ -10,7 +10,7 @@ def props =""
 def props2 =""
 String aux =""
 //Properties props = new Properties()
-Properties properties = new Properties()
+//Properties properties = new Properties()
 //File propertiesFile = new File('${WORKSPACE}/serenity.properties')
 File propertiesFile = null
 
@@ -74,16 +74,15 @@ pipeline {
                     	props = readProperties  file:'serenity.properties'
 					    nombreProyecto= props['serenity.project.name']
 					    aux = "${WORKSPACE}\\serenity.properties"
-					    InputStream instream = new FileInputStream(aux);
+					    //InputStream instream = new FileInputStream(aux);
 					    echo "Ruta  es $aux"
-					    props2.load(instream);
 					    
 					     loadProperties()
-                    		echo "Later one ${properties.name}"
-					    //propertiesFile = new File(aux)
-					    //propertiesFile.withInputStream {
-   						//properties.load(propertiesFile)
-						//}
+                    	 echo "Later one ${properties.name}"
+                    	 echo "Later one ${properties.serenity.project.name}"
+					    
+   						properties.load(propertiesFile)
+						
 						
 						nombreProyecto2 =props2.getProperty("serenity.project.name");
 					    
