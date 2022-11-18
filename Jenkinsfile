@@ -69,7 +69,7 @@ pipeline {
                     	checkout scm
                     	props = readProperties  file:'serenity.properties'
 					    nombreProyecto= props['serenity.project.name']
-					    aux = "${WORKSPACE}\serenity.properties"
+					    aux = "${WORKSPACE}//serenity.properties"
 					    echo "Ruta  es $aux"
 					    propertiesFile = new File(aux)
 					    propertiesFile.withInputStream {
