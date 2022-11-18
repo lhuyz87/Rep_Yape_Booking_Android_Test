@@ -74,7 +74,9 @@ pipeline {
                     	props = readProperties  file:'serenity.properties'
 					    nombreProyecto= props['serenity.project.name']
 					    aux = "${WORKSPACE}\\serenity.properties"
+					    InputStream instream = new FileInputStream(aux);
 					    echo "Ruta  es $aux"
+					    props2.load(instream);
 					    
 					     loadProperties()
                     		echo "Later one ${properties.name}"
@@ -83,7 +85,7 @@ pipeline {
    						//properties.load(propertiesFile)
 						//}
 						
-						//nombreProyecto2 =properties.serenity.project.name
+						nombreProyecto2 =props2.getProperty("serenity.project.name");
 					    
 					    //echo "EL nombre de proyecto es $nombreProyecto2"
                     	bat ("echo ${defTimestamp}")
