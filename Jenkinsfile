@@ -73,7 +73,7 @@ pipeline {
 					    echo "Ruta  es $aux"
 					    propertiesFile = new File(aux)
 					    propertiesFile.withInputStream {
-   						properties.load(it)
+   						properties.load(propertiesFile)
 						}
 						
 						nombreProyecto2 =properties.serenity.project.name
