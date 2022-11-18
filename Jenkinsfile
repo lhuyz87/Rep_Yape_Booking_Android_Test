@@ -79,7 +79,7 @@ pipeline {
 					    
 					     loadProperties()
                     	 echo "Later one1 ${properties.name}"
-                    	 echo "Later one2${properties.serenity.project.name}"
+                    	// echo "Later one2${properties.serenity.project.name}"
 					    
    						properties.load(propertiesFile)
 						
@@ -105,7 +105,9 @@ pipeline {
                          echo "Se envía correo de resultados"
                          //echo "Send notifications for result: ${currentBuild.result}"                  
                          mail to: "luis.retamozoa@rimac.com.pe",
-                         subject: "$nombreProyecto-${currentBuild.result} Ejec-#: ${currentBuild.number}",
+                         subject: "${properties.name}-${currentBuild.result} Ejec-#: ${currentBuild.number}",
+                         //subject: "$nombreProyecto-${currentBuild.result} Ejec-#: ${currentBuild.number}",
+                         
                          body: "${currentBuild.currentResult}: ${ESCENARIO}\nMore Info can be found here: \n ${env.BUILD_URL}Evidencias_20de_20Prueba/"                    
                         }
                }       
