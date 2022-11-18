@@ -4,7 +4,7 @@ currentBuild.displayName="Canal APP-Android-#"+currentBuild.number
 def defDateFormat = new SimpleDateFormat("yyyyMMddHHmm")
 def defDate = new Date()
 def defTimestamp = defDateFormat.format(defDate).toString()
-def nombreProyecto=""
+String nombreProyecto=""
 def props =""
 
 
@@ -57,7 +57,7 @@ pipeline {
                     	checkout scm
                     	props = readProperties  file:'serenity.properties'
 					    nombreProyecto= props['serenity.project.name']
-					    echo "Current workspace is $nombreProyecto"
+					    echo "EL nombre de proyecto es $nombreProyecto"
                     	bat ("echo ${defTimestamp}")
                     	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
                         echo 'Reporte realizado con exito'
