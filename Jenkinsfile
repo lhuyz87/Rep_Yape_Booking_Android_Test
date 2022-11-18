@@ -54,7 +54,7 @@ pipeline {
         	steps {
         		script {
                      try {
-                    	
+                    	checkout scm
                     	props = readProperties  file:'serenity.properties'
 					    nombreProyecto= props['serenity.project.name']
 					    echo "Current workspace is $nombreProyecto"
