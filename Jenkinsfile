@@ -77,7 +77,7 @@ pipeline {
 					    echo "Ruta  es $aux"
 					    
 					     loadProperties()
-                    		echo "Later one ${properties.serenity.project.name}"
+                    		echo "Later one ${properties.name}"
 					    //propertiesFile = new File(aux)
 					    //propertiesFile.withInputStream {
    						//properties.load(propertiesFile)
