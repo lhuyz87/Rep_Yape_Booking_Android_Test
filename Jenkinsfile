@@ -5,8 +5,8 @@ def defDateFormat = new SimpleDateFormat("yyyyMMddHHmm")
 def defDate = new Date()
 def defTimestamp = defDateFormat.format(defDate).toString()
 String nombreProyecto=""
-def props =""
-
+//def props =""
+Properties props = new Properties()
 
 pipeline {
 
