@@ -10,7 +10,8 @@ def props =""
 def props2 =""
 //Properties props = new Properties()
 Properties properties = new Properties()
-File propertiesFile = new File('${WORKSPACE}/serenity.properties')
+//File propertiesFile = new File('${WORKSPACE}/serenity.properties')
+File propertiesFile = null
 
 def getProps(path) {
     Properties props = new Properties()
@@ -67,7 +68,7 @@ pipeline {
                     	checkout scm
                     	props = readProperties  file:'serenity.properties'
 					    nombreProyecto= props['serenity.project.name']
-					    
+					    propertiesFile = new File('${WORKSPACE}/serenity.properties')
 					    propertiesFile.withInputStream {
    						properties.load(it)
 						}
