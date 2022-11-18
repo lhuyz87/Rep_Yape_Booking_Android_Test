@@ -78,13 +78,13 @@ pipeline {
 					    echo "Ruta  es $aux"
 					    
 					     loadProperties()
-                    	 echo "Later one ${properties.name}"
-                    	 echo "Later one ${properties.serenity.project.name}"
+                    	 echo "Later one1 ${properties.name}"
+                    	 echo "Later one2${properties.serenity.project.name}"
 					    
    						properties.load(propertiesFile)
 						
 						
-						nombreProyecto2 =props2.getProperty("serenity.project.name");
+						//nombreProyecto2 =props2.getProperty("serenity.project.name");
 					    
 					    //echo "EL nombre de proyecto es $nombreProyecto2"
                     	bat ("echo ${defTimestamp}")
