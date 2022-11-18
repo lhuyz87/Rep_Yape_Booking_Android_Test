@@ -9,6 +9,8 @@ String nombreProyecto2=""
 def props =""
 def props2 =""
 //Properties props = new Properties()
+Properties properties = new Properties()
+File propertiesFile = new File('serenity.properties')
 
 def getProps(path) {
     Properties props = new Properties()
@@ -64,9 +66,14 @@ pipeline {
                      try {
                     	checkout scm
                     	props = readProperties  file:'serenity.properties'
-					    props2 = getProps('serenity.properties')
 					    nombreProyecto= props['serenity.project.name']
-					    nombreProyecto2= props2['serenity.project.name']
+					    
+					    propertiesFile.withInputStream {
+   						properties.load(it)
+						}
+						
+						nombreProyecto2 =properties.serenity.project.name
+					    
 					    echo "EL nombre de proyecto es $nombreProyecto2"
                     	bat ("echo ${defTimestamp}")
                     	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
