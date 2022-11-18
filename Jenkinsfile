@@ -55,7 +55,7 @@ pipeline {
         		script {
                      try {
                     	checkout scm
-                    	props = readProperties  file:'serenity.properties'
+                    	props = readProperties  file:'serenity3.properties'
 					    nombreProyecto= props['serenity.project.name']
 					    echo "EL nombre de proyecto es $nombreProyecto"
                     	bat ("echo ${defTimestamp}")
