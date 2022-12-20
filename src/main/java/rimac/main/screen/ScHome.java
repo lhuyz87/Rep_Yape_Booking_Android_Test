@@ -36,7 +36,7 @@ public class ScHome extends BaseDriver{
 	
 	private long wdwTimeOut = 300L;
 	
-	protected ObjPaginaPrincipal objectPrincipalScreen = ObjPaginaPrincipal.getInstancia();
+	protected ObjPaginaPrincipal objectPrincipal = ObjPaginaPrincipal.getInstancia();
 	protected ObjRegistrarHuella registrarHuellaObject = ObjRegistrarHuella.getInstancia();
 	protected ObjAlertas alertasObject = ObjAlertas.getInstancia();
 	
@@ -69,16 +69,16 @@ public class ScHome extends BaseDriver{
 			
 		case "Seguros":
 			util.esperarSegundos(8);
-			util.esperarElemento(10, objectPrincipalScreen.btnSeguros);
+			util.esperarElemento(10, objectPrincipal.btnSeguros);
 			util.esperarSegundos(3);
-			element(objectPrincipalScreen.btnSeguros).click();
+			element(objectPrincipal.btnSeguros).click();
 			break;
 			
 		case "Tramites":
 			
 			util.esperarSegundos(8);
-			util.esperarElemento(10, objectPrincipalScreen.btnTramite);
-			element(objectPrincipalScreen.btnTramite).click();
+			util.esperarElemento(10, objectPrincipal.btnTramite);
+			element(objectPrincipal.btnTramite).click();
 			break;
 		
 		case "Tienda":
@@ -156,13 +156,13 @@ public class ScHome extends BaseDriver{
 	
 	public void seleccionarReembolso() {
 		
-		util.esperarElemento(5, objectPrincipalScreen.btnHome);
+		util.esperarElemento(5, objectPrincipal.btnHome);
 		util.esperarSegundos(3);
 		 System.out.println("Entraaaa");
 //		util.localizarElementoScroll(appiumDriver(), objectPrincipalScreen.btnReembolsoSalud);
 		
 		
-		while(element(objectPrincipalScreen.btnReembolsoSalud).isCurrentlyVisible()==false) {
+		while(element(objectPrincipal.btnReembolsoSalud).isCurrentlyVisible()==false) {
 			Dimension dimension = appiumDriver().manage().window().getSize();
 			//arrastrar hacia arriba, como deslizando la app para ver más contenido
 			Point start= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.8));
@@ -172,10 +172,43 @@ public class ScHome extends BaseDriver{
 //		Actions action = new Actions(driver);
 //		action.moveToElement(objectPrincipalScreen.btnReembolsoSalud).click().perform();
 		
-		pageObjectUtil2.tapElement(appiumDriver(),objectPrincipalScreen.btnReembolsoSalud);
+		pageObjectUtil2.tapElement(appiumDriver(),objectPrincipal.btnReembolsoSalud);
 		
 //		element(objectPrincipalScreen.btnReembolsoSalud).click();
 		
+	}
+
+	public void seleccionaBuscadorClinicas() {
+		// TODO Auto-generated method stub
+		//
+		util.esperarSegundos(8);
+		util.esperarElemento(5, objectPrincipal.btnHome);
+		util.esperarSegundos(6);
+		int intentos=0;
+		while(intentos<=5) {
+			
+		try {
+			element(objectPrincipal.btnBuscadorClinica).click();
+			System.out.println("Se encontro elemento  ");
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("No encontro elemento  "  + intentos);
+			util.scrollDown(appiumDriver());
+		}	
+			
+//		if(objectPrincipal.btnBuscadorClinica.isEnabled()==true) {
+//				System.out.println("Se encontro elemento  ");
+//				break;
+//			}else {
+//				System.out.println("No encontro elemento  "  + intentos);
+//				util.scrollDown(appiumDriver());
+//			}
+			intentos++;
+		}
+		
+		
+//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Buscador de clínicas\").instance(0))"));
+//		element(objectPrincipal.btnBuscadorClinica).click();
 	}
 	
 	

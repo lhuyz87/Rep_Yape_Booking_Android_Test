@@ -31,7 +31,7 @@ public class ObjSolicitudReembolsoRecibida extends BaseDriver{
 		throw new CloneNotSupportedException();
 	}
 	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas:id/title_congrats")
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/title_congrats")
 	public WebElement lblSolicitudRecibida;
 
 	@AndroidFindBy(xpath = "//*[@text='Ir al inicio']")

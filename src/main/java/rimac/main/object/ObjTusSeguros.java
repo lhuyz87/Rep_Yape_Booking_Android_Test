@@ -33,7 +33,7 @@ public class ObjTusSeguros extends BaseDriver{
 	
 	
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/btnText")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/btnText")
 	public WebElement btnDetalleSeguro;
 	
 }

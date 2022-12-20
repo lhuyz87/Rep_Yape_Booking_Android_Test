@@ -60,7 +60,7 @@ public class StepLogin {
 	public void seleccDatosdeSeguri(String fechaNacimi, String seguros) {
 		scPregunDeVerifi.ingresaFechaNacimi(fechaNacimi);
 		scPregunDeVerifi.seleccSeguros(seguros);
-		
+//		
 	}
 
 	public void ingresaNuevaContra() {

@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import com.github.dockerjava.api.model.Driver;
 
 import io.appium.java_client.AppiumBy.ById;
-import io.appium.java_client.AppiumDriver;
+//import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.HidesKeyboard;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.PushesFiles;
@@ -46,7 +46,7 @@ private long wdwTimeOut = 300L;
 	}
 	
 	UtilDef util = new UtilDef();
-	AppiumDriver driver;
+//	AppiumDriver driver;
 
 
 	public void ingresaFechaNacimi(String fechaNacimi) {

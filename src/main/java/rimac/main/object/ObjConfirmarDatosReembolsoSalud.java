@@ -48,7 +48,7 @@ public class ObjConfirmarDatosReembolsoSalud extends BaseDriver{
 	
 	
 	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas:id/uiEditDepartment")
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/uiEditDepartment")
 	public WebElement selDepartamento;
 	
 	
@@ -57,12 +57,11 @@ public class ObjConfirmarDatosReembolsoSalud extends BaseDriver{
 		WebElement elementDepar = webDriver.findElement(by);
 		return elementDepar;
 	}
-	
-	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/uiEditProvince")
+
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiEditProvince")
 	public WebElement selProvincia;
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/uiEditDistrict")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiEditDistrict")
 	public WebElement selDistrito;
 	
 	

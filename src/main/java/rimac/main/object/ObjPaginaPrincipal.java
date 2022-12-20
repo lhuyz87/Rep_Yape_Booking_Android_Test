@@ -39,16 +39,19 @@ public class ObjPaginaPrincipal extends BaseDriver{
 	//*[@text='Reembolso de salud']//preceding::*[1]
 	@AndroidFindBy(xpath = "//*[@text='Reembolso de salud']//ancestor::*[1]")
 	public WebElement btnReembolsoSalud;
+	
+	
 
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/bottom_nav_home")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/bottom_nav_home")
 	public WebElement btnHome;
 	
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/bottom_nav_insurance")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/bottom_nav_insurance")
 	public WebElement btnSeguros;
 	
-		
+	@AndroidFindBy(xpath = "//*[@text='Buscador de clínicas']//ancestor::*[2]")
+	public WebElement btnBuscadorClinica;	
 
 	
 }

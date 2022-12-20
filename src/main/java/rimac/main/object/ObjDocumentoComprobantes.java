@@ -38,14 +38,14 @@ public class ObjDocumentoComprobantes extends BaseDriver{
 	@AndroidFindBy(xpath = "//*[@text='Tipo de documento']")
 	public WebElement lstTipoDocumento;
 	
-	@AndroidFindBy(xpath = "//*[@text='Subir documento']")
+	@AndroidFindBy(xpath = "//*[@text='Adjuntar documento']")
 	public WebElement btnSubirDocumento;	
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/documentVoucherUploadTitle")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/documentVoucherUploadTitle")
 	public WebElement btnSubirComprobantes;
 	
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/documentUploadTitle")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/documentUploadTitle")
 	public WebElement btnSubirDocumentos;
 	
 	

@@ -36,9 +36,14 @@ private long wdwTimeOut = 300L;
 	
 	public void continuarDocRequeridos() {
 		
-		looger.info("Inicia documentos Requeridos");
+		looger.info("Inicia los documentos Requeridos");
 		util.esperarSegundos(3);
-		util.esperarElemento(3, docRequeridosReembolsoSaludObject.btnContinuar);
+		try {
+			util.esperarElementoClick(3, docRequeridosReembolsoSaludObject.btnContinuar);
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
 		looger.info("Se muestra boton Continuar");
 		util.esperarSegundos(3);
 		element(docRequeridosReembolsoSaludObject.btnContinuar).click();

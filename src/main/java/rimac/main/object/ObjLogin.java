@@ -56,13 +56,13 @@ public class ObjLogin extends BaseDriver{
 	
 	//Antiguo:
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/login_text_reset_password")
-	public WebElement btnOlvideContra;
+//	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/login_text_reset_password")
+//	public WebElement btnOlvideContra;
 	
 	
 	//Nuevo
-//	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/login_text_reset_password")
-//	public WebElement btnOlvideContra;
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/login_text_reset_password")
+	public WebElement btnOlvideContra;
 	
 	
 }

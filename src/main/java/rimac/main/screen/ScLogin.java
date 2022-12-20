@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 import com.github.dockerjava.api.model.Driver;
 
-import io.appium.java_client.AppiumDriver;
+//import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.HidesKeyboard;
 import io.appium.java_client.PushesFiles;
 import io.appium.java_client.android.AndroidDriver;
@@ -39,7 +39,7 @@ private long wdwTimeOut = 300L;
 	}
 	
 	UtilDef util = new UtilDef();
-	AppiumDriver driver;
+//	AppiumDriver driver;
 	
 	public void login(String dniUser, String passUser) {
 		looger.info("aplicación iniciada");
@@ -50,7 +50,7 @@ private long wdwTimeOut = 300L;
 		element(objLogin.txtNumDocumento).sendKeys(dniUser);
 		
 		try {
-			((HidesKeyboard) appiumDriver()).hideKeyboard();
+//			((HidesKeyboard) appiumDriver()).hideKeyboard();
 		} catch (Exception e) {
 			
 		}
@@ -58,7 +58,7 @@ private long wdwTimeOut = 300L;
 		element(objLogin.txtPassword).click();
 		element(objLogin.txtPassword).sendKeys(passUser);
 		try {
-			((HidesKeyboard) appiumDriver()).hideKeyboard();
+//			((HidesKeyboard) appiumDriver()).hideKeyboard();
 		} catch (Exception e) {
 			
 		}

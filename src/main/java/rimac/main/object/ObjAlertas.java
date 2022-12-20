@@ -43,23 +43,23 @@ public class ObjAlertas extends BaseDriver{
 	@AndroidFindBy(id ="com.android.permissioncontroller:id/permission_allow_button")
 	public WebElement btnPermitir;
 	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas:id/materialBtn")
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/materialBtn")
 	public WebElement btnRealizarInspeccion;
 	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas:id/dialog_close")
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/dialog_close")
 	public WebElement btnCerrarRealizarInspeccion;
 	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas:id/dialogClose")
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/dialogClose")
 	public WebElement btnCerrarVehicularVencer;
 	
 	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas:id/btn_not_yet")
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/btn_not_yet")
 	public WebElement btnEnteratePorAhoraNo;
 	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas:id/registerTextNotYet")
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/registerTextNotYet")
 	public WebElement btnHuellaPorAhoraNo;
 	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas:id/dialog_btn_negative")
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/dialog_btn_negative")
 	public WebElement btnActualLuego;
 	
 	

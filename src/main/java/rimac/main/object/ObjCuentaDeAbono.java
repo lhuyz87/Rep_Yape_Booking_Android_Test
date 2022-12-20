@@ -37,7 +37,7 @@ public class ObjCuentaDeAbono extends BaseDriver{
 		throw new CloneNotSupportedException();
 	}
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/uiEditBankEntity")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiEditBankEntity")
 	public WebElement lstEntidadBancaria;
 	
 
@@ -58,10 +58,10 @@ public class ObjCuentaDeAbono extends BaseDriver{
 	
 	//*[@id="com.rimac.rimac_surrogas:id/uiEditBankEntity"]/child::*[1]/child::*[1]	
 	
-	@AndroidFindBy(xpath = "//*[@id=\"com.rimac.rimac_surrogas:id/uiEditBankEntity\"]/child::*[1]/child::*[1]")
+	@AndroidFindBy(xpath = "//*[@id=\"com.rimac.rimac_surrogas.qa:id/uiEditBankEntity\"]/child::*[1]/child::*[1]")
 	public WebElement txtEntidadBancaria;
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/uiEditAccountType")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiEditAccountType")
 	public WebElement lstTipoCuenta;
 	
 
@@ -73,7 +73,7 @@ public class ObjCuentaDeAbono extends BaseDriver{
 	}
 	
 
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/uiEditCurrencyType")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiEditCurrencyType")
 	public WebElement lstTipoMoneda;
 	
 

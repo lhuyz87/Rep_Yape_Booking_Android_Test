@@ -61,22 +61,15 @@ private long wdwTimeOut = 300L;
 			System.out.println( "Mensaje 1: " + e.getMessage());
 		}
 		
-//		try {
-//			if(confirmarDatosReembolsoSaludObject.txtDepartamento.getText()=="Departamento") {
-//				depAux++;	
-//			}}catch (Exception e) {
-//			System.out.println(e.getMessage());
-//			System.out.println( "Mensaje 2: " + e.getMessage());
-//		}
-		
 		
 			if(depAux==0) {
-				System.out.println("ENTRA a llenar departamento");
+				System.out.println("ENTRA a llenar departamento"  + departamento);
 				
-				util.esperarElemento(5, confirmarDatosReembolsoSaludObject.selDepartamento);
+				util.esperarElemento(3, confirmarDatosReembolsoSaludObject.selDepartamento);
 				element(confirmarDatosReembolsoSaludObject.selDepartamento).click();
 				element(confirmarDatosReembolsoSaludObject.departamento(appiumDriver(), departamento)).click();
-				appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Distrito\").instance(0))"));
+//				appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Distrito\").instance(0))"));
+				looger.info("Provincia");
 				element(confirmarDatosReembolsoSaludObject.selProvincia).click();
 				element(confirmarDatosReembolsoSaludObject.provincia(appiumDriver(), provincia)).click();
 				element(confirmarDatosReembolsoSaludObject.selDistrito).click();
@@ -106,7 +99,7 @@ private long wdwTimeOut = 300L;
 		
 		util.esperarActivoClick(4, confirmarDatosReembolsoSaludObject.btnContinuar);
 		element(confirmarDatosReembolsoSaludObject.btnContinuar).click();
-		util.esperarSegundos(5);
+		util.esperarSegundos(10);
 	}
 	
 }

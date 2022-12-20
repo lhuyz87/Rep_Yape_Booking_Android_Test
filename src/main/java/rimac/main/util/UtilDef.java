@@ -16,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
 
 import static io.appium.java_client.touch.TapOptions.tapOptions;
@@ -31,7 +32,7 @@ import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
+//import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.environment.SystemEnvironmentVariables;
@@ -204,24 +205,34 @@ public class UtilDef  extends BaseDriver{
 //	}
 	
 	public void scroll() {
-//		driver.findElementByAndroidUIAutomator("new UiScrollable(new    UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"WebView\").instance(0))").click(); //scroll down to the element and click
-//		
-//		System.out.println("Obejeto "  + tramitesObject.btnReembolsoSalud.getText());
-//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+tramitesObject.btnReembolsoSalud.getText()+"\").instance(0))"));
-//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollToEnd(100000)"));
-//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollToEnd(1000)"));
-//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollToBeginning(1000)"));
-					
-//		util.esperarElemento(10, tramitesObject.btnReembolsoSalud);
-		
-//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))" +
-//        ".scrollIntoView(new UiSelector().text(\"prueba\"))"));
-//		
-//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))" +
-//		        ".scrollIntoView(new UiSelector().textContains(\"reembolso\"))"));
-
 		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollForward()"));
+	}
+	
+	
+	public void scrollDown(WebDriver driver) {
+		
 
+		try {
+		    driver.findElement(MobileBy.AndroidUIAutomator(
+		            "new UiScrollable(new UiSelector().scrollable(true)).scrollForward()"));
+		} catch (InvalidSelectorException e) {
+			
+			System.out.println(e.getMessage());
+		    // ignore
+		}
+	}
+	
+	public void scrollUp(WebDriver driver) {
+		
+
+		try {
+		    driver.findElement(MobileBy.AndroidUIAutomator(
+		            "new UiScrollable(new UiSelector().scrollable(true)).scrollBackward()"));
+		} catch (InvalidSelectorException e) {
+			
+			System.out.println(e.getMessage());
+		    // ignore
+		}
 	}
 	
 	//No funciona
@@ -312,7 +323,7 @@ public class UtilDef  extends BaseDriver{
 	}
 	
 	
-	public static void doSwipe(AppiumDriver driver, Point start, Point end, int duration) {
+	public static void doSwipe2(AppiumDriver driver, Point start, Point end, int duration) {
         Sequence swipe = new Sequence(FINGER, 1)
                 .addAction(FINGER.createPointerMove(ofMillis(0), viewport(), start.getX(), start.getY()))
                 .addAction(FINGER.createPointerDown(LEFT.asArg()))
@@ -352,18 +363,7 @@ public class UtilDef  extends BaseDriver{
 
 	
 	
-	public void scrollUp(WebDriver driver) {
-		
 
-		try {
-		    driver.findElement(MobileBy.AndroidUIAutomator(
-		            "new UiScrollable(new UiSelector().scrollable(true)).scrollBackward()"));
-		} catch (InvalidSelectorException e) {
-			
-			System.out.println(e.getMessage());
-		    // ignore
-		}
-	}
 	
 	public boolean buscarTextoLista(List<WebElement> elementos, String texto) {
 		boolean exacto = false;		
@@ -429,39 +429,9 @@ public class UtilDef  extends BaseDriver{
 	  
 	  
 
-		public void mobileSwipeScreenIOS() {
-			
-			HashMap<String, String> scrollObject = new HashMap<>();
-			JavascriptExecutor js = appiumDriver(); 
-			scrollObject.put("direction", "up");
-			js.executeScript("mobile: scroll", scrollObject); //or "mobile: swipe"
-			
-		}
 		
 		
-		public void mobileSwipeScreenIOS2() {
-			PointOption pointOptionStart, pointOptionEnd;
-
-		    // init screen variables
-		    Dimension dims = appiumDriver().manage().window().getSize();
-
-		    // init start point = center of screen
-		    pointOptionStart = PointOption.point(dims.width / 2, dims.height / 2);
-		    pointOptionEnd = PointOption.point(dims.width / 2, (int)(dims.height*0.4));   
-		    
-			try {
-		        new TouchAction((PerformsTouchActions) appiumDriver())
-		                .press(pointOptionStart)
-		                // a bit more reliable when we add small wait
-		                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(200)))
-		                .moveTo(pointOptionEnd)
-		                .release().perform();
-		    } catch (Exception e) {
-		        System.err.println("swipeScreen(): TouchAction FAILED\n" + e.getMessage());
-		        return;
-		    }
-			
-		}
+		
 		
 		public void scrollTres(WebDriver driver) {
 			PointOption pointOptionStart, pointOptionEnd;
@@ -478,6 +448,69 @@ public class UtilDef  extends BaseDriver{
 			           .release()
 			           .perform();
 		}
+		
+		public static void doSwipe(AppiumDriver driver, Point start, Point end, int duration) {
+
+			Sequence swipe = new Sequence(FINGER, 1)
+
+			.addAction(FINGER.createPointerMove(ofMillis(0), viewport(), start.getX(), start.getY()))
+
+			.addAction(FINGER.createPointerDown(LEFT.asArg()))
+
+			.addAction(FINGER.createPointerMove(ofMillis(duration), viewport(), end.getX(), end.getY()))
+
+			.addAction(FINGER.createPointerUp(LEFT.asArg()));
+
+			((RemoteWebDriver) driver).perform(Arrays.asList(swipe));
+
+			}
+		
+		
+		public void mobileSwipeScreenAndroid() {
+
+			PointOption pointOptionStart, pointOptionEnd;
+
+			 
+
+			    // init screen variables
+
+			    Dimension dims = appiumDriver().manage().window().getSize();
+
+			 
+
+			    // init start point = center of screen
+
+			    pointOptionStart = PointOption.point(dims.width / 2, dims.height / 2);
+
+			    pointOptionEnd = PointOption.point(dims.width / 2, (int)(dims.height*0.4));   
+
+			   
+
+			try {
+
+			        new TouchAction((PerformsTouchActions) appiumDriver())
+
+			                .press(pointOptionStart)
+
+			                // a bit more reliable when we add small wait
+
+			                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(200)))
+
+			                .moveTo(pointOptionEnd)
+
+			                .release().perform();
+
+			    } catch (Exception e) {
+
+			        System.err.println("swipeScreen(): TouchAction FAILED\n" + e.getMessage());
+
+			        return;
+
+			    }
+
+			 
+
+			}
 		
 		
 		public String numeroMes(String mes) {

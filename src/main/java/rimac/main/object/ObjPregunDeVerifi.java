@@ -40,13 +40,13 @@ public class ObjPregunDeVerifi extends BaseDriver{
 
 	
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/glyphIv")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/glyphIv")
 	public WebElement btnCalend;
 	
 	@AndroidFindBy(id = "android:id/date_picker_header_year")
 	public WebElement btnAnio;
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/glyphIv")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/glyphIv")
 	public WebElement btnMes;
 	
 	
@@ -64,7 +64,7 @@ public class ObjPregunDeVerifi extends BaseDriver{
 	@AndroidFindBy(id = "android:id/next")
 	public WebElement btnMesSig;
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/materialBtn")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
 	public WebElement btnContinu;
 	
 	public WebElement selAnio(WebDriver webDriver, String anio) {

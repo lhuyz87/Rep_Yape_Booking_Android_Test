@@ -92,7 +92,7 @@ public class ObjComencemosReembolsoSalud extends BaseDriver{
 	@AndroidFindBy(xpath = "//*[@text='Continuar']")
 	public WebElement btnContinuar;
 	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas:id/uiEditTreatmentType")
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/uiEditTreatmentType")
 	public WebElement lstTipoTramiento;
 	
 	public WebElement getTratamiendo(WebDriver driver, String tratamiento) {

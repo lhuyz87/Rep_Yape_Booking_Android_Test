@@ -35,7 +35,7 @@ public class ObjComoRecibCodVeri extends BaseDriver{
 	
 	
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/txtAnswerEventQuestion")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/txtAnswerEventQuestion")
 	public WebElement btnRespoPregun;
 	
 	

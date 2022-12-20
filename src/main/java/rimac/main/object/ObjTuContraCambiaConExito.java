@@ -31,10 +31,10 @@ public class ObjTuContraCambiaConExito extends BaseDriver{
 		throw new CloneNotSupportedException();
 	}
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/materialBtn")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
 	public WebElement btnIrInicio;
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/forgetCongratulationTextTitle")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/forgetCongratulationTextTitle")
 	public WebElement lblMensaj;
 	
 	

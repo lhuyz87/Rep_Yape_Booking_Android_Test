@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 import org.apache.poi.ss.formula.ThreeDEval;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.interactions.Actions;
 
 import com.github.dockerjava.api.model.Driver;
 
@@ -45,7 +49,12 @@ private long wdwTimeOut = 300L;
 			break;
 			
 		case "Buscador de clínicas":
+			looger.info("Buecar Opcion Buscador de clinicas");
 			
+			util.esperarElemento(10, tramitesObject.btnTodos);
+
+			element(tramitesObject.btnBuscarClinica).click();
+			looger.info("Termina buscador de clínica");
 			break;
 			
 		case "Médico a domicilio":
@@ -54,14 +63,33 @@ private long wdwTimeOut = 300L;
 			
 		case "Reembolso de salud":
 			looger.info("Iniciar Reembolso de salud");
-			
 			util.esperarElemento(10, tramitesObject.btnTodos);;
-			util.scroll();
-//			appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Reembolso de salud\").instance(0))"));
 
-			element(tramitesObject.btnReembolsoSalud).click();
-			looger.info("Termina Reembolso de salud");
-			
+			int contadorini=0;	
+			while(contadorini<5) {
+				try {
+					
+					looger.info("Intenta para dar click "  + contadorini);
+					util.mobileSwipeScreenAndroid();
+					if(tramitesObject.btnReembolsoSalud.isEnabled()==true) {
+						element(tramitesObject.btnReembolsoSalud).click();
+						contadorini=5;
+						looger.info("Encuentra elemento");
+					}
+					
+					contadorini++;
+				 }catch (Exception e) {
+					 
+					 System.out.println("Mensaje " + e.getMessage());
+					 contadorini++;
+					 
+				}
+//			
+				
+//			element(tramitesObject.btnReembolsoSalud).click();
+			}
+				looger.info("Termina Reembolso de salud");
+			break;
 		case "Programa Cuídate":
 			
 			break;

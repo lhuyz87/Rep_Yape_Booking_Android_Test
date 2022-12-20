@@ -7,9 +7,10 @@ import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
 import rimac.main.util.UtilDef;
 
+
 @RunWith(RunPersonalizar.class)
 
-//@CucumberOptions(features = "src/test/resources/features", tags =  "@OlvidePassword" , glue = "rimac")
+@CucumberOptions(features = "src/test/resources/features", tags =  "@OlvidePassword" , glue = "rimac")
 
 
 public class RunRimac {
