@@ -1,4 +1,4 @@
-package rimac.main.definition;
+package rimac.test.definition;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
@@ -99,11 +99,20 @@ public class ReembolsoDefinition {
 		stepReembolso.continuPasoDos();
 	}
 	
+
+	@When("se ingresa al Seguimiento de Reembolso de Salud desde Tramites")
+	public void ingresar_seguimiento_reembolso_salud_tramites() {
 	
+
+	stepReembolso.selecSeguiReemSalud();
+	}
 	
-	
-	
-	
+	@Then("debe aparecer el monto {string} del reembolso solicitado")
+	public void debe_aparecer_el_monto(String monto) {
+		assertEquals(stepReembolso.validarMontoReem(monto), monto);
+//		stepReembolso.validarMontoReem(monto);
+	}
+
 	
 
 

@@ -20,7 +20,7 @@ import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
-import rimac.main.util.UtilDef;
+import rimac.main.util.UtilApp;
 import rimac.main.util.VariablesAppNativa;
 import rimac.main.object.ObjLogin;
 import rimac.main.object.ObjConfirmarDatosReembolsoSalud;
@@ -39,7 +39,7 @@ private long wdwTimeOut = 300L;
 		return wdwTimeOut;
 	}
 	
-	UtilDef util = new UtilDef();
+	UtilApp util = new UtilApp();
 	AppiumDriver driver;
 	
 	public void llenarDatosDireccion(String departamento, String provincia, String distrito, String direccion) {

@@ -3,14 +3,16 @@ package rimac.test.runner;
 import org.junit.runner.RunWith;
 
 import io.cucumber.junit.CucumberOptions;
-import net.thucydides.core.environment.SystemEnvironmentVariables;
+//import net.thucydides.core.environment.SystemEnvironmentVariables;
+
 import net.thucydides.core.util.EnvironmentVariables;
-import rimac.main.util.UtilDef;
+import net.thucydides.core.util.SystemEnvironmentVariables;
+import rimac.main.util.UtilApp;
 
 
 @RunWith(RunPersonalizar.class)
 
-@CucumberOptions(features = "src/test/resources/features", tags =  "@OlvidePassword" , glue = "rimac")
+@CucumberOptions(features = "src/test/resources/features", tags =  "@reembolsoOdontologicoConBeneficiario" , glue = "rimac")
 
 
 public class RunRimac {
@@ -20,7 +22,7 @@ public class RunRimac {
 		
 		System.out.println("ss");
 		
-		UtilDef.getInstancia().getProperties();
+		UtilApp.getInstancia().getProperties();
 				
 		EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
 
@@ -31,3 +33,4 @@ public class RunRimac {
 	}
 	
 }
+

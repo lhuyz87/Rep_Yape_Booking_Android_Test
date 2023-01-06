@@ -1,7 +1,8 @@
 package rimac.main.util;
 
-import net.thucydides.core.environment.SystemEnvironmentVariables;
+//import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
+import net.thucydides.core.util.SystemEnvironmentVariables;
 //import rimac.util.GeneralUtil;
 
 public class VariablesAppNativa {

@@ -64,5 +64,17 @@ public class ObjLogin extends BaseDriver{
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/login_text_reset_password")
 	public WebElement btnOlvideContra;
 	
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dialog_text_title")
+	public WebElement lblActualizarVersion;
+	
+	
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+	public WebElement btnActualizar;
+	
+	
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dialog_btn_negative")
+	public WebElement btnMasTarde;
+	
+	
 	
 }

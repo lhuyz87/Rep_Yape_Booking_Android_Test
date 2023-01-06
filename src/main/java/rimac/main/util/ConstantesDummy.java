@@ -7,7 +7,7 @@ public class ConstantesDummy {
 	public static final String nroDocumentoFactura = "56238941";
 	public static final String monedaDolares = "Dólares";
 	public static final String monedaSoles = "Soles (S/)";
-	public static final String monto = "100";
+	public static final String monto = ""+ (int)(Math.random()*(2000-100+1)+100);;
 	public static final String bancoBBVA = "BBVA";
 	public static final String tipoCuentaAhorros = "Cuenta de ahorros";
 	public static final String nroCuentaAhorrosBBVA = "653214569874512487";
@@ -22,5 +22,7 @@ public class ConstantesDummy {
 	public static final String provinciaAncash = "Asuncion";
 	public static final String distritoAncash = "Chacas";
 	public static final String direccionTest = "calle";
+	
+
 
 }

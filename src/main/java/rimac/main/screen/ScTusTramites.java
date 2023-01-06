@@ -19,7 +19,7 @@ import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.pages.PageObject;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
-import rimac.main.util.UtilDef;
+import rimac.main.util.UtilApp;
 import rimac.main.util.VariablesAppNativa;
 import rimac.main.object.ObjLogin;
 import rimac.main.object.ObjTramites;
@@ -38,7 +38,7 @@ private long wdwTimeOut = 300L;
 		return wdwTimeOut;
 	}
 	
-	UtilDef util = new UtilDef();
+	UtilApp util = new UtilApp();
 	
 	@SuppressWarnings("deprecation")
 	public void seleccionarTramiteSalud(String tramite) {
@@ -105,6 +105,17 @@ private long wdwTimeOut = 300L;
 		default:
 			break;
 		}
+		
+	}
+
+	public void seleccionarSegui() {
+		// TODO Auto-generated method stub
+		util.esperarElemento(3, tramitesObject.btnSeguimiento);
+		util.esperarSegundos(1);
+		element(tramitesObject.btnSeguimiento).click();
+		util.esperarElemento(3, tramitesObject.btnSegReemSalud);
+		element(tramitesObject.btnSegReemSalud).click();
+		util.esperarSegundos(1);
 		
 	}
 	

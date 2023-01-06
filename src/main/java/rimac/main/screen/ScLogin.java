@@ -14,7 +14,7 @@ import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
-import rimac.main.util.UtilDef;
+import rimac.main.util.UtilApp;
 import rimac.main.util.VariablesAppNativa;
 import rimac.main.object.ObjLogin;
 import rimac.main.screen.ScLogin;
@@ -38,7 +38,7 @@ private long wdwTimeOut = 300L;
 		return wdwTimeOut;
 	}
 	
-	UtilDef util = new UtilDef();
+	UtilApp util = new UtilApp();
 //	AppiumDriver driver;
 	
 	public void login(String dniUser, String passUser) {
@@ -50,7 +50,7 @@ private long wdwTimeOut = 300L;
 		element(objLogin.txtNumDocumento).sendKeys(dniUser);
 		
 		try {
-//			((HidesKeyboard) appiumDriver()).hideKeyboard();
+			((HidesKeyboard) appiumDriver()).hideKeyboard();
 		} catch (Exception e) {
 			
 		}
@@ -58,7 +58,7 @@ private long wdwTimeOut = 300L;
 		element(objLogin.txtPassword).click();
 		element(objLogin.txtPassword).sendKeys(passUser);
 		try {
-//			((HidesKeyboard) appiumDriver()).hideKeyboard();
+			((HidesKeyboard) appiumDriver()).hideKeyboard();
 		} catch (Exception e) {
 			
 		}
@@ -80,5 +80,64 @@ private long wdwTimeOut = 300L;
 		element(objLogin.btnOlvideContra).click();
 		
 	}
+
+	public String getMensajeActualizar() {
+		// TODO Auto-generated method stub
+		util.esperarElemento(4, objLogin.lblActualizarVersion);
+		
+		return objLogin.lblActualizarVersion.getText();
+	}
+
+	public void seleccMasTarde() {
+		// TODO Auto-generated method stub
+		element(objLogin.btnMasTarde).click();
+	}
+
+	public void muestraLogin() {
+		util.esperarElemento(4, objLogin.btnIngresarSesion);
+		
+	}
+
+	public void muestraOpcionActualizar() {
+		// TODO Auto-generated method stub
+		util.esperarElemento(4, objLogin.btnActualizar);
+	}
+
+	public boolean noMostrarOpcionMasTarde() {
+		// TODO Auto-generated method stub
+		System.out.println("Pasa");
+		
+		try {
+			
+			if(objLogin.btnMasTarde.isEnabled())
+				return true;
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return false;
+		
+	}
 	
+	public boolean noMuestraLogin() {
+		// TODO Auto-generated method stub
+		boolean result = false;
+		System.out.println("Pasa");
+		util.esperarElemento(1, objLogin.btnIngresarSesion);
+		try {
+			
+			if(objLogin.btnIngresarSesion.isEnabled()) {
+				result = true;
+				return result;
+			}
+				
+		}catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+			
+		}
+		
+		
+			return result;
+	}
 }

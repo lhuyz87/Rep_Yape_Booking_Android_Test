@@ -4,15 +4,15 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>auto.def</groupId>
-	<artifactId>AppNativa-auto-mobile-test-v1</artifactId>
+	<artifactId>CanalApp-Auto-Android-test-v1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>AppNativa-auto-mobile-test-v1</name>
+	<name>CanalApp-Auto-Android-test-v1</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
 	<properties>
-		<serenity.version>3.3.2</serenity.version>
+		<serenity.version>3.2.4</serenity.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<encoding>UTF-8</encoding>
 		<tags></tags>
@@ -20,7 +20,6 @@
 		<webdriver.base.url></webdriver.base.url>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<browserstack.local.version>1.0.3</browserstack.local.version>
 	</properties>
 
 	<repositories>
@@ -32,6 +31,11 @@
 			<name>bintray</name>
 			<url>https://jcenter.bintray.com</url>
 		</repository>
+		<repository>
+	      		<id>rimac-nexus</id>
+	      		<name>maven-public</name>
+	      		<url>http://172.29.113.232:10002/repository/maven-public</url>
+	    	</repository>
 
 	</repositories>
 
@@ -67,11 +71,13 @@
 			<artifactId>serenity-ensure</artifactId>
 			<version>${serenity.version}</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>io.appium</groupId>
 			<artifactId>java-client</artifactId>
 			<version>8.1.1</version>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
@@ -110,51 +116,21 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.6.1</version>
 		</dependency>
-		<dependency>
-            <groupId>com.browserstack</groupId>
-            <artifactId>browserstack-local-java</artifactId>
-            <version>${browserstack.local.version}</version>
+         <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
-		<dependency>
-		    <groupId>org.seleniumhq.selenium</groupId>
-		    <artifactId>selenium-remote-driver</artifactId>
-		    <version>4.6.0</version>
+		 <dependency>
+			  <groupId>auto.util</groupId>
+			  <artifactId>utilitarios-auto-gap-v1</artifactId>
+			  <version>1.1</version>
 		</dependency>
-
 	</dependencies>
 
 	<profiles>
 		<profile>
-			<id>Android</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<version>3.0.0-M5</version>
-						<configuration>
-								<includes>
-								<include>**/**Rimac**.*</include>
-							</includes>
-							<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
-						</configuration>
-						<dependencies>
-							<dependency>
-								<groupId>org.apache.maven.surefire</groupId>
-								<artifactId>surefire-junit-platform</artifactId>
-								<version>3.0.0-M5</version>
-							</dependency>
-						</dependencies>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>iOS</id>
+			<id>verMinRequerida</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
@@ -166,14 +142,13 @@
 						<version>3.0.0-M5</version>
 						<configuration>
 							<systemPropertyVariables>
-								<appiumUdid>${v_appiumUdidIOS}</appiumUdid>
-								<appiumXcodeOrgId>${v_appiumXcodeOrgId}</appiumXcodeOrgId>
-								<appiumXcodeSigningId>${v_appiumXcodeSigningId}</appiumXcodeSigningId>
+								<appPath>${v_appPathMinRequerida}</appPath>
+								<noReset>false</noReset>
+								<fullReset>true</fullReset>
 							</systemPropertyVariables>
 							<includes>
 								<include>**/**Rimac*.*</include>
 							</includes>
-							<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
 						</configuration>
 						<dependencies>
 							<dependency>
@@ -186,6 +161,40 @@
 				</plugins>
 			</build>
 		</profile>
+
+		<profile>
+			<id>verMinRecomendada</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.0.0-M5</version>
+						<configuration>
+							<systemPropertyVariables>
+								<appPath>${v_appPathMinRecomendada}</appPath>
+								<noReset>false</noReset>
+								<fullReset>true</fullReset>
+							</systemPropertyVariables>
+							<includes>
+								<include>**/**Rimac*.*</include>
+							</includes>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.maven.surefire</groupId>
+								<artifactId>surefire-junit-platform</artifactId>
+								<version>3.0.0-M5</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
 	</profiles>
 
 	<build>
@@ -206,7 +215,7 @@
 				<version>3.0.0-M5</version>
 				<configuration>
 					<includes>
-						<include>**/**Rimac.java</include>
+						<include>**/*Rimac.java</include>
 					</includes>
 					<systemPropertyVariables>
 						<webdriver.base.url>${webdriver.base.url}</webdriver.base.url>

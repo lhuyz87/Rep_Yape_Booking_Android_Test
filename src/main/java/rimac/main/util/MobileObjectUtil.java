@@ -2,23 +2,23 @@
 package rimac.main.util;
 
 import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
+
+
 import java.awt.event.KeyEvent;
 import java.time.Duration;
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
+
 import org.openqa.selenium.Point;
 import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
@@ -26,22 +26,17 @@ import org.openqa.selenium.interactions.PointerInput.Kind;
 import org.openqa.selenium.interactions.PointerInput.MouseButton;
 import org.openqa.selenium.interactions.PointerInput.Origin;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.collect.ImmutableList;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.TouchAction;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.pagefactory.AndroidBy;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.WebElementFacade;
+
 import rimac.main.util.MobileObjectUtil;
 
 import static java.time.Duration.ofMillis;
@@ -102,7 +97,7 @@ public class MobileObjectUtil {
     
     
 	public void seleniumMobileClick(AndroidDriver androidDriver, final String xpath, int pos){
-        By by = MobileBy.id(xpath);
+        By by = AppiumBy.id(xpath);
         List<WebElement> lista = androidDriver.findElements(by);
 
 		if (!lista.isEmpty()) {
@@ -116,7 +111,7 @@ public class MobileObjectUtil {
     }
 	
 	public void seleniumMobileiOSClick(IOSDriver iosDriver, final String xpath, int pos){
-        By by = MobileBy.id(xpath);
+        By by = AppiumBy.id(xpath);
         List<WebElement> lista = iosDriver.findElements(by);
 
 		if (!lista.isEmpty()) {

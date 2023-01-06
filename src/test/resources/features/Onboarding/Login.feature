@@ -24,3 +24,30 @@ Feature: Login APP Nativa
       | tipoID | id       | fechaNacimiento | seguros | Password |
       | DNI    | 10667872 | 08/01/1978     | SOAT    | Rimac    |
     ## | DNI    | 10667872 | 08/01/1978      | SOAT    | Rimac    |
+    
+    
+    
+    @ValidaVersionMinimaRequerida
+  Scenario Outline: Valida versión mínima requerida
+    Given Se ingresa a la aplicación con una versión menor a la minima requerida    
+    Then se debe mostar mensaje informativo "Mundo Rimac necesita actualizarse"
+    And mostrar solo opción actualizar
+
+
+  @ValidaVersionMinimaRecomendada
+  Scenario: Valida versión mínima recomendada
+    Given Se ingresa a la aplicación con una versión menor a la minima recomendada
+    Then  se debe mostar mensaje informativo "Mundo Rimac necesita actualizarse"
+    And seleccionamos opción "Mas tarde"
+    And debe permitir el ingreso a la aplicación
+    
+   @ValidaModoDesarrollo
+  Scenario: Valida que la aplicación no pueda iniciar al contar con modo desarrollador en el dispositivo móvil
+    Given Se ingresa a la aplicación con un dispositivo con modo desarrollador activado
+  	Then  no debe permitir el ingreso al aplicativo y debe mostar mensaje informativo relacionado a "Desactivar modo desarrollador"
+
+    
+    
+    
+    
+    

@@ -19,7 +19,7 @@ import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
-import rimac.main.util.UtilDef;
+import rimac.main.util.UtilApp;
 import rimac.main.util.VariablesAppNativa;
 import rimac.main.screen.ScBuscadorDeClinicas;
 import rimac.main.object.ObjAlertas;
@@ -41,7 +41,7 @@ private long wdwTimeOut = 300L;
 	// util
 	protected MobileObjectUtil mobileObjectUtil = MobileObjectUtil.getInstancia();
 	public static Logger looger = Logger.getLogger(ScBuscadorDeClinicas.class.getName());
-	UtilDef util = new UtilDef();
+	UtilApp util = new UtilApp();
 	public long getWdwTimeOut() {
 		return wdwTimeOut;
 	}

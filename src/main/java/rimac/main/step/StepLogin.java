@@ -10,6 +10,7 @@ import rimac.main.screen.ScValidaIdentid;
 import rimac.main.screen.ScComoRecibCodVeri;
 import rimac.main.screen.ScPregunDeVerifi;
 import rimac.main.screen.ScTuContraCambiaConExito;
+import rimac.main.util.UtilApp;
 
 public class StepLogin {
 	
@@ -31,6 +32,10 @@ public class StepLogin {
 	
 	@Steps
 	ScTuContraCambiaConExito scTuContraCambiaConExito;
+	
+	
+	UtilApp utilApp = new UtilApp();
+	
 	
 	public void realiza_el_login_con_credenciales(DataTable userCredentials) {
 			List<Map<String, String>> user = userCredentials.asMaps(String.class, String.class);
@@ -70,6 +75,40 @@ public class StepLogin {
 
 	public String obtenerTituloMensaje() {
 		return scTuContraCambiaConExito.getTituloMensaje();
+	}
+
+	public String obtenerTituloMensajeActualizar() {
+		// TODO Auto-generated method stub
+		return scLogin.getMensajeActualizar();
+	}
+
+	public void saltarActualizacion() {
+		// TODO Auto-generated method stub
+		
+		scLogin.seleccMasTarde();
+		
+	}
+
+	public void validarIngresoCanalApp() {
+		// TODO Auto-generated method stub
+		scLogin.muestraLogin();
+	}
+
+	public boolean mostrarSoloActualizar() {
+		// TODO Auto-generated method stub
+		scLogin.muestraOpcionActualizar();
+		return scLogin.noMostrarOpcionMasTarde();
+	}
+
+	public void activarRootModoDesarrollo(String host, String path, String body, String header, String complemento, String parameter) {
+		// TODO Auto-generated method stub
+		String response =utilApp.ejecutarServicioPost(host, path, body, header, complemento, null).toString();
+		System.out.println("***"  + response);
+	}
+
+	public boolean validarNoIngresoConMensaje(String opcion) {
+		return scLogin.noMuestraLogin();
+		
 	}
 	
 	

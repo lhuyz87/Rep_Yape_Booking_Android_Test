@@ -13,7 +13,7 @@ import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.pages.PageObject;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
-import rimac.main.util.UtilDef;
+import rimac.main.util.UtilApp;
 import rimac.main.util.VariablesAppNativa;
 import rimac.main.object.ObjLogin;
 import rimac.main.object.ObjComencemosReembolsoSalud;
@@ -32,7 +32,7 @@ private long wdwTimeOut = 300L;
 		return wdwTimeOut;
 	}
 	
-	UtilDef util = new UtilDef();
+	UtilApp util = new UtilApp();
 	AppiumDriver driver;
 	
 	public void llenarDatosTramitesSinBeneficiario(String prodContratante, String lugarAtencion, String fechaAtencion, String tipoCobert) {
@@ -47,6 +47,7 @@ private long wdwTimeOut = 300L;
 		util.esperarSegundos(1);
 		element(comencemosReembolsoSaludObject.selFechaAtencion).click();
 //		element(comencemosReembolsoSaludObject.diaAtencion(appiumDriver(), fechaAtencion.substring(0,2))).click();
+		util.esperarActivoClick(3, comencemosReembolsoSaludObject.selAceptarDiaAtencion);
 		element(comencemosReembolsoSaludObject.selAceptarDiaAtencion).click();
 		util.esperarElemento(5, comencemosReembolsoSaludObject.selTipoCobertura);
 		element(comencemosReembolsoSaludObject.selTipoCobertura).click();

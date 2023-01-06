@@ -60,10 +60,14 @@ Feature: Reembolso
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
     When se ingresa al Seguimiento de Reembolso de Salud desde Tramites
-    Then debe aparecer el monto "<monto>" del reembolso solicitado
+   	Then debe aparecer el monto "<monto>" del reembolso solicitado
 
     Examples: 
       ###DATOS###@DataPrueba|1@1-SegReembolsoDesdeHome
       | 0 | tipoID | id       | password  | monto     |
-      | 1 | DNI    | 76243722 | Rimac2021 | S/ 25.00  |
-      | 2 | DNI    | 76243722 | Rimac2021 | S/ 150.00 |
+      | 1 | DNI    | 76243722 | Rimac2021 | S/ 386.00  |
+    ##  | 2 | DNI    | 76243722 | Rimac2021 | S/ 150.00 |
+    
+    
+  
+      

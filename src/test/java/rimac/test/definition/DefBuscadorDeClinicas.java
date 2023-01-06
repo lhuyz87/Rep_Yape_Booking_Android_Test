@@ -1,4 +1,4 @@
-package rimac.main.definition;
+package rimac.test.definition;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;

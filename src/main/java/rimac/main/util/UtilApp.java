@@ -1,43 +1,50 @@
 package rimac.main.util;
 
 import java.util.Arrays;
-import java.util.HashMap;
+
 import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.io.filefilter.WildcardFileFilter;
-import org.openqa.selenium.By.ByXPath;
+import org.json.JSONObject;
+
 import org.openqa.selenium.By.ById;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.InvalidSelectorException;
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.RemoteWebElement;
 
-import static io.appium.java_client.touch.TapOptions.tapOptions;
+
+
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
-import static io.appium.java_client.touch.offset.ElementOption.element;
+
 import static io.appium.java_client.touch.offset.PointOption.point;
 
-import com.gargoylesoftware.htmlunit.WebConsole.Logger;
+import io.appium.java_client.AppiumBy;
+
+//import com.gargoylesoftware.htmlunit.WebConsole.Logger;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
+
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 //import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
 import net.serenitybdd.core.Serenity;
+import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.findby.By;
-import net.thucydides.core.environment.SystemEnvironmentVariables;
+//import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
-import rimac.main.util.UtilDef;
+import net.thucydides.core.util.SystemEnvironmentVariables;
+import rimac.main.util.UtilApp;
 import static java.time.Duration.ofMillis;
 import static org.openqa.selenium.interactions.PointerInput.Origin.viewport;
 import static org.openqa.selenium.interactions.PointerInput.Kind.TOUCH;
@@ -49,21 +56,23 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class UtilDef  extends BaseDriver{
+public class UtilApp  extends BaseDriver{
 
 	public static Properties p;
-	private static UtilDef obj = null;
+	private static UtilApp obj = null;
 	
 	private final static PointerInput FINGER = new PointerInput(TOUCH, "finger");
 
-	public static UtilDef getInstancia() {
+	
+	
+	public static UtilApp getInstancia() {
 		instanciar();
 		return obj;
 	}
 
 	private synchronized static void instanciar() {
 		if (obj == null) {
-			obj = new UtilDef();
+			obj = new UtilApp();
 		}
 	}
 
@@ -205,7 +214,7 @@ public class UtilDef  extends BaseDriver{
 //	}
 	
 	public void scroll() {
-		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollForward()"));
+		appiumDriver().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollForward()"));
 	}
 	
 	
@@ -213,7 +222,7 @@ public class UtilDef  extends BaseDriver{
 		
 
 		try {
-		    driver.findElement(MobileBy.AndroidUIAutomator(
+		    driver.findElement(AppiumBy.androidUIAutomator(
 		            "new UiScrollable(new UiSelector().scrollable(true)).scrollForward()"));
 		} catch (InvalidSelectorException e) {
 			
@@ -226,7 +235,7 @@ public class UtilDef  extends BaseDriver{
 		
 
 		try {
-		    driver.findElement(MobileBy.AndroidUIAutomator(
+		    driver.findElement(AppiumBy.androidUIAutomator(
 		            "new UiScrollable(new UiSelector().scrollable(true)).scrollBackward()"));
 		} catch (InvalidSelectorException e) {
 			
@@ -239,7 +248,7 @@ public class UtilDef  extends BaseDriver{
 	public void scrollToElemento(String text) {
 		String auxiliar = "\"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"" + text +"\").instance(0))\"";
 		System.out.println("********"  + auxiliar);
-		appiumDriver().findElement(MobileBy.AndroidUIAutomator(auxiliar));
+		appiumDriver().findElement(AppiumBy.androidUIAutomator(auxiliar));
 //		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Empezar reembolso\").instance(0))"));
 //		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Empezar reembolso\").instance(0))"));
 
@@ -338,7 +347,7 @@ public class UtilDef  extends BaseDriver{
 	public void scrollUno(WebDriver driver, String elementText) {
 		
 		try {
-			driver.findElement(MobileBy.AndroidUIAutomator(
+			driver.findElement(AppiumBy.androidUIAutomator(
 	                "new UiScrollable(new UiSelector().scrollable(true).instance(0))" +
 	                        ".scrollIntoView(new UiSelector()" +
 	                        ".textMatches(\"" + elementText + "\").instance(0))"));
@@ -351,7 +360,7 @@ public class UtilDef  extends BaseDriver{
 	
 	public void scrolldos(WebDriver driver) {
 		try {
-		    driver.findElement(MobileBy.AndroidUIAutomator(
+		    driver.findElement(AppiumBy.androidUIAutomator(
 		            "new UiScrollable(new UiSelector().scrollable(true)).scrollBackward()"));
 		} catch (InvalidSelectorException e) {
 			
@@ -572,6 +581,27 @@ public class UtilDef  extends BaseDriver{
 			return mesNumero;
 			
 		}
+		
+		public static Response ejecutarServicioPost(String uri, String path, String body,String header, String complemento, String parameters) {
+//	        String jsonBody = getBody(body);
+	        if(complemento.isEmpty()==false) {
+	        	complemento="/" + complemento;
+	        }
+	        RequestSpecification requestSpecification = new RestAssuredConfiguration().getRequestSpecification(uri, path, 0);
+	        requestSpecification.header("Content-Type", "application/json").header("deviceos",header);
+//	        RequestSpecification restAssuredRequest = SerenityRest.given().contentType("application/json").accept("application/json").header("Content-Type", "application/json");
+	        
+	       
+	        
+//	       Response response = new RestAssuredConfiguration().getResponseTotalPost(requestSpecification.body(jsonBody), complemento);
+	       Response response = new RestAssuredConfiguration().getResponseTotalPost(requestSpecification, complemento);
+	        return response;
+	    }
+		
+		public static String getBody(String body) {
+	        JSONObject jsonParams = new JSONObject(body);
+	        return jsonParams.toString();
+	    }
 		
 		
 	

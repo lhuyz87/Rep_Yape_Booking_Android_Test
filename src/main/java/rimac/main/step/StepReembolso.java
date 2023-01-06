@@ -14,6 +14,7 @@ import rimac.main.screen.ScAgregarNuevoDocumento;
 //import rimac.main.screen.ScComentariosAdicionales;
 //import rimac.main.screen.ScCompletaTusDatos;
 import rimac.main.screen.ScConfirmarDatosReembolsoSalud;
+import rimac.main.screen.ScConsultaReembolso;
 //import rimac.main.screen.ScDocumentosRequeridos;
 //import rimac.main.screen.ScEligeTuCuentaAbono;
 import rimac.main.screen.ScHome;
@@ -86,7 +87,8 @@ public class StepReembolso {
 	ScCuentaDeAbono scCuentaDeAbono;
 	@Steps
 	ScSolicitudReembolsoRecibida scSolicitudReembolsoRecibida;
-	
+	@Steps
+	ScConsultaReembolso scConsultaReembolso;
 
 	
 	public void selReembolsoSaludTramite() {
@@ -193,6 +195,25 @@ public class StepReembolso {
 	
 	public void continuPasoDos() {
 		scComencemosReembolsoSalud.continuar();
+	}
+
+
+
+	public void selecSeguiReemSalud() {
+		schome.cerrarAlertas(15);
+		schome.seleccionarOpcionPrincipal("Tramites");
+		scTusTramites.seleccionarSegui();
+		
+	}
+
+
+
+	public String validarMontoReem(String monto) {
+		
+		String montoEncontrado = scConsultaReembolso.obtenerMonto(monto);
+		
+		
+		return montoEncontrado;
 	}
 	
 
