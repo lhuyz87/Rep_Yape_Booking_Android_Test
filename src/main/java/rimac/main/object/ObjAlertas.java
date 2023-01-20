@@ -61,14 +61,14 @@ public class ObjAlertas extends BaseDriver{
 	
 	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/dialog_btn_negative")
 	public WebElement btnActualLuego;
-	
-	
-	
-	
-	
 
-	
-	
-	
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/materialBtn")
+	public WebElement btnEntendidoError;
+
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/dialog_close")
+	public WebElement btnCerrarModal;
+
+	@AndroidFindBy(xpath ="//*[@text='Ya tienes un servicio en proceso']")
+	public WebElement mdlServicioEnProceso;
 	
 }

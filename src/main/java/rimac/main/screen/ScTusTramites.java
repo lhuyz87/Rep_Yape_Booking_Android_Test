@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import net.serenitybdd.core.Serenity;
 import org.apache.poi.ss.formula.ThreeDEval;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,6 +18,7 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.PushesFiles;
 import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.pages.PageObject;
+import rimac.main.object.ObjAlertas;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilApp;
@@ -24,12 +26,15 @@ import rimac.main.util.VariablesAppNativa;
 import rimac.main.object.ObjLogin;
 import rimac.main.object.ObjTramites;
 
+import static org.junit.Assert.assertFalse;
+
 
 public class ScTusTramites extends BaseDriver{
 
 private long wdwTimeOut = 300L;
 	
 	protected ObjTramites tramitesObject = ObjTramites.getInstancia();
+	protected ObjAlertas objAlertas = ObjAlertas.getInstancia();
 
 	// util
 	public static Logger looger = Logger.getLogger(ScTusTramites.class.getName());
@@ -117,6 +122,30 @@ private long wdwTimeOut = 300L;
 		element(tramitesObject.btnSegReemSalud).click();
 		util.esperarSegundos(1);
 		
+	}
+
+	public void seleccionaAsistenciaVehicular() {
+		try {
+			util.esperarElementoClick(5,tramitesObject.lblTramites);
+			int contador=0;
+			while(element(tramitesObject.btnAsisVehiculares).isCurrentlyVisible()==false && contador<7) {
+				util.mobileSwipeScreenAndroid();
+				contador++;
+			}
+			util.esperarElementoClick(2,tramitesObject.btnAsisVehiculares);
+			Serenity.takeScreenshot();
+			element(tramitesObject.btnAsisVehiculares).click();
+			util.esperarSegundos(2);
+			assertFalse(element(objAlertas.btnCerrarModal).isCurrentlyVisible());
+		}
+		catch (AssertionError e) {
+			Serenity.takeScreenshot();
+			throw new IllegalAccessError("Error en el aplicativo, Mensaje: Ocurrió un error inesperado");
+		}
+		catch(Exception e){
+			Serenity.takeScreenshot();
+		}
+
 	}
 	
 }
