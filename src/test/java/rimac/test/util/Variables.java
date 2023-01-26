@@ -1,5 +1,5 @@
 package rimac.test.util;
-import rimac.util.GeneralUtil;
+
 public class Variables {
 
 	// CB
@@ -48,10 +48,10 @@ public class Variables {
 	//Data de prueba local
 	public static final String file_local = RutaLocal + DataPrueba;
 	
-	
+	/*
 	public static final String dominioDP =GeneralUtil.getInstancia().getVarEnvPro("dominioDP"); 
 	public static final String usuarioDP = GeneralUtil.getInstancia().getVarEnvPro("usuarioDP");  
-	public static final String passwordDP = GeneralUtil.getInstancia().getVarEnvPro("passwordDP"); 
+	public static final String passwordDP = GeneralUtil.getInstancia().getVarEnvPro("passwordDP"); */
 
 	
 	

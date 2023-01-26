@@ -75,10 +75,10 @@ public class ScHome extends BaseDriver{
 			break;
 			
 		case "Tramites":
-			
 			util.esperarSegundos(8);
 			util.esperarElemento(10, objectPrincipal.btnTramite);
 			element(objectPrincipal.btnTramite).click();
+			util.esperarSegundos(2);
 			break;
 		
 		case "Tienda":

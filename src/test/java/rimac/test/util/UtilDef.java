@@ -1,5 +1,5 @@
 package rimac.test.util;
-import rimac.util.ExcelUtil;
+
 
 import java.io.File;
 import java.io.FileReader;
@@ -34,7 +34,7 @@ public class UtilDef {
 			obj = new UtilDef();
 		}
 	}
-	
+	/*
 	public String verificarruta() {
 		ExcelUtil excelUtil = new ExcelUtil();
 		String ruta="";
@@ -48,7 +48,7 @@ public class UtilDef {
 	    	 }
 		return ruta;	
 	}
-	
+
 	public String[] verificarRutaOrigenDestino() {
 		ExcelUtil excelUtil = new ExcelUtil();
 		String rutaOrigen="";
@@ -70,7 +70,7 @@ public class UtilDef {
 		    rutas[1]=rutaDestino;
 	    	 }
 		return rutas;	
-	}
+	}*/
 	
 	public static double roundToDecimals(double d, int c)  
 	{   
@@ -99,7 +99,7 @@ public class UtilDef {
 		return resultado;
 	}
 	
-
+/*
 	public void crearArchivoReporte() throws IOException{
 		String rutas[] = verificarRutaOrigenDestino();
 		String ruta = rutas[1] + variables.DataPrueba;
@@ -120,7 +120,7 @@ public class UtilDef {
 		}
 		
 		
-	}
+	}*/
 	
 
 	

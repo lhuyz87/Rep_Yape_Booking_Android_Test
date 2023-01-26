@@ -5,6 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.json.JSONObject;
 
@@ -212,7 +216,8 @@ public class UtilApp  extends BaseDriver{
 //		scrollObject.put("text", elementName);
 //		driver.executeScript("mobile: scrollTo", scrollObject);
 //	}
-	
+
+
 	public void scroll() {
 		appiumDriver().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollForward()"));
 	}
@@ -602,8 +607,26 @@ public class UtilApp  extends BaseDriver{
 	        JSONObject jsonParams = new JSONObject(body);
 	        return jsonParams.toString();
 	    }
-		
-		
-	
-	
+
+		public static void pressEnter(AndroidDriver driver){
+			driver.pressKey(new KeyEvent(AndroidKey.ENTER));
+		}
+
+		public void esperarMinutos(int minutos) {
+
+			try {
+				int contador=0;
+				while(contador<minutos){
+					Thread.sleep(60*1000);
+					System.out.println("Espera en minutos: "+(contador+1));
+					contador++;
+				}
+
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+
 }

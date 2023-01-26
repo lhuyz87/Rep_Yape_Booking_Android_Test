@@ -15,8 +15,7 @@ import com.ibm.icu.impl.InvalidFormatException;
 
 import net.thucydides.core.annotations.Steps;
 import rimac.test.inout.LeerDataDriven;
-import rimac.util.Constantes;
-import rimac.util.ExcelUtil;
+
 
 public class ExcelUtilPropio extends ExcelUtil {
 	
@@ -91,7 +90,7 @@ public class ExcelUtilPropio extends ExcelUtil {
 		return placa;
 	}
 	
-		
+		/*
 	public void copiarPlantillas() {
 		System.out.println("Entrando a Copiar Plantilla...");
 		String rutas[] = util.verificarRutaOrigenDestino();
@@ -119,7 +118,7 @@ public class ExcelUtilPropio extends ExcelUtil {
 			copiarArchivo(archivos[i], rutas[0], rutas[1]);
 		
 		}
-	}
+	}*/
 
 	private void copiarArchivo(String archivo, String rutaOrigen, String rutaDestino) {
 		Path origenPath = FileSystems.getDefault().getPath(rutaOrigen + archivo);

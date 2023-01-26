@@ -22,7 +22,9 @@ public class ConstantesDummy {
 	public static final String provinciaAncash = "Asuncion";
 	public static final String distritoAncash = "Chacas";
 	public static final String direccionTest = "calle";
-	
+
+	public static final String nombre = "TestName";
+	public static final String celular = "999888777";
 
 
 }

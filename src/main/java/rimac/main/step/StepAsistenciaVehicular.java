@@ -1,10 +1,7 @@
 package rimac.main.step;
 
 import net.thucydides.core.annotations.Steps;
-import rimac.main.screen.ScActivaTuSeguro;
-import rimac.main.screen.ScAsistenciaVehicular;
-import rimac.main.screen.ScHome;
-import rimac.main.screen.ScTusTramites;
+import rimac.main.screen.*;
 import rimac.main.util.ConstantesDummy;
 
 public class StepAsistenciaVehicular {
@@ -12,13 +9,13 @@ public class StepAsistenciaVehicular {
     @Steps
     ScHome scHome;
     @Steps
-    ScActivaTuSeguro scActivaTuSeguro;
+    ScAlertas scAlertas;
     @Steps
     ScTusTramites scTusTramites;
     @Steps
     ScAsistenciaVehicular scAsistenciaVehicular;
-    public void se_ingresa_a_asistencia_vehicular_desde_tramites() {
-        scHome.cerrarAlertas(15);
+    public void se_ingresa_a_asistencia_vehicular_desde_tramites() throws Exception {
+        scAlertas.omitirAlertas(15);
         scHome.seleccionarOpcionPrincipal("Tramites");
         scTusTramites.seleccionaAsistenciaVehicular();
     }
@@ -49,11 +46,17 @@ public class StepAsistenciaVehicular {
         scAsistenciaVehicular.confirmar_solicitud();
     }
 
-    public void validar_solicitud_enviada() throws InterruptedException {
+    public void validar_solicitud_enviada() {
         scAsistenciaVehicular.validacion_mensaje_confirmacion();
     }
-    public void validar_solicitud_home() throws InterruptedException {
-        scActivaTuSeguro.omitirModalActivatuSeguro();
+    public void validar_solicitud_home() throws Exception {
+        scAlertas.omitirAlertas(10);
         scAsistenciaVehicular.validacion_solicitud_home();
     }
+
+
+
+
+
+
 }

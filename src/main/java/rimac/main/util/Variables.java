@@ -1,6 +1,15 @@
 package rimac.main.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Variables {
+
+	public static final String nombreDominio = UtilDef.getInstancia().getVarEnvPro("nombreDominio");
+	public static final String userDominio = UtilDef.getInstancia().getVarEnvPro("userDominio");
+	public static final String passDominio = UtilDef.getInstancia().getVarEnvPro("passDominio");
+
+	public static final String UsarRemota = "NO";
 
 	// CB
 	public static final String cbUser = "";
@@ -15,6 +24,18 @@ public class Variables {
 	public static final String h01 = "01-RegistrarAtencion";
 	
 	public static String tag="";
+
+
+	public static final String RutaLocal ="src/test/resources/dataDriven/";
+	public static final String RutaRemota = "/Users/christianmaurysolis/git/CanalApp-auto-iOS-test-v1/src/test/resources/dataDriven/Plantilla/";
+	public static final String DataPrueba = "DataPrueba.xlsx";
+
+	public static final String file_remota = RutaRemota + DataPrueba;
+	//Data de prueba local
+	public static final String file_local = RutaLocal + DataPrueba;
+
+	public static int numeroColumnas = 0;
+	public static List<String> contador=new ArrayList<String>();
 	
 //	public String v_codProyectoSquad = "";
 //	public String v_codEscenario = "";

@@ -34,7 +34,7 @@ public class LoginDefinition {
 //	}
 	
 	@Given("realiza el login con credenciales")
-	public void realiza_el_login_con_credenciales(DataTable userCredentials) {
+	public void  realiza_el_login_con_credenciales(DataTable userCredentials) {
 		stepLogin.realiza_el_login_con_credenciales(userCredentials);
 		
 	}

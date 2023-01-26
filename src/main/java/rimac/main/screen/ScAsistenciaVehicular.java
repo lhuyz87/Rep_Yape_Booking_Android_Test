@@ -2,22 +2,20 @@ package rimac.main.screen;
 
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.NoSuchElementException;
-import rimac.main.object.ObjAlertas;
-import rimac.main.object.ObjAsistenciaVehicular;
-import rimac.main.object.ObjCambioLlanta;
-import rimac.main.object.ObjCommons;
+import rimac.main.object.*;
 import rimac.main.util.BaseDriver;
-
-import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilApp;
 
 import java.util.logging.Logger;
 
 import static org.junit.Assert.*;
 
-public class ScAsistenciaVehicular extends BaseDriver {
+public class  ScAsistenciaVehicular extends BaseDriver {
 
     protected ObjAsistenciaVehicular objAsistenciaVehicular = ObjAsistenciaVehicular.getInstancia();
+
+    protected ObjLogin objLogin = ObjLogin.getInstancia();
+    protected ObjTuSesionExpiro objTuSesionExpiro = ObjTuSesionExpiro.getInstancia();
     protected ObjCommons objCommons = ObjCommons.getInstancia();
     protected ObjAlertas objAlertas=ObjAlertas.getInstancia();
     protected ObjCambioLlanta objCambioLlanta = ObjCambioLlanta.getInstancia();
@@ -30,7 +28,7 @@ public class ScAsistenciaVehicular extends BaseDriver {
     }
     public void ingresar_Datos_de_Contacto(String nombre, String celular){
 
-        util.esperarElemento(20,objAsistenciaVehicular.txtNombre);
+        util.esperarElemento(25,objAsistenciaVehicular.txtNombre);
         util.esperarSegundos(1);
         element(objAsistenciaVehicular.txtNombre).clear();
         element(objAsistenciaVehicular.txtNombre).sendKeys(nombre);
@@ -51,9 +49,10 @@ public class ScAsistenciaVehicular extends BaseDriver {
 
     public void confirmar_Ubicacion(){
 
-        util.esperarElemento(15,objAsistenciaVehicular.btnContinuar);
+        util.esperarElemento(10,objAsistenciaVehicular.btnContinuar);
         element(objAsistenciaVehicular.btnContinuar).click();
         Serenity.takeScreenshot();
+        util.esperarElemento(10,objAsistenciaVehicular.btnOmitir);
         element(objAsistenciaVehicular.btnOmitir).click();
 
     }
@@ -62,7 +61,7 @@ public class ScAsistenciaVehicular extends BaseDriver {
 
         int contador=0;
 
-        while(element(objAsistenciaVehicular.btnAuxilioMecanico).isCurrentlyVisible()==false && contador<7) {
+        while(element(objAsistenciaVehicular.btnAuxilioMecanico).isCurrentlyVisible()==false && contador<10) {
             util.mobileSwipeScreenAndroid();
             contador++;
         }
@@ -75,15 +74,17 @@ public class ScAsistenciaVehicular extends BaseDriver {
 
     public void selecciona_problema_vehiculo(String problema){
         util.esperarElemento(25,objAsistenciaVehicular.tit_problemas);
+        util.esperarSegundos(2);
+        util.esperarElemento(15,objAsistenciaVehicular.opcProblema("Batería baja"));
         int contador=0;
-            while(element(objAsistenciaVehicular.opcProblema(problema)).isCurrentlyVisible()==false && contador<5) {
+            while(element(objAsistenciaVehicular.opcProblema(problema)).isCurrentlyVisible()==false && contador<10) {
                 util.mobileSwipeScreenAndroid();
                 contador++;
             }
-            util.esperarActivoClick(15, objAsistenciaVehicular.opcProblema(problema));
+            util.esperarElemento(20, objAsistenciaVehicular.opcProblema(problema));
             element(objAsistenciaVehicular.opcProblema(problema)).click();
         Serenity.takeScreenshot();
-        util.esperarActivoClick(10,objAsistenciaVehicular.btnContinuar);
+        util.esperarElemento(10,objAsistenciaVehicular.btnContinuar);
         element(objAsistenciaVehicular.btnContinuar).click();
         if(problema.equals("Cambio de llanta")){
             element(objCambioLlanta.opcSiTengoRepuesto).click();
@@ -97,7 +98,7 @@ public class ScAsistenciaVehicular extends BaseDriver {
 
         int contador=0;
 
-        while(element(objAsistenciaVehicular.chk_terminos).isCurrentlyVisible()==false && contador<4) {
+        while(element(objAsistenciaVehicular.chk_terminos).isCurrentlyVisible()==false && contador<10) {
             util.mobileSwipeScreenAndroid();
             contador++;
         }
@@ -109,13 +110,27 @@ public class ScAsistenciaVehicular extends BaseDriver {
     }
 
     public void validacion_mensaje_confirmacion(){
-
         try{
+        int intentos=0;
+            while(element(objAsistenciaVehicular.msjSolicitudEnviada).isCurrentlyVisible()==false && intentos<30){
 
-            util.esperarElemento(10,objAsistenciaVehicular.msjSolicitudEnviada);
-            String mensaje = element(objAsistenciaVehicular.msjSolicitudEnviada).getText();
-            assertEquals(mensaje,"¡Solicitud enviada!");
-            Serenity.takeScreenshot();
+                if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){
+                    element(objCommons.btnCerrarmodal).click();
+                }
+                if(element(objAsistenciaVehicular.msjSolicitudEnviada).isCurrentlyVisible()){
+                    String mensaje = element(objAsistenciaVehicular.msjSolicitudEnviada).getText();
+                    assertEquals(mensaje,"¡Solicitud enviada!");
+                    Serenity.takeScreenshot();
+                    break;
+                }
+                System.out.println("contador mensaje " + intentos);
+                util.esperarSegundos(1);
+                intentos++;
+            }
+            if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){
+                element(objCommons.btnCerrarmodal).click();
+            }
+            element(objAsistenciaVehicular.btnIrAlInicio).click();
         }catch (NoSuchElementException ex){
             Serenity.takeScreenshot();
             if(element(objAlertas.mdlServicioEnProceso).isCurrentlyVisible()){
@@ -125,12 +140,6 @@ public class ScAsistenciaVehicular extends BaseDriver {
                Serenity.takeScreenshot();
                throw new IllegalAccessError("No se pudo enviar la solicitud");
         }
-        util.esperarSegundos(5);
-        if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){
-            element(objCommons.btnCerrarmodal).click();
-        }
-        util.esperarElemento(10,objAsistenciaVehicular.btnIrAlInicio);
-        element(objAsistenciaVehicular.btnIrAlInicio).click();
     }
 
     public void validacion_solicitud_home(){
@@ -139,4 +148,8 @@ public class ScAsistenciaVehicular extends BaseDriver {
         assertTrue(element(objAsistenciaVehicular.msjSolicitudAsistenciaHome(placaVehiculo)).isCurrentlyVisible());
         Serenity.takeScreenshot();
     }
+
+
+
+
 }

@@ -31,4 +31,10 @@ public class ObjCommons extends BaseDriver {
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/csatImageClose")
     public WebElement btnCerrarmodal;
 
+    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/csatTitle")
+    public WebElement btnCalificaApp;
+
+
+
+
 }

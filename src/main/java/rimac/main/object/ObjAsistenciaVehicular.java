@@ -72,4 +72,7 @@ public class ObjAsistenciaVehicular extends BaseDriver {
         return we_SolicitudAsistenciaHome;
     }
 
+    @AndroidFindBy(xpath= "//*[@text='¿Qué te pareció la experiencia solicitando Auxilio mecánico?']")
+    public WebElement mdlCalifaAuxilioMecanico;
+
 }

@@ -1,6 +1,6 @@
 import java.text.SimpleDateFormat
 
-currentBuild.displayName="Canal APP-Android-#"+currentBuild.number
+//currentBuild.displayName="Canal APP-Android-#"+currentBuild.number
 def defDateFormat = new SimpleDateFormat("yyyyMMddHHmm")
 def defDate = new Date()
 def defTimestamp = defDateFormat.format(defDate).toString()
@@ -54,8 +54,8 @@ pipeline {
         			script {
 	        			try {
 	        				//sh ("mvn verify package -P Rimac")
-					          bat ("mvn test -Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=${ESCENARIO} -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue=rimac.main.definition")  
-	        				bat ("mvn serenity:aggregate")
+					        sh ("mvn test -Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue=rimac")
+	        				sh ("mvn serenity:aggregate")
 	        				echo 'Ejecucion de pruebas sin errores...'
 	        			}
 	        			catch (ex) {
@@ -70,7 +70,7 @@ pipeline {
         	steps {
         		script {
                      try {
-                    	checkout scm
+                    	/*checkout scm
                     	props = readProperties  file:'serenity.properties'
 					    nombreProyecto= props['serenity.project.name']
 					    aux = "${WORKSPACE}\\serenity.properties"
@@ -89,7 +89,16 @@ pipeline {
 					    //echo "EL nombre de proyecto es $nombreProyecto2"
                     	bat ("echo ${defTimestamp}")
                     	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
-                        echo 'Reporte realizado con exito'
+                        echo 'Reporte realizado con exito'*/
+
+                        sh ("mvn serenity:aggregate")
+                        	        			echo 'Ejecucion de pruebas sin errores...'
+                                            	//bat ("echo ${WORKSPACE}")
+                                            	sh ("echo ${defTimestamp}")
+                                            	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
+                                            	//publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}/target/site/serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
+                                            	//publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}\\target\\site\\serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
+                                                echo 'Reporte realizado con exito'
                     }
 
                     catch (Exception e) {
@@ -99,7 +108,7 @@ pipeline {
                     }
                 }
             }
-            
+            /*
             post {                
                        always {                  
                          echo "Se envía correo de resultados"
@@ -110,7 +119,7 @@ pipeline {
                          
                          body: "${currentBuild.currentResult}: ${ESCENARIO}\nMore Info can be found here: \n ${env.BUILD_URL}Evidencias_20de_20Prueba/"                    
                         }
-               }       
+               }  */
         }
     }
 }
