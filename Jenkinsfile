@@ -44,7 +44,7 @@ pipeline {
         stage ('Build') {
             steps {
             	//echo "name_project=${name_project}"
-                bat ("mvn -X clean verify")
+                sh ("mvn -X clean verify")
             }
         }
         
