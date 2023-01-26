@@ -12,7 +12,7 @@ import rimac.main.util.UtilApp;
 
 @RunWith(RunPersonalizar.class)
 
-@CucumberOptions(features = "src/test/resources/features", tags =  "@AsistenciaVehicularAuxilioMecanico", glue = "rimac")
+//@CucumberOptions(features = "src/test/resources/features", tags =  "@AsistenciaVehicularAuxilioMecanico", glue = "rimac")
 //@CucumberOptions(features = "src/test/resources/features", tags =  "@TiempoInactividadModulo", glue = "rimac")
 
 public class RunRimac {
