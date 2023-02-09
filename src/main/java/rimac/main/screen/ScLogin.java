@@ -12,6 +12,7 @@ import io.appium.java_client.PushesFiles;
 import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
+import org.junit.Assert;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilApp;
@@ -20,6 +21,8 @@ import rimac.main.object.ObjLogin;
 import rimac.main.screen.ScLogin;
 import rimac.main.object.ObjAlertas;
 import rimac.main.object.ObjRegistrarHuella;
+
+import static org.junit.Assert.assertFalse;
 
 public class ScLogin extends BaseDriver{
 
@@ -39,6 +42,7 @@ private long wdwTimeOut = 300L;
 	}
 	
 	UtilApp util = new UtilApp();
+	protected MobileObjectUtil mobil = MobileObjectUtil.getInstancia();
 //	AppiumDriver driver;
 	
 	public void login(String dniUser, String passUser) {
@@ -64,9 +68,14 @@ private long wdwTimeOut = 300L;
 		}
 	
 		element(objLogin.btnIngresarSesion).click();
-		
-		util.esperarSegundos(5);
-		
+		mobil.esperarSegundosCondicion(7,element(objLogin.mdlCreaUnaCuenta).isEnabled());
+		try{
+			assertFalse(element(objLogin.txtPassword).isCurrentlyVisible());
+			assertFalse(element(objLogin.mdlCreaUnaCuenta).isCurrentlyVisible());
+		}catch(AssertionError e){
+			throw new IllegalAccessError("No se pudo completar el Login");
+		}
+
 	}
 
 	public void seleccOlvidaContra() {
@@ -83,7 +92,7 @@ private long wdwTimeOut = 300L;
 
 	public String getMensajeActualizar() {
 		// TODO Auto-generated method stub
-		util.esperarElemento(4, objLogin.lblActualizarVersion);
+		util.esperarElemento(6, objLogin.lblActualizarVersion);
 		
 		return objLogin.lblActualizarVersion.getText();
 	}

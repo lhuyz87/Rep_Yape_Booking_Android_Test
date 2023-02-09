@@ -180,32 +180,20 @@ public class ScHome extends BaseDriver{
 
 	public void seleccionaBuscadorClinicas() {
 		// TODO Auto-generated method stub
-		//
-		util.esperarSegundos(8);
-		util.esperarElemento(5, objectPrincipal.btnHome);
-		util.esperarSegundos(6);
-		int intentos=0;
-		while(intentos<=5) {
-			
+		util.esperarElemento(7, objectPrincipal.btnEmergencia);
+
 		try {
+			while(element(objectPrincipal.btnBuscadorClinica).isCurrentlyVisible()==false){
+				util.mobileSwipeScreenAndroid();
+			}
 			element(objectPrincipal.btnBuscadorClinica).click();
 			System.out.println("Se encontro elemento  ");
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("No encontro elemento  "  + intentos);
 			util.scrollDown(appiumDriver());
 		}	
 			
-//		if(objectPrincipal.btnBuscadorClinica.isEnabled()==true) {
-//				System.out.println("Se encontro elemento  ");
-//				break;
-//			}else {
-//				System.out.println("No encontro elemento  "  + intentos);
-//				util.scrollDown(appiumDriver());
-//			}
-			intentos++;
-		}
-		
+
 		
 //		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Buscador de clínicas\").instance(0))"));
 //		element(objectPrincipal.btnBuscadorClinica).click();

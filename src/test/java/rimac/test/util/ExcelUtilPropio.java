@@ -1,7 +1,5 @@
 package rimac.test.util;
 
-import java.io.File;
-import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,10 +9,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import com.ibm.icu.impl.InvalidFormatException;
-
 import net.thucydides.core.annotations.Steps;
-import rimac.test.inout.LeerDataDriven;
+import rimac.test.inout.LeerDD_Reembolso;
 
 
 public class ExcelUtilPropio extends ExcelUtil {
@@ -59,13 +55,15 @@ public class ExcelUtilPropio extends ExcelUtil {
 //			System.out.println(" valor 1: " + excelSplit[0] + " valor 2: " + excelSplit[1] + " LONGITUD: " + excelSplit.length  );
 
 			switch (excelSplit[0]) {
-			case "DataPrueba":
-				
-				data = LeerDataDriven.getInstancia().leerDD(hoja);
-				
-				break;
-			default:
-				break;
+				case "DataReembolso":
+					if(excelSplit[1].compareTo("U")==0) {
+						data = LeerDD_Reembolso.getInstancia().leerUltimaFilaDD(hoja);
+					}else {
+						data = LeerDD_Reembolso.getInstancia().leerDD(hoja);
+					}
+					break;
+				default:
+					break;
 			}
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());

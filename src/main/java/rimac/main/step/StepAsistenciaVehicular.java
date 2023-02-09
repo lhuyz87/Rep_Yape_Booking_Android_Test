@@ -14,10 +14,13 @@ public class StepAsistenciaVehicular {
     ScTusTramites scTusTramites;
     @Steps
     ScAsistenciaVehicular scAsistenciaVehicular;
-    public void se_ingresa_a_asistencia_vehicular_desde_tramites() throws Exception {
-        scAlertas.omitirAlertas(15);
+    public void se_ingresa_a_asistencia_vehicular_desde_tramites() {
         scHome.seleccionarOpcionPrincipal("Tramites");
         scTusTramites.seleccionaAsistenciaVehicular();
+    }
+
+    public void chkTerminosAsistencia(){
+        scAsistenciaVehicular.terminosCondicionesAsistencia();
     }
 
     public void se_ingresa_Datos_de_contacto(){
@@ -34,8 +37,23 @@ public class StepAsistenciaVehicular {
         scAsistenciaVehicular.confirmar_Ubicacion();
     }
 
+    public void se_indica_asistencia_Grua(String placa){
+        scAsistenciaVehicular.se_indica_asistencia_vehicular("Grúa", placa);
+    }
+
+    public void se_indica_asistencia_auxilio_mecanico(String placa){
+        scAsistenciaVehicular.se_indica_asistencia_vehicular("Auxilio mecánico", placa);
+    }
     public void selecciona_asistencia_Auxilio_Mecanico(){
-        scAsistenciaVehicular.selecciona_asistencia_Auxilio_Mecanico();
+        scAsistenciaVehicular.selecciona_asistencia("Auxilio mecánico");
+    }
+
+    public void selecciona_asistencia_Grua(){
+        scAsistenciaVehicular.selecciona_asistencia("Grúa");
+    }
+
+    public void indico_zona_del_vehiculo(){
+        scAsistenciaVehicular.indica_zona_del_vehiculo();
     }
 
     public void selecciona_problema_vehiculo(String problemaVehiculo){
@@ -49,10 +67,10 @@ public class StepAsistenciaVehicular {
     public void validar_solicitud_enviada() {
         scAsistenciaVehicular.validacion_mensaje_confirmacion();
     }
-    public void validar_solicitud_home() throws Exception {
-        scAlertas.omitirAlertas(10);
+    public void validar_solicitud_home() {
         scAsistenciaVehicular.validacion_solicitud_home();
     }
+
 
 
 

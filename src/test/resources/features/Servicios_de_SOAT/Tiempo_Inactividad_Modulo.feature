@@ -3,7 +3,7 @@
 Feature: Ejecutar los Procesos por Modulo y esperar 15 min de inactividad
 
   @TiempoInactividadModulo
-  Scenario Outline: Esperar 15 min de inactividad - Módulo Asistencias Vehiculares
+  Scenario Outline: Esperar 15 min de inactividad - M??dulo Asistencias Vehiculares
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |

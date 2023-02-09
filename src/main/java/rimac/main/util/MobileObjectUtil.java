@@ -263,6 +263,21 @@ public class MobileObjectUtil {
 			ex.printStackTrace();
 		}
 	}
+
+	public void esperarSegundosCondicion(int tipoEspera , boolean condicion) {
+
+		try {
+			while(condicion=false){
+				int contador=0;
+				Thread.sleep(tipoEspera*1000);
+				contador++;
+				System.out.println("Se espera :"+(contador+1)+"minutos");
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 

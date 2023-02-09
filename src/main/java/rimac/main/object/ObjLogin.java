@@ -74,7 +74,9 @@ public class ObjLogin extends BaseDriver{
 	
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dialog_btn_negative")
 	public WebElement btnMasTarde;
-	
-	
-	
+
+	@AndroidFindBy(xpath = "//*[@text='Crea una cuenta hoy']")
+	public WebElement mdlCreaUnaCuenta;
+
+
 }

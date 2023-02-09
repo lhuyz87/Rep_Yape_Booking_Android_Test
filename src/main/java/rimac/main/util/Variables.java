@@ -5,6 +5,12 @@ import java.util.List;
 
 public class Variables {
 
+
+	public static int numeroColumnas = 0;
+	public static String montoReembolso = "";
+	public static List<String> contador=new ArrayList<String>();
+	public static List<String> listaStrings = new ArrayList<String>();
+
 	public static final String nombreDominio = UtilDef.getInstancia().getVarEnvPro("nombreDominio");
 	public static final String userDominio = UtilDef.getInstancia().getVarEnvPro("userDominio");
 	public static final String passDominio = UtilDef.getInstancia().getVarEnvPro("passDominio");
@@ -34,8 +40,8 @@ public class Variables {
 	//Data de prueba local
 	public static final String file_local = RutaLocal + DataPrueba;
 
-	public static int numeroColumnas = 0;
-	public static List<String> contador=new ArrayList<String>();
+
+
 	
 //	public String v_codProyectoSquad = "";
 //	public String v_codEscenario = "";
