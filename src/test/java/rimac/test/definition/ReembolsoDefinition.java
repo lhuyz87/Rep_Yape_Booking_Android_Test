@@ -7,8 +7,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import rimac.main.step.StepReembolso;
+import rimac.main.util.Variables;
+import rimac.test.inout.LeerDD_Reembolso;
+
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -17,8 +21,8 @@ public class ReembolsoDefinition {
 	
 	@Steps
 	StepReembolso stepReembolso;
-	
-	
+
+	private LeerDD_Reembolso excel = LeerDD_Reembolso.getInstancia();
 
 	//-------------------------------------------------------------------------------------------------------------
 	
@@ -50,9 +54,15 @@ public class ReembolsoDefinition {
 	
 	
 	@Then("debe aparecer el mensaje: {string}")
-	public void debe_aparecer_el_mensaje(String valorEsperado) {
+	public void debe_aparecer_el_mensaje(String valorEsperado) throws IOException {
 		String valorActual = stepReembolso.obtenerMensajeReembolso();
+		if(valorEsperado.compareTo(valorActual)==0) {
+			System.out.println("Monto: "+ Variables.montoReembolso);
+			Variables.listaStrings.add(Variables.montoReembolso);
+			excel.writeReembolsoinExcel(Variables.listaStrings);
+		}
 		assertEquals(valorEsperado, valorActual);
+
 	}
 
 	

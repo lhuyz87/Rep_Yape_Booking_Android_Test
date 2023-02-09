@@ -39,7 +39,7 @@ public class ObjTramites extends BaseDriver{
 	public WebElement btnTodos;
 	
 	
-	@AndroidFindBy(xpath = "//*[@text='Buscador de clínicas']")
+	@AndroidFindBy(xpath = "//*[@text='Buscador de salud']")
 	public WebElement btnBuscarClinica;
 	
 	

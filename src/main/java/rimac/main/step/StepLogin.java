@@ -4,12 +4,8 @@ import io.cucumber.datatable.DataTable;
 import java.util.Map;
 import net.thucydides.core.annotations.Steps;
 import java.util.List;
-import rimac.main.screen.ScLogin;
-import rimac.main.screen.ScNuevaContra;
-import rimac.main.screen.ScValidaIdentid;
-import rimac.main.screen.ScComoRecibCodVeri;
-import rimac.main.screen.ScPregunDeVerifi;
-import rimac.main.screen.ScTuContraCambiaConExito;
+
+import rimac.main.screen.*;
 import rimac.main.util.UtilApp;
 
 public class StepLogin {
@@ -28,7 +24,9 @@ public class StepLogin {
 	
 	@Steps
 	ScNuevaContra scNuevaContra;
-	
+
+	@Steps
+	ScAlertas scAlertas;
 	
 	@Steps
 	ScTuContraCambiaConExito scTuContraCambiaConExito;
@@ -37,14 +35,14 @@ public class StepLogin {
 	UtilApp utilApp = new UtilApp();
 	
 	
-	public void realiza_el_login_con_credenciales(DataTable userCredentials) {
+	public void realiza_el_login_con_credenciales(DataTable userCredentials) throws Exception {
 			List<Map<String, String>> user = userCredentials.asMaps(String.class, String.class);
 			String tipoID = user.get(0).get("tipoID");
 			String id = user.get(0).get("id");
 			String password = user.get(0).get("password");
 			
 			scLogin.login(id, password);
-	//		scAlertas.cerrarAlertas(20);
+		    scAlertas.omitirAlertas(15);
 		}
 
 	public void seleccOlvidaContra() {

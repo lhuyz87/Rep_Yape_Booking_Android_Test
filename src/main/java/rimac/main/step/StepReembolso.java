@@ -2,6 +2,7 @@ package rimac.main.step;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import com.openhtmltopdf.util.Util;
 
@@ -36,6 +37,7 @@ import rimac.main.screen.ScReemDocCobertMedica;
 import rimac.main.screen.ScAgregarNuevoDocumento;
 import rimac.main.screen.ScCuentaDeAbono;
 import rimac.main.screen.ScSolicitudReembolsoRecibida;
+import rimac.main.util.Variables;
 
 public class StepReembolso {
 
@@ -90,7 +92,11 @@ public class StepReembolso {
 	@Steps
 	ScConsultaReembolso scConsultaReembolso;
 
-	
+	StepReembolso() {
+		Random randomObj = new Random();
+		Variables objVariables = new Variables();
+		objVariables.montoReembolso = String.valueOf(randomObj.ints(100, 999).findFirst().getAsInt());
+	}
 	public void selReembolsoSaludTramite() {
 		schome.cerrarAlertas(15);
 		schome.seleccionarOpcionPrincipal("Tramites");
@@ -141,7 +147,7 @@ public class StepReembolso {
 			System.out.println("Entra a medicinas");
 			scReemDocCobertMedica.AdjuntarFotoArchivo("AdjuntarArchivo");
 			scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
-			scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, ConstantesDummy.monto);
+			scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
 			scReemDocCobertMedica.AdjuntarFotoArchivo("AdjuntarArchivo");
 			scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocRecetaMedica);
 			scAgregarNuevoDocumento.llenarDatosRecetaMedica("Prueba");

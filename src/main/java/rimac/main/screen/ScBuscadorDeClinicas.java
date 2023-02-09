@@ -65,7 +65,7 @@ private long wdwTimeOut = 300L;
 		util.esperarActivoClick(3, objBuscadorDeClinicas.txtBuscarClinica);
 		element(objBuscadorDeClinicas.txtBuscarClinica).sendKeys(nomClinica);
 		Serenity.takeScreenshot();
-		util.esperarActivoClick(3, objBuscadorDeClinicas.lblClinicaEncontra);
+		util.esperarActivoClick(7, objBuscadorDeClinicas.lblClinicaEncontra);
 		element(objBuscadorDeClinicas.lblClinicaEncontra).click();
 		
 

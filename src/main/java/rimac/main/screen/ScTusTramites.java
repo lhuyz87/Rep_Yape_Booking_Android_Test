@@ -53,13 +53,33 @@ private long wdwTimeOut = 300L;
 			
 			break;
 			
-		case "Buscador de clínicas":
-			looger.info("Buecar Opcion Buscador de clinicas");
+		case "Buscador de salud":
+			looger.info("Buscar Opcion Buscador de salud");
 			
 			util.esperarElemento(10, tramitesObject.btnTodos);
 
-			element(tramitesObject.btnBuscarClinica).click();
-			looger.info("Termina buscador de clínica");
+
+			int contador=0;
+			while(contador<5) {
+				try {
+
+					looger.info("Intenta para dar click " + contador);
+
+					if (tramitesObject.btnBuscarClinica.isEnabled() == true) {
+						element(tramitesObject.btnBuscarClinica).click();
+						contador = 5;
+						looger.info("Encuentra elemento");
+					}
+					util.mobileSwipeScreenAndroid();
+					contador++;
+				} catch (Exception e) {
+
+					System.out.println("Mensaje " + e.getMessage());
+					contador++;
+
+				}
+			}
+			looger.info("Termina buscador de salud");
 			break;
 			
 		case "Médico a domicilio":

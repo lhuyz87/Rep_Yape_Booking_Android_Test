@@ -12,13 +12,9 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.json.JSONObject;
 
+import org.openqa.selenium.*;
 import org.openqa.selenium.By.ById;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.InvalidSelectorException;
 
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -165,7 +161,7 @@ public class UtilApp  extends BaseDriver{
 				System.out.println("Se encuentra elemento o contador finalizo");			
 				break;
 			}else
-				System.out.println("contador: " + contador);
+				System.out.println("contador: " + contador + elemento);
 				
 		}
 	}
@@ -627,6 +623,33 @@ public class UtilApp  extends BaseDriver{
 				e.printStackTrace();
 			}
 		}
+
+	public void esperarElementoCondicion(int intentos, WebElement elemento, boolean condicion, String mensaje) {
+		int contador=0;
+		try {
+			while( element(elemento).isCurrentlyVisible()==false ) {
+				Thread.sleep(1000);
+				System.out.println("contador visible: " + contador + elemento);
+				if (contador == intentos) {
+					System.out.println("no se encontro elemento: " + elemento);
+					Serenity.takeScreenshot();
+					break;
+				}
+				contador++;
+				if(condicion){
+					Serenity.takeScreenshot();
+					System.out.println(mensaje);
+					break;
+				}
+			}
+		} catch (NoSuchElementException e) {
+			System.out.println("In catch block to handle no such element");
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			System.out.println("In catch block to handle Generic exception");
+			e.printStackTrace();
+		}
+	}
 
 
 }

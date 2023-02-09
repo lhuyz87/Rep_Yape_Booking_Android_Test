@@ -37,7 +37,8 @@ public class ObjComoRecibCodVeri extends BaseDriver{
 	
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/txtAnswerEventQuestion")
 	public WebElement btnRespoPregun;
-	
-	
+
+	@AndroidFindBy(xpath = "//*[@text='Elige cómo recibir tu código de']")
+	public WebElement titEligeComoRecibir;
 	
 }

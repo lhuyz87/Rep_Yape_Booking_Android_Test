@@ -79,12 +79,6 @@
 			<artifactId>serenity-ensure</artifactId>
 			<version>${serenity.version}</version>
 		</dependency>
-		<!--
-		<dependency>
-			<groupId>io.appium</groupId>
-			<artifactId>java-client</artifactId>
-			<version>8.1.1</version>
-		</dependency>-->
 		
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -226,24 +220,27 @@
 				<version>3.0.0-M5</version>
 				<configuration>
 					<includes>
-						<include>**/*Rimac*.java</include>
+						<include>**/**Rimac*.java</include>
 					</includes>
 					<systemPropertyVariables>
 						<webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
 					</systemPropertyVariables>
 					<parallel>methods</parallel>
+
 					<threadCount>${parallel.tests}</threadCount>
-					 <forkCount>${parallel.tests}</forkCount>
-					<!--<useUnlimitedThreads>true</useUnlimitedThreads>-->
+
+					<reuseForks>true</reuseForks>
+					<forkCount>${parallel.tests}</forkCount>
+					<useUnlimitedThreads>true</useUnlimitedThreads>
 				</configuration>
-				<!--<executions>
+				<executions>
 					<execution>
 						<goals>
 							<goal>integration-test</goal>
 							<goal>verify</goal>
 						</goals>
 					</execution>
-				</executions>-->
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

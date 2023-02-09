@@ -25,7 +25,7 @@ public class StepBuscadorDeClinicas {
 	public void selecciona_buscador_de_clinicas_desde_tramites() {
 		scHome.cerrarAlertas(15);
 		scHome.seleccionarOpcionPrincipal("Tramites");;
-		scTusTramites.seleccionarTramiteSalud("Buscador de clínicas");
+		scTusTramites.seleccionarTramiteSalud("Buscador de salud");
 	}
 	
 	public void buscar_clinica(String nomClinica) {

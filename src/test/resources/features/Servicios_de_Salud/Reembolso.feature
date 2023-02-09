@@ -20,7 +20,7 @@ Feature: Reembolso
       | DNI    | 76243722 | Rimac2021 | AMC COLECTIVA FOLA - Citibank del peru s.a. | Lima          | Medicinas     |
 
   @regresionReembolsoSalud @reembolsoSaludConBeneficiarioconCoberturadeMedicinas @reembolso
-  Scenario Outline: Realizar solicitud de reembolso cliente con beneficiarios desde Tramites
+  Scenario Outline: Realizar solicitud de reembolso cliente con beneficiarios??desde Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -35,10 +35,10 @@ Feature: Reembolso
 
     Examples: 
       | tipoID | id       | password  | productoContratante                | paciente                                 | lugarAtencion | tipoCobertura |
-      | DNI    | 10392464 | Rimac2020 | PLANES MEDICOS EPS - Medifarma s a | Madueño Armacanque Herzop Myki - Titular | Lima          | Medicinas     |
+      | DNI    | 10392464 | Rimac2020 | PLANES MEDICOS EPS - Medifarma s a | Madue??o Armacanque Herzop Myki - Titular | Lima          | Medicinas     |
 
   @regresionReembolsoSalud @reembolsoOdontologicoConBeneficiario @reembolso
-  Scenario Outline: Realizar solicitud de reembolso cliente con cobertura odontologica con beneficiarios desde menú Tramites
+  Scenario Outline: Realizar solicitud de reembolso cliente con cobertura odontologica con beneficiarios desde men?? Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -50,11 +50,11 @@ Feature: Reembolso
     And adjuntamos los documentos y comprobantes del reembolso con tipo de cobertura "<tipoCobertura>"
     Then debe aparecer el mensaje: "Solicitud de reembolso recibida"
 
-    Examples: 
+    Examples:
       | tipoID | id       | password  | productoContratante                             | paciente                                   | lugarAtencion | tipoCobertura | tipoTratamiento |
       | DNI    | 70434801 | Rimac2020 | PLANES MEDICOS EPS - Rimac seguros y reaseguros | Armacanque Delvoy Yoshlin Heuver - Titular | Lima          | Odontología   | Ortodoncia      |
 
-  @regresionReembolsoSalud @seguimientoReembolso
+  @regresionReembolsoSalud @seguimientoReembolsoDesdeTramite
   Scenario Outline: Realizar el Seguimiento de Reembolso de Salud desde Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -62,12 +62,6 @@ Feature: Reembolso
     When se ingresa al Seguimiento de Reembolso de Salud desde Tramites
    	Then debe aparecer el monto "<monto>" del reembolso solicitado
 
-    Examples: 
-      ###DATOS###@DataPrueba|1@1-SegReembolsoDesdeHome
-      | 0 | tipoID | id       | password  | monto     |
-      | 1 | DNI    | 76243722 | Rimac2021 | S/ 386.00  |
-    ##  | 2 | DNI    | 76243722 | Rimac2021 | S/ 150.00 |
-    
-    
-  
-      
+    Examples:
+     ###DATOS###@DataReembolso|1@01-SegReembolso
+      | 0 | tipoID | id       | password  | monto |

@@ -36,7 +36,8 @@ public class ObjComentariosAdicionales extends BaseDriver{
 	
 	@AndroidFindBy(xpath = "//*[@text='Enviar solicitud']")
 	public WebElement btnEnviarSolicitud;
-	
-	
+
+	@AndroidFindBy(xpath = "//*[@text='Ir al inicio']")
+	public WebElement btnIralinicio;
 	
 }

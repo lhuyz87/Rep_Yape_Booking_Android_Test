@@ -42,7 +42,12 @@ private long wdwTimeOut = 300L;
 	AppiumDriver driver;
 	
 public void seleccResponPregun() {
-		
+
+	    util.esperarElemento(5,objComoRecibCodVeri.titEligeComoRecibir);
+
+		while(element(objComoRecibCodVeri.btnRespoPregun).isCurrentlyVisible()==false){
+			util.mobileSwipeScreenAndroid();
+		}
 		util.esperarElemento(5,objComoRecibCodVeri.btnRespoPregun);
 		Serenity.takeScreenshot();
 //		mobileObjectUtil.esperarElemento(10, objEligeComoRecibiCodigoVerifi.lblEligeComoRecibiCodigoVerifi);

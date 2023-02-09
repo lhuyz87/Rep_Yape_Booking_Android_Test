@@ -71,7 +71,7 @@ public class ReembolsoDefinition3 {
 //	
 	
 	@Given("realiza el login con credenciales {string}, {string} y {string}")
-	public void realiza_el_login_con_credenciales_y(String tipo, String id, String numero) {
+	public void serealiza_el_login_con_credenciales_y(String tipo, String id, String numero) {
 	    // Write code here that turns the phrase above into concrete actions
 		appLoginPage.login(id, numero);
 	}

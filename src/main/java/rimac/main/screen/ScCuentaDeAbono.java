@@ -17,14 +17,11 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.PushesFiles;
 import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.pages.PageObject;
+import rimac.main.object.*;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilApp;
 import rimac.main.util.VariablesAppNativa;
-import rimac.main.object.ObjLogin;
-import rimac.main.object.ObjCuentaDeAbono;
-import rimac.main.object.ObjComentariosAdicionales;
-import rimac.main.object.ObjSolicitudReembolsoRecibida;
 
 
 public class ScCuentaDeAbono extends BaseDriver{
@@ -32,6 +29,7 @@ public class ScCuentaDeAbono extends BaseDriver{
 private long wdwTimeOut = 300L;
 	
 	protected ObjCuentaDeAbono cuentaDeAbonoObject = ObjCuentaDeAbono.getInstancia();
+	protected ObjPaginaPrincipal objPaginaPrincipal = ObjPaginaPrincipal.getInstancia();
 	protected ObjComentariosAdicionales comentariosAdicionalesObject = ObjComentariosAdicionales.getInstancia();
 	protected ObjSolicitudReembolsoRecibida solicitudReembolsoRecibidaObject = ObjSolicitudReembolsoRecibida.getInstancia();
 	// util
@@ -101,9 +99,9 @@ private long wdwTimeOut = 300L;
 		element(cuentaDeAbonoObject.btnContinuar).click();
 		
 		util.esperarElemento(3, cuentaDeAbonoObject.txtCorreo);
-		element(cuentaDeAbonoObject.txtCorreo).click();
+		element(cuentaDeAbonoObject.txtCorreo).clear();
 		element(cuentaDeAbonoObject.txtCorreo).sendKeys(correo);
-		((HidesKeyboard) appiumDriver()).hideKeyboard();		
+		//((HidesKeyboard) appiumDriver()).hideKeyboard();
 //		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
 		element(cuentaDeAbonoObject.btnContinuar).click();
 
@@ -114,10 +112,10 @@ private long wdwTimeOut = 300L;
 //		element(comentariosAdicionalesObject.txtDescripcion).click();
 //		element(comentariosAdicionalesObject.txtDescripcion).sendKeys(comentarios);
 //		((HidesKeyboard) appiumDriver()).hideKeyboard();
-		util.esperarSegundos(5);
+		util.esperarSegundos(8);
 		element(comentariosAdicionalesObject.btnEnviarSolicitud).click();
-		util.esperarSegundos(10);
-		
+		util.esperarElemento(9,comentariosAdicionalesObject.btnIralinicio);
+
 	}
 	
 }
