@@ -6,6 +6,9 @@ import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import rimac.main.step.StepAsistenciaVehicular;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 public class DefAsistenciaVehicular {
 
     @Steps
@@ -18,38 +21,31 @@ public class DefAsistenciaVehicular {
         stepAsistenciaVehicular.seleccionarVehiculo(placa);
         stepAsistenciaVehicular.confirmarUbicacion();
     }
-    @And("selecciono el {string} del vehiculo")
-    public void seleccionoElDelVehiculo(String problema) {
-        stepAsistenciaVehicular.selecciona_asistencia_Auxilio_Mecanico();
+
+    @And("selecciono la asistencia {string} y el {string} del vehiculo")
+    public void seleccionoLaAsistenciaYElDelVehiculo(String asistencia, String problema) {
+        stepAsistenciaVehicular.selecciona_asistencia_vehicular(asistencia);
         stepAsistenciaVehicular.selecciona_problema_vehiculo(problema);
+    }
+
+    @And("selecciono la asistencia {string} y la zona en donde se encuentra el vehiculo")
+    public void seleccionoLaAsistenciaYLaZonaEnDondeSeEncuentraElVehiculo(String asistencia) {
+        stepAsistenciaVehicular.selecciona_asistencia_vehicular(asistencia);
+        stepAsistenciaVehicular.indico_zona_del_vehiculo();
     }
     @And("confirmo los terminos de la solicitud")
     public void confirmoLosTerminosDeLaSolicitud() {
         stepAsistenciaVehicular.confirmar_solicitud();
     }
 
-    @And("selecciono la asistencia Grua y la zona en donde se encuentra el vehiculo")
-    public void seleccionoLaAsistenciaGruaYLaZonaEnDondeSeEncuentraElVehiculo() {
-        stepAsistenciaVehicular.selecciona_asistencia_Grua();
-        stepAsistenciaVehicular.indico_zona_del_vehiculo();
+    @Then("se debe mostrar el mensaje : {string}")
+    public void seDebeMostrarElMensaje(String valorEsperado) {
+        String valorObtenido = stepAsistenciaVehicular.obtiene_mensaje_confirmacion();
+        assertEquals(valorEsperado, valorObtenido);
     }
-    @Then("valido el mensaje de la solicitud enviada")
-    public void validoElMensajeDeLaSolicitudEnviada() throws Exception {
-        stepAsistenciaVehicular.validar_solicitud_enviada();
-    }
-
-    @Then("Se valida que sea el seguimiento requerido")
-    public void seValidaQueSeaElSeguimientoRequerido() {
-        stepAsistenciaVehicular.validar_solicitud_home();
+    @Then("se debe mostrar el seguimiento de la asistencia vehicular {string} de la {string}")
+    public void seDebeMostrarElSeguimientoDeLaAsistenciaVehicularDeLa(String asistencia, String placa) {
+        assertTrue(stepAsistenciaVehicular.se_valida_solicitud_home(asistencia, placa));
     }
 
-    @When("se muestra el seguimiento de la asistencia vehicular Auxilio Mecanico de la {string}")
-    public void seMuestraElSeguimientoDeLaAsistenciaVehicularAuxilioMecanicoDeLa(String placa) {
-        stepAsistenciaVehicular.se_indica_asistencia_auxilio_mecanico(placa);
-    }
-
-    @When("se muestra el seguimiento de la asistencia vehicular Grua de la {string}")
-    public void seMuestraElSeguimientoDeLaAsistenciaVehicularGruaDeLa(String placa) {
-        stepAsistenciaVehicular.se_indica_asistencia_Grua(placa);
-    }
 }

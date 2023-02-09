@@ -72,7 +72,7 @@ public class ObjAsistenciaVehicular extends BaseDriver {
     public WebElement btnConfirmarSolicitud;
 
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/congratsTitle")
-    public WebElement msjSolicitudEnviada;
+    public WebElement lblSolicitudEnviada;
 
     @AndroidFindBy(xpath = "//*[@text='En 5 minutos te escribiremos vía Whatsapp para confirmar el auxilio mecánico. Podrás darle seguimiento desde el Inicio.'")
     public WebElement msjConfirmacionAuxilioM;
@@ -87,7 +87,7 @@ public class ObjAsistenciaVehicular extends BaseDriver {
     public WebElement btnIrAlInicio;
 
 
-    public WebElement msjSolicitudAsistenciaHome(String placa, String asistencia) {
+    public WebElement msjSolicitudAsistenciaHome(String asistencia, String placa) {
         WebElement we_SolicitudAsistenciaHome = null;
         String matriculaLetras=placa.substring(0,3);
         String matriculaNumeros=placa.substring(3,6);

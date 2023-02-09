@@ -37,44 +37,24 @@ public class StepAsistenciaVehicular {
         scAsistenciaVehicular.confirmar_Ubicacion();
     }
 
-    public void se_indica_asistencia_Grua(String placa){
-        scAsistenciaVehicular.se_indica_asistencia_vehicular("Grúa", placa);
+    public void selecciona_asistencia_vehicular(String asistencia){
+        scAsistenciaVehicular.selecciona_asistencia(asistencia);
     }
-
-    public void se_indica_asistencia_auxilio_mecanico(String placa){
-        scAsistenciaVehicular.se_indica_asistencia_vehicular("Auxilio mecánico", placa);
-    }
-    public void selecciona_asistencia_Auxilio_Mecanico(){
-        scAsistenciaVehicular.selecciona_asistencia("Auxilio mecánico");
-    }
-
-    public void selecciona_asistencia_Grua(){
-        scAsistenciaVehicular.selecciona_asistencia("Grúa");
-    }
-
     public void indico_zona_del_vehiculo(){
         scAsistenciaVehicular.indica_zona_del_vehiculo();
     }
-
     public void selecciona_problema_vehiculo(String problemaVehiculo){
         scAsistenciaVehicular.selecciona_problema_vehiculo(problemaVehiculo);
     }
-
     public void confirmar_solicitud(){
         scAsistenciaVehicular.confirmar_solicitud();
     }
 
-    public void validar_solicitud_enviada() {
-        scAsistenciaVehicular.validacion_mensaje_confirmacion();
+    public String obtiene_mensaje_confirmacion(){
+        return scAsistenciaVehicular.obtener_mensaje_confirmacion();
     }
-    public void validar_solicitud_home() {
-        scAsistenciaVehicular.validacion_solicitud_home();
+    public boolean se_valida_solicitud_home(String asistencia ,String placa){
+        return scAsistenciaVehicular.validacion_AsistenciaVehicular_home(asistencia,placa);
     }
-
-
-
-
-
-
 
 }

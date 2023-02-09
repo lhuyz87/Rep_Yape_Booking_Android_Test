@@ -22,7 +22,6 @@ public class  ScAsistenciaVehicular extends BaseDriver {
     protected ObjCambioLlanta objCambioLlanta = ObjCambioLlanta.getInstancia();
     public static Logger looger = Logger.getLogger(ScTusTramites.class.getName());
     static String placaVehiculo;
-    static String tipoAsistencia;
     private long wdwTimeOut = 300L;
     UtilApp util = new UtilApp();
     public long getWdwTimeOut() {
@@ -55,11 +54,6 @@ public class  ScAsistenciaVehicular extends BaseDriver {
 
     }
 
-    public void se_indica_asistencia_vehicular(String asistencia, String placa){
-        tipoAsistencia=asistencia;
-        placaVehiculo=placa;
-    }
-
     public void seleccionar_Vehiculo(String placa){
         placaVehiculo = placa;
         util.esperarElemento(15,objAsistenciaVehicular.titTusVehiculosAfiliados);
@@ -80,21 +74,20 @@ public class  ScAsistenciaVehicular extends BaseDriver {
     }
 
     public void selecciona_asistencia(String asistencia){
-        tipoAsistencia=asistencia;
         try {
             util.esperarElemento(5,objAsistenciaVehicular.titQueNecesitas);
             util.esperarSegundos(2);
             int contador = 0;
-            while (element(objAsistenciaVehicular.btnAsistencia(tipoAsistencia)).isCurrentlyVisible() == false && contador < 7) {
+            while (element(objAsistenciaVehicular.btnAsistencia(asistencia)).isCurrentlyVisible() == false && contador < 7) {
                 util.mobileSwipeScreenAndroid();
                 contador++;
             }
-            element(objAsistenciaVehicular.btnAsistencia(tipoAsistencia)).click();
+            element(objAsistenciaVehicular.btnAsistencia(asistencia)).click();
             util.esperarElemento(20, objAsistenciaVehicular.btnContinuar);
             Serenity.takeScreenshot();
             element(objAsistenciaVehicular.btnContinuar).click();
         }catch(Exception e){
-            throw new IllegalAccessError("Error para seleccionar la asistencia:  "+tipoAsistencia);
+            throw new IllegalAccessError("Error para seleccionar la asistencia:  "+asistencia);
         }
     }
 
@@ -135,8 +128,9 @@ public class  ScAsistenciaVehicular extends BaseDriver {
         try {
             util.esperarElemento(10, objAsistenciaVehicular.titConfirmacionAsistencia);
             int contador = 0;
-            while (element(objAsistenciaVehicular.chk_terminos).isCurrentlyVisible() == false && contador<10) {
+            while (element(objAsistenciaVehicular.chk_terminos).isCurrentlyVisible() == false && contador<20) {
                 util.mobileSwipeScreenAndroid();
+                util.esperarSegundos(1);
                 contador++;
             }
             element(objAsistenciaVehicular.chk_terminos).click();
@@ -149,58 +143,44 @@ public class  ScAsistenciaVehicular extends BaseDriver {
         }
     }
 
-    public void validacion_mensaje_confirmacion(){
-        try{
-            WebElement asistencia = null;
-                switch (tipoAsistencia) {
-                    case "Auxilio mecánico": {
-                        asistencia=objAsistenciaVehicular.msjConfirmacionAuxilioM;
-                        break;
-                    }
-                    case "Grúa": {
-                        asistencia=objAsistenciaVehicular.msjConfirmacionGrua;
-                        break;
-                    }
-                    default: {
-                        System.out.println("Elemento no encontrado");
-                    }
-                }
-                int intentos=0;
-                while(element(asistencia).isCurrentlyVisible()==false && intentos<20){
-                    if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){
-                        element(objCommons.btnCerrarmodal).click();
-                    }
-                    if(element(objAsistenciaVehicular.titYaTienesunServicio).isCurrentlyVisible()){
-                        break;
-                    }
-                    intentos++;
-                }
+    public String obtener_mensaje_confirmacion(){
+        try {
+            String mensaje = "";
+            int contador=0;
+            while(element(objAsistenciaVehicular.lblSolicitudEnviada).isCurrentlyVisible()==false && contador<20){
+                //Permite cerrar el modal de recomendación para calificar la app en la playstore
                 if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){
                     element(objCommons.btnCerrarmodal).click();
                 }
-                String mensaje = element(objAsistenciaVehicular.msjSolicitudEnviada).getText();
-                assertEquals(mensaje,"¡Solicitud enviada!");
-                util.esperarSegundos(3);
-                Serenity.takeScreenshot();
-            element(objAsistenciaVehicular.btnIrAlInicio).click();
-        }catch (NoSuchElementException ex){
-            Serenity.takeScreenshot();
-            if(element(objAlertas.mdlServicioEnProceso).isCurrentlyVisible()){
-                throw new IllegalAccessError("Usuario ya tiene solicitud en proceso con la misma placa");
+                if(element(objAsistenciaVehicular.titYaTienesunServicio).isCurrentlyVisible()){
+                    break;
+                }
+                contador++;
             }
-        }catch(AssertionError e){
-               Serenity.takeScreenshot();
-               throw new IllegalAccessError("No se pudo enviar la solicitud");
+            if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){
+                element(objCommons.btnCerrarmodal).click();
+            }
+            mensaje = element(objAsistenciaVehicular.lblSolicitudEnviada).getText();
+            util.esperarSegundos(3);
+            return mensaje;
+        } catch (NoSuchElementException ex) {
+            throw new IllegalAccessError("No se pudo validar el mensaje de Solicitud enviada ");
+        } finally {
+            Serenity.takeScreenshot();
         }
     }
 
-    public void validacion_solicitud_home(){
-        util.esperarElemento(10,objAsistenciaVehicular.msjSolicitudAsistenciaHome(placaVehiculo,tipoAsistencia));
-        assertTrue(element(objAsistenciaVehicular.msjSolicitudAsistenciaHome(placaVehiculo,tipoAsistencia)).isCurrentlyVisible());
-        Serenity.takeScreenshot();
+    public boolean validacion_AsistenciaVehicular_home(String asistencia, String placa) {
+        try {
+            boolean solicitudExiste;
+            util.esperarElemento(10, objAsistenciaVehicular.msjSolicitudAsistenciaHome(asistencia,placa));
+            solicitudExiste = element(objAsistenciaVehicular.msjSolicitudAsistenciaHome(asistencia,placa)).isCurrentlyVisible();
+            return solicitudExiste;
+        } catch (Exception e) {
+            throw new IllegalAccessError("Error no se puede validar el seguimiento de asistencias vehiculares en el home");
+        } finally {
+            Serenity.takeScreenshot();
+        }
     }
-
-
-
 
 }
