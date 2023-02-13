@@ -1,14 +1,14 @@
 #Author: Luis Retamozo
 @BuscadordeClinicas
-Feature: Buscador de cl??nicas
+Feature: Buscador de clínicas
 
   @BuscadordeClinicasdesdeHome
   Scenario Outline: Buscador de clinicas desde Home
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
-    When selecciona la opci??n B??squeda de cl??nicas desde Home y se inicia el tramite
-    And al filtrar la cl??nica "<nomClinica>"
+    When selecciona la opción Búsqueda de clínicas desde Home y se inicia el tramite
+    And al filtrar la clínica "<nomClinica>"
     Then al seleccionarla debe mostrar su monto de copago "<copago>"
 
     Examples:
@@ -20,8 +20,8 @@ Feature: Buscador de cl??nicas
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
-    When selecciona la opci??n B??squeda de cl??nicas desde menu Tramites y se inicia el tramite
-    And al filtrar la cl??nica "<nomClinica>"
+    When selecciona la opción Búsqueda de clínicas desde menu Tramites y se inicia el tramite
+    And al filtrar la clínica "<nomClinica>"
     Then al seleccionarla debe mostrar su monto de copago "<copago>"
 
     Examples:

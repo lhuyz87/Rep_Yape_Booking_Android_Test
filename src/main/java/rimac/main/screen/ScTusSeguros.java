@@ -64,6 +64,16 @@ public class ScTusSeguros extends BaseDriver{
 		element(objTusSeguros.btnDetalleSeguro).click();
 
 	}
-	
-	
+
+	public void esperar_Tus_Seguros(){
+		util.esperarElemento(3, objTusSeguros.lblTusSeguros);
+	}
+
+	public void ver_Detalle(String seguro){
+		util.mobileSwipeScreenAndroid();
+		while(element(objTusSeguros.tipoSeguro(seguro)).isCurrentlyVisible()==false){
+			util.mobileSwipeScreenAndroid();
+		}
+		element(objTusSeguros.opcSeguro(seguro)).click();
+	}
 }

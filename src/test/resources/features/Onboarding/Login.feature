@@ -10,14 +10,14 @@ Feature: Login APP Nativa
       | tipoID | id       | password  |
       | DNI    | 70434801 | Rimac2020 |
 
-  @OlvidePassword
+  @OlvidastetuContraseña
   Scenario Outline: Validar que se permita cambiar el password respondiendo preguntas
-    Given se selecciona la opci??n ??Olvidaste tu contrase??a?
-    And se ingresa el tipo y n??mero de documento: "<tipoID>", "<id>"
-    When se selecciona la opci??n Responder Preguntas
+    Given se selecciona la opción ¿Olvidaste tu contraseña?
+    And se ingresa el tipo y número de documento: "<tipoID>", "<id>"
+    When se selecciona la opción Responder Preguntas
     And se ingresa la fecha de nacimiento "<fechaNacimiento>" y los seguros "<seguros>" que cuenta el cliente
-    Then debe permitir el ingreso de una nueva contrase??a
-    And debe de aparecer el mensaje de "Tu contrase??a fue cambiada con ??xito"
+    Then debe permitir el ingreso de una nueva contraseña
+    And debe de aparecer el mensaje de "Tu contraseña fue cambiada con éxito"
 
     Examples:
       | tipoID | id       | fechaNacimiento | seguros |
@@ -27,22 +27,22 @@ Feature: Login APP Nativa
     
     
     @ValidaVersionMinimaRequerida
-  Scenario: Valida versi??n m??nima requerida
-    Given Se ingresa a la aplicaci??n con una versi??n menor a la minima requerida    
+  Scenario: Valida versión mínima requerida
+    Given Se ingresa a la aplicación con una versión menor a la minima requerida
     Then se debe mostar mensaje informativo "Tu App RIMAC necesita actualizarse"
-    And mostrar solo opci??n actualizar
+    And mostrar solo opción actualizar
 
 
   @ValidaVersionMinimaRecomendada
-  Scenario: Valida versi??n m??nima recomendada
-    Given Se ingresa a la aplicaci??n con una versi??n menor a la minima recomendada
+  Scenario: Valida versión mínima recomendada
+    Given Se ingresa a la aplicación con una versión menor a la minima recomendada
     Then  se debe mostar mensaje informativo "Tu App RIMAC necesita actualizarse"
-    And seleccionamos opci??n "Mas tarde"
-    And debe permitir el ingreso a la aplicaci??n
+    And seleccionamos opción "Mas tarde"
+    And debe permitir el ingreso a la aplicación
     
    @ValidaModoDesarrollo
   Scenario: Valida que la aplicaci??n no pueda iniciar al contar con modo desarrollador en el dispositivo m??vil
-    Given Se ingresa a la aplicaci??n con un dispositivo con modo desarrollador activado
+    Given Se ingresa a la aplicación con un dispositivo con modo desarrollador activado
   	Then  no debe permitir el ingreso al aplicativo y debe mostar mensaje informativo relacionado a "Desactivar modo desarrollador"
 
     

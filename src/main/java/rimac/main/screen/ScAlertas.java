@@ -1,6 +1,7 @@
 package rimac.main.screen;
 
 import rimac.main.object.ObjAlertas;
+import rimac.main.object.ObjPaginaPrincipal;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.UtilApp;
 
@@ -9,6 +10,7 @@ import java.util.logging.Logger;
 public class ScAlertas extends BaseDriver {
 
     protected ObjAlertas objAlertas=ObjAlertas.getInstancia();
+    protected ObjPaginaPrincipal objPaginaPrincipal =ObjPaginaPrincipal.getInstancia();
     protected UtilApp util = UtilApp.getInstancia();
 
     public static Logger looger = Logger.getLogger(ScTusTramites.class.getName());
@@ -33,6 +35,7 @@ public class ScAlertas extends BaseDriver {
                 util.esperarSegundos(1);
                 System.out.println("Esperando alertas "+i);
             }
+            util.esperarElemento(3,objPaginaPrincipal.btnEmergencia);
 
         }catch(Exception e){
             throw new Exception("Supero el tiempo de espera del aplicativo");

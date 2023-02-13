@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.Actions;
 
@@ -29,6 +31,9 @@ import rimac.main.object.ObjRegistrarHuella;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ScHome extends BaseDriver{
 
@@ -68,9 +73,7 @@ public class ScHome extends BaseDriver{
 			break;
 			
 		case "Seguros":
-			util.esperarSegundos(8);
 			util.esperarElemento(10, objectPrincipal.btnSeguros);
-			util.esperarSegundos(3);
 			element(objectPrincipal.btnSeguros).click();
 			break;
 			
@@ -191,13 +194,43 @@ public class ScHome extends BaseDriver{
 		} catch (Exception e) {
 			// TODO: handle exception
 			util.scrollDown(appiumDriver());
-		}	
-			
-
+		}
 		
 //		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Buscador de clínicas\").instance(0))"));
 //		element(objectPrincipal.btnBuscadorClinica).click();
 	}
-	
+
+	public void seleccionaVerTodas() {
+		/*while(element(objectPrincipal.lnkVerTodas).isClickable()==false){
+			util.mobileSwipeScreenAndroid();
+
+		}*/
+		util.localizarElementoScroll(driver,objectPrincipal.lnkVerTodas);
+		util.esperarElemento(3,objectPrincipal.lnkVerTodas);
+		element(objectPrincipal.lnkVerTodas).click();
+		util.esperarElemento(8,objectPrincipal.lblTusAsistencias);
+	}
+
+	public String getMontoReembolso(String monto) {
+
+		String montoReembolso = "";
+
+		try {
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.8));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+			util.doSwipe(appiumDriver(), start, end, 1000); //with duration 1s
+
+			util.esperarElemento(15, objectPrincipal.txtMontoReembolso(monto));
+			montoReembolso = element(objectPrincipal.txtMontoReembolso(monto)).isVisible() == true ? monto: "no existe";
+		}catch(NoSuchElementException ex) {
+			montoReembolso = "no existe";
+		}
+
+		Serenity.takeScreenshot();
+		return montoReembolso;
+
+
+	}
 	
 }

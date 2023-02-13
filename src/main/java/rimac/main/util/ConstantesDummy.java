@@ -16,6 +16,7 @@ public class ConstantesDummy {
 	public static final String nroCuentaAhorrosInterbank = "1234567891234";
 	public static final String correo = "abc@gmail.com";
 	public static final String tipoDocRecetaMedica = "Receta médica";
+	public static final String tipoOrdenMedica = "Orden médica";
 	public static final String tipoDocHojaAtencionSolReembolso = "Hoja de atención / Solicitud de Reembolso";
 	public static final String tipoDocSolReembolsoOdontologico = "Solicitud de Reembolso Odontológico";
 	public static final String departamentoAncash = "Ancash";

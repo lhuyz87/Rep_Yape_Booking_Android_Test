@@ -1,12 +1,15 @@
 package rimac.main.step;
 
 import io.cucumber.datatable.DataTable;
+
+import java.util.ArrayList;
 import java.util.Map;
 import net.thucydides.core.annotations.Steps;
 import java.util.List;
 
 import rimac.main.screen.*;
 import rimac.main.util.UtilApp;
+import rimac.main.util.Variables;
 
 public class StepLogin {
 	
@@ -40,7 +43,11 @@ public class StepLogin {
 			String tipoID = user.get(0).get("tipoID");
 			String id = user.get(0).get("id");
 			String password = user.get(0).get("password");
-			
+
+			Variables.listaStrings = new ArrayList<String>();
+			Variables.listaStrings.add(id);
+			Variables.listaStrings.add(password);
+
 			scLogin.login(id, password);
 		    scAlertas.omitirAlertas(15);
 		}

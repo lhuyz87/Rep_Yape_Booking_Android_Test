@@ -1,5 +1,6 @@
 package rimac.main.object;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -39,10 +40,13 @@ public class ObjPaginaPrincipal extends BaseDriver{
 	//*[@text='Reembolso de salud']//preceding::*[1]
 	@AndroidFindBy(xpath = "//*[@text='Reembolso de salud']//ancestor::*[1]")
 	public WebElement btnReembolsoSalud;
-	
-	
 
-	
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/button_see_all")
+	public WebElement lnkVerTodas;
+
+	@AndroidFindBy(xpath = "//*[@content-desc='Tus asistencias']")
+	public WebElement lblTusAsistencias;
+
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/bottom_nav_home")
 	public WebElement btnHome;
 
@@ -54,7 +58,11 @@ public class ObjPaginaPrincipal extends BaseDriver{
 	public WebElement btnSeguros;
 	
 	@AndroidFindBy(xpath = "//*[@text='Buscador de salud']//ancestor::*[2]")
-	public WebElement btnBuscadorClinica;	
+	public WebElement btnBuscadorClinica;
 
+	public WebElement txtMontoReembolso(String monto) {
+		WebElement we_MontoReembolso = appiumDriver().findElement(By.ByXPath.xpath("//*[@text='Gasto: S/ "+monto+"']"));
+		return we_MontoReembolso;
+	}
 	
 }
