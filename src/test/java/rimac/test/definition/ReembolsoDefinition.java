@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
+import rimac.main.screen.ScLogin;
 import rimac.main.step.StepReembolso;
 import rimac.main.util.Variables;
 import rimac.test.inout.LeerDD_Reembolso;
@@ -21,17 +22,23 @@ public class ReembolsoDefinition {
 	
 	@Steps
 	StepReembolso stepReembolso;
+	@Steps
+	ScLogin appLoginPage;
 
 	private LeerDD_Reembolso excel = LeerDD_Reembolso.getInstancia();
 
 	//-------------------------------------------------------------------------------------------------------------
-	
+	@Given("realiza el login con credenciales {string}, {string} y {string}")
+	public void serealiza_el_login_con_credenciales_y(String tipo, String id, String numero) {
+		// Write code here that turns the phrase above into concrete actions
+		appLoginPage.login(id, numero);
+	}
 	@When("se ingresa a Reembolso de Salud desde Tramites y se inicia el tramite")
 	public void se_ingresa_a_reembolso_de_salud_desde_tramites_y_se_inicia_el_tramite() {
 		stepReembolso.selReembolsoSaludTramite();
 	}
 	
-	@When("se registra los datos del reembolso sin beneficiario con tipo de cobertura")
+	@And("se registra los datos del reembolso sin beneficiario con tipo de cobertura")
 	public void se_registra_los_datos_del_reembolso_sin_beneficiario_con_tipo_de_cobertura(DataTable datosReembolso) {
 		stepReembolso.completaDatosReembolsoSinBeneficiario(datosReembolso);	
 	}
@@ -69,7 +76,7 @@ public class ReembolsoDefinition {
 	
 	@When("se registra los datos del reembolso con beneficiario con tipo de cobertura y tratamiento")
 	public void se_registra_los_datos_del_reembolso_con_beneficiario_con_tipo_de_cobertura(DataTable datosReembolso) {
-		
+
 		List<Map<String, String>> user = datosReembolso.asMaps(String.class, String.class);
 
 		String prodContrat = user.get(0).get("productoContratante");
@@ -93,11 +100,15 @@ public class ReembolsoDefinition {
 		stepReembolso.ingresarComentariosAdicionales();
 				
 	}
-	
+	@When("se ingresa a Reembolso de Salud desde Home y se inicia el tramite")
+	public void seIngresaAReembolsoDeSaludDesdeHomeYSeIniciaElTramite() {
+		stepReembolso.seleccionar_ver_todas();
+		stepReembolso.selecciona_reembolso_de_salud_desde_asistencias();
+	}
 	@When("se registra los datos del reembolso con beneficiario con tipo de cobertura")
 		public void se_registra_los_datos_del_reembolso_con_beneficiario_con_tipo_de_cobertura_sin_tratamiento(DataTable datosReembolso) {
 //		stepReembolso.completa_datos_reembolso_con_beneficiario_con_tipo_de_cobertura(datosReembolso);	
-		
+
 		List<Map<String, String>> user = datosReembolso.asMaps(String.class, String.class);
 
 		String prodContrat = user.get(0).get("productoContratante");
@@ -112,9 +123,13 @@ public class ReembolsoDefinition {
 
 	@When("se ingresa al Seguimiento de Reembolso de Salud desde Tramites")
 	public void ingresar_seguimiento_reembolso_salud_tramites() {
-	
-
 	stepReembolso.selecSeguiReemSalud();
+	}
+	@When("se ingresa a Reembolso de Salud desde Seguros y se inicia el tramite {string}")
+	public void seIngresaAReembolsoDeSaludDesdeSegurosYSeIniciaElTramite(String seguro) {
+
+		stepReembolso.ver_Detalle_Seguros(seguro);
+		stepReembolso.seleccionar_seguro_desde_tus_Servicios();
 	}
 	
 	@Then("debe aparecer el monto {string} del reembolso solicitado")
@@ -123,8 +138,12 @@ public class ReembolsoDefinition {
 //		stepReembolso.validarMontoReem(monto);
 	}
 
-	
 
+	@Then("debe aparecer el monto {string} del reembolso solicitado en Inicio")
+	public void debeAparecerElMontoDelReembolsoSolicitadoEnInicio(String monto) {
+		System.out.println(monto);
+		String valorActual = stepReembolso.obtener_monto_de_reembolsos_desde_inicio(monto);
 
-
+		assertEquals(monto, valorActual);
+	}
 }
