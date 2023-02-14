@@ -70,7 +70,7 @@ public class ScTusSeguros extends BaseDriver{
 	}
 
 	public void ver_Detalle(String seguro){
-		util.mobileSwipeScreenAndroid();
+
 		while(element(objTusSeguros.tipoSeguro(seguro)).isCurrentlyVisible()==false){
 			util.mobileSwipeScreenAndroid();
 		}

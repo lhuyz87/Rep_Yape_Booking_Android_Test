@@ -16,30 +16,17 @@ import java.util.logging.Logger;
 public class LoginDefinition {
 	
 	@Steps
-	ScLogin appLoginPage;
-	
-	@Steps
 	StepLogin stepLogin;
 	
 	public static Logger looger = Logger.getLogger(LoginDefinition.class.getName());
-	
-	@Given("inicio el app Mundo Rimac {string}, {string}")
-	public void inicio_el_app_mundo_rimac(String dniUser, String passUser) {
-		appLoginPage.login(dniUser, passUser);
-	}
-	
-//	@When("selecciono el producto {string}")
-//	public void selecciono_el_producto(String string) {
-//
-//	}
+
 	
 	@Given("realiza el login con credenciales")
 	public void  realiza_el_login_con_credenciales(DataTable userCredentials) throws Exception {
 		stepLogin.realiza_el_login_con_credenciales(userCredentials);
 
 	}
-	
-	
+
 	@Given("se selecciona la opción ¿Olvidaste tu contraseña?")
 	public void se_selecciona_la_opción_olvidaste_tu_contraseña() {
 	    // Write code here that turns the phrase above into concrete actions

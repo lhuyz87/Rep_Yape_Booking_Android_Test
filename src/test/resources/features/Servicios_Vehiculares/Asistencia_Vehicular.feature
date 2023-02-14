@@ -12,7 +12,6 @@ Feature: Solicitar Asistencia Vehicular
     Then se debe mostrar el mensaje : "¡Solicitud enviada!"
 
     Examples:
-
       | tipoID | id       | password  | placa  | problema     |
       | DNI    | 40861606 | Rimac2021 | FGH456 | Cambio de llanta |
       #| DNI    | 29352104 | Rimac2020 | ALZ225 | Batería baja     |

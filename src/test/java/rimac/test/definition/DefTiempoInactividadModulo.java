@@ -3,6 +3,7 @@ package rimac.test.definition;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
+import rimac.main.step.StepAsistenciaVehicular;
 import rimac.main.step.StepInactividadModulo;
 
 public class DefTiempoInactividadModulo {
@@ -19,4 +20,5 @@ public class DefTiempoInactividadModulo {
     public void seValidaElMensajeParaRetornarAlLogin() {
         stepInactividadModulo.se_valida_mensaje_de_inactividad();
     }
+
 }

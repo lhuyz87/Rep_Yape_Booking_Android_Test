@@ -52,11 +52,6 @@ public class ScServiciosTuSeguro extends BaseDriver{
 	}
 	
 	UtilApp util = new UtilApp();
-	AppiumDriver driver;
-	static Timer timer;
-	static int contador=0;
-	
-	
 	public void seleccionarServicio(String servicio) {
 		looger.info("Inicia selección del seguro");
 

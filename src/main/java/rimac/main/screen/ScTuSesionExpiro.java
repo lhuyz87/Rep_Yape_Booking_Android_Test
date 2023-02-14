@@ -14,9 +14,7 @@ public class ScTuSesionExpiro extends BaseDriver {
     protected ObjTuSesionExpiro objTuSesionExpiro = ObjTuSesionExpiro.getInstancia();
     UtilApp util = new UtilApp();
     public void inactividad_del_modulo_AsistenciasVehiculares(){
-        util.esperarElemento(25,objAsistenciaVehicular.txtNombre);
-        util.esperarSegundos(1);
-        util.pressEnter(androidDriver());
+        util.esperarSegundos(2);
         util.esperarMinutos(15);
     }
 

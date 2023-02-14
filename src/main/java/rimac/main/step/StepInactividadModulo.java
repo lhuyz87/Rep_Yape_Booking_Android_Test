@@ -19,6 +19,7 @@ public class StepInactividadModulo {
         scAlertas.omitirAlertas(20);
         scHome.seleccionarOpcionPrincipal("Tramites");
         scTusTramites.seleccionaAsistenciaVehicular();
+
         scTuSesionExpiro.inactividad_del_modulo_AsistenciasVehiculares();
     }
 

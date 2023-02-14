@@ -36,7 +36,7 @@ public class ObjTusSeguros extends BaseDriver{
 	public WebElement btnDetalleSeguro;
 
 	public WebElement opcSeguro(String seguro) {
-		WebElement we_opcSeguro = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+seguro+"']//parent::android.widget.LinearLayout//following-sibling::android.widget.Button[@text='Ver detalle']"));
+		WebElement we_opcSeguro = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+seguro+"'][1]//parent::android.widget.LinearLayout//following-sibling::android.widget.Button[@text='Ver detalle']"));
 		return we_opcSeguro;
 	}
 
