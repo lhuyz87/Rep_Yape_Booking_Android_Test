@@ -85,29 +85,31 @@ pipeline {
     	                    }
                         }
                     }
+                }
+             }
 
                    
         stage ('Reporte') {
-                	steps {
+                	steps  {
                 		script {
-                             try {
-                             	sh ("mvn serenity:aggregate")
-        	        			echo 'Ejecucion de pruebas sin errores...'
-                            	//bat ("echo ${WORKSPACE}")
-                            	sh ("echo ${defTimestamp}")
-                            	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
-                            	//publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}/target/site/serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
-                            	//publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}\\target\\site\\serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
-                                //saucePublisher()
-                                echo 'Reporte realizado con exito'
-                            }
+                                 try {
+                                    sh ("mvn serenity:aggregate")
+                                    echo 'Ejecucion de pruebas sin errores...'
+                                    //bat ("echo ${WORKSPACE}")
+                                    sh ("echo ${defTimestamp}")
+                                    publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
+                                    //publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}/target/site/serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
+                                    //publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}\\target\\site\\serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
+                                    //saucePublisher()
+                                    echo 'Reporte realizado con exito'
+                                }
 
-                            catch (ex) {
-                                echo 'Reporte realizado con Fallos'
-                                error ('Failed')
-                            }
-                        }
-                    }
-                }
+                                catch (ex) {
+                                    echo 'Reporte realizado con Fallos'
+                                    error ('Failed')
+                                }
+                              }
+                       }
+                   }
     }
 }
