@@ -13,7 +13,7 @@ import rimac.test.util.ExcelUtilPropio;
 @RunWith(RunPersonalizar.class)
 
 //@CucumberOptions(features = "src/test/resources/features", tags =  "@AsistenciaVehicularAuxilioMecanico", glue = "rimac")
-//@CucumberOptions(features = "src/test/resources/features", tags =  "@OlvidastetuContraseña", glue = "rimac")
+//@CucumberOptions(features = "src/test/resources/features", tags =  "@DescargaPolizaTab", glue = "rimac")
 
 public class RunRimac {
 	
