@@ -52,60 +52,62 @@ pipeline {
             }
         }
         
-        stage('Ejecutar Pruebas'){
-            steps{
-                withVault([configuration: configuration, vaultSecrets: secrets]) {
-        			script {
-	        			try{
-                             sauce('saucelabs-US') {
-                             sauceconnect(useGeneratedTunnelIdentifier: true, verboseLogging: true) {
-                        	 switch("${ESCENARIO}") {
-                                case "@InstalarApp":
-                        		        echo 'Se instala App...'
-                        		        sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P instalar")
-                        		        break
-                        	    case "@ValidaVersionMinimaRequerida":
-                        		        echo 'Se instala App menor a la versión mínima requerida...'
-                        				sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRequerida")
-                        	            break
-                        		case "@ValidaVersionMinimaRecomendada":
-                        				echo 'Se instala App menor a la versión mínima recomendada...'
-                        		        sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRecomendada")
-                        			    break
-                        	    default:
-                        				sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=junit:target/site/result.xml -Dcucumber.glue='rimac' -P noInstalar")
-                        				break
-                        		  }
-                              }
-                          }
+    stage('Ejecutar Pruebas'){
+                steps{
+                    withVault([configuration: configuration, vaultSecrets: secrets]) {
+            			script {
+            				try {
+
+            				    switch("${ESCENARIO}") {
+    		                        case "@InstalarApp":
+    		                        	echo 'Se instala App...'
+    		                        	sh ("mvn test -Denviroment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P instalar")
+    		                        	break
+    		                        case "@ValidaVersionMinimaRequerida":
+    		                        	echo 'Se instala App menor a la versión mínima requerida...'
+    		                        	sh ("mvn test -Denviroment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRequerida")
+    					            	break
+    		                        case "@ValidaVersionMinimaRecomendada":
+    		                        	echo 'Se instala App menor a la versión mínima recomendada...'
+    		                        	sh ("mvn test -Denviroment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRecomendada")
+    					            	break
+    					            default:
+    								    sh ("mvn test -Denviroment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P noInstalar")
+    								    break
+    		                    }
+
+    							//sh ("mvn serenity:aggregate")
+    	        				//echo 'Ejecucion de pruebas sin errores...'
+    	        			}
+    	        			catch (ex) {
+    	        				echo 'Finalizo ejecucion con fallos...'
+    	        				error ('Failed')
+    	                    }
                         }
-	        			catch (ex) {
-	        				echo 'Finalizo ejecucion con fallos...'
-	        				error ('Failed')
-	                         }
-                        }
-                    }
-                }
-            }
-                   
-        stage ('Reporte') {
-        	steps {
-        		script {
-                     try {
-                        sh ("mvn serenity:aggregate")
-                        echo 'Ejecucion de pruebas sin errores...'
-                        sh ("echo ${defTimestamp}")
-                        publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
-                        echo 'Reporte realizado con exito'
                     }
 
-                    catch (Exception e) {
-                        echo 'Reporte realizado con Fallos'
-                        print "Error cause: ${e}"
-                        error ('Failed')
+                   
+        stage ('Reporte') {
+                	steps {
+                		script {
+                             try {
+                             	sh ("mvn serenity:aggregate")
+        	        			echo 'Ejecucion de pruebas sin errores...'
+                            	//bat ("echo ${WORKSPACE}")
+                            	sh ("echo ${defTimestamp}")
+                            	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
+                            	//publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}/target/site/serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
+                            	//publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}\\target\\site\\serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
+                                //saucePublisher()
+                                echo 'Reporte realizado con exito'
+                            }
+
+                            catch (ex) {
+                                echo 'Reporte realizado con Fallos'
+                                error ('Failed')
+                            }
+                        }
                     }
                 }
-            }
-        }
     }
 }
