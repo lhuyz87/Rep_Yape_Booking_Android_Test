@@ -44,11 +44,11 @@ public class  ScAsistenciaVehicular extends BaseDriver {
 
         util.esperarElemento(25,objAsistenciaVehicular.titCelulardeContacto);
         util.esperarElementoVisible(15,objAsistenciaVehicular.idtxtNombre);
-        element(objAsistenciaVehicular.txtNombre).clear();
-        element(objAsistenciaVehicular.txtNombre).sendKeys(nombre);
+        //element(objAsistenciaVehicular.txtNombre).clear();
+        //element(objAsistenciaVehicular.txtNombre).sendKeys(nombre);
         util.pressEnter(androidDriver());
-        element(objAsistenciaVehicular.txtCelular).clear();
-        element(objAsistenciaVehicular.txtCelular).sendKeys(celular);
+        //element(objAsistenciaVehicular.txtCelular).clear();
+        //element(objAsistenciaVehicular.txtCelular).sendKeys(celular);
         util.esperarElemento(20,objAsistenciaVehicular.btnComenzar);
         element(objAsistenciaVehicular.btnComenzar).click();
 
