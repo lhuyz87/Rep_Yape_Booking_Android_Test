@@ -43,7 +43,8 @@ public class  ScAsistenciaVehicular extends BaseDriver {
     public void ingresar_Datos_de_Contacto(String nombre, String celular){
 
         util.esperarElemento(25,objAsistenciaVehicular.titCelulardeContacto);
-        util.esperarElementoVisible(25,objAsistenciaVehicular.txtNombre);
+        util.esperarSegundos(10);
+        util.esperarElementoVisible(15,objAsistenciaVehicular.txtNombre);
         element(objAsistenciaVehicular.txtNombre).clear();
         element(objAsistenciaVehicular.txtNombre).sendKeys(nombre);
         util.pressEnter(androidDriver());
