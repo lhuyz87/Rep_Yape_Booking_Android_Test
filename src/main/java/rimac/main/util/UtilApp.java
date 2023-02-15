@@ -165,7 +165,20 @@ public class UtilApp  extends BaseDriver{
 				
 		}
 	}
-	
+	public void esperarElementoVisible(int intentos, WebElement elemento) {
+		int contador=0;
+		System.out.println("Espera Elemento : "  + elemento.toString());
+		Serenity.takeScreenshot();
+		while(element(elemento).isCurrentlyVisible()==false) {
+			contador++;
+			if(element(elemento).isCurrentlyVisible()==true||contador==intentos) {
+				System.out.println("Se encuentra elemento o contador finalizo");
+				break;
+			}else
+				System.out.println("contador: " + contador + elemento);
+
+		}
+	}
 	
 	public void esperarActivoClick(int intentos, WebElement elemento) {
 		int contador=0;
