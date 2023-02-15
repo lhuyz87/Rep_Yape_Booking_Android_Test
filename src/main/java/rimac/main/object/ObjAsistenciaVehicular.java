@@ -33,6 +33,8 @@ public class ObjAsistenciaVehicular extends BaseDriver {
     @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/onBoardingTitle")
     public WebElement titSolicitaAsistencia;
 
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/inputName")
+    public WebElement idtxtNombre;
     @AndroidFindBy(xpath= "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/inputName']/android.widget.FrameLayout/android.widget.EditText")
     public WebElement txtNombre;
     @AndroidFindBy(xpath= "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/inputPhone']/android.widget.FrameLayout/android.widget.EditText")
