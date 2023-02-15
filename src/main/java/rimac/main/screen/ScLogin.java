@@ -47,7 +47,7 @@ private long wdwTimeOut = 300L;
 	
 	public void login(String dniUser, String passUser) {
 		looger.info("aplicación iniciada");
-		util.esperarElemento(4, objLogin.btnIngresarSesion);
+		util.esperarElemento(20, objLogin.btnIngresarSesion);
 		
 		element(objLogin.btnIngresarSesion).click();
 		element(objLogin.txtNumDocumento).click();
