@@ -55,18 +55,18 @@ pipeline {
 	                            switch("${ESCENARIO}") {
 	                                case "@InstalarApp":
 	                                    echo 'Se instala App...'
-	                                    sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P instalar")
+	                                    sh ("mvn test -Denvironment=saucelabs_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P instalar")
 	                                    break
 	                                case "@ValidaVersionMinimaRequerida":
 	                                    echo 'Se instala App menor a la versión mínima requerida...'
-	                                    sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRequerida")
+	                                    sh ("mvn test -Denvironment=saucelabs_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRequerida")
 	                                    break
 	                                case "@ValidaVersionMinimaRecomendada":
 	                                    echo 'Se instala App menor a la versión mínima recomendada...'
-	                                    sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRecomendada")
+	                                    sh ("mvn test -Denvironment=saucelabs_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRecomendada")
 	                                    break
 	                                default:
-	                                    sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P noInstalar")
+	                                    sh ("mvn test -Denvironment=saucelabs_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P noInstalar")
 	                                    break
 	                            }
 	                        }
