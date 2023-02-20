@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import net.thucydides.core.annotations.Steps;
 import java.util.List;
+import java.util.logging.Logger;
 
 import rimac.main.screen.*;
 import rimac.main.util.UtilApp;
@@ -33,7 +34,7 @@ public class StepLogin {
 	
 	@Steps
 	ScTuContraCambiaConExito scTuContraCambiaConExito;
-	
+	public static Logger looger = Logger.getLogger(ScLogin.class.getName());
 	
 	UtilApp utilApp = new UtilApp();
 	
