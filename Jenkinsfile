@@ -4,12 +4,7 @@ import java.text.SimpleDateFormat
 def defDateFormat = new SimpleDateFormat("yyyyMMddHHmm")
 def defDate = new Date()
 def defTimestamp = defDateFormat.format(defDate).toString()
-String nombreProyecto=""
-String nombreProyecto2=""
-def props =""
-def props2 =""
-String aux =""
-File propertiesFile = null
+
 
 def secrets = [
   [path: 'AutoRimac/CanalApp-auto-def-Android', engineVersion: 2, secretValues: [
