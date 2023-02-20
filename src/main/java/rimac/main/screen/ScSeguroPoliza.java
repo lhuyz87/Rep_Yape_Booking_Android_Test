@@ -1,5 +1,6 @@
 package rimac.main.screen;
 
+import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import rimac.main.object.ObjSeguroVehicular;
@@ -66,6 +67,7 @@ public class ScSeguroPoliza extends BaseDriver {
     public boolean seVisualizaPdf(){
         util.esperarSegundos(7);
         boolean existePDF = element(objSeguroVehicular.pdfPoliza).isCurrentlyVisible();
+        Serenity.takeScreenshot();
         return existePDF;
     }
 }

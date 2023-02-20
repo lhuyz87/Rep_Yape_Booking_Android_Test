@@ -1,7 +1,6 @@
 package rimac.main.step;
 
 import net.thucydides.core.annotations.Steps;
-import rimac.main.screen.ScAgregarNuevoDocumento;
 import rimac.main.screen.ScBuscadorDeClinicas;
 import rimac.main.screen.ScHome;
 import rimac.main.screen.ScTusTramites;

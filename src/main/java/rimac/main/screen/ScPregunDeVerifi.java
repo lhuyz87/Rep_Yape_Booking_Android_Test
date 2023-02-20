@@ -4,6 +4,7 @@ package rimac.main.screen;
 import java.util.List;
 import java.util.logging.Logger;
 
+
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By.ByXPath;
 

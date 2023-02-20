@@ -1,6 +1,6 @@
 #Author: Luis Retamozo
 @BuscadordeClinicas
-Feature: Buscador de clínicas
+Feature: Buscador de clinicas
 
   @BuscadordeClinicasdesdeHome
   Scenario Outline: Buscador de clinicas desde Home
