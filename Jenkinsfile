@@ -9,9 +9,6 @@ String nombreProyecto2=""
 def props =""
 def props2 =""
 String aux =""
-//Properties props = new Properties()
-//Properties properties = new Properties()
-//File propertiesFile = new File('${WORKSPACE}/serenity.properties')
 File propertiesFile = null
 
 def secrets = [
@@ -57,27 +54,28 @@ pipeline {
                     withVault([configuration: configuration, vaultSecrets: secrets]) {
             			script {
             				try {
+                                sauce('saucelabs-US') {
+                                    sauceconnect(useGeneratedTunnelIdentifier: true, verboseLogging: true) {
+                                    switch("${ESCENARIO}") {
+                                        case "@InstalarApp":
+                                            echo 'Se instala App...'
+                                            sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P instalar")
+                                            break
+                                        case "@ValidaVersionMinimaRequerida":
+                                            echo 'Se instala App menor a la versión mínima requerida...'
+                                            sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRequerida")
+                                            break
+                                        case "@ValidaVersionMinimaRecomendada":
+                                            echo 'Se instala App menor a la versión mínima recomendada...'
+                                            sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRecomendada")
+                                            break
+                                        default:
+                                            sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P noInstalar")
+                                            break
+                                    }
 
-            				    switch("${ESCENARIO}") {
-    		                        case "@InstalarApp":
-    		                        	echo 'Se instala App...'
-    		                        	sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P instalar")
-    		                        	break
-    		                        case "@ValidaVersionMinimaRequerida":
-    		                        	echo 'Se instala App menor a la versión mínima requerida...'
-    		                        	sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRequerida")
-    					            	break
-    		                        case "@ValidaVersionMinimaRecomendada":
-    		                        	echo 'Se instala App menor a la versión mínima recomendada...'
-    		                        	sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRecomendada")
-    					            	break
-    					            default:
-    								    sh ("mvn test -Denvironment=local_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P noInstalar")
-    								    break
-    		                    }
-
-    							//sh ("mvn serenity:aggregate")
-    	        				//echo 'Ejecucion de pruebas sin errores...'
+    	        			        }
+    	        			    }
     	        			}
     	        			catch (ex) {
     	        				echo 'Finalizo ejecucion con fallos...'

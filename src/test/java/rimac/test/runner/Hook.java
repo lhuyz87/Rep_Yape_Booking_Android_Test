@@ -13,7 +13,7 @@ import java.security.NoSuchAlgorithmException;
 public class Hook extends BaseDriver {
     static EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
 
-    @After
+   @After
     public void tearDown() throws InvalidKeyException, NoSuchAlgorithmException {
 
         String v_environment = variables.getProperty("environment");
