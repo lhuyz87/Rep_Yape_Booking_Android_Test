@@ -153,6 +153,7 @@ public class  ScAsistenciaVehicular extends BaseDriver {
                 if(element(objAsistenciaVehicular.titYaTienesunServicio).isCurrentlyVisible()){
                     break;
                 }
+                util.esperarSegundos(1);
                 contador++;
             }
             if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){

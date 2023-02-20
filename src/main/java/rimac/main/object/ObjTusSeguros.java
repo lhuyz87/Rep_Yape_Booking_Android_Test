@@ -47,5 +47,6 @@ public class ObjTusSeguros extends BaseDriver{
 
 	@AndroidFindBy(xpath = "//*[@text='Tus seguros']")
 	public WebElement lblTusSeguros;
-	
+
+
 }

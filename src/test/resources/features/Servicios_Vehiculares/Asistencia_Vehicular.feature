@@ -11,22 +11,30 @@ Feature: Solicitar Asistencia Vehicular
     And confirmo los terminos de la solicitud
     Then se debe mostrar el mensaje : "¡Solicitud enviada!"
 
+    @AuxilioMecanicoCambioLlanta
+    Examples:
+      | tipoID | id       | password  | placa  | problema         |
+      | DNI    | 09328751 | Rimac2021 | ASK098 | Cambio de llanta |
+    @AuxilioMecanicoBateriaBaja
     Examples:
       | tipoID | id       | password  | placa  | problema     |
-      | DNI    | 40861606 | Rimac2021 | FGH456 | Cambio de llanta |
-      #| DNI    | 29352104 | Rimac2020 | ALZ225 | Batería baja     |
+      | DNI    | 29352104 | Rimac2020 | ALZ225 | Batería baja     |
 
-  @SeguimientodelAuxiliomecánico
+  @SeguimientoAuxilioMecanico
   Scenario Outline: Validar el seguimiento de la Asistencia Vehicular - Auxilio Mecanico
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
     Then se debe mostrar el seguimiento de la asistencia vehicular "Auxilio mecánico" de la "<placa>"
 
+    @SeguimientoAuxilioMecanicoCambioLlanta
     Examples:
       | tipoID | id       | password  | placa  |
-      | DNI    | 40861606 | Rimac2021 | FGH456 |
-     # | DNI    | 29352104 | Rimac2020 | ALZ225 |
+      | DNI    | 09328751 | Rimac2021 | ASK098 |
+    @SeguimientoAuxilioMecanicoBateriaBaja
+    Examples:
+      | tipoID | id       | password  | placa  |
+      | DNI    | 29352104 | Rimac2020 | ALZ225 |
 
   @AsistenciaVehicularGrua
   Scenario Outline: Solicitar Asistencia Vehicular - Grua
@@ -40,11 +48,9 @@ Feature: Solicitar Asistencia Vehicular
 
     Examples:
       | tipoID | id       | password  | placa  |
-        #| DNI    | 40861606 | Rimac2021 | FGH456 |
-        #| DNI    | 40861606 | Rimac2021 | FGH456 |
-      | DNI    | 29352104 | Rimac2020 | ALZ225 |
+      | DNI    | 40861606 | Rimac2021 | FGH456 |
 
-  @SeguimientodeGrua
+  @SeguimientoAsistenciaGrua
   Scenario Outline: Validar el seguimiento de la Asistencia Vehicular - Grúa
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -53,6 +59,4 @@ Feature: Solicitar Asistencia Vehicular
 
     Examples:
       | tipoID | id       | password  | placa  |
-        #| DNI    | 40861606 | Rimac2021 | FGH456 |
-        #| DNI    | 40861606 | Rimac2021 | FGH456 |
-      | DNI    | 29352104 | Rimac2020 | ALZ225 |
+      | DNI    | 40861606 | Rimac2021 | FGH456 |

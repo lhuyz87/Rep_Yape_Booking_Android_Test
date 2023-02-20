@@ -41,7 +41,7 @@ Feature: Login APP Nativa
     And debe permitir el ingreso a la aplicación
     
    @ValidaModoDesarrollo
-  Scenario: Valida que la aplicaci??n no pueda iniciar al contar con modo desarrollador en el dispositivo m??vil
+  Scenario: Valida que la aplicación no pueda iniciar al contar con modo desarrollador en el dispositivo m??vil
     Given Se ingresa a la aplicación con un dispositivo con modo desarrollador activado
   	Then  no debe permitir el ingreso al aplicativo y debe mostar mensaje informativo relacionado a "Desactivar modo desarrollador"
 

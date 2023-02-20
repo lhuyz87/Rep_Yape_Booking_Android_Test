@@ -2,7 +2,7 @@ package rimac.main.step;
 
 import net.thucydides.core.annotations.Steps;
 import rimac.main.screen.ScHome;
-import rimac.main.screen.ScSeguroVehicular;
+import rimac.main.screen.ScSeguroPoliza;
 import rimac.main.screen.ScTusSeguros;
 
 public class StepDescargaPoliza {
@@ -12,7 +12,7 @@ public class StepDescargaPoliza {
     @Steps
     ScTusSeguros scTusSeguros;
     @Steps
-    ScSeguroVehicular scSeguroVehicular;
+    ScSeguroPoliza scSeguroVehicular;
 
     public void ver_Detalle_Seguros(String seguro){
         schome.seleccionarOpcionPrincipal("Seguros");
@@ -24,6 +24,19 @@ public class StepDescargaPoliza {
         scSeguroVehicular.descargarPdf();
     }
 
+    public void ir_EstadoCuenta(){
+        scSeguroVehicular.opcPoliza();
+        scSeguroVehicular.ir_EstadoCuenta();
+    }
+
+    public void ingresarfecha(String anio, String mes){
+        mes = new StringBuilder(mes.substring(0,3)).append(".").toString();
+        System.out.println(mes);
+        scSeguroVehicular.buscarFecha(anio, mes);
+    }
+    public void descargarPoliza(){
+        scSeguroVehicular.descargarPoliza();
+    }
     public boolean validarPDF(){
         return scSeguroVehicular.seVisualizaPdf();
     }

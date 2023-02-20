@@ -70,9 +70,15 @@ public class ScTusSeguros extends BaseDriver{
 	}
 
 	public void ver_Detalle(String seguro){
-
-		while(element(objTusSeguros.tipoSeguro(seguro)).isCurrentlyVisible()==false){
-			util.mobileSwipeScreenAndroid();
+		if(element(objTusSeguros.tipoSeguro(seguro)).isCurrentlyVisible()){
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.8));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.6));
+			util.doSwipe(appiumDriver(), start, end, 500);
+		}else {
+			while (element(objTusSeguros.tipoSeguro(seguro)).isCurrentlyVisible() == false) {
+				util.mobileSwipeScreenAndroid();
+			}
 		}
 		element(objTusSeguros.opcSeguro(seguro)).click();
 	}

@@ -33,4 +33,21 @@ public class ObjSeguroVehicular extends BaseDriver {
     @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/pdf_content")
     public WebElement pdfPoliza;
 
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/button")
+    public WebElement btnEstadoCuenta;
+
+    @AndroidFindBy(xpath= "//*[@resource-id='android:id/pickers']/android.widget.NumberPicker[2]/android.widget.EditText")
+    public WebElement fechaAnio;
+
+    @AndroidFindBy(xpath= "//*[@resource-id='android:id/pickers']/android.widget.NumberPicker[1]/android.widget.EditText")
+    public WebElement fechaMes;
+    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/editDateAccountStatus")
+    public WebElement btnModificarFecha;
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/btnCalendarAccept")
+    public WebElement btnAceptarFecha;
+
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/button")
+    public WebElement btnDescargar;
+
+
 }
