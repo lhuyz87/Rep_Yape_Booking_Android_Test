@@ -1,31 +1,19 @@
 package rimac.main.screen;
 
-import java.io.File;
-import java.io.IOException;
+
 import java.util.List;
 import java.util.logging.Logger;
 
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By.ByXPath;
-import org.openqa.selenium.Keys;
+
 import org.openqa.selenium.WebElement;
 
-import com.github.dockerjava.api.model.Driver;
-
-//import io.appium.java_client.AppiumBy.ById;
-//import io.appium.java_client.AppiumDriver;
-
 import net.serenitybdd.core.Serenity;
-import net.serenitybdd.core.pages.PageObject;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilApp;
-import rimac.main.util.VariablesAppNativa;
-import rimac.main.object.ObjLogin;
 import rimac.main.object.ObjPregunDeVerifi;
-import rimac.main.screen.ScPregunDeVerifi;
-import rimac.main.object.ObjAlertas;
-import rimac.main.object.ObjRegistrarHuella;
-import rimac.main.object.ObjValidaIdentid;
 
 public class ScPregunDeVerifi extends BaseDriver{
 
@@ -35,7 +23,7 @@ private long wdwTimeOut = 300L;
 
 	// util
 	protected MobileObjectUtil pageObjectUtil2 = MobileObjectUtil.getInstancia();
-	protected ObjAlertas alertasObject = ObjAlertas.getInstancia();
+
 	public static Logger looger = Logger.getLogger(ScPregunDeVerifi.class.getName());
 	
 	public long getWdwTimeOut() {
@@ -43,7 +31,7 @@ private long wdwTimeOut = 300L;
 	}
 	
 	UtilApp util = new UtilApp();
-//	AppiumDriver driver;
+	AppiumDriver driver;
 
 
 	public void ingresaFechaNacimi(String fechaNacimi) {
@@ -68,7 +56,7 @@ private long wdwTimeOut = 300L;
 				System.out.println("Se encontro elemento  ");
 				break;
 			}else {
-				util.scrollUp(appiumDriver());
+				util.scrollUp(driver);
 			}
 			
 			
@@ -76,7 +64,7 @@ private long wdwTimeOut = 300L;
 		}
 		
 	String xpathMonth = "//*[@resource-id='android:id/month_view']//descendant::android.view.View";
-		List<WebElement> elementos = appiumDriver().findElements(ByXPath.xpath(xpathMonth));
+		List<WebElement> elementos = driver.findElements(ByXPath.xpath(xpathMonth));
 		for(int i=0; i< elementos.size(); i++) {
 	}
 	
@@ -92,21 +80,21 @@ private long wdwTimeOut = 300L;
 //		05 -  11 = -06
 		
 		if(cantMesDif==0) {
-			element(objPregunDeVerifi.selDia(appiumDriver(), ""+Integer.parseInt(dia))).click();
+			element(objPregunDeVerifi.selDia(driver, ""+Integer.parseInt(dia))).click();
 		}
 		
 		if(cantMesDif<0) {
 			for(int i=0; i<cantMesDif*-1; i++) {
 				element(objPregunDeVerifi.btnMesPrevio).click();
 			}
-			element(objPregunDeVerifi.selDia(appiumDriver(), ""+Integer.parseInt(dia))).click();
+			element(objPregunDeVerifi.selDia(driver, ""+Integer.parseInt(dia))).click();
 		}
 		
 		if(cantMesDif>0) {
 			for(int i=0; i<cantMesDif; i++) {
 				element(objPregunDeVerifi.btnMesPrevio).click();
 			}
-			element(objPregunDeVerifi.selDia(appiumDriver(), ""+Integer.parseInt(dia))).click();
+			element(objPregunDeVerifi.selDia(driver, ""+Integer.parseInt(dia))).click();
 		}
 	
 		
