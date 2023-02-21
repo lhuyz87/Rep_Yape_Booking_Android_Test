@@ -5,7 +5,7 @@ import rimac.main.screen.ScHome;
 import rimac.main.screen.ScSeguroPoliza;
 import rimac.main.screen.ScTusSeguros;
 
-public class StepDescargaPoliza {
+public class StepDescargaPdf {
 
     @Steps
     ScHome schome;
@@ -19,11 +19,15 @@ public class StepDescargaPoliza {
         scTusSeguros.esperar_Tus_Seguros();
         scTusSeguros.ver_Detalle(seguro);
     }
+
     public void ver_Detalle_Poliza(){
         scSeguroVehicular.opcPoliza();
         scSeguroVehicular.descargarPdf();
     }
 
+    public void descargar_Manual(){
+
+    }
     public void ir_EstadoCuenta(){
         scSeguroVehicular.opcPoliza();
         scSeguroVehicular.ir_EstadoCuenta();
@@ -34,8 +38,8 @@ public class StepDescargaPoliza {
         System.out.println(mes);
         scSeguroVehicular.buscarFecha(anio, mes);
     }
-    public void descargarPoliza(){
-        scSeguroVehicular.descargarPoliza();
+    public void descargarPdf(){
+        scSeguroVehicular.descargarpdf();
     }
     public boolean validarPDF(){
         return scSeguroVehicular.seVisualizaPdf();
