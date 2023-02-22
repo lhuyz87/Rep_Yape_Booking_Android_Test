@@ -10,7 +10,7 @@ Feature: Login APP Nativa
       | tipoID | id       | password  |
       | DNI    | 70434801 | Rimac2020 |
 
-  @OlvidastetuContraseña
+  @OlvidastetuContrasenia
   Scenario Outline: Validar que se permita cambiar el password respondiendo preguntas
     Given se selecciona la opción ¿Olvidaste tu contraseña?
     And se ingresa el tipo y número de documento: "<tipoID>", "<id>"
