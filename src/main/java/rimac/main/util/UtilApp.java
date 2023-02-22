@@ -543,37 +543,37 @@ public class UtilApp  extends BaseDriver{
 			String mesNumero="";
 			
 			switch (mes) {
-				case "january":
+				case "January":
 				case "enero":
 					mesNumero="01";
 					break;
 
-				case "february":
+				case "February":
 				case "febrero":
 					mesNumero="02";
 					break;
 
-				case "march":
+				case "March":
 				case "marzo":
 					mesNumero="03";
 					break;
 
-				case "april":
+				case "April":
 				case "abril":
 					mesNumero="04";
 					break;
 
-				case "may":
+				case "May":
 				case "mayo":
 					mesNumero="05";
 					break;
 
-				case "june":
+				case "June":
 				case "junio":
 					mesNumero="06";
 					break;
 
-				case "july":
+				case "July":
 				case "julio":
 					mesNumero="06";
 					break;
@@ -583,22 +583,22 @@ public class UtilApp  extends BaseDriver{
 					mesNumero="08";
 					break;
 
-				case "september ":
+				case "September ":
 				case "setiembre":
 					mesNumero="09";
 					break;
 
-				case "october":
+				case "October":
 				case "octubre":
 					mesNumero="10";
 					break;
 
-				case "november":
+				case "November":
 				case "noviembre":
 					mesNumero="11";
 					break;
 
-				case "december":
+				case "December":
 				case "diciembre":
 					mesNumero="12";
 					break;
