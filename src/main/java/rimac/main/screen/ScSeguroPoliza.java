@@ -4,6 +4,7 @@ import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import rimac.main.object.ObjSeguroVehicular;
+import rimac.main.object.ObjTabPoliza;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.UtilApp;
 
@@ -16,6 +17,7 @@ public class ScSeguroPoliza extends BaseDriver {
     }
 
     protected ObjSeguroVehicular objSeguroVehicular= ObjSeguroVehicular.getInstancia();
+    protected ObjTabPoliza objTabPoliza= ObjTabPoliza.getInstancia();
 
     UtilApp util;
 
@@ -26,15 +28,15 @@ public class ScSeguroPoliza extends BaseDriver {
 
     public void ir_EstadoCuenta(){
         int contador=0;
-        while(element(objSeguroVehicular.btnEstadoCuenta).isCurrentlyVisible()==false && contador<4){
+        while(element(objTabPoliza.btnEstadoCuenta).isCurrentlyVisible()==false && contador<4){
             util.mobileSwipeScreenAndroid();
         }
-        element(objSeguroVehicular.btnEstadoCuenta).click();
+        element(objTabPoliza.btnEstadoCuenta).click();
     }
 
     public void descargarPdf(){
-        util.esperarElemento(10, objSeguroVehicular.btnDescargarPoliza);
-        element(objSeguroVehicular.btnDescargarPoliza).click();
+        util.esperarElemento(10, objTabPoliza.btnDescargarPoliza);
+        element(objTabPoliza.btnDescargarPoliza).click();
     }
 
     public void buscarFecha(String anio, String mes){
@@ -59,14 +61,18 @@ public class ScSeguroPoliza extends BaseDriver {
         element(objSeguroVehicular.btnAceptarFecha).click();
     }
 
-    public void descargarPoliza(){
+    public void descargarpdf(){
         util.esperarElementoVisible(5, objSeguroVehicular.btnDescargar);
+        int contador=0;
+        while(element(objSeguroVehicular.btnDescargar).isCurrentlyVisible()==false && contador<9){
+            util.mobileSwipeScreenAndroid();
+        }
         element(objSeguroVehicular.btnDescargar).click();
     }
 
     public boolean seVisualizaPdf(){
         util.esperarSegundos(7);
-        boolean existePDF = element(objSeguroVehicular.pdfPoliza).isCurrentlyVisible();
+        boolean existePDF = element(objTabPoliza.pdfDocumento).isCurrentlyVisible();
         Serenity.takeScreenshot();
         return existePDF;
     }
