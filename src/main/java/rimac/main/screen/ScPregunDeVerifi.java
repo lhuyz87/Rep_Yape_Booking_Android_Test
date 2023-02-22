@@ -64,7 +64,9 @@ private long wdwTimeOut = 300L;
 			
 			intento++;
 		}
-		
+
+		util.esperarElementoVisible(9,objPregunDeVerifi.btnMesPrevio);
+
 	String xpathMonth = "//*[@resource-id='android:id/month_view']//descendant::android.view.View";
 		List<WebElement> elementos = appiumDriver().findElements(ByXPath.xpath(xpathMonth));
 		for(int i=0; i< elementos.size(); i++) {
