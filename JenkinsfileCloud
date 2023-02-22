@@ -1,6 +1,5 @@
 import java.text.SimpleDateFormat
 
-//currentBuild.displayName="Canal APP-Android-#"+currentBuild.number
 def defDateFormat = new SimpleDateFormat("yyyyMMddHHmm")
 def defDate = new Date()
 def defTimestamp = defDateFormat.format(defDate).toString()
