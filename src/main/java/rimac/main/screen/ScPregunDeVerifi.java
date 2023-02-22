@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By.ByXPath;
 
 import org.openqa.selenium.WebElement;
@@ -32,7 +33,7 @@ private long wdwTimeOut = 300L;
 	}
 	
 	UtilApp util = new UtilApp();
-	AppiumDriver driver;
+
 
 
 	public void ingresaFechaNacimi(String fechaNacimi) {
@@ -57,7 +58,7 @@ private long wdwTimeOut = 300L;
 				System.out.println("Se encontro elemento  ");
 				break;
 			}else {
-				util.scrollUp(driver);
+				util.scrollUp(appiumDriver());
 			}
 			
 			
@@ -65,7 +66,7 @@ private long wdwTimeOut = 300L;
 		}
 		
 	String xpathMonth = "//*[@resource-id='android:id/month_view']//descendant::android.view.View";
-		List<WebElement> elementos = driver.findElements(ByXPath.xpath(xpathMonth));
+		List<WebElement> elementos = appiumDriver().findElements(ByXPath.xpath(xpathMonth));
 		for(int i=0; i< elementos.size(); i++) {
 	}
 	
@@ -81,21 +82,21 @@ private long wdwTimeOut = 300L;
 //		05 -  11 = -06
 		
 		if(cantMesDif==0) {
-			element(objPregunDeVerifi.selDia(driver, ""+Integer.parseInt(dia))).click();
+			element(objPregunDeVerifi.selDia(appiumDriver(), ""+Integer.parseInt(dia))).click();
 		}
 		
 		if(cantMesDif<0) {
 			for(int i=0; i<cantMesDif*-1; i++) {
 				element(objPregunDeVerifi.btnMesPrevio).click();
 			}
-			element(objPregunDeVerifi.selDia(driver, ""+Integer.parseInt(dia))).click();
+			element(objPregunDeVerifi.selDia(appiumDriver(), ""+Integer.parseInt(dia))).click();
 		}
 		
 		if(cantMesDif>0) {
 			for(int i=0; i<cantMesDif; i++) {
 				element(objPregunDeVerifi.btnMesPrevio).click();
 			}
-			element(objPregunDeVerifi.selDia(driver, ""+Integer.parseInt(dia))).click();
+			element(objPregunDeVerifi.selDia(appiumDriver(), ""+Integer.parseInt(dia))).click();
 		}
 	
 		
