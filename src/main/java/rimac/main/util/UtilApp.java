@@ -230,14 +230,17 @@ public class UtilApp  extends BaseDriver{
 	public void scroll() {
 		appiumDriver().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollForward()"));
 	}
-	
+
+	public void scrollUp2() {
+		appiumDriver().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollForward()"));
+	}
 	
 	public void scrollDown(WebDriver driver) {
 		
 
 		try {
 		    driver.findElement(AppiumBy.androidUIAutomator(
-		            "new UiScrollable(new UiSelector().scrollable(true)).scrollForward()"));
+		            "new UiScrollable(new UiSelector().scrollable(true)).scrollBackward()"));
 		} catch (InvalidSelectorException e) {
 			
 			System.out.println(e.getMessage());
@@ -540,57 +543,69 @@ public class UtilApp  extends BaseDriver{
 			String mesNumero="";
 			
 			switch (mes) {
-			case "enero":
-				mesNumero="01";
-				break;
-				
-			case "febrero":
-				mesNumero="02";
-				break;
-				
-			case "marzo":
-				mesNumero="03";
-				break;
-				
-			case "abri":
-				mesNumero="04";
-				break;
-				
-			case "mayo":
-				mesNumero="05";
-				break;
-				
-			case "junio":
-				mesNumero="06";
-				break;
-				
-			case "julio":
-				mesNumero="06";
-				break;
-				
-			case "agosto":
-				mesNumero="08";
-				break;
-				
-			case "setiembre":
-				mesNumero="09";
-				break;
-				
-			case "octubre":
-				mesNumero="10";
-				break;
-				
-			case "noviembre":
-				mesNumero="11";
-				break;
-				
-			case "diciembre":
-				mesNumero="12";
-				break;
-				
+				case "january":
+				case "enero":
+					mesNumero="01";
+					break;
+
+				case "february":
+				case "febrero":
+					mesNumero="02";
+					break;
+
+				case "march":
+				case "marzo":
+					mesNumero="03";
+					break;
+
+				case "april":
+				case "abril":
+					mesNumero="04";
+					break;
+
+				case "may":
+				case "mayo":
+					mesNumero="05";
+					break;
+
+				case "june":
+				case "junio":
+					mesNumero="06";
+					break;
+
+				case "july":
+				case "julio":
+					mesNumero="06";
+					break;
+
+				case "August":
+				case "agosto":
+					mesNumero="08";
+					break;
+
+				case "september ":
+				case "setiembre":
+					mesNumero="09";
+					break;
+
+				case "october":
+				case "octubre":
+					mesNumero="10";
+					break;
+
+				case "november":
+				case "noviembre":
+					mesNumero="11";
+					break;
+
+				case "december":
+				case "diciembre":
+					mesNumero="12";
+					break;
+
 				default:
-				break;
-			}
+					break;
+				}
 			
 			return mesNumero;
 			
