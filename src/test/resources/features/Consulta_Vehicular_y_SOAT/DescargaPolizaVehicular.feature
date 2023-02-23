@@ -1,8 +1,8 @@
 #Author: Candy Espinoza
-  Feature: Descarga de Poliza Digital Vehicular
+  Feature: Canal Android -
 
    @DescargaPolizaTab
-    Scenario Outline: Descarga poliza digital desde el tab poliza
+    Scenario Outline: Descarga poliza digital
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
         | <tipoID> | <id> | <password> |

@@ -1,8 +1,8 @@
 #Author: Candy Espinoza
-Feature: Descargar la información digital del seguro desde el tab polizas
+Feature: Canal Android -
 
   @DescargaPolizaVidaFlexible
-  Scenario Outline: Descarga estado de cuenta digital desde el tab poliza del Producto "Vida Flexible"
+  Scenario Outline: Descarga estado de cuenta digital - "Vida Flexible"
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -14,7 +14,7 @@ Feature: Descargar la información digital del seguro desde el tab polizas
       | DNI    | 44926877 | Rimac2020 | Plan Vida Flexible | Mayo | 2022 |
 
   @DescargaManualVida
-  Scenario Outline: Descarga manual de uso de poliza desde el tab poliza del Producto Vida Contigo
+  Scenario Outline: Descarga de manual - "Vida Contigo"
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
