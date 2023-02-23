@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-Feature: Canal Android -
+Feature: Canal Android
 
   @DescargaPolizaVidaFlexible
   Scenario Outline: Descarga estado de cuenta digital - "Vida Flexible"

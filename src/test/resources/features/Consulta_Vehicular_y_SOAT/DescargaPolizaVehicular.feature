@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-  Feature: Canal Android -
+  Feature: Canal Android
 
    @DescargaPolizaTab
     Scenario Outline: Descarga poliza digital

@@ -25,9 +25,6 @@ public class StepDescargaPdf {
         scSeguroVehicular.descargarPdf();
     }
 
-    public void descargar_Manual(){
-
-    }
     public void ir_EstadoCuenta(){
         scSeguroVehicular.opcPoliza();
         scSeguroVehicular.ir_EstadoCuenta();

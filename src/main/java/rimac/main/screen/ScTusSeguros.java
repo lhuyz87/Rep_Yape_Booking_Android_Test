@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.Actions;
@@ -70,16 +71,19 @@ public class ScTusSeguros extends BaseDriver{
 	}
 
 	public void ver_Detalle(String seguro){
-		if(element(objTusSeguros.tipoSeguro(seguro)).isCurrentlyVisible()){
+		try {
+			int contador = 0;
+				while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 5) {
+					util.mobileSwipeScreenAndroid();
+					contador++;
+				}
+			element(objTusSeguros.opcSeguro(seguro)).click();
+		}catch(Exception e){
 			Dimension dimension = appiumDriver().manage().window().getSize();
 			Point start= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.8));
-			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.7));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.6));
 			util.doSwipe(appiumDriver(), start, end, 500);
-		}else {
-			while (element(objTusSeguros.tipoSeguro(seguro)).isCurrentlyVisible() == false) {
-				util.mobileSwipeScreenAndroid();
-			}
+			element(objTusSeguros.opcSeguro(seguro)).click();
 		}
-		element(objTusSeguros.opcSeguro(seguro)).click();
 	}
 }
