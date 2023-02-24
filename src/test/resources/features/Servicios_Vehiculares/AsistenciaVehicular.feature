@@ -2,7 +2,7 @@
 Feature: Solicitar Asistencia Vehicular
 
   @AsistenciaVehicularRepuesto
-  Scenario Outline: Solicitar Asistencia Vehicular - Auxilio Mecanico
+  Scenario Outline: Solicitar Auxilio Mecanico - Repuesto
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -16,7 +16,7 @@ Feature: Solicitar Asistencia Vehicular
       | DNI    | 09328751 | Rimac2021 | ASK098 | Cambio de llanta |
 
   @SeguimientoAsistenciaVehicularRepuesto
-  Scenario Outline: Validar el seguimiento de la Asistencia Vehicular - Auxilio Mecanico
+  Scenario Outline: Validar el seguimiento del Auxilio Mecanico - Repuesto
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -27,7 +27,7 @@ Feature: Solicitar Asistencia Vehicular
       | DNI    | 09328751 | Rimac2021 | ASK098 |
 
   @AsistenciaVehicularProblema
-  Scenario Outline: Solicitar Asistencia Vehicular - Auxilio Mecanico
+  Scenario Outline: Solicitar Auxilio Mecanico- Problema
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -41,7 +41,7 @@ Feature: Solicitar Asistencia Vehicular
       | DNI    | 29352104 | Rimac2020 | ALZ225 | Batería baja |
 
   @SeguimientoAsistenciaVehicularProblema
-  Scenario Outline: Validar el seguimiento de la Asistencia Vehicular - Auxilio Mecanico
+  Scenario Outline: Validar el seguimiento del Auxilio Mecanico - Problema
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -52,7 +52,7 @@ Feature: Solicitar Asistencia Vehicular
       | DNI    | 29352104 | Rimac2020 | ALZ225 |
 
   @AsistenciaVehicularGrua
-  Scenario Outline: Solicitar Asistencia Vehicular - Grua
+  Scenario Outline: Solicitar Asistencia - Grua
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -66,7 +66,7 @@ Feature: Solicitar Asistencia Vehicular
       | DNI    | 40861606 | Rimac2021 | FGH456 |
 
   @SeguimientoAsistenciaVehicularGrua
-  Scenario Outline: Validar el seguimiento de la Asistencia Vehicular - Grúa
+  Scenario Outline: Validar el seguimiento de la Asistencia - Grua
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
