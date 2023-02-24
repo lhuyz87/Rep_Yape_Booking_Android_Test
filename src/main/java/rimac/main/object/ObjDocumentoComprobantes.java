@@ -76,7 +76,7 @@ public class ObjDocumentoComprobantes extends BaseDriver{
 	@AndroidFindBy(xpath = "//*[@text='Fecha de emisión del documento']")
 	public WebElement lstFechaEmision;
 	
-	@AndroidFindBy(xpath = "//*[@text='ACEPTAR']")
+	@AndroidFindBy(id = "android:id/button1")
 	public WebElement btnAceptar;
 	
 	

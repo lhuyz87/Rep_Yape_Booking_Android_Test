@@ -3,7 +3,7 @@
 Feature: Reembolso
 
   @regresionReembolsoSalud @reembolsoSaludSinBeneficiarioconCoberturadeMedicinas @reembolso
-  Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde menú Tramites
+  Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde menu Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -38,7 +38,7 @@ Feature: Reembolso
       | DNI    | 10392464 | Rimac2020 | PLANES MEDICOS EPS - Medifarma s a | Madueño Armacanque Herzop Myki - Titular | Lima          | Medicinas     |
 
   @regresionReembolsoSalud @reembolsoOdontologicoConBeneficiario @reembolso
-  Scenario Outline: Realizar solicitud de reembolso cliente con cobertura odontologica con beneficiarios desde menú Tramites
+  Scenario Outline: Realizar solicitud de reembolso cliente con cobertura odontologica con beneficiarios desde menu Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -99,11 +99,7 @@ Feature: Reembolso
     Examples:
      ###DATOS###@DataReembolso|1@01-SegReembolso
       | 0 | tipoID | id | password | monto |
-      |1|DNI|70434801|Rimac2020|981|
-      |2|DNI|70434801|Rimac2020|147|
-      |3|DNI|76243722|Rimac2021|921|
-      |4|DNI|10392464|Rimac2020|606|
-      |5|DNI|70434801|Rimac2020|447|
+      |1|DNI|70434801|Rimac2020|483|
 
   @regresionSeguimientoReembolsoSalud @seguimientoReembolsoDesdeInicio
   Scenario Outline: Realizar el Seguimiento de Reembolso de Salud desde Inicio
@@ -114,5 +110,5 @@ Feature: Reembolso
 
     Examples:
       ###DATOS###@DataReembolso|U@01-SegReembolso
-      | 0 | tipoID | id       | password  | monto |
-      |5|DNI|70434801|Rimac2020|447|
+      | 0 | tipoID | id | password | monto |
+      |1|DNI|70434801|Rimac2020|483|

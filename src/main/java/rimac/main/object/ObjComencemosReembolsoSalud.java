@@ -81,7 +81,7 @@ public class ObjComencemosReembolsoSalud extends BaseDriver{
 	}
 	
 	
-	@AndroidFindBy(xpath = "//*[@text='ACEPTAR']")
+	@AndroidFindBy(id = "android:id/button1")
 	public WebElement selAceptarDiaAtencion;
 	
 		
