@@ -144,8 +144,8 @@ public void subirComprobante(String tipo) {
 
 
 public void subirDocumento(String tipo) {
-	
-	util.esperarElemento(5, documentoComprobantesObject.btnSubirDocumentos);
+
+	util.esperarElementoVisible(8,documentoComprobantesObject.btnSubirDocumentos);
 	element(documentoComprobantesObject.btnSubirDocumentos).click();
 	
 //	try {

@@ -46,8 +46,8 @@ private long wdwTimeOut = 300L;
 		
 		looger.info("LLena datos dirección");
 		System.out.println("***************************************************");
-		util.esperarSegundos(3);
-		util.esperarElemento(15, confirmarDatosReembolsoSaludObject.lblDni);
+		util.esperarSegundos(4);
+		util.esperarElementoVisible(15, confirmarDatosReembolsoSaludObject.lblDni);
 		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Dirección\").instance(0))"));
 //		util.esperarElemento(5, confirmarDatosReembolsoSaludObject.selDepartamento);
 		util.esperarSegundos(3);
@@ -65,7 +65,7 @@ private long wdwTimeOut = 300L;
 			if(depAux==0) {
 				System.out.println("ENTRA a llenar departamento"  + departamento);
 				
-				util.esperarElemento(3, confirmarDatosReembolsoSaludObject.selDepartamento);
+				util.esperarElemento(8, confirmarDatosReembolsoSaludObject.selDepartamento);
 				element(confirmarDatosReembolsoSaludObject.selDepartamento).click();
 				element(confirmarDatosReembolsoSaludObject.departamento(appiumDriver(), departamento)).click();
 //				appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Distrito\").instance(0))"));

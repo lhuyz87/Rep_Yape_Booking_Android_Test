@@ -47,7 +47,6 @@ private long wdwTimeOut = 300L;
 	public void llenarDatosDeCuenta(String entidad, String tipoCuenta, String moneda, String numCuenta, String correo) {
 		looger.info("LLenar Cuenta");
 		util.esperarElemento(5, cuentaDeAbonoObject.lstEntidadBancaria);
-		util.esperarSegundos(2);
 		List<WebElement> elementos = new ArrayList<>();
 
 		//Interbank, BBVA, Scotiabank, Scotiabank

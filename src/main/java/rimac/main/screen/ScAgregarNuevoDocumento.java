@@ -50,25 +50,29 @@ private long wdwTimeOut = 300L;
 		element(agregarNuevoDocumentoObject.txtSerieDocumento).click();
 		element(agregarNuevoDocumentoObject.txtSerieDocumento).sendKeys(serie);
 		((HidesKeyboard) appiumDriver()).hideKeyboard();
-		util.esperarSegundos(1);
+		util.mobileSwipeScreenAndroid();
+		util.esperarElementoVisible(3,agregarNuevoDocumentoObject.txtNroDocumento);
 		element(agregarNuevoDocumentoObject.txtNroDocumento).click();
 		element(agregarNuevoDocumentoObject.txtNroDocumento).sendKeys(documento);
 		((HidesKeyboard) appiumDriver()).hideKeyboard();
-		util.esperarSegundos(1);
+		util.esperarElementoVisible(3,agregarNuevoDocumentoObject.lstMoneda);
 		element(agregarNuevoDocumentoObject.lstMoneda).click();
 		element(agregarNuevoDocumentoObject.getMoneda(appiumDriver(), moneda)).click();
+		util.esperarElementoVisible(3,agregarNuevoDocumentoObject.txtMonto);
 		element(agregarNuevoDocumentoObject.txtMonto).click();
 		element(agregarNuevoDocumentoObject.txtMonto).sendKeys(monto);
 		((HidesKeyboard) appiumDriver()).hideKeyboard();
-		util.esperarSegundos(1);
+		util.esperarSegundos(2);
 		try {
 			util.scroll();
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+		util.esperarElementoVisible(3,agregarNuevoDocumentoObject.lstFechaEmision);
 		element(agregarNuevoDocumentoObject.lstFechaEmision).click();
+		util.esperarElementoVisible(3,agregarNuevoDocumentoObject.btnAceptar);
 		element(agregarNuevoDocumentoObject.btnAceptar).click();
+		util.esperarElementoVisible(3,agregarNuevoDocumentoObject.btnSubirDocumento);
 		element(agregarNuevoDocumentoObject.btnSubirDocumento).click();
 		util.esperarSegundos(5);
 	}

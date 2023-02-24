@@ -53,8 +53,7 @@ private long wdwTimeOut = 300L;
 		element(comencemosReembolsoSaludObject.selTipoCobertura).click();
 		element(comencemosReembolsoSaludObject.tipoCobertura(appiumDriver(), tipoCobert)).click();
 		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
-		
-		
+
 	}
 	
 	
@@ -81,16 +80,15 @@ private long wdwTimeOut = 300L;
 		util.esperarElemento(5, comencemosReembolsoSaludObject.selLugarAtencion);
 		element(comencemosReembolsoSaludObject.selLugarAtencion).click();
 		element(comencemosReembolsoSaludObject.lugarAtencion(appiumDriver(), lugarAtencion)).click();
-		util.esperarSegundos(1);
+		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
+		util.esperarElemento(3, comencemosReembolsoSaludObject.selFechaAtencion);
 		element(comencemosReembolsoSaludObject.selFechaAtencion).click();
-//		element(comencemosReembolsoSaludObject.diaAtencion(appiumDriver(), fechaAtencion.substring(0,2))).click();
 		element(comencemosReembolsoSaludObject.selAceptarDiaAtencion).click();
-		util.esperarElemento(5, comencemosReembolsoSaludObject.selTipoCobertura);
+		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
+		util.esperarElemento(3, comencemosReembolsoSaludObject.selTipoCobertura);
 		element(comencemosReembolsoSaludObject.selTipoCobertura).click();
 		element(comencemosReembolsoSaludObject.tipoCobertura(appiumDriver(), tipoCobert)).click();
 		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
-
-		
 	}
 	
 }
