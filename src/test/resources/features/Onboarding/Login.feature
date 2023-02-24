@@ -1,6 +1,6 @@
 #Author: your.email@your.domain.com
 @tag
-Feature: Login APP Nativa
+Feature: Login Canal Android
 
   @Login @RegresionPoliza
   Scenario Outline: Realizar Login Exitoso en Mundo Rimac
@@ -22,26 +22,23 @@ Feature: Login APP Nativa
     Examples:
       | tipoID | id       | fechaNacimiento | seguros |
       | DNI    | 10667872 | 08/01/1978      | SOAT    |
-    ## | DNI    | 10667872 | 08/01/1978      | SOAT    |
-    
-    
-    
+
     @ValidaVersionMinimaRequerida
-  Scenario: Valida versión mínima requerida
+  Scenario: Valida version minima requerida
     Given Se ingresa a la aplicación con una versión menor a la minima requerida
     Then se debe mostar mensaje informativo "Tu App RIMAC necesita actualizarse"
     And mostrar solo opción actualizar
 
 
   @ValidaVersionMinimaRecomendada
-  Scenario: Valida versión mínima recomendada
+  Scenario: Valida version minima recomendada
     Given Se ingresa a la aplicación con una versión menor a la minima recomendada
     Then  se debe mostar mensaje informativo "Tu App RIMAC necesita actualizarse"
     And seleccionamos opción "Mas tarde"
     And debe permitir el ingreso a la aplicación
     
    @ValidaModoDesarrollo
-  Scenario: Valida que la aplicación no pueda iniciar al contar con modo desarrollador en el dispositivo m??vil
+  Scenario: Valida que la aplicacion no pueda iniciar al contar con modo desarrollador en el dispositivo movil
     Given Se ingresa a la aplicación con un dispositivo con modo desarrollador activado
   	Then  no debe permitir el ingreso al aplicativo y debe mostar mensaje informativo relacionado a "Desactivar modo desarrollador"
 

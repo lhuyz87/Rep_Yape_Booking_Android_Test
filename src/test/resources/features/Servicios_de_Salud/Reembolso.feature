@@ -99,6 +99,11 @@ Feature: Reembolso
     Examples:
      ###DATOS###@DataReembolso|1@01-SegReembolso
       | 0 | tipoID | id | password | monto |
+      |1|DNI|70434801|Rimac2020|981|
+      |2|DNI|70434801|Rimac2020|147|
+      |3|DNI|76243722|Rimac2021|921|
+      |4|DNI|10392464|Rimac2020|606|
+      |5|DNI|70434801|Rimac2020|447|
 
   @regresionSeguimientoReembolsoSalud @seguimientoReembolsoDesdeInicio
   Scenario Outline: Realizar el Seguimiento de Reembolso de Salud desde Inicio
@@ -110,3 +115,4 @@ Feature: Reembolso
     Examples:
       ###DATOS###@DataReembolso|U@01-SegReembolso
       | 0 | tipoID | id       | password  | monto |
+      |5|DNI|70434801|Rimac2020|447|

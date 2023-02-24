@@ -1,7 +1,7 @@
 @AsistenciaVehicular
 Feature: Solicitar Asistencia Vehicular
 
-  @AsistenciaVehicularAuxilioMecanico
+
   Scenario Outline: Solicitar Asistencia Vehicular - Auxilio Mecanico
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -11,14 +11,14 @@ Feature: Solicitar Asistencia Vehicular
     And confirmo los terminos de la solicitud
     Then se debe mostrar el mensaje : "¡Solicitud enviada!"
 
-    @AuxilioMecanicoCambioLlanta
+    @AsistenciaVehicularRepuesto
     Examples:
       | tipoID | id       | password  | placa  | problema         |
       | DNI    | 09328751 | Rimac2021 | ASK098 | Cambio de llanta |
-    @AuxilioMecanicoBateriaBaja
+    @AsistenciaVehicularProblema
     Examples:
       | tipoID | id       | password  | placa  | problema     |
-      | DNI    | 29352104 | Rimac2020 | ALZ225 | Batería baja     |
+      | DNI    | 29352104 | Rimac2020 | ALZ225 | Batería baja |
 
   @SeguimientoAuxilioMecanico
   Scenario Outline: Validar el seguimiento de la Asistencia Vehicular - Auxilio Mecanico
@@ -27,11 +27,11 @@ Feature: Solicitar Asistencia Vehicular
       | <tipoID> | <id> | <password> |
     Then se debe mostrar el seguimiento de la asistencia vehicular "Auxilio mecánico" de la "<placa>"
 
-    @SeguimientoAuxilioMecanicoCambioLlanta
+    @SeguimientoAsistenciaVehicularRepuesto
     Examples:
       | tipoID | id       | password  | placa  |
       | DNI    | 09328751 | Rimac2021 | ASK098 |
-    @SeguimientoAuxilioMecanicoBateriaBaja
+    @SeguimientoAsistenciaVehicularProblema
     Examples:
       | tipoID | id       | password  | placa  |
       | DNI    | 29352104 | Rimac2020 | ALZ225 |
@@ -50,7 +50,7 @@ Feature: Solicitar Asistencia Vehicular
       | tipoID | id       | password  | placa  |
       | DNI    | 40861606 | Rimac2021 | FGH456 |
 
-  @SeguimientoAsistenciaGrua
+  @SeguimientoAsistenciaVehicularGrua
   Scenario Outline: Validar el seguimiento de la Asistencia Vehicular - Grúa
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
