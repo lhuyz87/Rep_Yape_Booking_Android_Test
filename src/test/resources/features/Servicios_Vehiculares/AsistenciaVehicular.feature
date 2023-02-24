@@ -13,7 +13,7 @@ Feature: Solicitar Asistencia Vehicular
 
     Examples:
       | tipoID | id       | password  | placa  | problema         |
-      | DNI    | 09328751 | Rimac2021 | ASK098 | Cambio de llanta |
+      | DNI    | 22093296 | Rimac2020 | ASQ191 | Cambio de llanta |
 
   @SeguimientoAsistenciaVehicularRepuesto
   Scenario Outline: Validar el seguimiento del Auxilio Mecanico - Repuesto
@@ -24,7 +24,7 @@ Feature: Solicitar Asistencia Vehicular
 
     Examples:
       | tipoID | id       | password  | placa  |
-      | DNI    | 09328751 | Rimac2021 | ASK098 |
+      | DNI    | 22093296 | Rimac2020 | ASQ191 |
 
   @AsistenciaVehicularProblema
   Scenario Outline: Solicitar Auxilio Mecanico- Problema
@@ -38,7 +38,7 @@ Feature: Solicitar Asistencia Vehicular
 
     Examples:
       | tipoID | id       | password  | placa  | problema     |
-      | DNI    | 29352104 | Rimac2020 | ALZ225 | Batería baja |
+      | DNI    | 22093296 | Rimac2020 | AYA522 | Batería baja |
 
   @SeguimientoAsistenciaVehicularProblema
   Scenario Outline: Validar el seguimiento del Auxilio Mecanico - Problema
@@ -49,7 +49,7 @@ Feature: Solicitar Asistencia Vehicular
 
     Examples:
       | tipoID | id       | password  | placa  |
-      | DNI    | 29352104 | Rimac2020 | ALZ225 |
+      | DNI    | 22093296 | Rimac2020 | AYA522 |
 
   @AsistenciaVehicularGrua
   Scenario Outline: Solicitar Asistencia - Grua
@@ -63,7 +63,7 @@ Feature: Solicitar Asistencia Vehicular
 
     Examples:
       | tipoID | id       | password  | placa  |
-      | DNI    | 40861606 | Rimac2021 | FGH456 |
+      | DNI    | 41430164| Rimac2020 | AWA099 |
 
   @SeguimientoAsistenciaVehicularGrua
   Scenario Outline: Validar el seguimiento de la Asistencia - Grua
@@ -74,7 +74,7 @@ Feature: Solicitar Asistencia Vehicular
 
     Examples:
       | tipoID | id       | password  | placa  |
-      | DNI    | 40861606 | Rimac2021 | FGH456 |
+      | DNI    | 41430164| Rimac2020 | AWA099 |
 
   @TiempoInactividadServiciosSOAT
   Scenario Outline: Esperar 15 min de inactividad - Modulo Asistencias Vehiculares

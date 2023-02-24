@@ -34,13 +34,15 @@ public class ObjPaginaPrincipal extends BaseDriver{
 	
 	@AndroidFindBy(xpath = "//*[@text='Trámites']")
 	public WebElement btnTramite;
-	
+
+	@AndroidFindBy(xpath = "//*[@text='Tienda']")
+	public WebElement btnTienda;
+
 	//*[@index='3']
 	//*[contains(text(),'Reembolso')]
 	//*[@text='Reembolso de salud']//preceding::*[1]
 	@AndroidFindBy(xpath = "//*[@text='Reembolso de salud']//ancestor::*[1]")
 	public WebElement btnReembolsoSalud;
-
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/button_see_all")
 	public WebElement lnkVerTodas;
 

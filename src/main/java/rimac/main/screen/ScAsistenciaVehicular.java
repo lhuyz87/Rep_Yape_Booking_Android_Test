@@ -1,5 +1,6 @@
 package rimac.main.screen;
 
+import io.appium.java_client.MobileBy;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -55,7 +56,10 @@ public class  ScAsistenciaVehicular extends BaseDriver {
     public void seleccionar_Vehiculo(String placa){
         placaVehiculo = placa;
         util.esperarElemento(15,objAsistenciaVehicular.titTusVehiculosAfiliados);
-        util.esperarSegundos(1);
+        util.esperarSegundos(3);
+        if(element(objAsistenciaVehicular.btnVehiculo(placaVehiculo)).isCurrentlyVisible()==false){
+            appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"" + placa + "\").instance(0))"));
+        }
         util.esperarElemento(15,objAsistenciaVehicular.btnVehiculo(placaVehiculo));
         Serenity.takeScreenshot();
         element(objAsistenciaVehicular.btnVehiculo(placaVehiculo)).click();

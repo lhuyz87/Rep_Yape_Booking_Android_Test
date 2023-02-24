@@ -165,6 +165,21 @@ public class UtilApp  extends BaseDriver{
 				
 		}
 	}
+
+	public void scrolHastaElemento(int intentos, WebElement elemento) {
+		int contador=0;
+		Serenity.takeScreenshot();
+		while(element(elemento).isCurrentlyVisible()==false) {
+			mobileSwipeScreenAndroid();
+			contador++;
+			if(element(elemento).isEnabled()==true||contador==intentos) {
+				System.out.println("Se encuentra elemento o contador finalizo");
+				break;
+			}else
+				System.out.println("contador: " + contador + elemento);
+		}
+	}
+
 	public void esperarElementoVisible(int intentos, WebElement elemento) {
 		int contador=0;
 		System.out.println("Espera Elemento : "  + elemento.toString());
@@ -184,9 +199,9 @@ public class UtilApp  extends BaseDriver{
 		int contador=0;
 		System.out.println("Espera Elemento : "  + elemento.toString());
 		Serenity.takeScreenshot();
-		while(element(elemento).isEnabled()==false) {
+		while(element(elemento).isCurrentlyVisible()==false) {
 			contador++;
-			if(element(elemento).isEnabled()==true&&element(elemento).isClickable()==true) {
+			if(element(elemento).isCurrentlyVisible()==true&&element(elemento).isClickable()==true) {
 				System.out.println("Se encuentra elemento o contador finalizo");			
 				break;
 			}else
@@ -231,10 +246,6 @@ public class UtilApp  extends BaseDriver{
 		appiumDriver().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollForward()"));
 	}
 
-	public void scrollUp2() {
-		appiumDriver().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollForward()"));
-	}
-	
 	public void scrollDown(WebDriver driver) {
 		
 
@@ -508,7 +519,7 @@ public class UtilApp  extends BaseDriver{
 
 			    pointOptionStart = PointOption.point(dims.width / 2, dims.height / 2);
 
-			    pointOptionEnd = PointOption.point(dims.width / 2, (int)(dims.height*0.4));   
+			    pointOptionEnd = PointOption.point(dims.width / 2, (int)(dims.height*0.4));
 
 			   
 

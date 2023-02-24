@@ -58,7 +58,13 @@ public class ObjAsistenciaVehicular extends BaseDriver {
     public WebElement titQueNecesitas;
 
     public WebElement btnAsistencia(String asistencia) {
-        WebElement we_opcProblema = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+asistencia+"']"));
+        WebElement we_opcProblema = null;
+        if(asistencia.equals("Auxilio mecánico")) {
+            we_opcProblema = appiumDriver().findElement(AppiumBy.xpath("//*[@text='Necesito auxilio mecánico']"));
+        }
+        if(asistencia.equals("Grúa")) {
+            we_opcProblema = appiumDriver().findElement(AppiumBy.xpath("//*[@text='Necesito una grúa']"));
+        }
         return we_opcProblema;
     }
 

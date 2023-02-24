@@ -147,12 +147,15 @@ private long wdwTimeOut = 300L;
 	public void seleccionaAsistenciaVehicular() {
 		try {
 			util.esperarElementoClick(5,tramitesObject.lblTramites);
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.3));
 			int contador=0;
-			while(element(tramitesObject.btnAsisVehiculares).isCurrentlyVisible()==false && contador<7) {
-				util.mobileSwipeScreenAndroid();
+			while(element(tramitesObject.btnAsisVehiculares).isCurrentlyVisible()==false && contador<15) {
+				util.doSwipe(appiumDriver(), start, end, 1000);
 				contador++;
 			}
-			util.esperarElementoClick(2,tramitesObject.btnAsisVehiculares);
+			util.esperarElementoClick(5,tramitesObject.btnAsisVehiculares);
 			Serenity.takeScreenshot();
 			element(tramitesObject.btnAsisVehiculares).click();
 			util.esperarSegundos(2);
