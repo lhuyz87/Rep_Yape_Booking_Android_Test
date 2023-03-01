@@ -29,71 +29,44 @@ import rimac.main.util.VariablesAppNativa;
 
 
 
-public class ScConsultaReembolso extends BaseDriver{
+public class ScConsultaReembolso extends BaseDriver {
 
-private long wdwTimeOut = 300L;
-	
+	private long wdwTimeOut = 300L;
 
 
-protected ObjConsultaReembolso objConsultaReembolso  = ObjConsultaReembolso.getInstancia();
+	protected ObjConsultaReembolso objConsultaReembolso = ObjConsultaReembolso.getInstancia();
 
-	
+
 	// util
 	public static Logger looger = Logger.getLogger(ScConsultaReembolso.class.getName());
-	
+
 	public long getWdwTimeOut() {
 		return wdwTimeOut;
 	}
-	
+
 	UtilApp util = new UtilApp();
 	AppiumDriver driver;
 
 	public String obtenerMonto(String monto) {
-	
+
 		util.esperarElemento(3, objConsultaReembolso.btnFiltro);
-		String montoEncontrado= "";
-		String fechaReembol = "19/12/2022";
-		int aux=0;
-		while(aux<10) {
-			
-			try {
-				
-				for(int i =0; i< objConsultaReembolso.lblMontoReembolso.size();i++) {
-					System.out.println("Aux "  + aux   +" Monto "  +i+" :  " + objConsultaReembolso.lblMontoReembolso.get(i).getText());
-					System.out.println("Aux "  + aux   +" Fecha "  +i+" :  " + objConsultaReembolso.lblFechaReembolso.get(i).getText().substring(0,2));
-					System.out.println(objConsultaReembolso.lblFechaReembolso.get(i).getText().substring(0,2) + "-vs-"  +  fechaReembol.substring(0,2) );
-					if(Integer.parseInt(objConsultaReembolso.lblFechaReembolso.get(i).getText().substring(0,2))<Integer.parseInt(fechaReembol.substring(0,2))){
-						aux=10;
-						Serenity.takeScreenshot();
-						break;
-					}
-					System.out.println(objConsultaReembolso.lblMontoReembolso.get(i).getText()+ "-vs-"  +  monto);
-					if(objConsultaReembolso.lblMontoReembolso.get(i).getText().trim().compareToIgnoreCase(monto)==0){
-						Serenity.takeScreenshot();
-						montoEncontrado=objConsultaReembolso.lblMontoReembolso.get(i).getText().trim();
-						aux=10;
-						break;
+		String montoEncontrado = "";
+		String montoObtenido = "";
+		int aux = 0;
+		while (aux < 10) {
+			for (int i = 0; i < objConsultaReembolso.lblMontoReembolso.size(); i++) {
+				montoObtenido = (objConsultaReembolso.lblMontoReembolso.get(i).getText());
+				montoEncontrado = montoObtenido.substring(3, montoObtenido.length() - 3);
+				if (montoEncontrado.equals(monto)) {
+					Serenity.takeScreenshot();
+					aux = 10;
+					break;
 				}
-
 			}
-				
-				
-			}catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-			
-
 			util.mobileSwipeScreenAndroid();
-			System.out.println("Auxiliar " +aux);
 			aux++;
-		
-		
-	}
-		
+		}
 		return montoEncontrado;
-	
 	}
-	
-	
-	
+
 }
