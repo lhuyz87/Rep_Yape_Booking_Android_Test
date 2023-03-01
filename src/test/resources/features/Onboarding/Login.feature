@@ -1,6 +1,6 @@
 #Author: your.email@your.domain.com
 @tag
-Feature: Login Canal Android
+Feature: Login
 
   @Login @RegresionPoliza
   Scenario Outline: Realizar Login Exitoso en Mundo Rimac
