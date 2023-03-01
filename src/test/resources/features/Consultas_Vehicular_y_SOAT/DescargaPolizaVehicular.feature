@@ -1,7 +1,7 @@
 #Author: Candy Espinoza
-  Feature: Canal Android
+  Feature: Consulta Vehicular SOAT
 
-   @DescargaPolizaTab
+   @DescargaPolizaVehicularDigital
     Scenario Outline: Descarga poliza digital
       Given realiza el login con credenciales
         | tipoID   | id   | password   |

@@ -1,7 +1,7 @@
 #Author: Candy Espinoza
-Feature: Canal Android
+Feature: Consultas Vida
 
-  @DescargaPolizaVidaFlexible
+  @DescargaEstadoCuentaPlanVidaFlexible
   Scenario Outline: Descarga estado de cuenta digital - "Vida Flexible"
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -13,7 +13,7 @@ Feature: Canal Android
       | tipoID | id       | password  | seguro             | mes  | año  |
       | DNI    | 44926877 | Rimac2020 | Plan Vida Flexible | Mayo | 2022 |
 
-  @DescargaManualVida
+  @DescargaManualUsoPlanVidaContigo
   Scenario Outline: Descarga de manual - "Vida Contigo"
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

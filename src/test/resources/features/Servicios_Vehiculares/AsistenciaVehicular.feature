@@ -65,7 +65,7 @@ Feature: Asistencia Vehicular
       | tipoID | id       | password  | placa  |
       | DNI    | 41430164| Rimac2020 | AWA099 |
 
-  @SeguimientoAsistenciaVehicularGrua
+  @SeguimientodeGrua
   Scenario Outline: Validar el seguimiento de la Asistencia - Grua
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -76,7 +76,7 @@ Feature: Asistencia Vehicular
       | tipoID | id       | password  | placa  |
       | DNI    | 41430164| Rimac2020 | AWA099 |
 
-  @TiempoInactividadServiciosSOAT
+  @TiempoInactividadServicioVehicular
   Scenario Outline: Esperar 15 min de inactividad en Asistencias Vehiculares
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
