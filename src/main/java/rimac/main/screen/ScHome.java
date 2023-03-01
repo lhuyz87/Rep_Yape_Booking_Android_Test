@@ -199,12 +199,11 @@ public class ScHome extends BaseDriver{
 	}
 
 	public void seleccionaVerTodas() {
-		/*while(element(objectPrincipal.lnkVerTodas).isClickable()==false){
-			util.mobileSwipeScreenAndroid();
 
-		}*/
-		util.localizarElementoScroll(driver,objectPrincipal.lnkVerTodas);
-		util.esperarElemento(3,objectPrincipal.lnkVerTodas);
+		Dimension dimension = appiumDriver().manage().window().getSize();
+		Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
+		Point end= new Point((int)(dimension.width*0.5),(0));
+		util.doSwipe(appiumDriver(), start, end, 1000);
 		element(objectPrincipal.lnkVerTodas).click();
 		util.esperarElemento(8,objectPrincipal.lblTusAsistencias);
 	}

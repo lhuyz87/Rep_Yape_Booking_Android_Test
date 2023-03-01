@@ -46,9 +46,9 @@ private long wdwTimeOut = 300L;
 		
 		looger.info("LLena datos dirección");
 		System.out.println("***************************************************");
-		util.esperarSegundos(4);
+		util.esperarElementoVisible(15,confirmarDatosReembolsoSaludObject.lblDataTitle);
 		util.esperarElementoVisible(15, confirmarDatosReembolsoSaludObject.lblDni);
-		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Dirección\").instance(0))"));
+		util.mobileSwipeScreenAndroidFinal();
 //		util.esperarElemento(5, confirmarDatosReembolsoSaludObject.selDepartamento);
 		util.esperarSegundos(3);
 		
@@ -68,11 +68,12 @@ private long wdwTimeOut = 300L;
 				util.esperarElemento(8, confirmarDatosReembolsoSaludObject.selDepartamento);
 				element(confirmarDatosReembolsoSaludObject.selDepartamento).click();
 				element(confirmarDatosReembolsoSaludObject.departamento(appiumDriver(), departamento)).click();
-//				appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Distrito\").instance(0))"));
-				looger.info("Provincia");
+				util.mobileSwipeScreenAndroidFinal();
 				element(confirmarDatosReembolsoSaludObject.selProvincia).click();
 				element(confirmarDatosReembolsoSaludObject.provincia(appiumDriver(), provincia)).click();
+				util.mobileSwipeScreenAndroidFinal();
 				element(confirmarDatosReembolsoSaludObject.selDistrito).click();
+				util.mobileSwipeScreenAndroidFinal();
 				element(confirmarDatosReembolsoSaludObject.distrito(appiumDriver(), distrito)).click();
 				
 			}

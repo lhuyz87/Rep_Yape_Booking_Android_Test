@@ -1,5 +1,5 @@
 @AsistenciaVehicular
-Feature: Solicitar Asistencia Vehicular
+Feature: Asistencia Vehicular
 
   @AsistenciaVehicularRepuesto
   Scenario Outline: Solicitar Auxilio Mecanico - Repuesto
@@ -77,7 +77,7 @@ Feature: Solicitar Asistencia Vehicular
       | DNI    | 41430164| Rimac2020 | AWA099 |
 
   @TiempoInactividadServiciosSOAT
-  Scenario Outline: Esperar 15 min de inactividad - Modulo Asistencias Vehiculares
+  Scenario Outline: Esperar 15 min de inactividad en Asistencias Vehiculares
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |

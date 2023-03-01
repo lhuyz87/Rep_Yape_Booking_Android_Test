@@ -112,7 +112,7 @@ public class ObjAsistenciaVehicular extends BaseDriver {
     @AndroidFindBy(xpath= "//*[@text='¿Qué te pareció la experiencia solicitando Auxilio mecánico?']")
     public WebElement mdlCalifaAuxilioMecanico;
 
-    @AndroidFindBy(xpath= "//*[@text='Sí, está en una zona de fácil acceso']")
+    @AndroidFindBy(xpath= "//*[@text='Sí, por ejemplo la vía pública.']")
     public WebElement opcEspaciofacilAcceso;
 
     @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/additionalTitle")

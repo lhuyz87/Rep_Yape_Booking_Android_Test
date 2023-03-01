@@ -41,18 +41,23 @@ private long wdwTimeOut = 300L;
 		element(comencemosReembolsoSaludObject.selProdContratante).click();
 		System.out.println("Producto Contratante " + prodContratante);
 		element(comencemosReembolsoSaludObject.productoContratante(appiumDriver(), prodContratante)).click();
+		util.mobileSwipeScreenAndroidFinal();
 		util.esperarElemento(5, comencemosReembolsoSaludObject.selLugarAtencion);
 		element(comencemosReembolsoSaludObject.selLugarAtencion).click();
 		element(comencemosReembolsoSaludObject.lugarAtencion(appiumDriver(), lugarAtencion)).click();
-		util.esperarSegundos(1);
+		util.mobileSwipeScreenAndroidFinal();
+		util.esperarElemento(5, comencemosReembolsoSaludObject.selFechaAtencion);
 		element(comencemosReembolsoSaludObject.selFechaAtencion).click();
-//		element(comencemosReembolsoSaludObject.diaAtencion(appiumDriver(), fechaAtencion.substring(0,2))).click();
 		util.esperarActivoClick(3, comencemosReembolsoSaludObject.selAceptarDiaAtencion);
 		element(comencemosReembolsoSaludObject.selAceptarDiaAtencion).click();
+		int contador=0;
+		while(element(comencemosReembolsoSaludObject.selTipoCobertura).isCurrentlyVisible()==false && contador<8){
+			util.mobileSwipeScreenAndroidFinal();
+		}
 		util.esperarElemento(5, comencemosReembolsoSaludObject.selTipoCobertura);
 		element(comencemosReembolsoSaludObject.selTipoCobertura).click();
 		element(comencemosReembolsoSaludObject.tipoCobertura(appiumDriver(), tipoCobert)).click();
-		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
+		util.mobileSwipeScreenAndroidFinal();
 
 	}
 	
@@ -80,15 +85,18 @@ private long wdwTimeOut = 300L;
 		util.esperarElemento(5, comencemosReembolsoSaludObject.selLugarAtencion);
 		element(comencemosReembolsoSaludObject.selLugarAtencion).click();
 		element(comencemosReembolsoSaludObject.lugarAtencion(appiumDriver(), lugarAtencion)).click();
-		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
+		util.mobileSwipeScreenAndroidFinal();
 		util.esperarElemento(3, comencemosReembolsoSaludObject.selFechaAtencion);
 		element(comencemosReembolsoSaludObject.selFechaAtencion).click();
 		element(comencemosReembolsoSaludObject.selAceptarDiaAtencion).click();
-		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
+		int contador=0;
+		while(element(comencemosReembolsoSaludObject.selTipoCobertura).isCurrentlyVisible()==false && contador<8){
+			util.mobileSwipeScreenAndroidFinal();
+		}
 		util.esperarElemento(3, comencemosReembolsoSaludObject.selTipoCobertura);
 		element(comencemosReembolsoSaludObject.selTipoCobertura).click();
 		element(comencemosReembolsoSaludObject.tipoCobertura(appiumDriver(), tipoCobert)).click();
-		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
+		util.mobileSwipeScreenAndroidFinal();
 	}
 	
 }

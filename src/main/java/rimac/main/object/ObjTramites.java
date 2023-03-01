@@ -31,9 +31,11 @@ public class ObjTramites extends BaseDriver{
 		throw new CloneNotSupportedException();
 	}
 	
-	@AndroidFindBy(xpath = "//*[@text='Reembolso de salud']")
+	@AndroidFindBy(xpath = "//*[@text='Reembolso de salud']//parent::android.view.ViewGroup//following-sibling::android.widget.ImageView")
 	public WebElement btnReembolsoSalud;
-	
+
+	@AndroidFindBy(xpath = "//*[@text='Reembolso de salud']")
+	public WebElement opcReembolsoSalud;
 
 	@AndroidFindBy(xpath = "//*[@text='Todos']")
 	public WebElement btnTodos;
@@ -50,8 +52,11 @@ public class ObjTramites extends BaseDriver{
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/cardIconTitle")
 	public WebElement btnSegReemSalud;
 
-	@AndroidFindBy(xpath = "//*[@text='Asistencias vehiculares']")
+	@AndroidFindBy(xpath = "//*[@text='Asistencias vehiculares']//parent::android.view.ViewGroup//following-sibling::android.widget.ImageView")
 	public WebElement btnAsisVehiculares;
+
+	@AndroidFindBy(xpath = "//*[@text='Asistencias vehiculares']")
+	public WebElement opcAsisVehiculares;
 
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/processTitle")
 	public WebElement lblTramites;

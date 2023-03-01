@@ -68,7 +68,7 @@ public class StepReembolso {
 	public void selReembolsoSaludTramite() {
 		schome.cerrarAlertas(15);
 		schome.seleccionarOpcionPrincipal("Tramites");
-		scTusTramites.seleccionarTramiteSalud("Reembolso de salud");
+		scTusTramites.seleccionaReembolso();
 	}
 
 	public void seleccionar_ver_todas(){

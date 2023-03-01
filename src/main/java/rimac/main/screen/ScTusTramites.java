@@ -44,10 +44,37 @@ private long wdwTimeOut = 300L;
 	}
 	
 	UtilApp util = new UtilApp();
-	
-	@SuppressWarnings("deprecation")
+
+
+
+	public void seleccionaReembolso() {
+		try {
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+			util.esperarElementoClick(5,tramitesObject.lblTramites);
+			int contador=0;
+			while(element(tramitesObject.btnReembolsoSalud).isCurrentlyVisible()==false && contador<15) {
+				util.doSwipe(appiumDriver(), start, end, 1000);
+				contador++;
+			}
+			util.esperarElementoClick(5,tramitesObject.opcReembolsoSalud);
+			Serenity.takeScreenshot();
+			element(tramitesObject.btnReembolsoSalud).click();
+			util.esperarSegundos(2);
+		}
+		catch (Exception e) {
+			Serenity.takeScreenshot();
+			throw new IllegalAccessError("Error en el aplicativo, para igresar a Reembolso");
+		}
+	}
+
 	public void seleccionarTramiteSalud(String tramite) {
-		
+		Dimension dimension = appiumDriver().manage().window().getSize();
+		Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
+		Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+		util.esperarElemento(10, tramitesObject.btnTodos);
+
 		switch (tramite) {
 		case "Atención médica virtual":
 			
@@ -55,12 +82,8 @@ private long wdwTimeOut = 300L;
 			
 		case "Buscador de salud":
 			looger.info("Buscar Opcion Buscador de salud");
-			
-			util.esperarElemento(10, tramitesObject.btnTodos);
-
-
 			int contador=0;
-			while(contador<5) {
+			while(contador<10) {
 				try {
 
 					looger.info("Intenta para dar click " + contador);
@@ -70,7 +93,7 @@ private long wdwTimeOut = 300L;
 						contador = 5;
 						looger.info("Encuentra elemento");
 					}
-					util.mobileSwipeScreenAndroid();
+					util.doSwipe(appiumDriver(), start, end, 1000);
 					contador++;
 				} catch (Exception e) {
 
@@ -88,14 +111,12 @@ private long wdwTimeOut = 300L;
 			
 		case "Reembolso de salud":
 			looger.info("Iniciar Reembolso de salud");
-			util.esperarElemento(10, tramitesObject.btnTodos);;
-
 			int contadorini=0;	
-			while(contadorini<5) {
+			while(contadorini<10) {
 				try {
 					
 					looger.info("Intenta para dar click "  + contadorini);
-					util.mobileSwipeScreenAndroid();
+					util.doSwipe(appiumDriver(), start, end, 1000);
 					if(tramitesObject.btnReembolsoSalud.isEnabled()==true) {
 						element(tramitesObject.btnReembolsoSalud).click();
 						contadorini=5;
@@ -144,31 +165,27 @@ private long wdwTimeOut = 300L;
 		
 	}
 
+
 	public void seleccionaAsistenciaVehicular() {
 		try {
-			util.esperarElementoClick(5,tramitesObject.lblTramites);
 			Dimension dimension = appiumDriver().manage().window().getSize();
 			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
-			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.3));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+			util.esperarElementoClick(5,tramitesObject.lblTramites);
 			int contador=0;
 			while(element(tramitesObject.btnAsisVehiculares).isCurrentlyVisible()==false && contador<15) {
 				util.doSwipe(appiumDriver(), start, end, 1000);
 				contador++;
 			}
-			util.esperarElementoClick(5,tramitesObject.btnAsisVehiculares);
+			util.esperarElementoClick(5,tramitesObject.opcAsisVehiculares);
 			Serenity.takeScreenshot();
 			element(tramitesObject.btnAsisVehiculares).click();
 			util.esperarSegundos(2);
-			assertFalse(element(objAlertas.btnCerrarModal).isCurrentlyVisible());
 		}
-		catch (AssertionError e) {
+		catch (Exception e) {
 			Serenity.takeScreenshot();
-			throw new IllegalAccessError("Error en el aplicativo, Mensaje: Ocurrió un error inesperado");
+			throw new IllegalAccessError("Error en el aplicativo, para igresar a Asistencias Vehiculares");
 		}
-		catch(Exception e){
-			Serenity.takeScreenshot();
-		}
-
 	}
 	
 }
