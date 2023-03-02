@@ -97,11 +97,12 @@ private long wdwTimeOut = 300L;
 //		}
 		element(cuentaDeAbonoObject.btnContinuar).click();
 		
-		util.esperarElemento(3, cuentaDeAbonoObject.txtCorreo);
+		util.esperarElementoVisible(10, cuentaDeAbonoObject.txtCorreo);
 		element(cuentaDeAbonoObject.txtCorreo).clear();
 		element(cuentaDeAbonoObject.txtCorreo).sendKeys(correo);
 		//((HidesKeyboard) appiumDriver()).hideKeyboard();
 //		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
+		util.esperarElementoVisible(5,cuentaDeAbonoObject.btnContinuar);
 		element(cuentaDeAbonoObject.btnContinuar).click();
 
 	}
