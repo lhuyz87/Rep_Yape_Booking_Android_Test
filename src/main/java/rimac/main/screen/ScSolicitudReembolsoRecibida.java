@@ -32,7 +32,7 @@ private long wdwTimeOut = 300L;
 	
 	public String  obtenerMensaje() {
 		looger.info("Ultimo Paso");
-		util.esperarElemento(10, objSolicitudReembolsoRecibida.lblSolicitudRecibida);
+		util.esperarElementoVisible(15, objSolicitudReembolsoRecibida.lblSolicitudRecibida);
 		Serenity.takeScreenshot();
 		String mensajeObtenido= objSolicitudReembolsoRecibida.lblSolicitudRecibida.getText();
 		util.esperarElemento(5, objSolicitudReembolsoRecibida.btnIrInicio);
