@@ -210,7 +210,7 @@ public class LeerDD_Reembolso implements InOut {
 			System.out.println("Elemento "+listaString.get(i));
 		}
 
-		if(nrofilaExistentes>=3) {
+		if(nrofilaExistentes>=5) {
 			for(int i=1; i<=nrofilaExistentes; i++) {
 				Row removingRow=hojaActual.getRow(hojaActual.getLastRowNum());
 				if(removingRow!=null){
