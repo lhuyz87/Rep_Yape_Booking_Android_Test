@@ -79,7 +79,7 @@
 			<artifactId>serenity-ensure</artifactId>
 			<version>${serenity.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
@@ -118,11 +118,11 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.6.1</version>
 		</dependency>
-         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
-        </dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.12.0</version>
+		</dependency>
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-saucelabs</artifactId>
@@ -131,40 +131,40 @@
 	</dependencies>
 
 	<profiles>
-	
+
 		<profile>
-		<id>instalar</id>
-		<activation>
-			<activeByDefault>true</activeByDefault>
-		</activation>
-		<build>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-surefire-plugin</artifactId>
-					<version>3.0.0-M5</version>
-					<configuration>
-						<systemPropertyVariables>
-							<!--suppress UnresolvedMavenProperty -->
-							<appPath>${v_appLocalActual}</appPath>
-							<noReset>false</noReset>
-							<fullReset>true</fullReset>
-						</systemPropertyVariables>
-						<includes>
-							<include>**/**Rimac*.java</include>
-						</includes>
-						<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
-					</configuration>
-					<dependencies>
-						<dependency>
-							<groupId>org.apache.maven.surefire</groupId>
-							<artifactId>surefire-junit-platform</artifactId>
-							<version>3.0.0-M5</version>
-						</dependency>
-					</dependencies>
-				</plugin>
-			</plugins>
-		</build>
+			<id>instalar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.0.0-M5</version>
+						<configuration>
+							<systemPropertyVariables>
+								<!--suppress UnresolvedMavenProperty -->
+								<appPath>${v_appLocalActual}</appPath>
+								<noReset>false</noReset>
+								<fullReset>true</fullReset>
+							</systemPropertyVariables>
+							<includes>
+								<include>**/**Rimac*.java</include>
+							</includes>
+							<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.maven.surefire</groupId>
+								<artifactId>surefire-junit-platform</artifactId>
+								<version>3.0.0-M5</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
 
 		<profile>
@@ -268,7 +268,69 @@
 				</plugins>
 			</build>
 		</profile>
+
+		<profile>
+			<id>installAppCloudActual</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.0.0-M5</version>
+						<configuration>
+							<systemPropertyVariables>
+								<appPath>${v_appCloudActual}</appPath>
+							</systemPropertyVariables>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 		
+		<profile>
+			<id>installAppCloudMinRequerida</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.0.0-M5</version>
+						<configuration>
+							<systemPropertyVariables>
+								<appPath>${v_appCloudMinRequerida}</appPath>
+							</systemPropertyVariables>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>installAppCloudMinRecomendada</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.0.0-M5</version>
+						<configuration>
+							<systemPropertyVariables>
+								<appPath>${v_appCloudMinRecomendada}</appPath>
+							</systemPropertyVariables>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 	</profiles>
 
 	<build>
