@@ -134,7 +134,7 @@ public class StepReembolso {
 		case "Odontología":
 			scReemDocCobertMedica.subirComprobante("AdjuntarArchivo");
 			scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
-			scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, ConstantesDummy.monto);
+			scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
 			scReemDocCobertMedica.subirDocumento("AdjuntarArchivo");
 //			scReemDocCobertMedica.continuar();
 			break;
