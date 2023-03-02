@@ -155,13 +155,6 @@
 							</includes>
 							<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
 						</configuration>
-						<dependencies>
-							<dependency>
-								<groupId>org.apache.maven.surefire</groupId>
-								<artifactId>surefire-junit-platform</artifactId>
-								<version>3.0.0-M5</version>
-							</dependency>
-						</dependencies>
 					</plugin>
 				</plugins>
 			</build>
@@ -189,13 +182,6 @@
 								<include>**/**Rimac*.java</include>
 							</includes>
 						</configuration>
-						<dependencies>
-							<dependency>
-								<groupId>org.apache.maven.surefire</groupId>
-								<artifactId>surefire-junit-platform</artifactId>
-								<version>3.0.0-M5</version>
-							</dependency>
-						</dependencies>
 					</plugin>
 				</plugins>
 			</build>
@@ -223,13 +209,6 @@
 								<include>**/**Rimac*.*</include>
 							</includes>
 						</configuration>
-						<dependencies>
-							<dependency>
-								<groupId>org.apache.maven.surefire</groupId>
-								<artifactId>surefire-junit-platform</artifactId>
-								<version>3.0.0-M5</version>
-							</dependency>
-						</dependencies>
 					</plugin>
 				</plugins>
 			</build>
@@ -257,13 +236,6 @@
 								<include>**/**Rimac*.*</include>
 							</includes>
 						</configuration>
-						<dependencies>
-							<dependency>
-								<groupId>org.apache.maven.surefire</groupId>
-								<artifactId>surefire-junit-platform</artifactId>
-								<version>3.0.0-M5</version>
-							</dependency>
-						</dependencies>
 					</plugin>
 				</plugins>
 			</build>
@@ -345,6 +317,13 @@
 						<include>**/**Rimac**.java</include>
 					</includes>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.surefire</groupId>
+						<artifactId>surefire-junit-platform</artifactId>
+						<version>3.0.0-M5</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<artifactId>maven-failsafe-plugin</artifactId>
