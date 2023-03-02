@@ -1,5 +1,6 @@
 #Author: Candy Espinoza
-Feature: Consultas Vida
+@FeaturePlanVidaFlexible
+Feature: Plan Vida Flexible
 
   @DescargaEstadoCuentaPlanVidaFlexible
   Scenario Outline: Descarga estado de cuenta digital - "Vida Flexible"
@@ -12,15 +13,3 @@ Feature: Consultas Vida
     Examples:
       | tipoID | id       | password  | seguro             | mes  | año  |
       | DNI    | 44926877 | Rimac2020 | Plan Vida Flexible | Mayo | 2022 |
-
-  @DescargaManualUsoPlanVidaContigo
-  Scenario Outline: Descarga de manual - "Vida Contigo"
-    Given realiza el login con credenciales
-      | tipoID   | id   | password   |
-      | <tipoID> | <id> | <password> |
-    When deseo conocer las caracteristicas de mi "<seguro>"
-    Then debe mostrar la previsualización del documento pdf
-
-    Examples:
-      | tipoID | id       | password  | seguro       |
-      | DNI    | 07525151 | Rimac2020 | Vida Contigo |
