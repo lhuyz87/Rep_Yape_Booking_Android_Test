@@ -56,13 +56,19 @@ public class  ScAsistenciaVehicular extends BaseDriver {
     public void seleccionar_Vehiculo(String placa){
         placaVehiculo = placa;
         util.esperarElemento(15,objAsistenciaVehicular.titTusVehiculosAfiliados);
-        util.esperarSegundos(3);
+        util.esperarSegundos(5);
         if(element(objAsistenciaVehicular.btnVehiculo(placaVehiculo)).isCurrentlyVisible()==false){
             appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"" + placa + "\").instance(0))"));
         }
         util.esperarElemento(15,objAsistenciaVehicular.btnVehiculo(placaVehiculo));
         Serenity.takeScreenshot();
-        element(objAsistenciaVehicular.btnVehiculo(placaVehiculo)).click();
+        try{
+            element(objAsistenciaVehicular.btnVehiculo(placaVehiculo)).click();
+        }catch (Exception e){
+            util.mobileSwipeScreenAndroid();
+            element(objAsistenciaVehicular.btnVehiculo(placaVehiculo)).click();
+        }
+
     }
 
     public void confirmar_Ubicacion(){
