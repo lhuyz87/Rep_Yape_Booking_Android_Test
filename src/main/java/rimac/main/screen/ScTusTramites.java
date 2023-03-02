@@ -174,7 +174,7 @@ private long wdwTimeOut = 300L;
 			util.esperarElementoClick(5,tramitesObject.lblTramites);
 			int contador=0;
 			while(element(tramitesObject.btnAsisVehiculares).isCurrentlyVisible()==false && contador<15) {
-				util.doSwipe(appiumDriver(), start, end, 1000);
+				util.doSwipe(appiumDriver(), start, end, 800);
 				contador++;
 			}
 			util.esperarElementoClick(5,tramitesObject.opcAsisVehiculares);
