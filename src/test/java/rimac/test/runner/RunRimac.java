@@ -27,7 +27,8 @@ public class RunRimac {
 
 		String myCustomProperty1 = variables.getProperty("appium.udid");
 		String myCustomProperty2 = variables.getProperty("appium.xcodeOrgId");
-		System.out.println(myCustomProperty1 +" - eeeooo - "+myCustomProperty2);
+		String myCustomProperty3 = variables.getProperty("appium.app");
+		System.out.println(myCustomProperty1 +" - eeeooo - "+myCustomProperty2 + " - eeeooo2 - " + myCustomProperty3);
 		
 	}
 	
