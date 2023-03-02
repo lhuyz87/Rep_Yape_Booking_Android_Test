@@ -62,12 +62,7 @@ public class  ScAsistenciaVehicular extends BaseDriver {
         }
         util.esperarElemento(15,objAsistenciaVehicular.btnVehiculo(placaVehiculo));
         Serenity.takeScreenshot();
-        try{
-            element(objAsistenciaVehicular.btnVehiculo(placaVehiculo)).click();
-        }catch (Exception e){
-            util.mobileSwipeScreenAndroid();
-            element(objAsistenciaVehicular.btnVehiculo(placaVehiculo)).click();
-        }
+        element(objAsistenciaVehicular.btnVehiculo(placaVehiculo)).click();
 
     }
 

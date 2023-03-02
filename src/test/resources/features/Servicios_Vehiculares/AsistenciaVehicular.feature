@@ -38,7 +38,7 @@ Feature: Asistencia Vehicular
 
     Examples:
       | tipoID | id       | password  | placa  | problema     |
-      | DNI    | 22093296 | Rimac2020 | AYA522 | Batería baja |
+      | DNI    | 22093296 | Rimac2020 | ASE310 | Batería baja |
 
   @SeguimientoAsistenciaVehicularProblema
   Scenario Outline: Validar el seguimiento del Auxilio Mecanico - Problema
@@ -49,7 +49,7 @@ Feature: Asistencia Vehicular
 
     Examples:
       | tipoID | id       | password  | placa  |
-      | DNI    | 22093296 | Rimac2020 | AYA522 |
+      | DNI    | 22093296 | Rimac2020 | ASE310 |
 
   @AsistenciaVehicularGrua
   Scenario Outline: Solicitar Asistencia - Grua
