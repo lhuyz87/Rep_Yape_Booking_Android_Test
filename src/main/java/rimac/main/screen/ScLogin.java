@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import com.github.dockerjava.api.model.Driver;
 
 //import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.HidesKeyboard;
 import io.appium.java_client.PushesFiles;
 import io.appium.java_client.android.AndroidDriver;
@@ -43,15 +44,16 @@ private long wdwTimeOut = 300L;
 	
 	UtilApp util = new UtilApp();
 	protected MobileObjectUtil mobil = MobileObjectUtil.getInstancia();
-//	AppiumDriver driver;
+	AppiumDriver driver;
 	
 	public void login(String dniUser, String passUser) {
 		looger.info("aplicación iniciada");
 		util.esperarElemento(20, objLogin.btnIngresarSesion);
-		
+		Serenity.takeScreenshot();
 		element(objLogin.btnIngresarSesion).click();
 		element(objLogin.txtNumDocumento).click();
 		element(objLogin.txtNumDocumento).sendKeys(dniUser);
+		Serenity.takeScreenshot();
 		
 		try {
 			((HidesKeyboard) appiumDriver()).hideKeyboard();
@@ -72,6 +74,7 @@ private long wdwTimeOut = 300L;
 		try{
 			assertFalse(element(objLogin.txtPassword).isCurrentlyVisible());
 			assertFalse(element(objLogin.mdlCreaUnaCuenta).isCurrentlyVisible());
+			Serenity.takeScreenshot();
 		}catch(AssertionError e){
 			throw new IllegalAccessError("No se pudo completar el Login");
 		}
