@@ -49,7 +49,6 @@ private long wdwTimeOut = 300L;
 	public void login(String dniUser, String passUser) {
 		looger.info("aplicación iniciada");
 		util.esperarElemento(20, objLogin.btnIngresarSesion);
-		Serenity.takeScreenshot();
 		element(objLogin.btnIngresarSesion).click();
 		element(objLogin.txtNumDocumento).click();
 		element(objLogin.txtNumDocumento).sendKeys(dniUser);
