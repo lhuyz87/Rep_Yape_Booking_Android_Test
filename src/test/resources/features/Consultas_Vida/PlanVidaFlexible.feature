@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-@FeaturePlanVidaFlexible
+@FeaturePlanVidaFlexible @regresionBloque3
 Feature: Plan Vida Flexible
 
   @DescargaEstadoCuentaPlanVidaFlexible

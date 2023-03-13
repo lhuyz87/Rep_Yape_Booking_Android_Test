@@ -1,5 +1,5 @@
 #Author: Luis Retamozo
-@BuscadordeClinicas
+@BuscadordeClinicas @regresionBloque1
 Feature: Buscador de clinicas
 
   @BuscadordeClinicasdesdeHome

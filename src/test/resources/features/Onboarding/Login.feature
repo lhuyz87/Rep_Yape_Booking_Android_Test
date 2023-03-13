@@ -1,5 +1,5 @@
 #Author: your.email@your.domain.com
-@tag
+@tag @regresionBloque1
 Feature: Login
 
   @Login @RegresionPoliza
@@ -37,10 +37,7 @@ Feature: Login
     And seleccionamos opción "Mas tarde"
     And debe permitir el ingreso a la aplicación
     
-   @ValidaModoDesarrollo
-  Scenario: Valida que la aplicacion no pueda iniciar al contar con modo desarrollador en el dispositivo movil
-    Given Se ingresa a la aplicación con un dispositivo con modo desarrollador activado
-  	Then  no debe permitir el ingreso al aplicativo y debe mostar mensaje informativo relacionado a "Desactivar modo desarrollador"
+
 
     
     

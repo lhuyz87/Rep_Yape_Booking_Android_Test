@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-@FeaturePlanVidaContigo
+@FeaturePlanVidaContigo @regresionBloque3
 Feature: Plan Vida Contigo
 
   @DescargaManualdeUsoPlanVidaContigo
