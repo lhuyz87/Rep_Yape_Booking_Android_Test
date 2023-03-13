@@ -1,4 +1,4 @@
-@AsistenciaVehicular
+@AsistenciaVehicular @regresionBloque4
 Feature: Asistencia Vehicular
 
   @AsistenciaVehicularRepuesto
