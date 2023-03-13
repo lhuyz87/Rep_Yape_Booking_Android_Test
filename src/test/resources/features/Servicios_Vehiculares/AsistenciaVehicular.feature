@@ -81,8 +81,10 @@ Feature: Asistencia Vehicular
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
-    When se ingresa a Asistencias vehiculares desde Tramites y se mantiene inactivo el modulo
+    When se ingresa a Asistencias vehiculares desde Tramites y se inicia el tramite con la "<placa>" del vehiculo
+    And selecciono la asistencia "Auxilio mecánico" y el "<problema>" del vehiculo
+    And se mantiene inactivo el modulo en Asistencias Vehiculares
     Then se valida el mensaje para retornar al Login
     Examples:
-      | tipoID | id       | password  |
-      | DNI    | 40861606 | Rimac2021 |
+      | tipoID | id       | password  | placa  |problema     |
+      | DNI    | 22093296 | Rimac2020 | ASE310 |Batería baja |

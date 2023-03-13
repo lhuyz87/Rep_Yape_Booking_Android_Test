@@ -7,9 +7,9 @@ Feature: Plan Vida Contigo
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
-    When deseo conocer las caracteristicas de mi "<seguro>"
-    Then debe mostrar la previsualización del documento pdf
+    When deseo conocer las caracteristicas de mi  seguro Vida Contigo
+    Then debe descargar el manual de uso de mi seguro
 
     Examples:
-      | tipoID | id       | password  | seguro       |
-      | DNI    | 07525151 | Rimac2020 | Vida Contigo |
+      | tipoID | id       | password  |
+      | DNI    | 07525151 | Rimac2020 |

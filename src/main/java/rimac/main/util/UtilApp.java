@@ -668,7 +668,15 @@ public class UtilApp  extends BaseDriver{
 				e.printStackTrace();
 			}
 		}
+	public void tapByCoordinates (AndroidDriver driver, double x,  double y) {
+		Dimension dimension = appiumDriver().manage().window().getSize();
+		//arrastrar hacia arriba, como deslizando la app para ver más contenido
+		int horizontal= (int)(dimension.height*x);
+		int vertical= (int)(dimension.width*y);
 
+		TouchAction touchAction = new TouchAction(driver);
+		touchAction.tap(PointOption.point(vertical, horizontal)).perform();
+	}
 	public void esperarElementoCondicion(int intentos, WebElement elemento, boolean condicion, String mensaje) {
 		int contador=0;
 		try {

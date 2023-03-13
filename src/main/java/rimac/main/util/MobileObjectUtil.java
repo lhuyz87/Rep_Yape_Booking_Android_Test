@@ -10,7 +10,6 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -39,6 +38,8 @@ import io.appium.java_client.ios.IOSDriver;
 
 import rimac.main.util.MobileObjectUtil;
 
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static io.appium.java_client.touch.offset.PointOption.point;
 import static java.time.Duration.ofMillis;
 import static org.openqa.selenium.interactions.PointerInput.Kind.TOUCH;
 import static org.openqa.selenium.interactions.PointerInput.MouseButton.LEFT;
@@ -94,7 +95,8 @@ public class MobileObjectUtil {
 	    tap.addAction(input.createPointerUp(MouseButton.LEFT.asArg()));
 	    webDriver.perform(ImmutableList.of(tap));
 	}
-    
+
+
     
 	public void seleniumMobileClick(AndroidDriver androidDriver, final String xpath, int pos){
         By by = AppiumBy.id(xpath);

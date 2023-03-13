@@ -22,7 +22,6 @@ public class  ScAsistenciaVehicular extends BaseDriver {
     protected ObjAlertas objAlertas=ObjAlertas.getInstancia();
     protected ObjCambioLlanta objCambioLlanta = ObjCambioLlanta.getInstancia();
     public static Logger looger = Logger.getLogger(ScTusTramites.class.getName());
-    static String placaVehiculo;
     private long wdwTimeOut = 300L;
     UtilApp util = new UtilApp();
     public long getWdwTimeOut() {
@@ -30,50 +29,74 @@ public class  ScAsistenciaVehicular extends BaseDriver {
     }
 
     public void terminosCondicionesAsistencia(){
-        util.esperarSegundos(3);
-        int contador = 0;
-        if(element(objAsistenciaVehicular.titSolicitaAsistencia).isCurrentlyVisible()){
-            while (element(objAsistenciaVehicular.chktermsAsistencia).isCurrentlyVisible()== false && contador < 7) {
-                util.mobileSwipeScreenAndroid();
-                contador++;
+        try{
+            util.esperarSegundos(3);
+            int contador = 0;
+            if(element(objAsistenciaVehicular.titSolicitaAsistencia).isCurrentlyVisible()){
+                while (element(objAsistenciaVehicular.chktermsAsistencia).isCurrentlyVisible()== false && contador < 7) {
+                    util.mobileSwipeScreenAndroid();
+                    contador++;
+                }
+                element(objAsistenciaVehicular.chktermsAsistencia).click();
+                Serenity.takeScreenshot();
+                element(objAsistenciaVehicular.btnContinuar).click();
             }
-            element(objAsistenciaVehicular.chktermsAsistencia).click();
-            element(objAsistenciaVehicular.btnContinuar).click();
+        }catch(Exception e){
+            Serenity.takeScreenshot();
+            throw new IllegalAccessError("Error para ingresar a Asistencias Vehiculares");
         }
     }
     public void ingresar_Datos_de_Contacto(String nombre, String celular){
-        util.esperarElemento(25,objAsistenciaVehicular.titCelulardeContacto);
-        util.esperarElementoVisible(15,objAsistenciaVehicular.idtxtNombre);
-        element(objAsistenciaVehicular.txtNombre).clear();
-        element(objAsistenciaVehicular.txtNombre).sendKeys(nombre);
-        util.pressEnter(androidDriver());
-        element(objAsistenciaVehicular.txtCelular).clear();
-        element(objAsistenciaVehicular.txtCelular).sendKeys(celular);
-        util.esperarElemento(20,objAsistenciaVehicular.btnComenzar);
-        element(objAsistenciaVehicular.btnComenzar).click();
+        try {
+            util.esperarElemento(25, objAsistenciaVehicular.titCelulardeContacto);
+            util.esperarElementoVisible(15, objAsistenciaVehicular.idtxtNombre);
+            element(objAsistenciaVehicular.txtNombre).clear();
+            element(objAsistenciaVehicular.txtNombre).sendKeys(nombre);
+            util.pressEnter(androidDriver());
+            element(objAsistenciaVehicular.txtCelular).clear();
+            element(objAsistenciaVehicular.txtCelular).sendKeys(celular);
+            util.esperarElemento(20, objAsistenciaVehicular.btnComenzar);
+            Serenity.takeScreenshot();
+            element(objAsistenciaVehicular.btnComenzar).click();
+        }catch(Exception e){
+            Serenity.takeScreenshot();
+            throw new IllegalAccessError("Error para ingresar Datos de Contacto");
+        }
     }
 
     public void seleccionar_Vehiculo(String placa){
-        placaVehiculo = placa;
-        util.esperarElemento(15,objAsistenciaVehicular.titTusVehiculosAfiliados);
-        util.esperarSegundos(5);
-        if(element(objAsistenciaVehicular.btnVehiculo(placaVehiculo)).isCurrentlyVisible()==false){
-            appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"" + placa + "\").instance(0))"));
+        try {
+            util.esperarElemento(15, objAsistenciaVehicular.titTusVehiculosAfiliados);
+            util.esperarSegundos(5);
+            if (element(objAsistenciaVehicular.btnVehiculo(placa)).isCurrentlyVisible() == false) {
+                appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"" + placa + "\").instance(0))"));
+            }
+            util.esperarElemento(15, objAsistenciaVehicular.btnVehiculo(placa));
+            Serenity.takeScreenshot();
+            element(objAsistenciaVehicular.btnVehiculo(placa)).click();
+        }catch(Exception e){
+            Serenity.takeScreenshot();
+            throw new IllegalAccessError("Error para seleccionar la placa del vehiculo");
         }
-        util.esperarElemento(15,objAsistenciaVehicular.btnVehiculo(placaVehiculo));
-        Serenity.takeScreenshot();
-        element(objAsistenciaVehicular.btnVehiculo(placaVehiculo)).click();
 
     }
 
     public void confirmar_Ubicacion(){
-
-        util.esperarElemento(10,objAsistenciaVehicular.btnContinuar);
-        element(objAsistenciaVehicular.btnContinuar).click();
-        Serenity.takeScreenshot();
-        util.esperarElemento(10,objAsistenciaVehicular.btnOmitir);
-        element(objAsistenciaVehicular.btnOmitir).click();
-
+        try {
+            util.esperarSegundos(3);
+            if (element(objAsistenciaVehicular.btnNoThanks).isCurrentlyVisible()) {
+                element(objAsistenciaVehicular.btnNoThanks).click();
+            }
+            util.esperarElemento(5, objAsistenciaVehicular.btnContinuar);
+            element(objAsistenciaVehicular.btnContinuar).click();
+            Serenity.takeScreenshot();
+            util.esperarElemento(15, objAsistenciaVehicular.btnOmitir);
+            Serenity.takeScreenshot();
+            element(objAsistenciaVehicular.btnOmitir).click();
+        }catch(Exception e){
+            Serenity.takeScreenshot();
+            throw new IllegalAccessError("Error para seleccionar la ubicación");
+        }
     }
 
     public void selecciona_asistencia(String asistencia){
@@ -106,30 +129,35 @@ public class  ScAsistenciaVehicular extends BaseDriver {
     }
 
     public void selecciona_problema_vehiculo(String problema){
-        util.esperarElemento(25,objAsistenciaVehicular.tit_problemas);
-        util.esperarSegundos(2);
-        util.esperarElemento(15,objAsistenciaVehicular.opcProblema("Batería baja"));
-        int contador=0;
-            while(element(objAsistenciaVehicular.opcProblema(problema)).isCurrentlyVisible()==false && contador<10) {
+        try {
+            util.esperarSegundos(2);
+            util.esperarElemento(15, objAsistenciaVehicular.tit_problemas);
+            util.esperarElemento(15, objAsistenciaVehicular.opcProblema("Batería baja"));
+            int contador = 0;
+            while (element(objAsistenciaVehicular.opcProblema(problema)).isCurrentlyVisible() == false && contador < 10) {
                 util.mobileSwipeScreenAndroid();
                 contador++;
             }
             util.esperarElemento(20, objAsistenciaVehicular.opcProblema(problema));
             element(objAsistenciaVehicular.opcProblema(problema)).click();
-        Serenity.takeScreenshot();
-        util.esperarElemento(10,objAsistenciaVehicular.btnContinuar);
-        element(objAsistenciaVehicular.btnContinuar).click();
-        if(problema.equals("Cambio de llanta")){
-            element(objCambioLlanta.opcSiTengoRepuesto).click();
             Serenity.takeScreenshot();
-            util.esperarActivoClick(10,objAsistenciaVehicular.btnContinuar);
+            util.esperarElemento(10, objAsistenciaVehicular.btnContinuar);
             element(objAsistenciaVehicular.btnContinuar).click();
+            if (problema.equals("Cambio de llanta")) {
+                element(objCambioLlanta.opcSiTengoRepuesto).click();
+                Serenity.takeScreenshot();
+                util.esperarActivoClick(10, objAsistenciaVehicular.btnContinuar);
+                element(objAsistenciaVehicular.btnContinuar).click();
+            }
+            util.esperarElemento(15, objAsistenciaVehicular.titConfirmacionAsistencia);
+        }catch(Exception e){
+            throw new IllegalAccessError("Error para seleccionar el problema del vehiculo");
         }
     }
 
     public void confirmar_solicitud(){
         try {
-            util.esperarElemento(10, objAsistenciaVehicular.titConfirmacionAsistencia);
+            util.esperarElemento(5, objAsistenciaVehicular.titConfirmacionAsistencia);
             int contador = 0;
             while (element(objAsistenciaVehicular.chk_terminos).isCurrentlyVisible() == false && contador<20) {
                 util.mobileSwipeScreenAndroid();

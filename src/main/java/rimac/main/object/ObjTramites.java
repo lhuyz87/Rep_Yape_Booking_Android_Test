@@ -58,6 +58,9 @@ public class ObjTramites extends BaseDriver{
 	@AndroidFindBy(xpath = "//*[@text='Asistencias vehiculares']")
 	public WebElement opcAsisVehiculares;
 
+	@AndroidFindBy(xpath = "//*[@text='Vehicular']")
+	public WebElement opcVehicular;
+
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/processTitle")
 	public WebElement lblTramites;
 }

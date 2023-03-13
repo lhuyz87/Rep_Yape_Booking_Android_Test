@@ -48,4 +48,12 @@ public class DefAsistenciaVehicular {
         assertTrue(stepAsistenciaVehicular.se_valida_solicitud_home(asistencia, placa));
     }
 
+    @And("se mantiene inactivo el modulo en Asistencias Vehiculares")
+    public void seMantieneInactivoElModuloEnAsistenciasVehiculares() {
+        stepAsistenciaVehicular.se_mantiene_la_inactividad_asistencia_vehicular();
+    }
+    @Then("se valida el mensaje para retornar al Login")
+    public void seValidaElMensajeParaRetornarAlLogin() {
+        stepAsistenciaVehicular.se_valida_mensaje_de_inactividad();
+    }
 }

@@ -52,6 +52,9 @@ public class ObjAsistenciaVehicular extends BaseDriver {
     @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
     public WebElement btnContinuar;
 
+    @AndroidFindBy(xpath= "//*[@text='No, thanks']")
+    public WebElement btnNoThanks;
+
     @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/tvOmitir")
     public WebElement btnOmitir;
     @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/sinisterTitle")

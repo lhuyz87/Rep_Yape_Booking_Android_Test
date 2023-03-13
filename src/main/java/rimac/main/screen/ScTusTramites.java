@@ -35,6 +35,7 @@ private long wdwTimeOut = 300L;
 	
 	protected ObjTramites tramitesObject = ObjTramites.getInstancia();
 	protected ObjAlertas objAlertas = ObjAlertas.getInstancia();
+	protected MobileObjectUtil mobileObjectUtil = MobileObjectUtil.getInstancia();
 
 	// util
 	public static Logger looger = Logger.getLogger(ScTusTramites.class.getName());
@@ -171,7 +172,11 @@ private long wdwTimeOut = 300L;
 			Dimension dimension = appiumDriver().manage().window().getSize();
 			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
 			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+			util.esperarSegundos(2);
 			util.esperarElementoClick(5,tramitesObject.lblTramites);
+			if(element(tramitesObject.opcVehicular).isCurrentlyVisible()){
+				element(tramitesObject.opcVehicular).click();
+			}
 			int contador=0;
 			while(element(tramitesObject.btnAsisVehiculares).isCurrentlyVisible()==false && contador<15) {
 				util.doSwipe(appiumDriver(), start, end, 500);
@@ -180,7 +185,6 @@ private long wdwTimeOut = 300L;
 				}
 				contador++;
 			}
-			util.esperarElementoClick(5,tramitesObject.opcAsisVehiculares);
 			Serenity.takeScreenshot();
 			element(tramitesObject.btnAsisVehiculares).click();
 			util.esperarSegundos(2);

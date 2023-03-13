@@ -27,7 +27,7 @@ public class ObjTuSesionExpiro extends BaseDriver {
         throw new CloneNotSupportedException();
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dialog_text_title")
+    @AndroidFindBy(xpath = "[@text='Tu sesión ha expirado']")
     public WebElement titTusesionExpiro;
 
    // @AndroidFindBy(xpath = "//*[@text='Tu sesión ha expirado']")
@@ -38,6 +38,10 @@ public class ObjTuSesionExpiro extends BaseDriver {
 
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
     public WebElement btnEntendido;
+
+    @AndroidFindBy(className = "android.widget.FrameLayout")
+    public WebElement screen;
+
 
 
 

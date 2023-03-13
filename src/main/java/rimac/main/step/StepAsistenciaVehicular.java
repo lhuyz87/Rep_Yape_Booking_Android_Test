@@ -14,6 +14,8 @@ public class StepAsistenciaVehicular {
     ScTusTramites scTusTramites;
     @Steps
     ScAsistenciaVehicular scAsistenciaVehicular;
+    @Steps
+    ScTuSesionExpiro scTuSesionExpiro;
     public void se_ingresa_a_asistencia_vehicular_desde_tramites() {
         scHome.seleccionarOpcionPrincipal("Tramites");
         scTusTramites.seleccionaAsistenciaVehicular();
@@ -56,5 +58,10 @@ public class StepAsistenciaVehicular {
     public boolean se_valida_solicitud_home(String asistencia ,String placa){
         return scAsistenciaVehicular.validacion_AsistenciaVehicular_home(asistencia,placa);
     }
-
+    public void se_mantiene_la_inactividad_asistencia_vehicular() {
+        scTuSesionExpiro.inactividad_del_modulo();
+    }
+    public void se_valida_mensaje_de_inactividad(){
+        scTuSesionExpiro.validacion_mensaje_TimeOut();
+    }
 }
