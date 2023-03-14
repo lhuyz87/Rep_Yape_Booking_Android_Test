@@ -31,7 +31,7 @@ pipeline {
 
     options {
 		buildDiscarder(logRotator(numToKeepStr: '20'))
-	    disableConcurrentBuilds()
+	    //disableConcurrentBuilds()
 	}
 
     stages {
@@ -77,6 +77,14 @@ pipeline {
                     }
                 }
             }
+            post{
+                always{
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE', message: 'Test Suite had a failure') {
+                                            // Acciones a realizar en caso de que se produzca un error en la etapa de pruebas
+                                        }
+
+                    }
+                }
         }
                    
         stage ('Reporte') {
