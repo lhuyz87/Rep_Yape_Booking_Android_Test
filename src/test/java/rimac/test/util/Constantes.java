@@ -19,7 +19,8 @@ public class Constantes {
     public static String usuarioDP = rimac.main.util.UtilDef.getInstancia().getVarEnvPro("usuarioDP");
     public static String passwordDP = UtilDef.getInstancia().getVarEnvPro("passwordDP");
 //    public static final String RutaLocal = res;
-    public static final String RutaLocal = "/home/adminqa/git/CanalApp-auto-Android-test-v1/src/test/resources/dataDriven/";
+    //public static final String RutaLocal = "/home/adminqa/git/CanalApp-auto-Android-test-v1/src/test/resources/dataDriven/";
+    public static final String RutaLocal = "/home/adminqa/Documents/data-Android-test-Cloud-v1/";
     public static final String RutaRemota = "smb://01-045923.rimac.com.pe//DataPuebaAutomatizacion//Proy_CanalAPP_iOS//datapool//";
     public static final String fileData_01 = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"DataReembolso.xlsx" : RutaRemota+"DataReembolso.xlsx");
 

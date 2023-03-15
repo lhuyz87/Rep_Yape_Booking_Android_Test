@@ -33,7 +33,6 @@ public class ScAlertas extends BaseDriver {
                 }
                 i++;
                 util.esperarSegundos(1);
-                System.out.println("Esperando alertas "+i);
             }
             util.esperarElemento(3,objPaginaPrincipal.btnEmergencia);
 

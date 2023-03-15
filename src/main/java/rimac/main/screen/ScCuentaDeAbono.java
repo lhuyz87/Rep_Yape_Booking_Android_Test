@@ -112,10 +112,10 @@ private long wdwTimeOut = 300L;
 //		element(comentariosAdicionalesObject.txtDescripcion).click();
 //		element(comentariosAdicionalesObject.txtDescripcion).sendKeys(comentarios);
 //		((HidesKeyboard) appiumDriver()).hideKeyboard();
-		util.esperarSegundos(8);
+		//util.esperarSegundos(8);
 		util.esperarElementoVisible(10,comentariosAdicionalesObject.btnEnviarSolicitud);
 		element(comentariosAdicionalesObject.btnEnviarSolicitud).click();
-		util.esperarElemento(9,comentariosAdicionalesObject.btnIralinicio);
+		//util.esperarElemento(9,comentariosAdicionalesObject.btnIralinicio);
 
 	}
 	
