@@ -87,7 +87,8 @@ public class ScHome extends BaseDriver{
 			break;
 			
 		case "Perfil":
-			
+			util.esperarElemento(10, objectPrincipal.btnTramite);
+			element(objectPrincipal.btnPerfil).click();
 			break;
 
 		default:

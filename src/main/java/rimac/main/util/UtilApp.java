@@ -160,8 +160,10 @@ public class UtilApp  extends BaseDriver{
 			if(element(elemento).isEnabled()==true||contador==intentos) {
 				System.out.println("Se encuentra elemento o contador finalizo");			
 				break;
-			}else
+			}else {
+				esperarSegundos(1);
 				System.out.println("contador: " + contador + elemento);
+			}
 				
 		}
 	}
@@ -189,8 +191,10 @@ public class UtilApp  extends BaseDriver{
 			if(element(elemento).isCurrentlyVisible()==true||contador==intentos) {
 				System.out.println("Se encuentra elemento o contador finalizo");
 				break;
-			}else
+			}else {
+				esperarSegundos(1);
 				System.out.println("contador: " + contador + elemento);
+			}
 
 		}
 	}
@@ -204,8 +208,10 @@ public class UtilApp  extends BaseDriver{
 			if(element(elemento).isCurrentlyVisible()==true&&element(elemento).isClickable()==true) {
 				System.out.println("Se encuentra elemento o contador finalizo");			
 				break;
-			}else
+			}else {
 				System.out.println("contador: " + contador);
+				esperarSegundos(1);
+			}
 			
 			if(contador==intentos)
 				break;
@@ -220,8 +226,10 @@ public class UtilApp  extends BaseDriver{
 			if(element(elemento).isClickable()==true||contador==intentos) {
 				System.out.println("Se encuentra elemento");			
 				break;
-			}else
+			}else {
 				System.out.println("contador: " + contador);
+				esperarSegundos(1);
+			}
 				
 		}
 	}

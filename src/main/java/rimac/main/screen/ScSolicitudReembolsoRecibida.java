@@ -49,7 +49,6 @@ private long wdwTimeOut = 300L;
 			if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){
 				element(objCommons.btnCerrarmodal).click();
 			}
-			util.esperarSegundos(1);
 			contador++;
 		}
 		element(objSolicitudReembolsoRecibida.btnIrInicio).click();

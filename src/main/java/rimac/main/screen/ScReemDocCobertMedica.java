@@ -94,11 +94,7 @@ private long wdwTimeOut = 300L;
 			element(directorioObject.nombreArchivo(appiumDriver(), nombreArchivo)).click();
 //			element(directorioObject.nombreArchivo2(appiumDriver(), "Prueba")).click();
 			util.esperarSegundos(3);
-		
-		}else {
-			
 		}
-		
 	}
 	
 	
@@ -186,7 +182,6 @@ public void subirDocumento(String tipo) {
 	
 	
 	public void continuar() {
-		
 		util.esperarActivoClick(4, reemDocCobertMedicaObject.btnContinuar);
 		element(reemDocCobertMedicaObject.btnContinuar).click();
 		util.esperarSegundos(5);

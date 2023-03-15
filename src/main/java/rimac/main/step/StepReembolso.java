@@ -59,16 +59,19 @@ public class StepReembolso {
 
 	@Steps
 	ScServiciosTuSeguro scServiciosTuSeguro;
+	@Steps
+	ScAlertas scAlertas;
 
 	StepReembolso() {
 		Random randomObj = new Random();
 		Variables objVariables = new Variables();
 		objVariables.montoReembolso = String.valueOf(randomObj.ints(100, 999).findFirst().getAsInt());
 	}
-	public void selReembolsoSaludTramite() {
-		schome.cerrarAlertas(15);
+	public void selReembolsoSaludTramite() throws Exception {
+		//schome.cerrarAlertas(15);
+		scAlertas.omitirAlertas(14);
 		schome.seleccionarOpcionPrincipal("Tramites");
-		scTusTramites.seleccionaReembolso();
+		scTusTramites.seleccionaReembolsoSalud();
 	}
 
 	public void seleccionar_ver_todas(){
@@ -189,8 +192,9 @@ public class StepReembolso {
 
 
 
-	public void selecSeguiReemSalud() {
-		schome.cerrarAlertas(15);
+	public void selecSeguiReemSalud() throws Exception {
+		//schome.cerrarAlertas(15);
+		scAlertas.omitirAlertas(14);
 		schome.seleccionarOpcionPrincipal("Tramites");
 		scTusTramites.seleccionarSegui();
 		

@@ -34,7 +34,7 @@ public class ReembolsoDefinition {
 		appLoginPage.login(id, numero);
 	}
 	@When("se ingresa a Reembolso de Salud desde Tramites y se inicia el tramite")
-	public void se_ingresa_a_reembolso_de_salud_desde_tramites_y_se_inicia_el_tramite() {
+	public void se_ingresa_a_reembolso_de_salud_desde_tramites_y_se_inicia_el_tramite() throws Exception {
 		stepReembolso.selReembolsoSaludTramite();
 	}
 	
@@ -122,7 +122,7 @@ public class ReembolsoDefinition {
 	
 
 	@When("se ingresa al Seguimiento de Reembolso de Salud desde Tramites")
-	public void ingresar_seguimiento_reembolso_salud_tramites() {
+	public void ingresar_seguimiento_reembolso_salud_tramites() throws Exception {
 	stepReembolso.selecSeguiReemSalud();
 	}
 	@When("se ingresa a Reembolso de Salud desde Seguros y se inicia el tramite {string}")

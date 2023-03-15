@@ -62,10 +62,10 @@ private long wdwTimeOut = 300L;
 			e.printStackTrace();
 		} 
 				
-		util.esperarActivoClick(3, objBuscadorDeClinicas.txtBuscarClinica);
+		util.esperarActivoClick(10, objBuscadorDeClinicas.txtBuscarClinica);
 		element(objBuscadorDeClinicas.txtBuscarClinica).sendKeys(nomClinica);
 		Serenity.takeScreenshot();
-		util.esperarActivoClick(7, objBuscadorDeClinicas.lblClinicaEncontra);
+		util.esperarActivoClick(10, objBuscadorDeClinicas.lblClinicaEncontra);
 		element(objBuscadorDeClinicas.lblClinicaEncontra).click();
 		
 

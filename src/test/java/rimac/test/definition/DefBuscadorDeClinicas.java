@@ -19,12 +19,12 @@ public class DefBuscadorDeClinicas {
 	StepBuscadorDeClinicas stepBuscadorDeClinicas;
 
 	@When("selecciona la opción Búsqueda de clínicas desde Home y se inicia el tramite")
-	public void selecciona_la_opción_búsqueda_de_clínicas_desde_home_y_se_inicia_el_tramite() {
+	public void selecciona_la_opción_búsqueda_de_clínicas_desde_home_y_se_inicia_el_tramite() throws Exception {
 		stepBuscadorDeClinicas.selecciona_buscador_de_clinicas_desde_home();
 	}
 
 	@When("selecciona la opción Búsqueda de clínicas desde menu Tramites y se inicia el tramite")
-	public void selecciona_la_opción_búsqueda_de_clínicas_desde_menu_tramites_y_se_inicia_el_tramite() {
+	public void selecciona_la_opción_búsqueda_de_clínicas_desde_menu_tramites_y_se_inicia_el_tramite() throws Exception {
 		stepBuscadorDeClinicas.selecciona_buscador_de_clinicas_desde_tramites();
 	}
 

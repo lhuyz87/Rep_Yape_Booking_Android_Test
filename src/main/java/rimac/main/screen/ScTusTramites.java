@@ -112,7 +112,10 @@ private long wdwTimeOut = 300L;
 			
 		case "Reembolso de salud":
 			looger.info("Iniciar Reembolso de salud");
-			int contadorini=0;	
+			int contadorini=0;
+			if(element(tramitesObject.opcSalud).isCurrentlyVisible()){
+				element(tramitesObject.opcSalud).click();
+			}
 			while(contadorini<10) {
 				try {
 					
@@ -166,6 +169,61 @@ private long wdwTimeOut = 300L;
 		
 	}
 
+	public void seleccionaReembolsoSalud() {
+		try {
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+			util.esperarSegundos(2);
+			util.esperarElementoClick(5,tramitesObject.lblTramites);
+			if(element(tramitesObject.opcSalud).isCurrentlyVisible()){
+				element(tramitesObject.opcSalud).click();
+			}
+			int contador=0;
+			while(element(tramitesObject.btnReembolsoSalud).isCurrentlyVisible()==false && contador<15) {
+				util.doSwipe(appiumDriver(), start, end, 500);
+				if(element(tramitesObject.btnReembolsoSalud).isCurrentlyVisible()){
+					break;
+				}
+				contador++;
+			}
+			Serenity.takeScreenshot();
+			element(tramitesObject.btnReembolsoSalud).click();
+			util.esperarSegundos(2);
+		}
+		catch (Exception e) {
+			Serenity.takeScreenshot();
+			throw new IllegalAccessError("Error en el aplicativo, para igresar a Reembolso de Salud");
+		}
+	}
+
+	public void seleccionaBuscadordeSalud() {
+		try {
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+			util.esperarSegundos(2);
+			util.esperarElementoClick(5,tramitesObject.lblTramites);
+			if(element(tramitesObject.opcSalud).isCurrentlyVisible()){
+				element(tramitesObject.opcSalud).click();
+			}
+			int contador=0;
+			while(element(tramitesObject.btnBuscarClinica).isCurrentlyVisible()==false && contador<15) {
+				util.doSwipe(appiumDriver(), start, end, 500);
+				if(element(tramitesObject.btnBuscarClinica).isCurrentlyVisible()){
+					break;
+				}
+				contador++;
+			}
+			Serenity.takeScreenshot();
+			element(tramitesObject.btnBuscarClinica).click();
+			util.esperarSegundos(2);
+		}
+		catch (Exception e) {
+			Serenity.takeScreenshot();
+			throw new IllegalAccessError("Error en el aplicativo, para igresar a Reembolso de Salud");
+		}
+	}
 
 	public void seleccionaAsistenciaVehicular() {
 		try {

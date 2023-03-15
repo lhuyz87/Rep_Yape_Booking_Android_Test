@@ -35,6 +35,9 @@ public class ObjPaginaPrincipal extends BaseDriver{
 	@AndroidFindBy(xpath = "//*[@text='Trámites']")
 	public WebElement btnTramite;
 
+	@AndroidFindBy(xpath = "//*[@text='Perfil']")
+	public WebElement btnPerfil;
+
 	@AndroidFindBy(xpath = "//*[@text='Tienda']")
 	public WebElement btnTienda;
 
