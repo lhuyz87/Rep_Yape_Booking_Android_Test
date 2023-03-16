@@ -1,8 +1,8 @@
 #Author: your.email@your.domain.com
-@tag @regresionBloque1
+@tag
 Feature: Login
 
-  @Login @RegresionPoliza
+  @Login @@regresionBloque1
   Scenario Outline: Realizar Login Exitoso en Mundo Rimac
     Given realiza el login con credenciales "<tipoID>", "<id>" y "<password>"
 
@@ -10,7 +10,7 @@ Feature: Login
       | tipoID | id       | password  |
       | DNI    | 70434801 | Rimac2020 |
 
-  @OlvidasteTuContrasenia
+  @OlvidasteTuContrasenia @regresionBloque1
   Scenario Outline: Validar que se permita cambiar el password respondiendo preguntas
     Given se selecciona la opción ¿Olvidaste tu contraseña?
     And se ingresa el tipo y número de documento: "<tipoID>", "<id>"
