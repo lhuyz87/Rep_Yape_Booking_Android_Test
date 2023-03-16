@@ -48,7 +48,6 @@
 	</pluginRepositories>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>jcifs</groupId>
 			<artifactId>jcifs</artifactId>
@@ -104,13 +103,13 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
-			<version>5.8.0</version>
+			<version>5.9.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.vintage</groupId>
 			<artifactId>junit-vintage-engine</artifactId>
-			<version>5.8.0</version>
+			<version>5.9.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -127,6 +126,11 @@
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-saucelabs</artifactId>
 			<version>${serenity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>jakarta.mail</artifactId>
+			<version>2.0.1</version>
 		</dependency>
 	</dependencies>
 
@@ -201,7 +205,7 @@
 						<configuration>
 							<systemPropertyVariables>
 								<!--suppress UnresolvedMavenProperty -->
-								<appPath>${v_appPathMinRequerida}</appPath>
+								<appPath>${v_appLocalMinRequerida}</appPath>
 								<noReset>false</noReset>
 								<fullReset>true</fullReset>
 							</systemPropertyVariables>
@@ -228,7 +232,7 @@
 						<configuration>
 							<systemPropertyVariables>
 								<!--suppress UnresolvedMavenProperty -->
-								<appPath>${v_appPathMinRecomendada}</appPath>
+								<appPath>${v_appLocalMinRecomendada}</appPath>
 								<noReset>false</noReset>
 								<fullReset>true</fullReset>
 							</systemPropertyVariables>
@@ -254,6 +258,7 @@
 						<version>3.0.0-M5</version>
 						<configuration>
 							<systemPropertyVariables>
+								<!--suppress UnresolvedMavenProperty -->
 								<appPath>${v_appCloudActual}</appPath>
 							</systemPropertyVariables>
 						</configuration>
@@ -275,6 +280,7 @@
 						<version>3.0.0-M5</version>
 						<configuration>
 							<systemPropertyVariables>
+								<!--suppress UnresolvedMavenProperty -->
 								<appPath>${v_appCloudMinRequerida}</appPath>
 							</systemPropertyVariables>
 						</configuration>
@@ -296,6 +302,7 @@
 						<version>3.0.0-M5</version>
 						<configuration>
 							<systemPropertyVariables>
+								<!--suppress UnresolvedMavenProperty -->
 								<appPath>${v_appCloudMinRecomendada}</appPath>
 							</systemPropertyVariables>
 						</configuration>
@@ -333,6 +340,7 @@
 						<include>**/**Rimac*.java</include>
 					</includes>
 					<systemPropertyVariables>
+						<!--suppress UnresolvedMavenProperty -->
 						<webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
 					</systemPropertyVariables>
 					<parallel>methods</parallel>
