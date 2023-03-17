@@ -52,7 +52,7 @@ pipeline {
 						try {
         				    sauce('saucelabs-US') {
         						sauceconnect(useGeneratedTunnelIdentifier: true, verboseLogging: true) {
-									catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE', message: 'Test Suite had a failure') {
+									catchError(buildResult: 'FAILURE', stageResult: 'FAILURE', message: 'Test Suite had a failure') {
 			                            switch("${ESCENARIO}") {
 			                                case "@ValidaVersionMinimaRequerida":
 			                                    echo 'Se instala App menor a la versión mínima requerida...'
@@ -79,7 +79,7 @@ pipeline {
             }
             post{
                 always{
-                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE', message: 'Test Suite had a failure') {
+                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE', message: 'Test Suite had a failure') {
                                             // Acciones a realizar en caso de que se produzca un error en la etapa de pruebas
                                         }
 
