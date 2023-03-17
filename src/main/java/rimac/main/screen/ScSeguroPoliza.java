@@ -53,10 +53,14 @@ public class ScSeguroPoliza extends BaseDriver {
         while(!anioObtenido.equals(anio)&& contador<7){
             util.doSwipe(appiumDriver(), startAnio, endAnio, 500);
             anioObtenido = element(objSeguroVehicular.fechaAnio).getText();
+            util.esperarSegundos(1);
+            contador++;
         }
         while(!mesObtenido.equals(mes)&& contador<7){
             util.doSwipe(appiumDriver(), startMes, endMes, 500);
             mesObtenido = element(objSeguroVehicular.fechaMes).getText();
+            util.esperarSegundos(1);
+            contador++;
         }
         element(objSeguroVehicular.btnAceptarFecha).click();
     }
