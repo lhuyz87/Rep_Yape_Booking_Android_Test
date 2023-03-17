@@ -39,7 +39,7 @@ public class ScSeguroPoliza extends BaseDriver {
         element(objTabPoliza.btnDescargarPoliza).click();
     }
 
-    public void buscarFecha(String anio, String mes){
+    public void buscarFecha(String anio, String mes) throws InterruptedException {
         util.esperarElemento(10, objSeguroVehicular.btnModificarFecha);
         element(objSeguroVehicular.btnModificarFecha).click();
         Dimension dimension = appiumDriver().manage().window().getSize();
@@ -50,16 +50,22 @@ public class ScSeguroPoliza extends BaseDriver {
         String anioObtenido = element(objSeguroVehicular.fechaAnio).getText();
         String mesObtenido = element(objSeguroVehicular.fechaMes).getText();
         int contador=0;
-        while(!anioObtenido.equals(anio)&& contador<7){
+        while(!anioObtenido.equals(anio)&& contador<10){
             util.doSwipe(appiumDriver(), startAnio, endAnio, 500);
+            Thread.sleep(600);
             anioObtenido = element(objSeguroVehicular.fechaAnio).getText();
-            util.esperarSegundos(1);
+            if(anioObtenido.equals(anio)){
+                break;
+            }
             contador++;
         }
-        while(!mesObtenido.equals(mes)&& contador<7){
+        while(!mesObtenido.equals(mes)&& contador<10){
             util.doSwipe(appiumDriver(), startMes, endMes, 500);
+            Thread.sleep(600);
             mesObtenido = element(objSeguroVehicular.fechaMes).getText();
-            util.esperarSegundos(1);
+            if(mesObtenido.equals(mes)){
+                break;
+            }
             contador++;
         }
         element(objSeguroVehicular.btnAceptarFecha).click();

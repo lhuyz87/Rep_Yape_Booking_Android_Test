@@ -70,6 +70,10 @@ public class ScTusSeguros extends BaseDriver{
 		util.esperarElemento(3, objTusSeguros.lblTusSeguros);
 	}
 
+	public void seleccionarVida(){
+		element(objTusSeguros.btnVida).click();
+	}
+
 	public void ver_Detalle(String seguro){
 		try {
 			int contador = 0;

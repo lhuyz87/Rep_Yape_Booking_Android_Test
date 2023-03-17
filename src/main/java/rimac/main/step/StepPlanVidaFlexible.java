@@ -18,11 +18,11 @@ public class StepPlanVidaFlexible {
     public void ver_detalle_vida_flexible(){
         schome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
+        scTusSeguros.seleccionarVida();
         scTusSeguros.ver_Detalle("Plan Vida Flexible");
     }
-    public void ingresarfecha(String anio, String mes){
+    public void ingresarfecha(String anio, String mes) throws InterruptedException {
         mes = new StringBuilder(mes.substring(0,3)).append(".").toString();
-        System.out.println(mes);
         scSeguroVehicular.buscarFecha(anio, mes);
     }
 
