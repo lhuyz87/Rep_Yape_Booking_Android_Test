@@ -169,6 +169,7 @@ public class UtilApp  extends BaseDriver{
 		if(element(elemento).isCurrentlyVisible()==false){
 			throw new IllegalAccessError("Elemento no encontrado");
 		}
+
 	}
 
 	public void scrolHastaElemento(int intentos, WebElement elemento) {
