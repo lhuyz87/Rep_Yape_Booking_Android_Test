@@ -35,5 +35,8 @@ public class ObjServicioTuSeguro extends BaseDriver{
 	
 	@AndroidFindBy(xpath = "//*[@content-desc='Reembolso de salud']")
 	public WebElement btnReembolsoSalud;
+
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Cobertura']")
+	public WebElement tabCobertura;
 	
 }

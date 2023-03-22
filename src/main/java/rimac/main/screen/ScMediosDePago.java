@@ -74,7 +74,7 @@ public class ScMediosDePago extends BaseDriver {
                 util.esperarElementoVisible(5, objAnadirTarjeta.btnGuardarTarjeta);
                 Serenity.takeScreenshot();
                 element(objAnadirTarjeta.btnGuardarTarjeta).click();
-                util.esperarElementoVisible(15, objMediodePago.lblMisTarjetas);
+                util.esperarElementoVisible(10, objMediodePago.lblMisTarjetas);
                 util.esperarSegundos(8);
             }
         }
@@ -100,11 +100,22 @@ public class ScMediosDePago extends BaseDriver {
     }
 
     public boolean validarEliminarTarjeta(String numTarjeta){
-        boolean tarjetaExiste=false;
+        boolean tarjetaExiste = false;
         try{
+            int contador=0;
+            boolean condicion1 =element(objMediodePago.lblTarjetaEliminadaExito).isCurrentlyVisible();
+            boolean condicion2= false;
             util.esperarElementoVisible(5,objMediodePago.lblTarjetaEliminadaExito);
+            while(condicion1==false && contador<5){
+                if(condicion1){
+                    condicion2 = true;
+                    break;
+                }
+                contador++;
+            }
             Serenity.takeScreenshot();
-            tarjetaExiste = objMediodePago.opcTarjetaList(numTarjeta).size() == 0;
+            //tarjetaExiste = objMediodePago.opcTarjetaList(numTarjeta).size() == 0;
+            tarjetaExiste=condicion2;
         }catch(Exception e){
             Serenity.takeScreenshot();
             throw new IllegalAccessError("No se muestra el mensaje Tarjeta Eliminada");

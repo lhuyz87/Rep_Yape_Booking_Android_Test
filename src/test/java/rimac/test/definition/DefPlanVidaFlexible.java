@@ -1,5 +1,6 @@
 package rimac.test.definition;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
@@ -23,5 +24,15 @@ public class DefPlanVidaFlexible {
     @Then("debe visualizarse el estado de cuenta de mi seguro Vida Flexible")
     public void debeVisualizarseElEstadoDeCuentaDeMiSeguroVidaFlexible() {
         assertTrue(stepPlanVidaFlexible.validar_estado_cuenta());
+    }
+
+    @And("se mantiene inactivo en la previsualización del pdf")
+    public void seMantieneInactivoEnLaPrevisualizaciónDelPdf() {
+        stepPlanVidaFlexible.se_mantiene_inactivo_en_consulta();
+    }
+
+    @Then("debe validar el mensaje para retornar al Login desde plan Vida Flexible")
+    public void debeValidarElMensajeParaRetornarAlLoginDesdePlanVidaFlexible() {
+        stepPlanVidaFlexible.se_valida_mensaje_de_inactividad_desde_Consulta_Poliza();
     }
 }

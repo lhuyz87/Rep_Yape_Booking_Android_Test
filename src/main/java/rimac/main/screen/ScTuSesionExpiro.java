@@ -24,15 +24,15 @@ public class ScTuSesionExpiro extends BaseDriver {
         //androidDriver().activateApp("com.google.android.apps.maps");
         //androidDriver().activateApp("com.rimac.rimac_surrogas.qa");
         //androidDriver().runAppInBackground(Duration.ofSeconds(10));
-        //androidDriver().pressKey(new KeyEvent(AndroidKey.MENU));
         //androidDriver().pressKey(new KeyEvent(AndroidKey.CAMERA));
         //androidDriver().pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
-        //androidDriver().activateApp("com.android.chrome");
-        androidDriver().pressKey(new KeyEvent(AndroidKey.CAMERA));
-        //androidDriver().rotate(ScreenOrientation.PORTRAIT);
+        androidDriver().activateApp("com.android.chrome");
+        //androidDriver().pressKey(new KeyEvent(AndroidKey.MENU));
+       // androidDriver().pressKey(new KeyEvent(AndroidKey.CAMERA));
+        androidDriver().rotate(ScreenOrientation.PORTRAIT);
         Serenity.takeScreenshot();
         int contadorMinutos=0;
-        while(contadorMinutos<15){
+        while(contadorMinutos<16){
             util.mobileSwipeScreenAndroid();
             util.esperarSegundos(30);
             util.mobileSwipeScreenAndroid();
@@ -41,7 +41,7 @@ public class ScTuSesionExpiro extends BaseDriver {
             contadorMinutos++;
         }
         androidDriver().pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
-        util.esperarSegundos(2);
+        util.esperarSegundos(4);
         androidDriver().pressKey(new KeyEvent(AndroidKey.ENTER));
         androidDriver().pressKey(new KeyEvent(AndroidKey.ENTER));
         //element(objTuSesionExpiro.screen).click();
@@ -50,17 +50,17 @@ public class ScTuSesionExpiro extends BaseDriver {
     public void validacion_mensaje_TimeOut(){
         try{
             int contador=0;
-            while(element(objTuSesionExpiro.titTusesionExpiro).isCurrentlyVisible()==false && contador<3){
+            while(element(objTuSesionExpiro.titTusesionExpiro).isCurrentlyVisible()==false && contador<4){
                 util.esperarSegundos(1);
                 contador++;
             }
             assertTrue(element(objTuSesionExpiro.titTusesionExpiro).isCurrentlyVisible());
             Serenity.takeScreenshot();
-            element(objTuSesionExpiro.btnEntendido).click();
         }catch(Exception e){
             Serenity.takeScreenshot();
             throw new IllegalAccessError("No aparece mensaje de Inactividad para retornar al login");
         }
+        element(objTuSesionExpiro.btnEntendido).click();
     }
 
 }

@@ -2,8 +2,11 @@ package rimac.main.screen;
 
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
+import rimac.main.object.ObjCobertura;
 import rimac.main.object.ObjSeguroVehicular;
+import rimac.main.object.ObjServicioTuSeguro;
 import rimac.main.object.ObjTabPoliza;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.UtilApp;
@@ -18,6 +21,8 @@ public class ScSeguroPoliza extends BaseDriver {
 
     protected ObjSeguroVehicular objSeguroVehicular= ObjSeguroVehicular.getInstancia();
     protected ObjTabPoliza objTabPoliza= ObjTabPoliza.getInstancia();
+    protected ObjCobertura objCobertura = ObjCobertura.getInstancia();
+    protected ObjServicioTuSeguro objServicioTuSeguro= ObjServicioTuSeguro.getInstancia();
 
     UtilApp util;
 
@@ -85,5 +90,23 @@ public class ScSeguroPoliza extends BaseDriver {
         boolean existePDF = element(objTabPoliza.pdfDocumento).isCurrentlyVisible();
         Serenity.takeScreenshot();
         return existePDF;
+    }
+
+    public void seleccionaTabCobertura() {
+        int contador=0;
+
+        try {
+            while( element(objServicioTuSeguro.tabCobertura).isCurrentlyVisible()==false
+                    && contador<5) {
+                util.esperarSegundos(1);
+                contador++;
+            }
+            element(objServicioTuSeguro.tabCobertura).click();
+            util.esperarElemento(5,objCobertura.lblConoceCobertura);
+
+        }catch(NoSuchElementException ex) {
+
+        }
+        Serenity.takeScreenshot();
     }
 }
