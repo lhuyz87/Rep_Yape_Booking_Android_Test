@@ -52,7 +52,7 @@ public class ScSeguroPoliza extends BaseDriver {
         int contador=0;
         while(!anioObtenido.equals(anio)&& contador<10){
             util.doSwipe(appiumDriver(), startAnio, endAnio, 500);
-            Thread.sleep(600);
+            Thread.sleep(1000);
             anioObtenido = element(objSeguroVehicular.fechaAnio).getText();
             if(anioObtenido.equals(anio)){
                 break;
@@ -61,7 +61,7 @@ public class ScSeguroPoliza extends BaseDriver {
         }
         while(!mesObtenido.equals(mes)&& contador<10){
             util.doSwipe(appiumDriver(), startMes, endMes, 500);
-            Thread.sleep(600);
+            Thread.sleep(1000);
             mesObtenido = element(objSeguroVehicular.fechaMes).getText();
             if(mesObtenido.equals(mes)){
                 break;

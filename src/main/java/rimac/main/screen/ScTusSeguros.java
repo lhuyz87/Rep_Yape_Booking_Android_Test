@@ -42,11 +42,7 @@ public class ScTusSeguros extends BaseDriver{
 	// util
 	protected MobileObjectUtil pageObjectUtil2 = MobileObjectUtil.getInstancia();
 	public static Logger looger = Logger.getLogger(ScTusSeguros.class.getName());
-	
-	
-	public static void main(String[] args) {
-		
-	}
+
 	
 	public long getWdwTimeOut() {
 		return wdwTimeOut;
@@ -88,6 +84,20 @@ public class ScTusSeguros extends BaseDriver{
 			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.6));
 			util.doSwipe(appiumDriver(), start, end, 500);
 			element(objTusSeguros.opcSeguro(seguro)).click();
+		}
+	}
+
+	public void irPagos(){
+		try {
+			util.esperarSegundos(2);
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.9), (int)(dimension.height*0.13));
+			Point end= new Point((int)(dimension.width*0.1), (int)(dimension.height*0.13));
+			util.doSwipe(appiumDriver(), start, end, 1000);
+			util.esperarElemento(3,objTusSeguros.btnPagos);
+			element(objTusSeguros.btnPagos).click();
+		}catch(Exception e){
+			throw new IllegalAccessError("Error para ingresar a pagos");
 		}
 	}
 }
