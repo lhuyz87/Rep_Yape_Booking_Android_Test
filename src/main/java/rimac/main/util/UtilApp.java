@@ -166,6 +166,9 @@ public class UtilApp  extends BaseDriver{
 			}
 				
 		}
+		if(element(elemento).isCurrentlyVisible()==false){
+			throw new IllegalAccessError("Elemento no encontrado");
+		}
 	}
 
 	public void scrolHastaElemento(int intentos, WebElement elemento) {
@@ -198,6 +201,9 @@ public class UtilApp  extends BaseDriver{
 					System.out.println("contador: " + contador + elemento);
 				}
 			}
+			if(element(elemento).isCurrentlyVisible()==false){
+				throw new IllegalAccessError("Elemento no encontrado");
+			}
 		}catch (NoSuchElementException e) {
 			System.out.println("In catch block to handle no such element");
 			e.printStackTrace();
@@ -221,6 +227,9 @@ public class UtilApp  extends BaseDriver{
 				if(contador==intentos)
 					break;
 			}
+			if(element(elemento).isCurrentlyVisible()==false){
+				throw new IllegalAccessError("Elemento no encontrado");
+			}
 		}catch (NoSuchElementException e) {
 			System.out.println("In catch block to handle no such element");
 			e.printStackTrace();
@@ -239,6 +248,9 @@ public class UtilApp  extends BaseDriver{
 					System.out.println("contador: " + contador);
 					esperarSegundos(1);
 				}
+			}
+			if(element(elemento).isCurrentlyVisible()==false){
+				throw new IllegalAccessError("Elemento no encontrado");
 			}
 		}catch (NoSuchElementException e) {
 			System.out.println("In catch block to handle no such element");
