@@ -1,5 +1,6 @@
 package rimac.main.screen;
 
+import net.serenitybdd.core.Serenity;
 import rimac.main.object.ObjAnadirTarjeta;
 import rimac.main.object.ObjMediodePago;
 import rimac.main.object.ObjNuevaContra;
@@ -42,8 +43,10 @@ public class ScPerfil extends BaseDriver {
                     contador++;
                 }
             } while (!condicion1 && !condicion2 && contador < 15);
+            Serenity.takeScreenshot();
             util.esperarSegundos(3);
         }catch(Exception e){
+            Serenity.takeScreenshot();
             throw new IllegalAccessError("Error para ingresar a Medios de Pago");
         }
     }

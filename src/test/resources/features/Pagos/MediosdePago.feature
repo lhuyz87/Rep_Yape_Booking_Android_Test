@@ -32,7 +32,7 @@ Feature: Medios de Pago
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
     When realizo la eliminacion de la tarjeta "<numtarjeta>" , "<cvv>" y "<fecha>"
-    Then debe mostrar el mensaje "La tarjeta fue eliminada con éxito."
+    Then se debe eliminar la tarjeta "<numtarjeta>" de Mis Tarjetas
     Examples:
       | tipoID | id       | password  | numtarjeta       | cvv | fecha |
       | DNI    | 23977057 | Rimac2020 | 4474118355632240 | 111 | 03/28 |

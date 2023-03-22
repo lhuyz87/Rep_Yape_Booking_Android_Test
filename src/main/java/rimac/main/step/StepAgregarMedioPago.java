@@ -54,7 +54,7 @@ public class StepAgregarMedioPago {
         return scMediosDePago.existeTarjeta(numTarjeta);
     }
 
-    public String validarMensajeEliminacion(){
-        return scMediosDePago.validarEliminarTarjeta();
+    public boolean validarMensajeEliminacion(String numTarjeta){
+        return scMediosDePago.validarEliminarTarjeta(numTarjeta);
     }
 }

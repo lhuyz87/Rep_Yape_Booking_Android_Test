@@ -27,7 +27,6 @@ public class ScMediosDePago extends BaseDriver {
             while (element(objMediodePago.opcTarjeta(numTarjeta)).isCurrentlyVisible() == false && contador < 5) {
                 util.mobileSwipeScreenAndroid();
             }
-            Serenity.takeScreenshot();
             element((WebElement) objMediodePago.opcTarjeta(numTarjeta)).click();
             element(objMediodePago.btnEliminarTarjeta).click();
             element(objMediodePago.btnSiEliminar).click();
@@ -89,8 +88,8 @@ public class ScMediosDePago extends BaseDriver {
     public boolean existeTarjeta(String numTarjeta){
         boolean tarjetaExiste=false;
         try{
-            Serenity.takeScreenshot();
             util.esperarElementoVisible(9,objMediodePago.opcTarjeta(numTarjeta));
+            Serenity.takeScreenshot();
             tarjetaExiste = objMediodePago.opcTarjetaList(numTarjeta).size() != 0;
 
         }catch(Exception e){
@@ -100,16 +99,17 @@ public class ScMediosDePago extends BaseDriver {
         return tarjetaExiste;
     }
 
-    public String validarEliminarTarjeta(){
-        String mensajeExiste="";
+    public boolean validarEliminarTarjeta(String numTarjeta){
+        boolean tarjetaExiste=false;
         try{
             util.esperarElementoVisible(5,objMediodePago.lblTarjetaEliminadaExito);
-            mensajeExiste = element(objMediodePago.lblTarjetaEliminadaExito).getText();
+            Serenity.takeScreenshot();
+            tarjetaExiste = objMediodePago.opcTarjetaList(numTarjeta).size() == 0;
         }catch(Exception e){
             Serenity.takeScreenshot();
             throw new IllegalAccessError("No se muestra el mensaje Tarjeta Eliminada");
         }
-        return mensajeExiste;
+        return tarjetaExiste;
     }
 
 

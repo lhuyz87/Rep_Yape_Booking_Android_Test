@@ -35,8 +35,8 @@ public class DefMediosdePago {
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta,cvv,fecha);
     }
 
-    @Then("debe mostrar el mensaje {string}")
-    public void debeMostrarElMensaje(String mensaje) {
-        assertTrue(mensaje.equals(stepAgregarMedioPago.validarMensajeEliminacion()));
+    @Then("se debe eliminar la tarjeta {string} de Mis Tarjetas")
+    public void seDebeEliminarLaTarjetaDeMisTarjetas(String numTarjeta) {
+        assertTrue(stepAgregarMedioPago.validarMensajeEliminacion(numTarjeta));
     }
 }
