@@ -169,6 +169,7 @@ public class UtilApp  extends BaseDriver{
 	}
 
 	public void scrolHastaElemento(int intentos, WebElement elemento) {
+
 		int contador=0;
 		Serenity.takeScreenshot();
 		while(element(elemento).isCurrentlyVisible()==false) {
@@ -183,54 +184,65 @@ public class UtilApp  extends BaseDriver{
 	}
 
 	public void esperarElementoVisible(int intentos, WebElement elemento) {
-		int contador=0;
-		System.out.println("Espera Elemento : "  + elemento.toString());
-		Serenity.takeScreenshot();
-		while(element(elemento).isCurrentlyVisible()==false) {
-			contador++;
-			if(element(elemento).isCurrentlyVisible()==true||contador==intentos) {
-				System.out.println("Se encuentra elemento o contador finalizo");
-				break;
-			}else {
-				esperarSegundos(1);
-				System.out.println("contador: " + contador + elemento);
+		try {
+			int contador=0;
+			System.out.println("Espera Elemento : "  + elemento.toString());
+			Serenity.takeScreenshot();
+			while(element(elemento).isCurrentlyVisible()==false) {
+				contador++;
+				if(element(elemento).isCurrentlyVisible()==true||contador==intentos) {
+					System.out.println("Se encuentra elemento o contador finalizo");
+					break;
+				}else {
+					esperarSegundos(1);
+					System.out.println("contador: " + contador + elemento);
+				}
 			}
-
+		}catch (NoSuchElementException e) {
+			System.out.println("In catch block to handle no such element");
+			e.printStackTrace();
 		}
 	}
 	
 	public void esperarActivoClick(int intentos, WebElement elemento) {
-		int contador=0;
-		System.out.println("Espera Elemento : "  + elemento.toString());
-		Serenity.takeScreenshot();
-		while(element(elemento).isCurrentlyVisible()==false) {
-			contador++;
-			if(element(elemento).isCurrentlyVisible()==true&&element(elemento).isClickable()==true) {
-				System.out.println("Se encuentra elemento o contador finalizo");			
-				break;
-			}else {
-				System.out.println("contador: " + contador);
-				esperarSegundos(1);
+		try{
+			int contador=0;
+			System.out.println("Espera Elemento : "  + elemento.toString());
+			Serenity.takeScreenshot();
+			while(element(elemento).isCurrentlyVisible()==false) {
+				contador++;
+				if(element(elemento).isCurrentlyVisible()==true&&element(elemento).isClickable()==true) {
+					System.out.println("Se encuentra elemento o contador finalizo");
+					break;
+				}else {
+					System.out.println("contador: " + contador);
+					esperarSegundos(1);
+				}
+				if(contador==intentos)
+					break;
 			}
-			
-			if(contador==intentos)
-				break;
-				
+		}catch (NoSuchElementException e) {
+			System.out.println("In catch block to handle no such element");
+			e.printStackTrace();
 		}
 	}	
 	
 	public void esperarElementoClick(int intentos, WebElement elemento) {
-		int contador=0;
-		while(element(elemento).isEnabled()==false) {
-			contador++;
-			if(element(elemento).isClickable()==true||contador==intentos) {
-				System.out.println("Se encuentra elemento");			
-				break;
-			}else {
-				System.out.println("contador: " + contador);
-				esperarSegundos(1);
+		try{
+			int contador=0;
+			while(element(elemento).isEnabled()==false) {
+				contador++;
+				if(element(elemento).isClickable()==true||contador==intentos) {
+					System.out.println("Se encuentra elemento");
+					break;
+				}else {
+					System.out.println("contador: " + contador);
+					esperarSegundos(1);
+				}
 			}
-				
+		}catch (NoSuchElementException e) {
+			System.out.println("In catch block to handle no such element");
+			e.printStackTrace();
 		}
 	}
 	
@@ -279,7 +291,6 @@ public class UtilApp  extends BaseDriver{
 		    // ignore
 		}
 	}
-	
 	//No funciona
 	public void scrollToElemento(String text) {
 		String auxiliar = "\"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"" + text +"\").instance(0))\"";
@@ -324,10 +335,7 @@ public class UtilApp  extends BaseDriver{
 			}
 			
 		}
-		
-		
 		return conincidencia;
-		
 	}
 	
 	
