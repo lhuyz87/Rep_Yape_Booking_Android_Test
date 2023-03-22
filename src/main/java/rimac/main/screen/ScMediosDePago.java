@@ -103,6 +103,7 @@ public class ScMediosDePago extends BaseDriver {
     public String validarEliminarTarjeta(){
         String mensajeExiste="";
         try{
+            util.esperarElementoVisible(5,objMediodePago.lblTarjetaEliminadaExito);
             mensajeExiste = element(objMediodePago.lblTarjetaEliminadaExito).getText();
         }catch(Exception e){
             Serenity.takeScreenshot();
