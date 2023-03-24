@@ -1,7 +1,7 @@
 #Author: your.email@your.domain.com
 Feature: Login
 
-  @Login @@regresionBloque1 @Onboarding
+  @Login @regresionBloque1 @Onboarding
   Scenario Outline: Realizar Login Exitoso en Mundo Rimac
     Given realiza el login con credenciales "<tipoID>", "<id>" y "<password>"
 
