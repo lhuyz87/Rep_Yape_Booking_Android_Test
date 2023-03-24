@@ -1,4 +1,4 @@
-@AsistenciaVehicular @regresionBloque4
+@ServiciosVehiculares @regresionBloque4
 Feature: Asistencia Vehicular
 
   @AsistenciaVehicularRepuesto
@@ -16,7 +16,7 @@ Feature: Asistencia Vehicular
       | DNI    | 22093296 | Rimac2020 | ASQ191 | Cambio de llanta |
 
   @SeguimientoAsistenciaVehicularRepuesto
-  Scenario Outline: Validar el seguimiento del Auxilio Mecanico - Repuesto
+  Scenario Outline: Realizar el Flujo del Seguimiento de cambio de llanta con Repuesto
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -27,7 +27,7 @@ Feature: Asistencia Vehicular
       | DNI    | 22093296 | Rimac2020 | ASQ191 |
 
   @AsistenciaVehicularProblema
-  Scenario Outline: Solicitar Auxilio Mecanico- Problema
+  Scenario Outline: Solicitar Auxilio Mecanico - Problema
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -41,7 +41,7 @@ Feature: Asistencia Vehicular
       | DNI    | 22093296 | Rimac2020 | ASE310 | Batería baja |
 
   @SeguimientoAsistenciaVehicularProblema
-  Scenario Outline: Validar el seguimiento del Auxilio Mecanico - Problema
+  Scenario Outline: Realizar el Flujo del Seguimiento de auxilio mecanico por Problema
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -52,7 +52,7 @@ Feature: Asistencia Vehicular
       | DNI    | 22093296 | Rimac2020 | ASE310 |
 
   @AsistenciaVehicularGrua
-  Scenario Outline: Solicitar Asistencia - Grua
+  Scenario Outline: Realizar una solicitud de Grua
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -66,7 +66,7 @@ Feature: Asistencia Vehicular
       | DNI    | 41430164| Rimac2020 | AWA099 |
 
   @SeguimientodeGrua
-  Scenario Outline: Validar el seguimiento de la Asistencia - Grua
+  Scenario Outline: Realizar el Flujo del Seguimiento de Solicitar Grua
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |

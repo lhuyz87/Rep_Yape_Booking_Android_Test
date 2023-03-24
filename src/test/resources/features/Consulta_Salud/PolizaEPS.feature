@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-@FeatureConsultaPoliza @regresionBloque1
+@ConsultaSalud @regresionBloque1
 Feature: Plan Medico EPS
 
   @TiempoInactividadConsultasSalud

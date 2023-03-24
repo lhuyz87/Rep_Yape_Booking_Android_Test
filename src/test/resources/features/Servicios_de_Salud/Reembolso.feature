@@ -1,5 +1,5 @@
 #Author: Luis Retamozo
-@FeatureReembolso
+@ServiciosDeSalud
 Feature: Reembolso
 
   @regresionBloque2 @regresionReembolsoSalud @reembolsoSaludSinBeneficiarioconCoberturadeMedicinas @reembolso

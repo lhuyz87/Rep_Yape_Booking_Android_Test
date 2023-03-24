@@ -1,9 +1,9 @@
 #Author: Candy Espinoza
-@FeaturePlanVidaFlexible @regresionBloque3
+@ConsultasVida @regresionBloque3
 Feature: Plan Vida Flexible
 
   @DescargaEstadoCuentaPlanVidaFlexible
-  Scenario Outline: Validar la descarga del estado de cuenta Plan de Vida Flexible
+  Scenario Outline: Descarga Estado de Cuenta desde el tab poliza del Producto Flexivida "Vida Flexible"
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |

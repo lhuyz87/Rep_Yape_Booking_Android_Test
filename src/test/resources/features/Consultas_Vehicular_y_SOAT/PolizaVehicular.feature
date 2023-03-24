@@ -1,9 +1,9 @@
 #Author: Candy Espinoza
-@regresionBloque3
+@ConsultasVehicularySoat
   Feature: Poliza Vehicular
 
    @DescargaPolizaVehicularDigital
-    Scenario Outline: Validar la descarga de poliza vehicular
+    Scenario Outline: Descarga poliza digital desde el tab poliza
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
         | <tipoID> | <id> | <password> |

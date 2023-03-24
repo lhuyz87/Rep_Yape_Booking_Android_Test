@@ -1,5 +1,5 @@
 #Author: your.email@your.domain.com
-@tag
+@Onboarding
 Feature: Login
 
   @Login @@regresionBloque1
@@ -11,7 +11,7 @@ Feature: Login
       | DNI    | 70434801 | Rimac2020 |
 
   @OlvidasteTuContrasenia @regresionBloque1
-  Scenario Outline: Validar que se permita cambiar el password respondiendo preguntas
+  Scenario Outline: Recuperar contrasena - Validar que se permita registrar el password respondiendo preguntas
     Given se selecciona la opción ¿Olvidaste tu contraseña?
     And se ingresa el tipo y número de documento: "<tipoID>", "<id>"
     When se selecciona la opción Responder Preguntas
@@ -24,14 +24,14 @@ Feature: Login
       | DNI    | 10667872 | 08/01/1978      | SOAT    |
 
     @ValidaVersionMinimaRequerida
-  Scenario: Valida version minima requerida
+  Scenario: Validar que al usar versiones muy antiguas sea obligatorio actualizar a la ultima Version
     Given Se ingresa a la aplicación con una versión menor a la minima requerida
     Then se debe mostar mensaje informativo "Tu App RIMAC necesita actualizarse"
     And mostrar solo opción actualizar
 
 
   @ValidaVersionMinimaRecomendada
-  Scenario: Valida version minima recomendada
+  Scenario: Validar que el App muestre el mensaje: Mundo Rimac Necesita Actualizarse
     Given Se ingresa a la aplicación con una versión menor a la minima recomendada
     Then  se debe mostar mensaje informativo "Tu App RIMAC necesita actualizarse"
     And seleccionamos opción "Mas tarde"

@@ -1,9 +1,9 @@
 #Author: Candy Espinoza
-@FeaturePlanVidaContigo @regresionBloque3
+@ConsultasVida @regresionBloque3
 Feature: Plan Vida Contigo
 
   @DescargaManualdeUsoPlanVidaContigo
-  Scenario Outline: Descarga Manual de uso desde el tab poliza del Producto Vida Contigo
+  Scenario Outline: Descarga manual de uso de poliza desde el tab poliza del Producto Vida Contigo
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
