@@ -25,6 +25,9 @@ public class ScAlertas extends BaseDriver {
                 if(element(objAlertas.btnHuellaPorAhoraNo).isCurrentlyVisible()){
                     element(objAlertas.btnHuellaPorAhoraNo).click();
                 }
+                if(element(objAlertas.btnCerrarModal).isCurrentlyVisible()){
+                    element(objAlertas.btnCerrarModal).click();
+                }
                 if(element(objAlertas.btnEnteratePorAhoraNo).isCurrentlyVisible()){
                     element(objAlertas.btnEnteratePorAhoraNo).click();
                 }
