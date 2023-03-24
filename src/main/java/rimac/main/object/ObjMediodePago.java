@@ -60,7 +60,7 @@ public class ObjMediodePago extends BaseDriver {
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/alertMessage")
     public WebElement lblalert;
 
-    @AndroidFindBy(xpath= "//*[@text='La tarjeta fue eliminada con éxito.']")
+    @AndroidFindBy(xpath= "//*[@text='Tarjeta guardada con éxito.']")
     public WebElement lblTarjetaGuardadaExito;
 
     @AndroidFindBy(xpath= "//*[@text='La tarjeta fue eliminada con éxito.']")

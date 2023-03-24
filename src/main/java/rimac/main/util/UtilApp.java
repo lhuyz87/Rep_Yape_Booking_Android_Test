@@ -194,12 +194,15 @@ public class UtilApp  extends BaseDriver{
 					System.out.println("Se encuentra elemento o contador finalizo");
 					break;
 				}else {
-					esperarSegundos(1);
+					Thread.sleep(1000);
 					System.out.println("contador: " + contador + elemento);
 				}
 			}
 		}catch (NoSuchElementException e) {
 			System.out.println("In catch block to handle no such element");
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			System.out.println("In catch block to handle Generic exception");
 			e.printStackTrace();
 		}
 	}

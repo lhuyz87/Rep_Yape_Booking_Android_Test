@@ -26,15 +26,12 @@ public class ObjCommons extends BaseDriver {
         throw new CloneNotSupportedException();
     }
 
-
-
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/csatImageClose")
     public WebElement btnCerrarmodal;
-
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/csatTitle")
     public WebElement btnCalificaApp;
 
-
-
+    @AndroidFindBy(className= "android.widget.ImageButton")
+    public WebElement btnVolver;
 
 }

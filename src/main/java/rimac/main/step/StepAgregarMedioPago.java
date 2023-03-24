@@ -36,25 +36,33 @@ public class StepAgregarMedioPago {
         String correo = ConstantesDummy.correo;
         StringBuilder mmaa = new StringBuilder(fecha.substring(0,2));
         mmaa.append(fecha.substring(3,5));
-        scMediosDePago.eliminarTarjeta(numTarjeta);
         scMediosDePago.agregarTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
     }
 
-    public void eliminarTarjeta(String numTarjeta, String cvv, String fecha){
+    public void eliminarTarjeta(String numTarjeta){
+        scMediosDePago.eliminarTarjeta(numTarjeta);
+    }
+
+    public void afiliarTarjeta(String numTarjeta, String cvv, String fecha){
+        scMediosDePago.volverTabPagos();
+        scPagos.irAfiliarTarjeta();
         String nombre = ConstantesDummy.nombre;
         String apellido = ConstantesDummy.apellido;
         String correo = ConstantesDummy.correo;
         StringBuilder mmaa = new StringBuilder(fecha.substring(0,2));
         mmaa.append(fecha.substring(3,5));
-        scMediosDePago.agregarTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
-        scMediosDePago.eliminarTarjeta(numTarjeta);
+        scMediosDePago.afiliarTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
     }
 
-    public boolean validarTarjeta(String numTarjeta){
+    public boolean validarExisteTarjeta(String numTarjeta){
         return scMediosDePago.existeTarjeta(numTarjeta);
     }
 
-    public boolean validarMensajeEliminacion(String numTarjeta){
+    public boolean validarEliminarTarjeta(String numTarjeta){
         return scMediosDePago.validarEliminarTarjeta(numTarjeta);
+    }
+
+    public String validarMensajeAfiliacion(){
+        return scMediosDePago.validarAfiliacion();
     }
 }
