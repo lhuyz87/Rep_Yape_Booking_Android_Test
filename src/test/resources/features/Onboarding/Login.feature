@@ -1,8 +1,7 @@
 #Author: your.email@your.domain.com
-@Onboarding
 Feature: Login
 
-  @Login @@regresionBloque1
+  @Login @@regresionBloque1 @Onboarding
   Scenario Outline: Realizar Login Exitoso en Mundo Rimac
     Given realiza el login con credenciales "<tipoID>", "<id>" y "<password>"
 
@@ -10,7 +9,7 @@ Feature: Login
       | tipoID | id       | password  |
       | DNI    | 70434801 | Rimac2020 |
 
-  @OlvidasteTuContrasenia @regresionBloque1
+  @OlvidasteTuContrasenia @regresionBloque1 @Onboarding
   Scenario Outline: Recuperar contrasena - Validar que se permita registrar el password respondiendo preguntas
     Given se selecciona la opción ¿Olvidaste tu contraseña?
     And se ingresa el tipo y número de documento: "<tipoID>", "<id>"
