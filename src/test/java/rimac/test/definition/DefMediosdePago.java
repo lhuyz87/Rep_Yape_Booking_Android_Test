@@ -3,14 +3,14 @@ package rimac.test.definition;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import rimac.main.step.StepAgregarMedioPago;
+import rimac.main.step.StepMediosdePago;
 
 import static org.junit.Assert.*;
 
 public class DefMediosdePago {
 
     @Steps
-    StepAgregarMedioPago stepAgregarMedioPago;
+    StepMediosdePago stepAgregarMedioPago;
 
     @When("ingreso mis datos bancarios desde Perfil para suscribir mi tarjeta {string} , {string} y {string}")
     public void ingresoMisDatosBancariosDesdePerfilParaSuscribirMiTarjetaY(String numTarjeta, String cvv, String fecha) {
@@ -21,8 +21,10 @@ public class DefMediosdePago {
 
     @When("ingreso mis datos bancarios desde el tab de Pagos para suscribir mi tarjeta {string} , {string} y {string}")
     public void ingresoMisDatosBancariosDesdeElTabDePagosParaSuscribirMiTarjetaY(String numTarjeta, String cvv, String fecha) {
-        stepAgregarMedioPago.irMedioPago_desde_tab_pagos();
+        stepAgregarMedioPago.irMedioPago_desde_perfil();
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
+        stepAgregarMedioPago.volverDesdePerfil();
+        stepAgregarMedioPago.irMedioPago_desde_tab_pagos();
         stepAgregarMedioPago.agregarTarjeta(numTarjeta,cvv,fecha);
     }
 
@@ -45,13 +47,16 @@ public class DefMediosdePago {
 
     @When("ingreso mis datos bancarios desde afiliacion de tarjetas {string} , {string} y {string}")
     public void ingresoMisDatosBancariosDesdeAfiliacionDeTarjetasY(String numTarjeta, String cvv, String fecha) {
-        stepAgregarMedioPago.irMedioPago_desde_tab_pagos();
+        stepAgregarMedioPago.irMedioPago_desde_perfil();
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
+        stepAgregarMedioPago.volverDesdePerfil();
+        stepAgregarMedioPago.irMedioPago_desde_tab_pagos();
         stepAgregarMedioPago.afiliarTarjeta(numTarjeta,cvv,fecha);
     }
 
     @Then("debe mostrar el mensaje {string}")
     public void debeMostrarElMensaje(String mensaje) {
         assertEquals(mensaje,stepAgregarMedioPago.validarMensajeAfiliacion());
+        stepAgregarMedioPago.iraPagos();
     }
 }

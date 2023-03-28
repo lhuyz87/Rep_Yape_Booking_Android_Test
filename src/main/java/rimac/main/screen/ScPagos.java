@@ -26,7 +26,7 @@ public class ScPagos extends BaseDriver {
 
 
     public void irMediosPago(){
-        util.esperarElementoVisible(7,objPagos.lblMetodoPago);
+        util.esperarElemento(4,objPagos.lblMetodoPago);
         int contador=0;
         Dimension dimension = appiumDriver().manage().window().getSize();
         Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.9));
@@ -56,7 +56,7 @@ public class ScPagos extends BaseDriver {
     }
 
     public void irAfiliarTarjeta(){
-        util.esperarElementoVisible(7,objPagos.lblMetodoPago);
+        util.esperarElemento(4,objPagos.lblMetodoPago);
         int contador=0;
         Dimension dimension = appiumDriver().manage().window().getSize();
         Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.9));

@@ -54,6 +54,9 @@ public class ObjMediodePago extends BaseDriver {
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/bottom_sheet_negative_button")
     public WebElement btnSiEliminar;
 
+      /*@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/button")
+    public WebElement btnSiEliminar;*/
+
     @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/toolbarMethodPay']//following-sibling::android.widget.ImageButton")
     public WebElement btnVolver;
 

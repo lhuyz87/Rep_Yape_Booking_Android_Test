@@ -1,10 +1,7 @@
 package rimac.main.screen;
 
 import net.serenitybdd.core.Serenity;
-import rimac.main.object.ObjAnadirTarjeta;
-import rimac.main.object.ObjMediodePago;
-import rimac.main.object.ObjNuevaContra;
-import rimac.main.object.ObjPerfil;
+import rimac.main.object.*;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilApp;
@@ -16,6 +13,7 @@ public class ScPerfil extends BaseDriver {
     private long wdwTimeOut = 300L;
 
     protected ObjPerfil objPerfil = ObjPerfil.getInstancia();
+    protected ObjCommons objCommons = ObjCommons.getInstancia();
     protected ObjMediodePago objMediodePago = ObjMediodePago.getInstancia();
     protected UtilApp util = UtilApp.getInstancia();
 
@@ -49,5 +47,11 @@ public class ScPerfil extends BaseDriver {
             Serenity.takeScreenshot();
             throw new IllegalAccessError("Error para ingresar a Medios de Pago");
         }
+    }
+
+    public void volverPerfil(){
+        util.esperarElementoVisible(5,objCommons.btnVolver);
+        Serenity.takeScreenshot();
+        element(objCommons.btnVolver).click();
     }
 }

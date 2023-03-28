@@ -28,5 +28,5 @@ public class ConstantesDummy {
 	public static final String apellido = "LastName";
 	public static final String celular = "999888777";
 
-
+	public static final String dniTarjeta = "48769800";
 }

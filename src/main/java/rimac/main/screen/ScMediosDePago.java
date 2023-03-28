@@ -1,5 +1,6 @@
 package rimac.main.screen;
 
+import io.appium.java_client.HidesKeyboard;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
@@ -55,12 +56,17 @@ public class ScMediosDePago extends BaseDriver {
         element(objAnadirTarjeta.lblNumTarjeta).sendKeys(numTarjeta);
         element(objAnadirTarjeta.lblNombre).sendKeys(nombre);
         element(objAnadirTarjeta.lblApellido).sendKeys(apellido);
-        util.pressEnter(androidDriver());
+        ((HidesKeyboard) appiumDriver()).hideKeyboard();
         element(objAnadirTarjeta.lblMMAA).sendKeys(mmaa);
         element(objAnadirTarjeta.lblCVV).sendKeys(cvv);
-        util.pressEnter(androidDriver());
+        ((HidesKeyboard) appiumDriver()).hideKeyboard();
         element(objAnadirTarjeta.lblCorreo).sendKeys(correo);
-        util.pressEnter(androidDriver());
+        ((HidesKeyboard) appiumDriver()).hideKeyboard();
+        int contador=0;
+        while(element(objAnadirTarjeta.btnGuardarTarjeta).isCurrentlyVisible()==false && contador<5){
+            util.mobileSwipeScreenAndroid();
+            contador++;
+        }
         util.esperarElementoVisible(5, objAnadirTarjeta.btnGuardarTarjeta);
         Serenity.takeScreenshot();
         element(objAnadirTarjeta.btnGuardarTarjeta).click();

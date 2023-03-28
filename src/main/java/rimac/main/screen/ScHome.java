@@ -17,15 +17,12 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.PushesFiles;
 import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.pages.PageObject;
+import rimac.main.object.*;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilApp;
 import rimac.main.util.VariablesAppNativa;
-import rimac.main.object.ObjLogin;
-import rimac.main.object.ObjPaginaPrincipal;
 import rimac.main.screen.ScHome;
-import rimac.main.object.ObjAlertas;
-import rimac.main.object.ObjRegistrarHuella;
 
 
 import java.util.Date;
@@ -44,7 +41,7 @@ public class ScHome extends BaseDriver{
 	protected ObjPaginaPrincipal objectPrincipal = ObjPaginaPrincipal.getInstancia();
 	protected ObjRegistrarHuella registrarHuellaObject = ObjRegistrarHuella.getInstancia();
 	protected ObjAlertas alertasObject = ObjAlertas.getInstancia();
-	
+	protected ObjTienda objTienda = ObjTienda.getInstancia();
 	// util
 	protected MobileObjectUtil pageObjectUtil2 = MobileObjectUtil.getInstancia();
 	public static Logger looger = Logger.getLogger(ScHome.class.getName());
@@ -83,7 +80,9 @@ public class ScHome extends BaseDriver{
 			break;
 		
 		case "Tienda":
-			
+			util.esperarElemento(10, objectPrincipal.btnTienda);
+			element(objectPrincipal.btnTienda).click();
+			util.esperarElemento(5, objTienda.lblDescripcion);
 			break;
 			
 		case "Perfil":

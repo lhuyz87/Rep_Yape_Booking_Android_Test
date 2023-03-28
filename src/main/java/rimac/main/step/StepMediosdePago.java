@@ -4,7 +4,7 @@ import net.thucydides.core.annotations.Steps;
 import rimac.main.screen.*;
 import rimac.main.util.ConstantesDummy;
 
-public class StepAgregarMedioPago {
+public class StepMediosdePago {
 
     @Steps
     ScHome scHome;
@@ -22,6 +22,9 @@ public class StepAgregarMedioPago {
         scPerfil.irMediosDePago();
     }
 
+    public void volverDesdePerfil() {
+        scPerfil.volverPerfil();
+    }
     public void irMedioPago_desde_tab_pagos(){
         scHome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
@@ -64,5 +67,8 @@ public class StepAgregarMedioPago {
 
     public String validarMensajeAfiliacion(){
         return scMediosDePago.validarAfiliacion();
+    }
+    public void iraPagos(){
+        scMediosDePago.irPagos();
     }
 }
