@@ -70,5 +70,9 @@ public class ObjAlertas extends BaseDriver{
 
 	@AndroidFindBy(xpath ="//*[@text='Ya tienes un servicio en proceso']")
 	public WebElement mdlServicioEnProceso;
-	
+
+	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/imgCloseEmail")
+	public WebElement btnCerrarEmail;
+
+
 }
