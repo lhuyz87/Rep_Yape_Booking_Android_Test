@@ -1,6 +1,6 @@
 #Author: Candy Espinoza
-@ConsultaSalud @regresionBloque1
-Feature: Plan Medico EPS
+@ModuloConsultaSalud_1/5
+Feature: Consulta Salud - Plan Medico EPS
 
   @TiempoInactividadConsultasSalud
   Scenario Outline: Esperar 15 min de inactividad en el modulo de seguro Consulta Salud

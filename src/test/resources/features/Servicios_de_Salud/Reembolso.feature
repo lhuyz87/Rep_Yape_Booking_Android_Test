@@ -1,6 +1,6 @@
 #Author: Luis Retamozo
-@ServiciosDeSalud
-Feature: Reembolso
+@ModuloServiciosDeSalud_3/16
+Feature: Servicios de Salud - Reembolso
 
   @reembolsoSaludSinBeneficiarioconCoberturadeMedicinas
   Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas sin beneficiarios desde menu Tramites

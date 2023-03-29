@@ -1,6 +1,6 @@
 #Author: Candy Espinoza
-@ConsultasVehicularySoat
-  Feature: Poliza Vehicular
+@ModuloConsultasVehicularySoat_2/6
+  Feature: Consulta Vehicular y Soat - Poliza Vehicular
 
    @DescargaPolizaVehicularDigital
     Scenario Outline: Descarga poliza digital desde el tab poliza

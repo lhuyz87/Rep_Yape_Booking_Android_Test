@@ -1,5 +1,5 @@
-@ServiciosVehiculares @regresionBloque4
-Feature: Asistencia Vehicular
+@ModuloServiciosVehiculares_6/17
+Feature: Servicios Vehiculares - Asistencia Vehicular
 
   @AsistenciaVehicularRepuesto
   Scenario Outline: Solicitar Auxilio Mecanico - Repuesto

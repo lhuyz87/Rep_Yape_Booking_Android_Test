@@ -1,6 +1,6 @@
 #Author: Luis Retamozo
-@ServiciosDeSalud @regresionBloque1
-Feature: Buscador de clinicas
+@ModuloServiciosDeSalud_3/16
+Feature: Servicios de Salud - Buscador de clinicas
 
   @BuscadordeClinicasdesdeHome
   Scenario Outline: Buscador de clinicas desde Home

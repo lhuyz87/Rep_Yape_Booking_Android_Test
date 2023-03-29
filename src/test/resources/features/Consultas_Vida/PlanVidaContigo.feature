@@ -1,6 +1,6 @@
 #Author: Candy Espinoza
-@ConsultasVida @regresionBloque3
-Feature: Plan Vida Contigo
+@ModuloConsultasVida_3/7
+Feature: Consultas Vida - Plan Vida Contigo
 
   @DescargaManualdeUsoPlanVidaContigo
   Scenario Outline: Descarga manual de uso de poliza desde el tab poliza del Producto Vida Contigo

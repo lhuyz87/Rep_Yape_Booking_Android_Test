@@ -1,6 +1,6 @@
 #Author: Candy Espinoza
-@ConsultasVida @regresionBloque3
-Feature: Plan Vida Flexible
+@ModuloConsultasVida_3/7
+Feature: Consultas Vida - Plan Vida Flexible
 
   @DescargaEstadoCuentaPlanVidaFlexible
   Scenario Outline: Descarga Estado de Cuenta desde el tab poliza del Producto Flexivida "Vida Flexible"

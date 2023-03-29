@@ -1,7 +1,7 @@
 #Author: your.email@your.domain.com
-Feature: Login
+Feature: Onboarding - Login
 
-  @Login @regresionBloque1 @Onboarding
+  @Login @ModuloOnboardingFuncional_2/4
   Scenario Outline: Realizar Login Exitoso en Mundo Rimac
     Given realiza el login con credenciales "<tipoID>", "<id>" y "<password>"
 
@@ -9,7 +9,7 @@ Feature: Login
       | tipoID | id       | password  |
       | DNI    | 70434801 | Rimac2020 |
 
-  @OlvidasteTuContrasenia @regresionBloque1 @Onboarding
+  @OlvidasteTuContrasenia @ModuloOnboardingFuncional_2/4
   Scenario Outline: Recuperar contrasena - Validar que se permita registrar el password respondiendo preguntas
     Given se selecciona la opción ¿Olvidaste tu contraseña?
     And se ingresa el tipo y número de documento: "<tipoID>", "<id>"
@@ -22,14 +22,14 @@ Feature: Login
       | tipoID | id       | fechaNacimiento | seguros |
       | DNI    | 10667872 | 08/01/1978      | SOAT    |
 
-    @ValidaVersionMinimaRequerida
+    @ValidaVersionMinimaRequerida @ModuloOnboardingNoFuncional1_1/1
   Scenario: Validar que al usar versiones muy antiguas sea obligatorio actualizar a la ultima Version
     Given Se ingresa a la aplicación con una versión menor a la minima requerida
     Then se debe mostar mensaje informativo "Tu App RIMAC necesita actualizarse"
     And mostrar solo opción actualizar
 
 
-  @ValidaVersionMinimaRecomendada
+  @ValidaVersionMinimaRecomendada @ModuloOnboardingNoFuncional2_1/1
   Scenario: Validar que el App muestre el mensaje: Mundo Rimac Necesita Actualizarse
     Given Se ingresa a la aplicación con una versión menor a la minima recomendada
     Then  se debe mostar mensaje informativo "Tu App RIMAC necesita actualizarse"
