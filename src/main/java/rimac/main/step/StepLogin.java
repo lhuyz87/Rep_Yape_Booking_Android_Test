@@ -31,7 +31,13 @@ public class StepLogin {
 
 	@Steps
 	ScAlertas scAlertas;
-	
+
+	@Steps
+	ScHome scHome;
+
+	@Steps
+	ScPerfil scPerfil;
+
 	@Steps
 	ScTuContraCambiaConExito scTuContraCambiaConExito;
 	public static Logger looger = Logger.getLogger(ScLogin.class.getName());
@@ -50,7 +56,7 @@ public class StepLogin {
 			Variables.listaStrings.add(password);
 
 			scLogin.login(id, password);
-		    scAlertas.omitirAlertas(14);
+		    scAlertas.omitirAlertas(16);
 		}
 
 	public void seleccOlvidaContra() {
@@ -117,7 +123,10 @@ public class StepLogin {
 		
 	}
 	
-	
+	public void cerrarSesion(){
+		scHome.seleccionarOpcionPrincipal("Perfil");
+		scPerfil.cerrarSesion();
+	}
 	
 }
 

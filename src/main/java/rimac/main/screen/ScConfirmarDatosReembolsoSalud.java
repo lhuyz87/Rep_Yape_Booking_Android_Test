@@ -46,9 +46,9 @@ private long wdwTimeOut = 300L;
 		
 		looger.info("LLena datos dirección");
 		System.out.println("***************************************************");
-		util.esperarElementoVisible(15,confirmarDatosReembolsoSaludObject.lblDataTitle);
-		util.esperarElementoVisible(15, confirmarDatosReembolsoSaludObject.lblDni);
-		util.mobileSwipeScreenAndroidFinal();
+		util.esperarElemento(15,confirmarDatosReembolsoSaludObject.lblDataTitle);
+		//util.esperarElementoVisible(15, confirmarDatosReembolsoSaludObject.lblDni);
+		//util.mobileSwipeScreenAndroidFinal();
 //		util.esperarElemento(5, confirmarDatosReembolsoSaludObject.selDepartamento);
 		util.esperarSegundos(3);
 		
@@ -63,29 +63,26 @@ private long wdwTimeOut = 300L;
 		
 		
 			if(depAux==0) {
-				System.out.println("ENTRA a llenar departamento"  + departamento);
-				
-				util.esperarElemento(8, confirmarDatosReembolsoSaludObject.selDepartamento);
+				int contador=0;
+				while(element(confirmarDatosReembolsoSaludObject.selDistrito).isCurrentlyVisible()==false && contador<3){
+					util.mobileSwipeScreenAndroidFinal();
+					contador++;
+				}
 				element(confirmarDatosReembolsoSaludObject.selDepartamento).click();
 				element(confirmarDatosReembolsoSaludObject.departamento(appiumDriver(), departamento)).click();
-				util.mobileSwipeScreenAndroidFinal();
+				//util.mobileSwipeScreenAndroidFinal();
 				element(confirmarDatosReembolsoSaludObject.selProvincia).click();
 				element(confirmarDatosReembolsoSaludObject.provincia(appiumDriver(), provincia)).click();
-				util.mobileSwipeScreenAndroidFinal();
+				//util.mobileSwipeScreenAndroidFinal();
 				element(confirmarDatosReembolsoSaludObject.selDistrito).click();
-				util.mobileSwipeScreenAndroidFinal();
+				//util.mobileSwipeScreenAndroidFinal();
 				element(confirmarDatosReembolsoSaludObject.distrito(appiumDriver(), distrito)).click();
+				util.mobileSwipeScreenAndroidFinal();
 				
 			}
 		
 		try {
-			util.scroll();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		
-		try {
-			element(confirmarDatosReembolsoSaludObject.direccion()).click();
+			//element(confirmarDatosReembolsoSaludObject.direccion()).click();
 			element(confirmarDatosReembolsoSaludObject.direccion()).sendKeys(direccion);
 			((HidesKeyboard) appiumDriver()).hideKeyboard();
 		} catch (Exception e) {

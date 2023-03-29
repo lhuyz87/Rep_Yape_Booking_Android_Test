@@ -49,10 +49,10 @@ public class ObjConfirmarDatosReembolsoSalud extends BaseDriver{
 
 	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/personalDataTitle")
 	public WebElement lblDataTitle;
+
 	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/uiEditDepartment")
 	public WebElement selDepartamento;
-	
-	
+
 	public WebElement getDepartamento(WebDriver webDriver) {
 		By by = By.xpath("//*[@class='android.widget.EditText' and ./parent::*[./parent::*[@id='uiEditDepartment']]]");
 		WebElement elementDepar = webDriver.findElement(by);
@@ -93,12 +93,9 @@ public class ObjConfirmarDatosReembolsoSalud extends BaseDriver{
 	
 	public WebElement direccion() {
 		List<WebElement> links = appiumDriver().findElements(By.xpath("//*[@text='Dirección']"));
-		
 		return links.get(1);
 	}
-	
-	
-		
+
 	@AndroidFindBy(xpath = "//*[@text='Continuar']")
 	public WebElement btnContinuar;
 	

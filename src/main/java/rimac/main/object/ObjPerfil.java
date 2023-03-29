@@ -33,4 +33,7 @@ public class ObjPerfil extends BaseDriver {
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/profile_text_about_me")
     public WebElement lblMiCuenta;
 
+    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    public WebElement btnCerrarSesion;
+
 }

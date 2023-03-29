@@ -20,7 +20,6 @@ public class ScAlertas extends BaseDriver {
     }
 
     public void omitirAlertas(int intentos) throws Exception {
-        try{
             int contador=0;
             for( int i=0; i<intentos; i++){
                 if(element(objAlertas.btnHuellaPorAhoraNo).isCurrentlyVisible()){
@@ -47,9 +46,5 @@ public class ScAlertas extends BaseDriver {
                     break;
                 }
             }
-          //  util.esperarElemento(3,objPaginaPrincipal.btnEmergencia);
-        }catch(Exception e){
-            throw new Exception("Supero el tiempo de espera del aplicativo");
-        }
     }
 }

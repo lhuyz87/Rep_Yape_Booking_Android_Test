@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import rimac.main.screen.ScLogin;
+import rimac.main.step.StepLogin;
 import rimac.main.step.StepReembolso;
 import rimac.main.util.Variables;
 import rimac.test.inout.LeerDD_Reembolso;
@@ -24,6 +25,10 @@ public class ReembolsoDefinition {
 	StepReembolso stepReembolso;
 	@Steps
 	ScLogin appLoginPage;
+
+	@Steps
+	StepLogin stepLogin;
+
 
 	private LeerDD_Reembolso excel = LeerDD_Reembolso.getInstancia();
 
@@ -63,11 +68,13 @@ public class ReembolsoDefinition {
 	@Then("debe aparecer el mensaje: {string}")
 	public void debe_aparecer_el_mensaje(String valorEsperado) throws IOException {
 		String valorActual = stepReembolso.obtenerMensajeReembolso();
+		System.out.println("Monto: "+ Variables.montoReembolso);
+		/*
 		if(valorEsperado.compareTo(valorActual)==0) {
 			System.out.println("Monto: "+ Variables.montoReembolso);
 			Variables.listaStrings.add(Variables.montoReembolso);
 			excel.writeReembolsoinExcel(Variables.listaStrings);
-		}
+		}*/
 		assertEquals(valorEsperado, valorActual);
 
 	}
@@ -143,7 +150,26 @@ public class ReembolsoDefinition {
 	public void debeAparecerElMontoDelReembolsoSolicitadoEnInicio(String monto) {
 		System.out.println(monto);
 		String valorActual = stepReembolso.obtener_monto_de_reembolsos_desde_inicio(monto);
-
 		assertEquals(monto, valorActual);
 	}
+
+	@And("debe aparecer el monto del reembolso solicitado")
+	public void debeAparecerElMontoDelReembolsoSolicitado() {
+		String monto =Variables.montoReembolso;
+		System.out.println("MONTO"+monto);
+		assertEquals(stepReembolso.validarMontoReem(monto), monto);
+	}
+
+	@And("se cierra la sesión del aplicativo")
+	public void seCierraLaSesiónDelAplicativo() {
+		stepLogin.cerrarSesion();
+	}
+	@And("debe aparecer el monto  del reembolso solicitado en Inicio")
+	public void debeAparecerElMontoDelReembolsoSolicitadoEnInicio() {
+		String monto=Variables.montoReembolso;
+		String valorActual = stepReembolso.obtener_monto_de_reembolsos_desde_inicio(monto);
+		assertEquals(monto, valorActual);
+	}
+
+
 }

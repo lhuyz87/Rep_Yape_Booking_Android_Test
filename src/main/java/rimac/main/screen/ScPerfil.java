@@ -54,4 +54,14 @@ public class ScPerfil extends BaseDriver {
         Serenity.takeScreenshot();
         element(objCommons.btnVolver).click();
     }
+
+    public void cerrarSesion(){
+        int contador=0;
+        while(element(objPerfil.btnCerrarSesion).isCurrentlyVisible()==false &&contador<5){
+            util.mobileSwipeScreenAndroidFinal();
+            contador++;
+        }
+        element(objPerfil.btnCerrarSesion).click();
+    }
+
 }

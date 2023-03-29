@@ -24,6 +24,7 @@ import java.io.File;
 import rimac.main.object.ObjDocumentoComprobantes;
 
 
+
 public class ScReemDocCobertMedica extends BaseDriver{
 
 private long wdwTimeOut = 300L;
@@ -69,8 +70,13 @@ private long wdwTimeOut = 300L;
 //		}
 
 		if(tipo.compareTo("AdjuntarArchivo")==0) {
-		
-			
+			/*File documentsDir = new File("/storage/emulated/0/Documents");
+			String documentsPath = documentsDir.getAbsolutePath();
+			System.out.println("ruta obtenida "+documentsPath);
+			///sdcard/Download
+			///storage/emulated/0/Documents*/
+
+
 			File fileAux = new File("src/test/resources/testResources/Prueba.pdf");
 			System.out.println("++++"   + fileAux.getAbsolutePath());
 			File fi = new File(fileAux.getAbsolutePath());

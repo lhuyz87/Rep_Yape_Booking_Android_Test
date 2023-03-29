@@ -69,7 +69,7 @@ public class StepReembolso {
 	}
 	public void selReembolsoSaludTramite() throws Exception {
 		//schome.cerrarAlertas(15);
-		scAlertas.omitirAlertas(14);
+		//scAlertas.omitirAlertas(14);
 		schome.seleccionarOpcionPrincipal("Tramites");
 		scTusTramites.seleccionaReembolsoSalud();
 	}
@@ -194,7 +194,7 @@ public class StepReembolso {
 
 	public void selecSeguiReemSalud() throws Exception {
 		//schome.cerrarAlertas(15);
-		scAlertas.omitirAlertas(14);
+		scAlertas.omitirAlertas(12);
 		schome.seleccionarOpcionPrincipal("Tramites");
 		scTusTramites.seleccionarSegui();
 		
@@ -203,8 +203,6 @@ public class StepReembolso {
 	public String validarMontoReem(String monto) {
 		
 		String montoEncontrado = scConsultaReembolso.obtenerMonto(monto);
-		
-		
 		return montoEncontrado;
 	}
 

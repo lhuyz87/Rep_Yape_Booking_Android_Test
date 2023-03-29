@@ -2,8 +2,8 @@
 @ServiciosDeSalud
 Feature: Reembolso
 
-  @regresionBloque2 @regresionReembolsoSalud @reembolsoSaludSinBeneficiarioconCoberturadeMedicinas @reembolso
-  Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde menu Tramites
+  @reembolsoSaludSinBeneficiarioconCoberturadeMedicinas
+  Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas sin beneficiarios desde menu Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -14,13 +14,15 @@ Feature: Reembolso
     And registra sus datos de contacto
     And adjuntamos los documentos y comprobantes del reembolso con tipo de cobertura "<tipoCobertura>"
     Then debe aparecer el mensaje: "Solicitud de reembolso recibida"
+    And se ingresa al Seguimiento de Reembolso de Salud desde Tramites
+    And debe aparecer el monto del reembolso solicitado
 
-    Examples: 
+    Examples:
       | tipoID | id       | password  | productoContratante                         | lugarAtencion | tipoCobertura |
       | DNI    | 76243722 | Rimac2021 | AMC COLECTIVA FOLA - Citibank del peru s.a. | Lima          | Medicinas     |
 
-  @regresionBloque2 @regresionReembolsoSalud @reembolsoSaludConBeneficiarioconCoberturadeMedicinas @reembolso
-  Scenario Outline: Realizar solicitud de reembolso cliente con beneficiarios desde Tramites
+  @reembolsoSaludConBeneficiarioconCoberturadeMedicinas
+  Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas con beneficiarios desde Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -32,12 +34,14 @@ Feature: Reembolso
     And registra sus datos de contacto
     And adjuntamos los documentos y comprobantes del reembolso con tipo de cobertura "<tipoCobertura>"
     Then debe aparecer el mensaje: "Solicitud de reembolso recibida"
+    And se ingresa al Seguimiento de Reembolso de Salud desde Tramites
+    And debe aparecer el monto del reembolso solicitado
 
     Examples:
       | tipoID | id       | password  | productoContratante                | paciente                                 | lugarAtencion | tipoCobertura |
       | DNI    | 10392464 | Rimac2020 | PLANES MEDICOS EPS - Medifarma s a | Madueño Armacanque Herzop Myki - Titular | Lima          | Medicinas     |
 
-  @regresionBloque2 @regresionReembolsoSalud @reembolsoOdontologicoConBeneficiario @reembolso
+  @reembolsoOdontologicoConBeneficiario
   Scenario Outline: Realizar solicitud de reembolso cliente con cobertura odontologica con beneficiarios desde menu Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -49,12 +53,14 @@ Feature: Reembolso
     And registra sus datos de contacto
     And adjuntamos los documentos y comprobantes del reembolso con tipo de cobertura "<tipoCobertura>"
     Then debe aparecer el mensaje: "Solicitud de reembolso recibida"
+    And se ingresa al Seguimiento de Reembolso de Salud desde Tramites
+    And debe aparecer el monto del reembolso solicitado
 
     Examples:
       | tipoID | id       | password  | productoContratante                             | paciente                                   | lugarAtencion | tipoCobertura | tipoTratamiento |
       | DNI    | 70434801 | Rimac2020 | PLANES MEDICOS EPS - Rimac seguros y reaseguros | Armacanque Delvoy Yoshlin Heuver - Titular | Lima          | Odontología   | Ortodoncia      |
 
-  @regresionBloque2 @regresionReembolsoSalud @reembolsoSaludSinBeneficiarioconCoberturaAmbulatoria
+  @reembolsoSaludSinBeneficiarioconCoberturaAmbulatoria
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde menu Inicio
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -66,13 +72,18 @@ Feature: Reembolso
     And registra sus datos de contacto
     And adjuntamos los documentos y comprobantes del reembolso con tipo de cobertura "<tipoCobertura>"
     Then debe aparecer el mensaje: "Solicitud de reembolso recibida"
+    And se cierra la sesión del aplicativo
+    And realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
+    And debe aparecer el monto  del reembolso solicitado en Inicio
 
     Examples:
       | tipoID | id       | password  | productoContratante                         | lugarAtencion | tipoCobertura        |
       | DNI    | 76243722 | Rimac2021 | AMC COLECTIVA FOLA - Citibank del peru s.a. | Lima          | Atención ambulatoria |
 
-  @regresionBloque2 @regresionReembolsoSalud @reembolsoSaludSinBeneficiarioconCoberturaHospitalaria
-  Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde menu Seguros
+  @reembolsoSaludSinBeneficiarioconCoberturaHospitalaria
+  Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde detalle de seguro salud
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -88,25 +99,28 @@ Feature: Reembolso
       | tipoID | id       | password  | seguro             | productoContratante                         | lugarAtencion | tipoCobertura |
       | DNI    | 76243722 | Rimac2021 | Amc Colectiva Fola | AMC COLECTIVA FOLA - Citibank del peru s.a. | Lima          | Hospitalario  |
 
-  @regresionBloque3 @regresionReembolsoSalud @seguimientoReembolsoDesdeTramite
-  Scenario Outline: Realizar el Seguimiento de Reembolso de Salud desde Tramites
-    Given realiza el login con credenciales
-      | tipoID   | id   | password   |
-      | <tipoID> | <id> | <password> |
-    When se ingresa al Seguimiento de Reembolso de Salud desde Tramites
-   	Then debe aparecer el monto "<monto>" del reembolso solicitado
 
-    Examples:
+  ##Scenario Outline: Realizar el Seguimiento de Reembolso de Salud desde Tramites
+    ##Given realiza el login con credenciales
+    ##  | tipoID   | id   | password   |
+     ## | <tipoID> | <id> | <password> |
+   ## When se ingresa al Seguimiento de Reembolso de Salud desde Tramites
+    ##Then debe aparecer el monto "<monto>" del reembolso solicitado en Inicio
+
+    ##Examples:
      ###DATOS###@DataReembolso|1@01-SegReembolso
-      | 0 | tipoID | id | password | monto |
+    ##  | 0 | tipoID | id | password | monto |
 
-  @regresionBloque3 @regresionSeguimientoReembolsoSalud @seguimientoReembolsoDesdeInicio
-  Scenario Outline: Realizar el Seguimiento de Reembolso de Salud desde Inicio
-    Given realiza el login con credenciales
-      | tipoID   | id   | password   |
-      | <tipoID> | <id> | <password> |
-    Then debe aparecer el monto "<monto>" del reembolso solicitado en Inicio
+ ## Scenario Outline: Realizar el Seguimiento de Reembolso de Salud desde Inicio
+   ## Given realiza el login con credenciales
+    ##  | tipoID   | id   | password   |
+    ##  | <tipoID> | <id> | <password> |
+   ## Then debe aparecer el monto "<monto>" del reembolso solicitado en Inicio
 
-    Examples:
+   ## Examples:
       ###DATOS###@DataReembolso|U@01-SegReembolso
-      | 0 | tipoID | id | password | monto |
+     ## | 0 | tipoID | id | password | monto |
+
+
+
+
