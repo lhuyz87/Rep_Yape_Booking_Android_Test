@@ -39,9 +39,10 @@ public class DefAsistenciaVehicular {
     }
 
     @Then("se debe mostrar el mensaje : {string}")
-    public void seDebeMostrarElMensaje(String valorEsperado) {
+    public void seDebeMostrarElMensaje(String valorEsperado) throws Exception {
         String valorObtenido = stepAsistenciaVehicular.obtiene_mensaje_confirmacion();
         assertEquals(valorEsperado, valorObtenido);
+        stepAsistenciaVehicular.retornarInicio();
     }
     @Then("se debe mostrar el seguimiento de la asistencia vehicular {string} de la {string}")
     public void seDebeMostrarElSeguimientoDeLaAsistenciaVehicularDeLa(String asistencia, String placa) {

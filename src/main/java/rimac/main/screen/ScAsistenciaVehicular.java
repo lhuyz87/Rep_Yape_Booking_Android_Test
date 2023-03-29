@@ -15,13 +15,14 @@ import static org.junit.Assert.*;
 public class  ScAsistenciaVehicular extends BaseDriver {
 
     protected ObjAsistenciaVehicular objAsistenciaVehicular = ObjAsistenciaVehicular.getInstancia();
+    protected ObjPaginaPrincipal objPaginaPrincipal = ObjPaginaPrincipal.getInstancia();
 
     protected ObjLogin objLogin = ObjLogin.getInstancia();
     protected ObjTuSesionExpiro objTuSesionExpiro = ObjTuSesionExpiro.getInstancia();
     protected ObjCommons objCommons = ObjCommons.getInstancia();
     protected ObjAlertas objAlertas=ObjAlertas.getInstancia();
     protected ObjCambioLlanta objCambioLlanta = ObjCambioLlanta.getInstancia();
-    public static Logger looger = Logger.getLogger(ScTusTramites.class.getName());
+    public static Logger looger = Logger.getLogger(ScAsistenciaVehicular.class.getName());
     private long wdwTimeOut = 300L;
     UtilApp util = new UtilApp();
     public long getWdwTimeOut() {
@@ -174,6 +175,21 @@ public class  ScAsistenciaVehicular extends BaseDriver {
         }
     }
 
+    public void irAlInicio(){
+        int contador=0;
+        while(element(objAsistenciaVehicular.btnIrAlInicio).isCurrentlyVisible()==false && contador<3){
+            //Permite cerrar el modal de recomendación para calificar la app en la playstore
+            if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){
+                element(objCommons.btnCerrarmodal).click();
+            }
+            if(element(objAsistenciaVehicular.btnIrAlInicio).isCurrentlyVisible()){
+                break;
+            }
+            util.esperarSegundos(1);
+            contador++;
+        }
+        element(objAsistenciaVehicular.btnIrAlInicio).click();
+    }
     public String obtener_mensaje_confirmacion(){
         try {
             String mensaje = "";
