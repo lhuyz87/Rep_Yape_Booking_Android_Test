@@ -48,8 +48,9 @@ public void seleccResponPregun() {
 
 	    util.esperarElemento(5,objComoRecibCodVeri.titEligeComoRecibir);
 		int contador=0;
-		while(element(objComoRecibCodVeri.btnRespoPregun).isCurrentlyVisible()==false && contador<3){
+		while(element(objComoRecibCodVeri.btnRespoPregun).isCurrentlyVisible()==false && contador<4){
 			util.mobileSwipeScreenAndroid();
+			contador++;
 		}
 
 
