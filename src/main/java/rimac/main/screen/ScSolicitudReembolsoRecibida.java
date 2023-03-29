@@ -16,18 +16,13 @@ import rimac.main.object.ObjSolicitudReembolsoRecibida;
 
 
 public class ScSolicitudReembolsoRecibida extends BaseDriver{
-
-private long wdwTimeOut = 300L;
 	
 	protected ObjSolicitudReembolsoRecibida objSolicitudReembolsoRecibida = ObjSolicitudReembolsoRecibida.getInstancia();
 	protected ObjCommons objCommons = ObjCommons.getInstancia();
 	// util
 	protected MobileObjectUtil pageObjectUtil2 = MobileObjectUtil.getInstancia();
 	public static Logger looger = Logger.getLogger(ScSolicitudReembolsoRecibida.class.getName());
-	
-	public long getWdwTimeOut() {
-		return wdwTimeOut;
-	}
+
 	
 	UtilApp util = new UtilApp();
 	AppiumDriver driver;
@@ -52,7 +47,7 @@ private long wdwTimeOut = 300L;
 			contador++;
 		}
 		element(objSolicitudReembolsoRecibida.btnIrInicio).click();
-		util.esperarSegundos(5);
+		util.esperarSegundos(2);
 		return mensajeObtenido;
 	}
 	
