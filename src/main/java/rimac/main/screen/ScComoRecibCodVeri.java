@@ -2,6 +2,7 @@ package rimac.main.screen;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.logging.Logger;
 
 import com.github.dockerjava.api.model.Driver;
@@ -12,6 +13,8 @@ import io.appium.java_client.PushesFiles;
 import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilApp;
@@ -44,13 +47,16 @@ private long wdwTimeOut = 300L;
 public void seleccResponPregun() {
 
 	    util.esperarElemento(5,objComoRecibCodVeri.titEligeComoRecibir);
-
-		while(element(objComoRecibCodVeri.btnRespoPregun).isCurrentlyVisible()==false){
+		int contador=0;
+		while(element(objComoRecibCodVeri.btnRespoPregun).isCurrentlyVisible()==false && contador<3){
 			util.mobileSwipeScreenAndroid();
 		}
-		util.esperarElemento(5,objComoRecibCodVeri.btnRespoPregun);
-		Serenity.takeScreenshot();
+
+
 //		mobileObjectUtil.esperarElemento(10, objEligeComoRecibiCodigoVerifi.lblEligeComoRecibiCodigoVerifi);
+	    new WebDriverWait(androidDriver(), Duration.ofSeconds(5))
+			.until(ExpectedConditions.visibilityOf(objComoRecibCodVeri.btnRespoPregun));
+	    Serenity.takeScreenshot();
 		element(objComoRecibCodVeri.btnRespoPregun).click();
 
 	}
