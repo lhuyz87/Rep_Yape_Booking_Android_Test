@@ -13,7 +13,7 @@ import rimac.test.util.ExcelUtilPropio;
 @RunWith(RunPersonalizar.class)
 
 //@CucumberOptions(features = "src/test/resources/features", tags =  "@AsistenciaVehicularAuxilioMecanico", glue = "rimac")
-//@CucumberOptions(features = "src/test/resources/features", tags =  "@BuscadordeClinicasdesdeTramites", glue = "rimac")
+//@CucumberOptions(features = "src/test/resources/features", tags =  "@reembolsoSaludSinBeneficiarioconCoberturadeMedicinas", glue = "rimac")
 
 public class RunRimac {
 	
@@ -21,15 +21,10 @@ public class RunRimac {
 	public static void previo() {
 		
 		UtilApp.getInstancia().getProperties();
-		ExcelUtilPropio.getInstancia().escribirFeatures();
+		//ExcelUtilPropio.getInstancia().escribirFeatures();
 				
 		EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
 
-		String myCustomProperty1 = variables.getProperty("appium.udid");
-		String myCustomProperty2 = variables.getProperty("appium.xcodeOrgId");
-		String myCustomProperty3 = variables.getProperty("appium.app");
-		System.out.println(myCustomProperty1 +" - eeeooo - "+myCustomProperty2 + " - eeeooo2 - " + myCustomProperty3);
-		
 	}
 	
 }
