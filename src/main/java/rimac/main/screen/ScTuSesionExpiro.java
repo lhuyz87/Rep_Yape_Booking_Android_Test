@@ -28,7 +28,7 @@ public class ScTuSesionExpiro extends BaseDriver {
         //androidDriver().pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
         androidDriver().activateApp("com.android.chrome");
         //androidDriver().pressKey(new KeyEvent(AndroidKey.MENU));
-       // androidDriver().pressKey(new KeyEvent(AndroidKey.CAMERA));
+        //androidDriver().pressKey(new KeyEvent(AndroidKey.CAMERA));
         androidDriver().rotate(ScreenOrientation.PORTRAIT);
         Serenity.takeScreenshot();
         int contadorMinutos=0;
@@ -40,10 +40,11 @@ public class ScTuSesionExpiro extends BaseDriver {
             System.out.println(contadorMinutos);
             contadorMinutos++;
         }
-        androidDriver().pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
+        androidDriver().terminateApp("com.android.chrome");
+        //androidDriver().pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
         util.esperarSegundos(4);
-        androidDriver().pressKey(new KeyEvent(AndroidKey.ENTER));
-        androidDriver().pressKey(new KeyEvent(AndroidKey.ENTER));
+       // androidDriver().pressKey(new KeyEvent(AndroidKey.ENTER));
+        //androidDriver().pressKey(new KeyEvent(AndroidKey.ENTER));
         //element(objTuSesionExpiro.screen).click();
     }
 
