@@ -10,6 +10,7 @@ public class ScPagoConTarjeta extends BaseDriver {
 
     UtilApp util=UtilApp.getInstancia();
     ObjPagoTarjeta objPagoTarjeta= ObjPagoTarjeta.getInstancia();
+    ObjAnadirTarjeta objAnadirTarjeta= ObjAnadirTarjeta.getInstancia();
     ObjTienda objTienda= ObjTienda.getInstancia();
 
     public void ingresarDatosContacto(String dni, String correo,String celular){
@@ -33,18 +34,20 @@ public class ScPagoConTarjeta extends BaseDriver {
                 contador++;
             }
             element(objPagoTarjeta.btnAgregaTarjeta).click();
-            ingresarDatosContacto(dni,correo,celular);
-            util.esperarElementoVisible(7,objPagoTarjeta.lblTarjeta);
+            //ingresarDatosContacto(dni,correo,celular);
+            util.esperarElementoVisible(7,objAnadirTarjeta.lblNumTarjeta);
             Serenity.takeScreenshot();
-            element(objPagoTarjeta.lblTarjeta).sendKeys(numtarjeta);
+            element(objAnadirTarjeta.lblNumTarjeta).sendKeys(numtarjeta);
             ((HidesKeyboard) appiumDriver()).hideKeyboard();
-            element(objPagoTarjeta.lblNombre).sendKeys(nombre);
+            element(objAnadirTarjeta.lblNombre).sendKeys(nombre);
             ((HidesKeyboard) appiumDriver()).hideKeyboard();
-            element(objPagoTarjeta.lblApellido).sendKeys(apellido);
+            element(objAnadirTarjeta.lblApellido).sendKeys(apellido);
             ((HidesKeyboard) appiumDriver()).hideKeyboard();
-            element(objPagoTarjeta.lblMesAnio).sendKeys(fecha);
+            element(objAnadirTarjeta.lblMMAA).sendKeys(fecha);
             ((HidesKeyboard) appiumDriver()).hideKeyboard();
-            element(objPagoTarjeta.lblCvv).sendKeys(cvv);
+            element(objAnadirTarjeta.lblCVV).sendKeys(cvv);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objAnadirTarjeta.lblCorreo).sendKeys(correo);
             ((HidesKeyboard) appiumDriver()).hideKeyboard();
             Serenity.takeScreenshot();
             util.esperarElemento(5,objPagoTarjeta.btnPagar);

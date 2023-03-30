@@ -54,7 +54,7 @@ public class ObjPagoTarjeta extends BaseDriver {
     @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/inputCardDate']//following-sibling::android.widget.EditText")
     public WebElement lblMesAnio;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/button")
+    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
     public WebElement btnPagar;
 
     @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/inputCvv']//following-sibling::android.widget.EditText")
