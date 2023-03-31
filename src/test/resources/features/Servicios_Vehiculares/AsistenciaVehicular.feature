@@ -62,6 +62,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     And selecciono la asistencia "Grúa" y la zona en donde se encuentra el vehiculo
     And confirmo los terminos de la solicitud
     Then se debe mostrar el mensaje : "¡Solicitud enviada!"
+    And se debe mostrar el seguimiento de la asistencia vehicular "Grúa" de la "<placa>"
 
     Examples:
       | tipoID | id       | password  | placa  |
