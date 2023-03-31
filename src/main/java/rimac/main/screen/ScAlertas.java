@@ -14,14 +14,11 @@ public class ScAlertas extends BaseDriver {
     protected UtilApp util = UtilApp.getInstancia();
 
     public static Logger looger = Logger.getLogger(ScTusTramites.class.getName());
-    private long wdwTimeOut = 300L;
-    public long getWdwTimeOut() {
-        return wdwTimeOut;
-    }
 
     public void omitirAlertas(int intentos) throws Exception {
             int contador=0;
-            for( int i=0; i<intentos; i++){
+            int i=0;
+            while(i<intentos){
                 if(element(objAlertas.btnHuellaPorAhoraNo).isCurrentlyVisible()){
                     element(objAlertas.btnHuellaPorAhoraNo).click();
                 }
