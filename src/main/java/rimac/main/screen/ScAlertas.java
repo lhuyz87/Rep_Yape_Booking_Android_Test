@@ -34,8 +34,11 @@ public class ScAlertas extends BaseDriver {
                 if(element(objAlertas.btnCerrarEmail).isCurrentlyVisible()){
                     element(objAlertas.btnCerrarEmail).click();
                 }
+                if(element(objAlertas.btnEnteratePorAhoraNo).isCurrentlyVisible()){
+                    element(objAlertas.btnEnteratePorAhoraNo).click();
+                }
                 if(element(objPaginaPrincipal.btnEmergencia).isCurrentlyVisible()){
-                   contador++;
+                    contador++;
                 }
                 i++;
                 util.esperarSegundos(1);
