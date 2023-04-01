@@ -55,6 +55,8 @@ public class ObjAlertas extends BaseDriver{
 	
 	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/btn_not_yet")
 	public WebElement btnEnteratePorAhoraNo;
+	@AndroidFindBy(xpath ="//*[@text='Por ahora no']")
+	public WebElement btnEnteratePorAhoraNo2;
 	
 	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/registerTextNotYet")
 	public WebElement btnHuellaPorAhoraNo;
