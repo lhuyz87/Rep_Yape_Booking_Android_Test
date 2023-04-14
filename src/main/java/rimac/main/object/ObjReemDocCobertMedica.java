@@ -48,8 +48,33 @@ public class ObjReemDocCobertMedica extends BaseDriver{
 
 	@AndroidFindBy(xpath = "//*[@text='Continuar']")
 	public WebElement btnContinuar;
-	
-	
+
+	@AndroidFindBy(xpath = "//*[@text='Camera']")
+	public WebElement opcCamara;
+
+	/*@AndroidFindBy(xpath = "//*[@text='Cámara']")
+	public WebElement btnCamara;*/
+
+	@AndroidFindBy(id = "com.sec.android.app.camera:id/bottom_background")
+	public WebElement btnCapturarSamsung;
+
+	@AndroidFindBy(id = "com.huawei.camera:id/foot_black_background")
+	public WebElement btnCapturarHuawei;
+
+	@AndroidFindBy(id = "com.huawei.camera:id/done_button")
+	public WebElement btnAceptarFoto;
+
+	//com.rimac.rimac_surrogas.qa:id/uploadClose
+	//com.huawei.camera:id/done_button
+	//com.huawei.camera:id/head_black_background
+
+//com.rimac.rimac_surrogas.qa:id/tbProgress
+	//com.sec.android.app.camera:id/camera_preview
+	//com.huawei.camera:id/foot_black_background
+	//com.huawei.camera:id/foot_black_background
+
+	@AndroidFindBy(id = "//*[@text='Ok']")
+	public WebElement btnAceptar;
 	
 	
 

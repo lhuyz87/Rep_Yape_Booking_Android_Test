@@ -9,6 +9,8 @@ import com.openhtmltopdf.util.Util;
 import io.cucumber.datatable.DataTable;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.util.EnvironmentVariables;
+import net.thucydides.core.util.SystemEnvironmentVariables;
 import rimac.main.screen.*;
 //import rimac.main.screen.ScBeneficioPorDobleSeguro;
 //import rimac.main.screen.ScCoberturaMedicinas;
@@ -120,33 +122,63 @@ public class StepReembolso {
 		scDocRequeridosReembolsoSalud.continuarDocRequeridos();
 	}
 
-
 	public void registrarDocumentoPorCobert(String tipoCobertura) {
-
+		EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
+		String dispositivo = variables.getProperty("appium.deviceName");
 		switch (tipoCobertura) {
 			case "Medicinas":
 			case "Atención ambulatoria":
-			scReemDocCobertMedica.AdjuntarFotoArchivo("AdjuntarArchivo");
-			scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
-			scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
-			scReemDocCobertMedica.AdjuntarFotoArchivo("AdjuntarArchivo");
-			scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocRecetaMedica);
-			scAgregarNuevoDocumento.llenarDatosRecetaMedica("Prueba");
+				scReemDocCobertMedica.adjuntarFotoArchivo();
+				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
+					scReemDocCobertMedica.tomarFotoHuawei();
+				}else{
+					scReemDocCobertMedica.subirArchivo();
+				}
+				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
+				scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
+				scReemDocCobertMedica.adjuntarFotoArchivo();
+				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
+					scReemDocCobertMedica.tomarFotoHuawei();
+				}else{
+					scReemDocCobertMedica.subirArchivo();
+				}
+				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocRecetaMedica);
+				scAgregarNuevoDocumento.llenarDatosRecetaMedica("Prueba");
 			break;
 							
 		case "Odontología":
-			scReemDocCobertMedica.subirComprobante("AdjuntarArchivo");
-			scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
-			scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
-			scReemDocCobertMedica.subirDocumento("AdjuntarArchivo");
-//			scReemDocCobertMedica.continuar();
-			break;
-
-			case "Hospitalario":
-				scReemDocCobertMedica.AdjuntarFotoArchivo("AdjuntarArchivo");
+				scReemDocCobertMedica.subirComprobantes();
+				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
+					scReemDocCobertMedica.tomarFotoHuawei();
+				}else{
+					scReemDocCobertMedica.subirArchivo();
+				}
 				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
 				scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
-				scReemDocCobertMedica.AdjuntarFotoArchivo("AdjuntarArchivo");
+			    scReemDocCobertMedica.subirDocumentos();
+				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
+					scReemDocCobertMedica.tomarFotoHuawei();
+				}else{
+					scReemDocCobertMedica.subirArchivo();
+				}
+	//			scReemDocCobertMedica.continuar();
+				break;
+
+			case "Hospitalario":
+				scReemDocCobertMedica.adjuntarFotoArchivo();
+				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
+					scReemDocCobertMedica.tomarFotoHuawei();
+				}else{
+					scReemDocCobertMedica.subirArchivo();
+				}
+				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
+				scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
+				scReemDocCobertMedica.adjuntarFotoArchivo();
+				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
+					scReemDocCobertMedica.tomarFotoHuawei();
+				}else{
+					scReemDocCobertMedica.subirArchivo();
+				}
 				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoOrdenMedica);
 				scAgregarNuevoDocumento.llenarDatosRecetaMedica("Prueba");
 				break;
@@ -194,7 +226,7 @@ public class StepReembolso {
 
 	public void selecSeguiReemSalud() throws Exception {
 		//schome.cerrarAlertas(15);
-		scAlertas.omitirAlertas(12);
+		scAlertas.omitirAlertas(14);
 		schome.seleccionarOpcionPrincipal("Tramites");
 		scTusTramites.seleccionarSegui();
 		

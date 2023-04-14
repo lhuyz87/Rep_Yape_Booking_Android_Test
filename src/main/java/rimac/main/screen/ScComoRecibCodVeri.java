@@ -9,7 +9,6 @@ import com.github.dockerjava.api.model.Driver;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.HidesKeyboard;
-import io.appium.java_client.PushesFiles;
 import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;

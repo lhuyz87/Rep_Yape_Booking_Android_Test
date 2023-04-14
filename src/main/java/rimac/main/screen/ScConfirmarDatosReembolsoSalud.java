@@ -14,7 +14,6 @@ import com.github.dockerjava.api.model.Driver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.HidesKeyboard;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.PushesFiles;
 import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
@@ -51,6 +50,7 @@ private long wdwTimeOut = 300L;
 		//util.mobileSwipeScreenAndroidFinal();
 //		util.esperarElemento(5, confirmarDatosReembolsoSaludObject.selDepartamento);
 		util.esperarSegundos(3);
+		util.mobileSwipeScreenAndroidFinal();
 		
 		//
 		int depAux=0;
@@ -64,6 +64,7 @@ private long wdwTimeOut = 300L;
 		
 			if(depAux==0) {
 				int contador=0;
+
 				while(element(confirmarDatosReembolsoSaludObject.selDistrito).isCurrentlyVisible()==false && contador<3){
 					util.mobileSwipeScreenAndroidFinal();
 					contador++;
@@ -94,7 +95,7 @@ private long wdwTimeOut = 300L;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+		util.esperarSegundos(2);
 		util.esperarActivoClick(4, confirmarDatosReembolsoSaludObject.btnContinuar);
 		element(confirmarDatosReembolsoSaludObject.btnContinuar).click();
 		util.esperarSegundos(10);
