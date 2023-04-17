@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-@ModuloConsultaSalud_1/5
+@ModuloConsultaSalud_1_5
 Feature: Consulta Salud - Plan Medico EPS
 
   @TiempoInactividadConsultasSalud

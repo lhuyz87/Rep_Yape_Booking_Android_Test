@@ -1,5 +1,5 @@
 #Author: Luis Retamozo
-@ModuloServiciosDeSalud_3/16
+@ModuloServiciosDeSalud_3_16
 Feature: Servicios de Salud - Reembolso
 
   @reembolsoSaludSinBeneficiarioconCoberturadeMedicinas

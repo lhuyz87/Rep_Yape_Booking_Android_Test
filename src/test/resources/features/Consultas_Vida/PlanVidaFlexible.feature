@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-@ModuloConsultasVida_3/7
+@ModuloConsultasVida_3_7
 Feature: Consultas Vida - Plan Vida Flexible
 
   @DescargaEstadoCuentaPlanVidaFlexible
