@@ -43,9 +43,16 @@ public class ObjBuscadorDeClinicas extends BaseDriver{
 	
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/text_price")
 	public WebElement lblCopago;
-	
-	
-   
-	
-	
+
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/text_step_title")
+	public WebElement lblAntesdeComenzar;
+
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/input_patient")
+	public WebElement cmbPaciente;
+
+	@AndroidFindBy(xpath = "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/bottom_sheet_group_insures']/android.widget.RadioButton[1]")
+	public WebElement rdbPaciente;
+
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+	public WebElement btnContinuar;
 }
