@@ -52,22 +52,11 @@ private long wdwTimeOut = 300L;
 		element(objLogin.btnIngresarSesion).click();
 		element(objLogin.txtNumDocumento).click();
 		element(objLogin.txtNumDocumento).sendKeys(dniUser);
-		Serenity.takeScreenshot();
-		
-		try {
-			((HidesKeyboard) appiumDriver()).hideKeyboard();
-		} catch (Exception e) {
-			
-		}
-
+		util.pressEnter(androidDriver());
 		element(objLogin.txtPassword).click();
 		element(objLogin.txtPassword).sendKeys(passUser);
-		try {
-			((HidesKeyboard) appiumDriver()).hideKeyboard();
-		} catch (Exception e) {
-			
-		}
-	
+		util.pressEnter(androidDriver());
+		Serenity.takeScreenshot();
 		element(objLogin.btnIngresarSesion).click();
 		mobil.esperarSegundosCondicion(7,element(objLogin.mdlCreaUnaCuenta).isEnabled());
 		try{
