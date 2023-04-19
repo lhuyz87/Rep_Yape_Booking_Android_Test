@@ -12,7 +12,7 @@ import com.github.dockerjava.api.model.Driver;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.PushesFiles;
+
 import io.appium.java_client.android.AndroidDriver;
 //import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
 import net.serenitybdd.core.Serenity;
@@ -46,6 +46,12 @@ private long wdwTimeOut = 300L;
 		return wdwTimeOut;
 	}
 
+	public void seleccionar_datos_para_continuar(){
+		util.esperarElemento(10, objBuscadorDeClinicas.lblAntesdeComenzar);
+		element(objBuscadorDeClinicas.cmbPaciente).click();
+		element(objBuscadorDeClinicas.rdbPaciente).click();
+		element(objBuscadorDeClinicas.btnContinuar).click();
+	}
 	public void ingresarNombreClinica(String nomClinica) {
 		
 		int contador=0;

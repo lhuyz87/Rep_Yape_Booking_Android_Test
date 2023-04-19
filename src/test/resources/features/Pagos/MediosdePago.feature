@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-@ModuloPagos_2/7
+@ModuloPagos_2_7
 Feature: Pagos - Medios de Pago
 
    @SucripcionDesdePerfil

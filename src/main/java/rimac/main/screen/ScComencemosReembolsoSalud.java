@@ -8,7 +8,6 @@ import com.github.dockerjava.api.model.Driver;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.PushesFiles;
 import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.pages.PageObject;
 import rimac.main.util.BaseDriver;

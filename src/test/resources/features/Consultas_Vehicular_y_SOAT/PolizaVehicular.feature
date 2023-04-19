@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-@ModuloConsultasVehicularySoat_2/6
+@ModuloConsultasVehicularySoat_2_6
   Feature: Consulta Vehicular y Soat - Poliza Vehicular
 
    @DescargaPolizaVehicularDigital

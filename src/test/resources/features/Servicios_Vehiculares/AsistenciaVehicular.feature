@@ -1,4 +1,4 @@
-@ModuloServiciosVehiculares_6/17
+@ModuloServiciosVehiculares_6_17
 Feature: Servicios Vehiculares - Asistencia Vehicular
 
   @AsistenciaVehicularRepuesto

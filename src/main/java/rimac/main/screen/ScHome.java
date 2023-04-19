@@ -179,6 +179,7 @@ public class ScHome extends BaseDriver{
 		
 	}
 
+
 	public void seleccionaBuscadorClinicas() {
 		// TODO Auto-generated method stub
 		util.esperarElemento(7, objectPrincipal.btnEmergencia);
