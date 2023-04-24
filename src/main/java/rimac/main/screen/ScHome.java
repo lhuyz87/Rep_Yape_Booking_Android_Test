@@ -46,11 +46,6 @@ public class ScHome extends BaseDriver{
 	protected MobileObjectUtil pageObjectUtil2 = MobileObjectUtil.getInstancia();
 	public static Logger looger = Logger.getLogger(ScHome.class.getName());
 	
-	
-	public static void main(String[] args) {
-		
-	}
-	
 	public long getWdwTimeOut() {
 		return wdwTimeOut;
 	}
