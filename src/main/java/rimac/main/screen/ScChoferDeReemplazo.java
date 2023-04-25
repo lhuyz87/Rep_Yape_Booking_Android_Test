@@ -237,9 +237,6 @@ public class ScChoferDeReemplazo extends BaseDriver{
             if(element(objAlertas.btnCerrarEmail).isCurrentlyVisible()){
                 element(objAlertas.btnCerrarEmail).click();
             }
-            if(element(objAlertas.btnEnteratePorAhoraNo2).isCurrentlyVisible()){
-                element(objAlertas.btnEnteratePorAhoraNo2).click();
-            }
             if(element(objPaginaPrincipal.btnEmergencia).isCurrentlyVisible()){
                 contador++;
             }

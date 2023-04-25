@@ -122,7 +122,7 @@ public class StepReembolso {
 		scDocRequeridosReembolsoSalud.continuarDocRequeridos();
 	}
 
-	public void registrarDocumentoPorCobert(String tipoCobertura) {
+	public void registrarDocumentoPorCobert(String tipoCobertura) throws Exception {
 		EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
 		String dispositivo = variables.getProperty("appium.deviceName");
 		switch (tipoCobertura) {
@@ -188,7 +188,7 @@ public class StepReembolso {
 			
 	}
 	
-	public void llenarDatosCuenta() {
+	public void llenarDatosCuenta() throws Exception {
 			
 		   scReemDocCobertMedica.continuar();
 		   scCuentaDeAbono.llenarDatosDeCuenta(ConstantesDummy.bancoInterbank, ConstantesDummy.tipoCuentaAhorrosInterbank, ConstantesDummy.monedaSoles, ConstantesDummy.nroCuentaAhorrosInterbank, ConstantesDummy.correo);
@@ -196,7 +196,7 @@ public class StepReembolso {
 
 	}
 	
-	public void ingresarComentariosAdicionales() {
+	public void ingresarComentariosAdicionales() throws Exception {
 		scCuentaDeAbono.comentariosAdicionales("Comentario Prueba");
 	}
 

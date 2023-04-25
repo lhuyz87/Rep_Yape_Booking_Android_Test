@@ -22,7 +22,7 @@ public class StepMediosdePago {
         scPerfil.irMediosDePago();
     }
 
-    public void volverDesdePerfil() {
+    public void volverDesdePerfil() throws Exception {
         scPerfil.volverPerfil();
     }
     public void irMedioPago_desde_tab_pagos(){
@@ -46,7 +46,7 @@ public class StepMediosdePago {
         scMediosDePago.eliminarTarjeta(numTarjeta);
     }
 
-    public void afiliarTarjeta(String numTarjeta, String cvv, String fecha){
+    public void afiliarTarjeta(String numTarjeta, String cvv, String fecha) throws Exception{
         scMediosDePago.volverTabPagos();
         scPagos.irAfiliarTarjeta();
         String nombre = ConstantesDummy.nombre;

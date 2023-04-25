@@ -36,7 +36,7 @@ private long wdwTimeOut = 300L;
 
 
 
-	public void ingresaFechaNacimi(String fechaNacimi) {
+	public void ingresaFechaNacimi(String fechaNacimi) throws Exception {
 		int ancla=0;
 		int intento=10;
 		boolean buscaAnio=false;

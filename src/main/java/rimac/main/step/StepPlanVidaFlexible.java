@@ -33,7 +33,7 @@ public class StepPlanVidaFlexible {
         scSeguroVehicular.opcPoliza();
         scSeguroVehicular.ir_EstadoCuenta();
     }
-    public void descargar_estado_cuenta(){
+    public void descargar_estado_cuenta() throws Exception{
         scSeguroVehicular.descargarpdf();
     }
 

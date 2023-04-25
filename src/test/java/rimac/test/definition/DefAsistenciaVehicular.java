@@ -57,4 +57,16 @@ public class DefAsistenciaVehicular {
     public void seValidaElMensajeParaRetornarAlLogin() {
         stepAsistenciaVehicular.se_valida_mensaje_de_inactividad();
     }
+
+    @And("selecciono {string} con la {string}")
+    public void seleccionoConLa(String asistencia, String opcion) throws Exception {
+        stepAsistenciaVehicular.selecciona_asistencia_vehicular(asistencia);
+        stepAsistenciaVehicular.seleccionar_ayuda_auxilio_mecanico(opcion);
+    }
+
+    @And("selecciono {string} con la {string} y la indicación de la zona del vehiculo")
+    public void seleccionoConLaYLaIndicaciónDeLaZonaDelVehiculo(String asistencia, String opcion) throws Exception {
+        stepAsistenciaVehicular.selecciona_asistencia_vehicular(asistencia);
+        stepAsistenciaVehicular.seleccionar_ayuda_grua(opcion);
+    }
 }

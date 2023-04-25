@@ -74,7 +74,7 @@ public class StepLogin {
 		
 	}
 
-	public void seleccDatosdeSeguri(String fechaNacimi, String seguros) {
+	public void seleccDatosdeSeguri(String fechaNacimi, String seguros) throws Exception {
 		scPregunDeVerifi.ingresaFechaNacimi(fechaNacimi);
 		scPregunDeVerifi.seleccSeguros(seguros);
 //		

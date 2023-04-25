@@ -44,7 +44,7 @@ private long wdwTimeOut = 300L;
 		element(documentosObject.getTipoDocumento(appiumDriver(), tipoDocumento)).click();
 	}
 	
-	public void llenarDatosFactura(String serie, String documento, String moneda, String monto) {
+	public void llenarDatosFactura(String serie, String documento, String moneda, String monto) throws Exception {
 		util.esperarElementoClick(5, agregarNuevoDocumentoObject.txtSerieDocumento);
 		element(agregarNuevoDocumentoObject.txtSerieDocumento).click();
 		element(agregarNuevoDocumentoObject.txtSerieDocumento).sendKeys(serie);

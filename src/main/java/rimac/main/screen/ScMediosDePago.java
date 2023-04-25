@@ -51,7 +51,7 @@ public class ScMediosDePago extends BaseDriver {
             contador++;
         }
     }
-    public void ingresarDatosTarjeta(String numTarjeta, String nombre, String apellido, StringBuilder mmaa, String cvv, String correo){
+    public void ingresarDatosTarjeta(String numTarjeta, String nombre, String apellido, StringBuilder mmaa, String cvv, String correo) throws Exception{
         util.esperarElemento(3, objAnadirTarjeta.lblNumTarjeta);
         element(objAnadirTarjeta.lblNumTarjeta).sendKeys(numTarjeta);
         element(objAnadirTarjeta.lblNombre).sendKeys(nombre);
@@ -154,7 +154,7 @@ public class ScMediosDePago extends BaseDriver {
         return tarjetaExiste;
     }
 
-    public void volverTabPagos(){
+    public void volverTabPagos() throws Exception{
         util.esperarElementoVisible(5,objCommons.btnVolver);
         element(objCommons.btnVolver).click();
     }

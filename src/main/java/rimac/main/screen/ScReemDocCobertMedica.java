@@ -51,7 +51,7 @@ private long wdwTimeOut = 300L;
 		element(documentoComprobantesObject.btnSubirComprobantes).click();
 	}
 
-	public void subirDocumentos(){
+	public void subirDocumentos() throws Exception{
 		util.esperarElementoVisible(8,documentoComprobantesObject.btnSubirDocumentos);
 		element(documentoComprobantesObject.btnSubirDocumentos).click();
 	}

@@ -15,7 +15,7 @@ public class ScPoliza extends BaseDriver {
 
     private long wdwTimeOut = 300L;
 
-    public void se_visualiza_numero_Poliza(){
+    public void se_visualiza_numero_Poliza() throws Exception{
         util.esperarElemento(15,objPoliza.btnPoliza);
         element(objPoliza.btnPoliza).click();
         util.esperarElementoVisible(5, objPoliza.numeroPoliza);

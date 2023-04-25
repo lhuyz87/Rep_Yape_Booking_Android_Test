@@ -17,12 +17,12 @@ public class StepVentaSOAT {
     @Steps
     ScPerfil scPerfil;
 
-    public void irTiendaDesdePerfil() {
+    public void irTiendaDesdePerfil() throws Exception {
         scPerfil.volverPerfil();
         schome.seleccionarOpcionPrincipal("Tienda");
     }
 
-    public void empezarSoatDosMinutos(String placa){
+    public void empezarSoatDosMinutos(String placa) throws Exception{
         scTiendaRimac.opc_SoatDosMinutos();
         char[] digitosPLaca = placa.toCharArray();
         String placa1 = new String(String.valueOf(digitosPLaca[0]));
@@ -34,7 +34,7 @@ public class StepVentaSOAT {
         scEligePlan.ingresarPlaca(placa1,placa2,placa3,placa4,placa5,placa6);
     }
 
-    public void eligePlan(){
+    public void eligePlan() throws Exception{
         scEligePlan.planDigital();
         scEligePlan.validaPlan();
     }
@@ -55,7 +55,7 @@ public class StepVentaSOAT {
         return mensaje;
     }
 
-    public void finalizarOperacion(){
+    public void finalizarOperacion() throws Exception{
         scPagaConTarjeta.finalizarOperacion();
     }
 }

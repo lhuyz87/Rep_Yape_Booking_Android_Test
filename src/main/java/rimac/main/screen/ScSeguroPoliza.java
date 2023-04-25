@@ -76,7 +76,7 @@ public class ScSeguroPoliza extends BaseDriver {
         element(objSeguroVehicular.btnAceptarFecha).click();
     }
 
-    public void descargarpdf(){
+    public void descargarpdf() throws Exception{
         util.esperarElementoVisible(5, objSeguroVehicular.btnDescargar);
         int contador=0;
         while(element(objSeguroVehicular.btnDescargar).isCurrentlyVisible()==false && contador<9){

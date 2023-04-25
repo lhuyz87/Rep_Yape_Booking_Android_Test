@@ -10,7 +10,7 @@ public class ScEligePlan extends BaseDriver {
     UtilApp util=UtilApp.getInstancia();
     ObjSoatDosMinutos objSoatDosMinutos = ObjSoatDosMinutos.getInstancia();
     ObjEligeTuPlan objEligeTuPlan= ObjEligeTuPlan.getInstancia();
-    public void ingresarPlaca(String placa1, String placa2, String placa3, String placa4, String placa5, String placa6){
+    public void ingresarPlaca(String placa1, String placa2, String placa3, String placa4, String placa5, String placa6) throws Exception{
         util.esperarElementoVisible(10,objSoatDosMinutos.lblTitle);
         element(objSoatDosMinutos.inputPlaca("1")).sendKeys(placa1);
         element(objSoatDosMinutos.inputPlaca("2")).sendKeys(placa2);
@@ -34,7 +34,7 @@ public class ScEligePlan extends BaseDriver {
         element(objEligeTuPlan.btnContinuar).click();
     }
 
-    public void validaPlan(){
+    public void validaPlan() throws Exception{
         util.esperarElementoVisible(20,objSoatDosMinutos.lblTitle);
         int contador=0;
         while(element(objEligeTuPlan.btnContinuar).isCurrentlyVisible()==false && contador<6){

@@ -44,7 +44,7 @@ private long wdwTimeOut = 300L;
 	AppiumDriver driver;
 	
 	@SuppressWarnings("null")
-	public void llenarDatosDeCuenta(String entidad, String tipoCuenta, String moneda, String numCuenta, String correo) {
+	public void llenarDatosDeCuenta(String entidad, String tipoCuenta, String moneda, String numCuenta, String correo) throws Exception {
 		looger.info("LLenar Cuenta");
 		util.mobileSwipeScreenAndroidFinal();
 		util.esperarElemento(5, cuentaDeAbonoObject.lstEntidadBancaria);
@@ -108,7 +108,7 @@ private long wdwTimeOut = 300L;
 
 	}
 	
-	public void comentariosAdicionales(String comentarios) {
+	public void comentariosAdicionales(String comentarios) throws Exception {
 //		util.esperarElemento(5, comentariosAdicionalesObject.txtDescripcion);
 //		element(comentariosAdicionalesObject.txtDescripcion).click();
 //		element(comentariosAdicionalesObject.txtDescripcion).sendKeys(comentarios);

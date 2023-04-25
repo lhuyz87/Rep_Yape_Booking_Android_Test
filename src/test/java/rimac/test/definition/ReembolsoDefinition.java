@@ -55,7 +55,7 @@ public class ReembolsoDefinition {
 	
 	
 	@When("adjuntamos los documentos y comprobantes del reembolso con tipo de cobertura {string}")
-	public void adjuntamos_los_documentos_y_comprobantes_del_reembolso_con_tipo_de_cobertura(String tipoCobertura) {
+	public void adjuntamos_los_documentos_y_comprobantes_del_reembolso_con_tipo_de_cobertura(String tipoCobertura) throws Exception {
 		
 			stepReembolso.iniciarRegistroDoc();
 			stepReembolso.registrarDocumentoPorCobert(tipoCobertura);
@@ -98,7 +98,7 @@ public class ReembolsoDefinition {
 	
 	
 	@And("adjuntamos los documentos necesarios de la cobertura")
-	public void adjuntamos_los_documentos_necesarios_de_la_cobertura() {
+	public void adjuntamos_los_documentos_necesarios_de_la_cobertura() throws Exception {
 	    // Write code here that turns the phrase above into concrete actions
 		
 		stepReembolso.iniciarRegistroDoc();

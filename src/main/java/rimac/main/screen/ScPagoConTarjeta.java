@@ -13,7 +13,7 @@ public class ScPagoConTarjeta extends BaseDriver {
     ObjAnadirTarjeta objAnadirTarjeta= ObjAnadirTarjeta.getInstancia();
     ObjTienda objTienda= ObjTienda.getInstancia();
 
-    public void ingresarDatosContacto(String dni, String correo,String celular){
+    public void ingresarDatosContacto(String dni, String correo,String celular) throws Exception{
         util.esperarElementoVisible(7,objPagoTarjeta.lblDni);
         Serenity.takeScreenshot();
         element(objPagoTarjeta.lblDni).sendKeys(dni);
@@ -73,7 +73,7 @@ public class ScPagoConTarjeta extends BaseDriver {
         return mensaje;
     }
 
-    public void finalizarOperacion(){
+    public void finalizarOperacion() throws Exception{
        element(objPagoTarjeta.btnFinalizar).click();
        util.esperarElementoVisible(5,objTienda.btnConoceMas);
     }
