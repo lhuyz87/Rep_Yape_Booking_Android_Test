@@ -1,5 +1,5 @@
 Feature: Servicios Vehiculares -  chofer de reemplazo
-  @ChoferReemplazo
+  @ChoferReemplazo @ModuloServiciosVehiculares_9_17
   Scenario Outline: Solicitar Chofer reemplazo
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

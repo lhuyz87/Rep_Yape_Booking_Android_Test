@@ -1,6 +1,7 @@
+@ModuloServiciosVehiculares_9_17
 Feature: Servicios Vehiculares - Asistencia Vehicular
 
-  @AsistenciaVehicularRepuesto @ModuloServiciosVehiculares_6_17
+  @AsistenciaVehicularRepuesto
   Scenario Outline: Solicitar Auxilio Mecanico - Repuesto
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -26,7 +27,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
   #    | tipoID | id       | password  | placa  |
   #    | DNI    | 22093296 | Rimac2020 | ASQ191 |
 
-  @AsistenciaVehicularProblema @ModuloServiciosVehiculares_6_17
+  @AsistenciaVehicularProblema
   Scenario Outline: Solicitar Auxilio Mecanico - Problema
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -52,7 +53,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
   #    | tipoID | id       | password  | placa  |
   #    | DNI    | 22093296 | Rimac2020 | ASE310 |
 
-  @AsistenciaVehicularGrua @ModuloServiciosVehiculares_6_17
+  @AsistenciaVehicularGrua
   Scenario Outline: Realizar una solicitud de Grua
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -109,7 +110,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
   #    | tipoID | id       | password  | placa  |
   #    | DNI    | 41430164 | Rimac2020 | AWA099 |
 
-  @TiempoInactividadServicioVehicular @ModuloServiciosVehiculares_6_17
+  @TiempoInactividadServicioVehicular
   Scenario Outline: Esperar 15 min de inactividad en Asistencias Vehiculares
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
