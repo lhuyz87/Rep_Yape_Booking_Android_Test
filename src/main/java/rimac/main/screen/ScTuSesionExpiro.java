@@ -39,6 +39,7 @@ public class ScTuSesionExpiro extends BaseDriver {
             System.out.println(contadorMinutos);
             contadorMinutos++;
         }
+        util.esperarSegundos(3);
         //androidDriver().terminateApp("com.android.chrome");
         androidDriver().activateApp("com.rimac.rimac_surrogas.qa");
         //androidDriver().terminateApp("com.android.chrome");
