@@ -20,18 +20,18 @@ public class ScTuSesionExpiro extends BaseDriver {
     protected ObjTuSesionExpiro objTuSesionExpiro = ObjTuSesionExpiro.getInstancia();
     UtilApp util = new UtilApp();
     public void inactividad_del_modulo() {
-        util.esperarSegundos(2);
-        androidDriver().activateApp("com.android.chrome");
+        util.esperarSegundos(3);
+        androidDriver().activateApp("com.google.android.youtube");
         //androidDriver().activateApp("com.google.android.apps.maps");
         //androidDriver().runAppInBackground(Duration.ofSeconds(10));
         //androidDriver().pressKey(new KeyEvent(AndroidKey.CAMERA));
         //androidDriver().pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
        /* androidDriver().activateApp("com.android.chrome");
-        //androidDriver().pressKey(new KeyEvent(AndroidKey.MENU));
-        androidDriver().rotate(ScreenOrientation.PORTRAIT);*/
+        //androidDriver().pressKey(new KeyEvent(AndroidKey.MENU));*/
+        androidDriver().rotate(ScreenOrientation.PORTRAIT);
         Serenity.takeScreenshot();
         int contadorMinutos=0;
-        while(contadorMinutos<16){
+        while(contadorMinutos<15){
             util.mobileSwipeScreenAndroid();
             util.esperarSegundos(30);
             util.mobileSwipeScreenAndroid();
@@ -39,6 +39,7 @@ public class ScTuSesionExpiro extends BaseDriver {
             System.out.println(contadorMinutos);
             contadorMinutos++;
         }
+        //androidDriver().terminateApp("com.android.chrome");
         androidDriver().activateApp("com.rimac.rimac_surrogas.qa");
         //androidDriver().terminateApp("com.android.chrome");
         //androidDriver().pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
