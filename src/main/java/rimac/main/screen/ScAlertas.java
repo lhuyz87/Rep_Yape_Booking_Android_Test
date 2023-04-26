@@ -13,7 +13,7 @@ public class ScAlertas extends BaseDriver {
     protected ObjPaginaPrincipal objPaginaPrincipal =ObjPaginaPrincipal.getInstancia();
     protected UtilApp util = UtilApp.getInstancia();
 
-    public void omitirAlertas(int intentos) throws Exception {
+    public void omitirAlertas(int intentos) {
         int contador=0;
         int i=0;
         while(i<intentos){

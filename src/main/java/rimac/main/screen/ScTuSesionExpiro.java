@@ -55,6 +55,9 @@ public class ScTuSesionExpiro extends BaseDriver {
 
     public void validacion_mensaje_TimeOut(){
         try{
+            if(element(objTuSesionExpiro.titTusesionExpiro).isCurrentlyVisible()==false){
+                util.mobileSwipeScreenAndroid();
+            }
             int contador=0;
             while(element(objTuSesionExpiro.titTusesionExpiro).isCurrentlyVisible()==false && contador<4){
                 util.esperarSegundos(1);
