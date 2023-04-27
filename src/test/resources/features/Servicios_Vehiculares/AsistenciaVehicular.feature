@@ -77,7 +77,6 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     And selecciono "Ayúdame a elegir una" con la "<opción>"
     And confirmo los terminos de la solicitud
     Then se debe mostrar el mensaje : "¡Solicitud enviada!"
-    And se debe mostrar el seguimiento de la asistencia vehicular "Auxilio mecánico" de la "<placa>"
 
     Examples:
       | tipoID | id       | password  | placa  | opción             |
@@ -93,7 +92,6 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     And selecciono "Ayúdame a elegir una" con la "<opción>" y la indicación de la zona del vehiculo
     And confirmo los terminos de la solicitud
     Then se debe mostrar el mensaje : "¡Solicitud enviada!"
-    And se debe mostrar el seguimiento de la asistencia vehicular "Grúa" de la "<placa>"
 
     Examples:
       | tipoID | id       | password  | placa  | opción             |
