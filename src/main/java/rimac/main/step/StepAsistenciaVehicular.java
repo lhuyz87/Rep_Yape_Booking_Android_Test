@@ -81,7 +81,7 @@ public class StepAsistenciaVehicular {
     }
     public void retornarInicio() throws Exception {
         scAsistenciaVehicular.irAlInicio();
-        scAlertas.omitirAlertas(10);
+        scAlertas.omitirAlertas(13);
     }
 
     public void seleccionar_ayuda_auxilio_mecanico(String opcion) throws Exception {
