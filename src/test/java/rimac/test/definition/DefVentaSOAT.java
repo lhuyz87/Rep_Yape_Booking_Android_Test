@@ -16,7 +16,7 @@ public class DefVentaSOAT {
     StepMediosdePago stepAgregarMedioPago;
 
     @When("ingreso mis datos bancarios {string},{string} y {string} para generar la compra del SOAT para el vehiculo {string}")
-    public void ingresoMisDatosBancariosYParaGenerarLaCompraDelSOATParaElVehiculo(String numTarjeta, String cvv, String fecha, String placa) {
+    public void ingresoMisDatosBancariosYParaGenerarLaCompraDelSOATParaElVehiculo(String numTarjeta, String cvv, String fecha, String placa) throws Exception {
         stepAgregarMedioPago.irMedioPago_desde_perfil();
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
         stepVentaSOAT.irTiendaDesdePerfil();
@@ -26,7 +26,7 @@ public class DefVentaSOAT {
     }
 
     @Then("debe de mostrar el mensaje {string}")
-    public void debeDeMostrarElMensaje(String mensaje) {
+    public void debeDeMostrarElMensaje(String mensaje) throws Exception {
         assertEquals(mensaje,stepVentaSOAT.validaMensaje());
         stepVentaSOAT.finalizarOperacion();
     }

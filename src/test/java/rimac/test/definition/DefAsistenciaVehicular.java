@@ -42,10 +42,10 @@ public class DefAsistenciaVehicular {
     public void seDebeMostrarElMensaje(String valorEsperado) throws Exception {
         String valorObtenido = stepAsistenciaVehicular.obtiene_mensaje_confirmacion();
         assertEquals(valorEsperado, valorObtenido);
-        stepAsistenciaVehicular.retornarInicio();
     }
     @Then("se debe mostrar el seguimiento de la asistencia vehicular {string} de la {string}")
-    public void seDebeMostrarElSeguimientoDeLaAsistenciaVehicularDeLa(String asistencia, String placa) {
+    public void seDebeMostrarElSeguimientoDeLaAsistenciaVehicularDeLa(String asistencia, String placa) throws Exception {
+        stepAsistenciaVehicular.retornarInicio();
         assertTrue(stepAsistenciaVehicular.se_valida_solicitud_home(asistencia, placa));
     }
 
@@ -56,5 +56,17 @@ public class DefAsistenciaVehicular {
     @Then("se valida el mensaje para retornar al Login")
     public void seValidaElMensajeParaRetornarAlLogin() {
         stepAsistenciaVehicular.se_valida_mensaje_de_inactividad();
+    }
+
+    @And("selecciono {string} con la {string}")
+    public void seleccionoConLa(String asistencia, String opcion) throws Exception {
+        stepAsistenciaVehicular.selecciona_asistencia_vehicular(asistencia);
+        stepAsistenciaVehicular.seleccionar_ayuda_auxilio_mecanico(opcion);
+    }
+
+    @And("selecciono {string} con la {string} y la indicación de la zona del vehiculo")
+    public void seleccionoConLaYLaIndicaciónDeLaZonaDelVehiculo(String asistencia, String opcion) throws Exception {
+        stepAsistenciaVehicular.selecciona_asistencia_vehicular(asistencia);
+        stepAsistenciaVehicular.seleccionar_ayuda_grua(opcion);
     }
 }

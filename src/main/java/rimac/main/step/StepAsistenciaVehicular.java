@@ -16,6 +16,9 @@ public class StepAsistenciaVehicular {
     ScAsistenciaVehicular scAsistenciaVehicular;
     @Steps
     ScTuSesionExpiro scTuSesionExpiro;
+
+    @Steps
+    ScNecesitoAyuda scNecesitoAyuda;
     public void se_ingresa_a_asistencia_vehicular_desde_tramites() {
         scHome.seleccionarOpcionPrincipal("Tramites");
         scTusTramites.seleccionaAsistenciaVehicular();
@@ -40,7 +43,18 @@ public class StepAsistenciaVehicular {
     }
 
     public void selecciona_asistencia_vehicular(String asistencia){
-        scAsistenciaVehicular.selecciona_asistencia(asistencia);
+        switch(asistencia){
+            case "Auxilio mecánico":scAsistenciaVehicular.selecciona_asistencia_auxilio_mecanico();
+                break;
+
+            case "Grúa":scAsistenciaVehicular.selecciona_asistencia_grua();
+                break;
+
+            case "Ayúdame a elegir una":scAsistenciaVehicular.selecciona_asistencia_ayudame_elegir();
+                break;
+            default:
+                break;
+        }
     }
     public void indico_zona_del_vehiculo(){
         scAsistenciaVehicular.indica_zona_del_vehiculo();
@@ -51,6 +65,7 @@ public class StepAsistenciaVehicular {
     public void confirmar_solicitud(){
         scAsistenciaVehicular.confirmar_solicitud();
     }
+
 
     public String obtiene_mensaje_confirmacion(){
         return scAsistenciaVehicular.obtener_mensaje_confirmacion();
@@ -66,6 +81,19 @@ public class StepAsistenciaVehicular {
     }
     public void retornarInicio() throws Exception {
         scAsistenciaVehicular.irAlInicio();
-        scAlertas.omitirAlertas(10);
+        scAlertas.omitirAlertas(13);
+    }
+
+    public void seleccionar_ayuda_auxilio_mecanico(String opcion) throws Exception {
+        scNecesitoAyuda.seleccionarOpcion(opcion);
+        scNecesitoAyuda.seleccionarSi();
+        scNecesitoAyuda.seleccionarNo();
+        scNecesitoAyuda.solicitarAsistenciaSugerida();
+    }
+
+    public void seleccionar_ayuda_grua(String opcion) throws Exception {
+        scNecesitoAyuda.seleccionarOpcion(opcion);
+        scAsistenciaVehicular.indica_zona_del_vehiculo();
+        scNecesitoAyuda.solicitarAsistenciaSugerida();
     }
 }

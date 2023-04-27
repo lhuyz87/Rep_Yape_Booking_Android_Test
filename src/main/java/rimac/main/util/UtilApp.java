@@ -183,7 +183,7 @@ public class UtilApp  extends BaseDriver{
 		}
 	}
 
-	public void esperarElementoVisible(int intentos, WebElement elemento) {
+	public void esperarElementoVisible(int intentos, WebElement elemento) throws Exception {
 		try {
 			int contador=0;
 			System.out.println("Espera Elemento : "  + elemento.toString());
@@ -199,11 +199,11 @@ public class UtilApp  extends BaseDriver{
 				}
 			}
 		}catch (NoSuchElementException e) {
-			System.out.println("In catch block to handle no such element");
 			e.printStackTrace();
+			throw new Exception("Se ha producido un error");
 		} catch (InterruptedException e) {
-			System.out.println("In catch block to handle Generic exception");
 			e.printStackTrace();
+			throw new Exception("Se ha producido un error");
 		}
 	}
 	

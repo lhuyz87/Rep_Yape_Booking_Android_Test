@@ -43,7 +43,7 @@ public class LoginDefinition {
 		stepLogin.seleccResponPregun();
 	}
 	@When("se ingresa la fecha de nacimiento {string} y los seguros {string} que cuenta el cliente")
-	public void se_ingresa_la_fecha_de_nacimiento_y_los_seguros_que_cuenta_el_cliente(String fechaNacimi, String seguros) {
+	public void se_ingresa_la_fecha_de_nacimiento_y_los_seguros_que_cuenta_el_cliente(String fechaNacimi, String seguros) throws Exception {
 	    // Write code here that turns the phrase above into concrete actions
 		stepLogin.seleccDatosdeSeguri(fechaNacimi, seguros);
 	}

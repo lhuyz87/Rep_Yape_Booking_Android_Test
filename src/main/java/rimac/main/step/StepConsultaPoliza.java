@@ -25,7 +25,7 @@ public class StepConsultaPoliza {
         scTusSeguros.ver_Detalle("Planes Médicos EPS");
     }
 
-    public void se_visuliza_el_numero_de_poliza(){
+    public void se_visuliza_el_numero_de_poliza() throws Exception{
         scPoliza.se_visualiza_numero_Poliza();
     }
 

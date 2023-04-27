@@ -1,4 +1,4 @@
-@ModuloServiciosVehiculares_6_17
+@ModuloServiciosVehiculares_9_17
 Feature: Servicios Vehiculares - Asistencia Vehicular
 
   @AsistenciaVehicularRepuesto
@@ -67,6 +67,35 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     Examples:
       | tipoID | id       | password  | placa  |
       | DNI    | 41430164 | Rimac2020 | AWA099 |
+
+  @NecesitoAyudaAuxilioMecanico
+  Scenario Outline: Necesito ayuda para seleccionar la asistencia Vehicular - Auxilio Mecanico
+    Given realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
+    When se ingresa a Asistencias vehiculares desde Tramites y se inicia el tramite con la "<placa>" del vehiculo
+    And selecciono "Ayúdame a elegir una" con la "<opción>"
+    And confirmo los terminos de la solicitud
+    Then se debe mostrar el mensaje : "¡Solicitud enviada!"
+
+    Examples:
+      | tipoID | id       | password  | placa  | opción             |
+      | DNI    | 22093296 | Rimac2020 | ARV469 | Vehículo no prende |
+
+
+  @NecesitoAyudaGrua
+  Scenario Outline: Necesito ayuda  Para seleccionar la asistencia Vehicular - Grua
+    Given realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
+    When se ingresa a Asistencias vehiculares desde Tramites y se inicia el tramite con la "<placa>" del vehiculo
+    And selecciono "Ayúdame a elegir una" con la "<opción>" y la indicación de la zona del vehiculo
+    And confirmo los terminos de la solicitud
+    Then se debe mostrar el mensaje : "¡Solicitud enviada!"
+
+    Examples:
+      | tipoID | id       | password  | placa  | opción             |
+      | DNI    | 10741647 | Rimac2020 | ALH099 | Fuga de gas (olor) |
 
   #@SeguimientodeGrua
   #Scenario Outline: Realizar el Flujo del Seguimiento de Solicitar Grua

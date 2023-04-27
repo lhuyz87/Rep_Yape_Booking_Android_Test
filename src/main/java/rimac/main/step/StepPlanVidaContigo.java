@@ -19,7 +19,7 @@ public class StepPlanVidaContigo {
         scTusSeguros.ver_Detalle("Vida Contigo");
     }
 
-    public void descargar_manual(){
+    public void descargar_manual() throws Exception{
         scSeguroVehicular.descargarpdf();
     }
 

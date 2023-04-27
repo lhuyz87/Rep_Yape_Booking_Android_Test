@@ -20,7 +20,7 @@ public class DefMediosdePago {
     }
 
     @When("ingreso mis datos bancarios desde el tab de Pagos para suscribir mi tarjeta {string} , {string} y {string}")
-    public void ingresoMisDatosBancariosDesdeElTabDePagosParaSuscribirMiTarjetaY(String numTarjeta, String cvv, String fecha) {
+    public void ingresoMisDatosBancariosDesdeElTabDePagosParaSuscribirMiTarjetaY(String numTarjeta, String cvv, String fecha) throws Exception {
         stepAgregarMedioPago.irMedioPago_desde_perfil();
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
         stepAgregarMedioPago.volverDesdePerfil();
@@ -46,7 +46,7 @@ public class DefMediosdePago {
     }
 
     @When("ingreso mis datos bancarios desde afiliacion de tarjetas {string} , {string} y {string}")
-    public void ingresoMisDatosBancariosDesdeAfiliacionDeTarjetasY(String numTarjeta, String cvv, String fecha) {
+    public void ingresoMisDatosBancariosDesdeAfiliacionDeTarjetasY(String numTarjeta, String cvv, String fecha) throws Exception {
         stepAgregarMedioPago.irMedioPago_desde_perfil();
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
         stepAgregarMedioPago.volverDesdePerfil();

@@ -20,19 +20,18 @@ public class ScTuSesionExpiro extends BaseDriver {
     protected ObjTuSesionExpiro objTuSesionExpiro = ObjTuSesionExpiro.getInstancia();
     UtilApp util = new UtilApp();
     public void inactividad_del_modulo() {
-        util.esperarSegundos(5);
+        util.esperarSegundos(3);
+        androidDriver().activateApp("com.google.android.youtube");
         //androidDriver().activateApp("com.google.android.apps.maps");
-        //androidDriver().activateApp("com.rimac.rimac_surrogas.qa");
         //androidDriver().runAppInBackground(Duration.ofSeconds(10));
         //androidDriver().pressKey(new KeyEvent(AndroidKey.CAMERA));
         //androidDriver().pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
-        androidDriver().activateApp("com.android.chrome");
-        //androidDriver().pressKey(new KeyEvent(AndroidKey.MENU));
-        //androidDriver().pressKey(new KeyEvent(AndroidKey.CAMERA));
+       /* androidDriver().activateApp("com.android.chrome");
+        //androidDriver().pressKey(new KeyEvent(AndroidKey.MENU));*/
         androidDriver().rotate(ScreenOrientation.PORTRAIT);
         Serenity.takeScreenshot();
         int contadorMinutos=0;
-        while(contadorMinutos<16){
+        while(contadorMinutos<15){
             util.mobileSwipeScreenAndroid();
             util.esperarSegundos(30);
             util.mobileSwipeScreenAndroid();
@@ -40,16 +39,25 @@ public class ScTuSesionExpiro extends BaseDriver {
             System.out.println(contadorMinutos);
             contadorMinutos++;
         }
-        androidDriver().terminateApp("com.android.chrome");
+        util.esperarSegundos(3);
+        //androidDriver().terminateApp("com.android.chrome");
+        androidDriver().activateApp("com.rimac.rimac_surrogas.qa");
+        //androidDriver().terminateApp("com.android.chrome");
         //androidDriver().pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
+        Serenity.takeScreenshot();
         util.esperarSegundos(4);
        // androidDriver().pressKey(new KeyEvent(AndroidKey.ENTER));
         //androidDriver().pressKey(new KeyEvent(AndroidKey.ENTER));
         //element(objTuSesionExpiro.screen).click();
+
+
     }
 
     public void validacion_mensaje_TimeOut(){
         try{
+            if(element(objTuSesionExpiro.titTusesionExpiro).isCurrentlyVisible()==false){
+                util.mobileSwipeScreenAndroid();
+            }
             int contador=0;
             while(element(objTuSesionExpiro.titTusesionExpiro).isCurrentlyVisible()==false && contador<4){
                 util.esperarSegundos(1);

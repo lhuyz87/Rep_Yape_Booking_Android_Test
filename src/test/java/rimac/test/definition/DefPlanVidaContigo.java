@@ -14,7 +14,7 @@ public class DefPlanVidaContigo {
 
 
     @When("deseo conocer las caracteristicas de mi  seguro Vida Contigo")
-    public void deseoConocerLasCaracteristicasDeMiSeguroVidaContigo() {
+    public void deseoConocerLasCaracteristicasDeMiSeguroVidaContigo() throws Exception {
         stepPlanVidaContigo.ver_detalle_vida_contigo();
         stepPlanVidaContigo.descargar_manual();
     }

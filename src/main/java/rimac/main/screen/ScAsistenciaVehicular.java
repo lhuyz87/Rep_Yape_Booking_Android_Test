@@ -100,21 +100,57 @@ public class  ScAsistenciaVehicular extends BaseDriver {
         }
     }
 
-    public void selecciona_asistencia(String asistencia){
+    public void selecciona_asistencia_auxilio_mecanico(){
         try {
             util.esperarElemento(5,objAsistenciaVehicular.titQueNecesitas);
             util.esperarSegundos(2);
             int contador = 0;
-            while (element(objAsistenciaVehicular.btnAsistencia(asistencia)).isCurrentlyVisible() == false && contador < 7) {
+            while (element(objAsistenciaVehicular.btnAsistenciaAuxilio).isCurrentlyVisible() == false && contador < 7) {
                 util.mobileSwipeScreenAndroid();
                 contador++;
             }
-            element(objAsistenciaVehicular.btnAsistencia(asistencia)).click();
+            element(objAsistenciaVehicular.btnAsistenciaAuxilio).click();
             util.esperarElemento(20, objAsistenciaVehicular.btnContinuar);
             Serenity.takeScreenshot();
             element(objAsistenciaVehicular.btnContinuar).click();
         }catch(Exception e){
-            throw new IllegalAccessError("Error para seleccionar la asistencia:  "+asistencia);
+            throw new IllegalAccessError("Error para seleccionar la asistencia auxilio mecanico");
+        }
+    }
+
+    public void selecciona_asistencia_grua(){
+        try {
+            util.esperarElemento(5,objAsistenciaVehicular.titQueNecesitas);
+            util.esperarSegundos(2);
+            int contador = 0;
+            while (element(objAsistenciaVehicular.btnAsistenciaGrua).isCurrentlyVisible() == false && contador < 7) {
+                util.mobileSwipeScreenAndroid();
+                contador++;
+            }
+            element(objAsistenciaVehicular.btnAsistenciaGrua).click();
+            util.esperarElemento(20, objAsistenciaVehicular.btnContinuar);
+            Serenity.takeScreenshot();
+            element(objAsistenciaVehicular.btnContinuar).click();
+        }catch(Exception e){
+            throw new IllegalAccessError("Error para seleccionar la asistencia grua");
+        }
+    }
+
+    public void selecciona_asistencia_ayudame_elegir(){
+        try {
+            util.esperarElemento(5,objAsistenciaVehicular.titQueNecesitas);
+            util.esperarSegundos(2);
+            int contador = 0;
+            while (element(objAsistenciaVehicular.btnAyudameElegir).isCurrentlyVisible() == false && contador < 7) {
+                util.mobileSwipeScreenAndroid();
+                contador++;
+            }
+            element(objAsistenciaVehicular.btnAyudameElegir).click();
+            util.esperarElemento(20, objAsistenciaVehicular.btnContinuar);
+            Serenity.takeScreenshot();
+            element(objAsistenciaVehicular.btnContinuar).click();
+        }catch(Exception e){
+            throw new IllegalAccessError("Error para seleccionar la asistencia auxilio mecanico");
         }
     }
 

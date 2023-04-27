@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import org.openqa.selenium.html5.Location;
 import com.github.dockerjava.api.model.Driver;
 
 //import io.appium.java_client.AppiumDriver;
@@ -47,6 +48,8 @@ private long wdwTimeOut = 300L;
 	AppiumDriver driver;
 	
 	public void login(String dniUser, String passUser) {
+		Location location = new Location(-12.06110283453986, -77.03333258628847, 0);
+		androidDriver().setLocation(location);
 		looger.info("aplicación iniciada");
 		util.esperarElemento(20, objLogin.btnIngresarSesion);
 		element(objLogin.btnIngresarSesion).click();

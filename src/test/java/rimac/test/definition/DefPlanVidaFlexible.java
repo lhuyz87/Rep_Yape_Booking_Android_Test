@@ -14,7 +14,7 @@ public class DefPlanVidaFlexible {
     StepPlanVidaFlexible stepPlanVidaFlexible;
 
     @When("deseo conocer el detalle del estado de cuenta del {string} y del {string}")
-    public void deseoConocerElDetalleDelEstadoDeCuentaDelYDel(String anio, String mes) throws InterruptedException {
+    public void deseoConocerElDetalleDelEstadoDeCuentaDelYDel(String anio, String mes) throws Exception {
         stepPlanVidaFlexible.ver_detalle_vida_flexible();
         stepPlanVidaFlexible.ir_EstadoCuenta();
         stepPlanVidaFlexible.ingresarfecha(anio,mes);

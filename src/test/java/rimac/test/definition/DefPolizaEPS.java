@@ -17,7 +17,7 @@ public class DefPolizaEPS {
     }
 
     @And("se visualiza el numero de póliza del seguro")
-    public void seVisualizaElNumeroDePólizaDelSeguro() {
+    public void seVisualizaElNumeroDePólizaDelSeguro() throws Exception {
         stepConsultaPoliza.se_visuliza_el_numero_de_poliza();
     }
 

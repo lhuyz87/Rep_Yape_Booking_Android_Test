@@ -49,7 +49,7 @@ public class ScPerfil extends BaseDriver {
         }
     }
 
-    public void volverPerfil(){
+    public void volverPerfil() throws Exception{
         util.esperarElementoVisible(5,objCommons.btnVolver);
         Serenity.takeScreenshot();
         element(objCommons.btnVolver).click();

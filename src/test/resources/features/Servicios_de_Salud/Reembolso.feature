@@ -2,7 +2,7 @@
 @ModuloServiciosDeSalud_3_16
 Feature: Servicios de Salud - Reembolso
 
-  @reembolsoSaludSinBeneficiarioconCoberturadeMedicinas
+  @reembolsoSaludSinBeneficiarioDesdeMenuTramites
   Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas sin beneficiarios desde menu Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -21,7 +21,7 @@ Feature: Servicios de Salud - Reembolso
       | tipoID | id       | password  | productoContratante                         | lugarAtencion | tipoCobertura |
       | DNI    | 76243722 | Rimac2021 | AMC COLECTIVA FOLA - Citibank del peru s.a. | Lima          | Medicinas     |
 
-  @reembolsoSaludConBeneficiarioconCoberturadeMedicinas
+  @reembolsoSaludConBeneficiariosDesdeMenuTramites
   Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas con beneficiarios desde Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -41,7 +41,7 @@ Feature: Servicios de Salud - Reembolso
       | tipoID | id       | password  | productoContratante                | paciente                                 | lugarAtencion | tipoCobertura |
       | DNI    | 10392464 | Rimac2020 | PLANES MEDICOS EPS - Medifarma s a | Madueño Armacanque Herzop Myki - Titular | Lima          | Medicinas     |
 
-  @reembolsoOdontologicoConBeneficiario
+  @reembolsoOdontologicoDesdeMenuTramites
   Scenario Outline: Realizar solicitud de reembolso cliente con cobertura odontologica con beneficiarios desde menu Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -60,7 +60,7 @@ Feature: Servicios de Salud - Reembolso
       | tipoID | id       | password  | productoContratante                             | paciente                                   | lugarAtencion | tipoCobertura | tipoTratamiento |
       | DNI    | 70434801 | Rimac2020 | PLANES MEDICOS EPS - Rimac seguros y reaseguros | Armacanque Delvoy Yoshlin Heuver - Titular | Lima          | Odontología   | Ortodoncia      |
 
-  @reembolsoSaludSinBeneficiarioconCoberturaAmbulatoria
+  @reembolsoSaludSinBeneficiarioaDesdeMenuInicio
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde menu Inicio
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -82,7 +82,7 @@ Feature: Servicios de Salud - Reembolso
       | tipoID | id       | password  | productoContratante                         | lugarAtencion | tipoCobertura        |
       | DNI    | 76243722 | Rimac2021 | AMC COLECTIVA FOLA - Citibank del peru s.a. | Lima          | Atención ambulatoria |
 
-  @reembolsoSaludSinBeneficiarioconCoberturaHospitalaria
+  @reembolsoSaludSinBeneficiariosDesdeSeguros
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde detalle de seguro salud
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
