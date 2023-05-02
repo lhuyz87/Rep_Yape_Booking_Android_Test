@@ -232,6 +232,11 @@ private long wdwTimeOut = 300L;
 			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
 			util.esperarSegundos(2);
 			util.esperarElementoClick(5,tramitesObject.lblTramites);
+
+			Point startHorizontal= new Point((int)(dimension.width*0.9), (int)(dimension.height*0.27));
+			Point endHorizontal= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.27));
+			util.doSwipe(appiumDriver(), startHorizontal, endHorizontal, 500);
+
 			if(element(tramitesObject.opcVehicular).isCurrentlyVisible()){
 				element(tramitesObject.opcVehicular).click();
 			}
