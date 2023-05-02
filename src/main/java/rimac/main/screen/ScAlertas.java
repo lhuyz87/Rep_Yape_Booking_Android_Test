@@ -29,6 +29,9 @@ public class ScAlertas extends BaseDriver {
             if(element(objAlertas.btnEnteratePorAhoraNo).isCurrentlyVisible()){
                 element(objAlertas.btnEnteratePorAhoraNo).click();
             }
+            if(element(objAlertas.btnTalvezMasTarde).isCurrentlyVisible()){
+                element(objAlertas.btnTalvezMasTarde).click();
+            }
             if(element(objPaginaPrincipal.btnEmergencia).isCurrentlyVisible()){
                 contador++;
             }
