@@ -12,7 +12,7 @@ Feature: Consultas Vida - Plan Vida Flexible
 
     Examples:
       | tipoID | id       | password  | mes  | año  |
-      | DNI    | 10407982 | Rimac2021 | Mayo | 2022 |
+      | DNI    | 44926877 | Rimac2020 | Mayo | 2022 |
 
   @TiempoInactividadConsultasVida
   Scenario Outline: Esperar 15 min de inactividad en el modulo de Consultas Vida
@@ -25,4 +25,4 @@ Feature: Consultas Vida - Plan Vida Flexible
 
     Examples:
       | tipoID | id       | password  | mes  | año  |
-      | DNI    | 10407982 | Rimac2021 | Mayo | 2022 |
+      | DNI    | 44926877 | Rimac2020 | Mayo | 2022 |
