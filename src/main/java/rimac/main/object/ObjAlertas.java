@@ -75,6 +75,8 @@ public class ObjAlertas extends BaseDriver{
 
 	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/imgCloseEmail")
 	public WebElement btnCerrarEmail;
+	@AndroidFindBy(id ="bottom_sheet_negative_button")
+	public WebElement btnTalvezMasTarde;
 
 
 }
