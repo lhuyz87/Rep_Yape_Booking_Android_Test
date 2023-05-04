@@ -11,14 +11,11 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.util.SystemEnvironmentVariables;
+import rimac.main.object.*;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.UtilApp;
-import rimac.main.object.ObjReemDocCobertMedica;
-import rimac.main.object.ObjAlertas;
-import rimac.main.object.ObjDirectorio;
-import java.io.File;
-import rimac.main.object.ObjDocumentoComprobantes;
 
+import java.io.File;
 
 
 public class ScReemDocCobertMedica extends BaseDriver{
@@ -27,6 +24,8 @@ private long wdwTimeOut = 300L;
 	
 	protected ObjReemDocCobertMedica reemDocCobertMedicaObject = ObjReemDocCobertMedica.getInstancia();
 	protected ObjAlertas alertasObject = ObjAlertas.getInstancia();
+	protected ObjAlertas objAlertas=ObjAlertas.getInstancia();
+	protected ObjBuscadorDeClinicas objBuscadorDeClinicas= ObjBuscadorDeClinicas.getInstancia();
 	protected ObjDirectorio directorioObject = ObjDirectorio.getInstancia();
 	protected ObjDocumentoComprobantes documentoComprobantesObject = ObjDocumentoComprobantes.getInstancia();
 	// util
@@ -94,7 +93,19 @@ private long wdwTimeOut = 300L;
 		element(reemDocCobertMedicaObject.btnContinuar).click();
 		util.esperarSegundos(5);
 	}
-	
-	
-	
+
+
+	public void omitirOCR(){
+		int i=0;
+		while((element(objBuscadorDeClinicas.btnEntendidoLeerDoc).isCurrentlyVisible()) == false && i<15)
+		{
+			util.esperarSegundos(1);
+			i++;
+		}
+		element(objBuscadorDeClinicas.btnEntendidoLeerDoc).click();
+		System.out.println("Se realizo clic");
+
+	}
+
+
 }
