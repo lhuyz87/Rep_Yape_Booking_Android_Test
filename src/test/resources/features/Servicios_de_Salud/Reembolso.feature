@@ -57,8 +57,8 @@ Feature: Servicios de Salud - Reembolso
     And debe aparecer el monto del reembolso solicitado
 
     Examples:
-      | tipoID | id       | password  | productoContratante                             | paciente                                   | lugarAtencion | tipoCobertura | tipoTratamiento |
-      | DNI    | 70434801 | Rimac2020 | PLANES MEDICOS EPS - Rimac seguros y reaseguros | Armacanque Delvoy Yoshlin Heuver - Titular | Lima          | Odontología   | Ortodoncia      |
+      | tipoID | id       | password  | productoContratante                  | paciente                                   | lugarAtencion | tipoCobertura | tipoTratamiento |
+      | DNI    | 10392464 | Rimac2020 | PLANES MEDICOS EPS - Medifarma s a   | Madueño Armacanque Herzop Myki - Titular   |    Lima       | Odontología   | Ortodoncia      |
 
   @reembolsoSaludSinBeneficiarioaDesdeMenuInicio
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde menu Inicio

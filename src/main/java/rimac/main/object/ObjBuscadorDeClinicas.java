@@ -55,4 +55,6 @@ public class ObjBuscadorDeClinicas extends BaseDriver{
 
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
 	public WebElement btnContinuar;
+	@AndroidFindBy(xpath ="//*[@text='Entendido']")
+	public WebElement btnEntendidoLeerDoc;
 }
