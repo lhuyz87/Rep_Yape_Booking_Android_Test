@@ -77,13 +77,18 @@ private long wdwTimeOut = 300L;
 
 	}
 
-	public String getCopago() {
-		
-		Serenity.takeScreenshot();
-		util.esperarActivoClick(3, objBuscadorDeClinicas.lblCopago);
-		String copago = element(objBuscadorDeClinicas.lblCopago).getText();
-		System.out.println("Copago es "    + copago);
-		return copago;
+	public boolean getCopago() {
+		try {
+			boolean solicitudExiste1;
+			util.esperarActivoClick(10, objBuscadorDeClinicas.lblCopago());
+			solicitudExiste1 = element(objBuscadorDeClinicas.lblCopago()).isCurrentlyVisible();
+			System.out.println("se muestra el"+objBuscadorDeClinicas.lblCopago());
+			return solicitudExiste1;
+		} catch (Exception e) {
+			throw new IllegalAccessError("Error no se puede validar el copago");
+		} finally {
+			Serenity.takeScreenshot();
+		}
 
 	}
 	

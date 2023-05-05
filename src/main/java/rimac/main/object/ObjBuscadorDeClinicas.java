@@ -1,5 +1,6 @@
 package rimac.main.object;
 
+import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -40,10 +41,16 @@ public class ObjBuscadorDeClinicas extends BaseDriver{
 	
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/text_clinic_name")
 	public WebElement lblClinicaEncontra;
-	
+
+
+	public WebElement lblCopago() {
+		WebElement we_opcProblema1 = appiumDriver().findElement(AppiumBy.xpath("//*[@resource-id='com.rimac.rimac_surrogas.qa:id/container'][1]/android.widget.TextView[1]"));
+		return we_opcProblema1;
+	}
+	/*
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/text_price")
 	public WebElement lblCopago;
-
+    */
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/text_step_title")
 	public WebElement lblAntesdeComenzar;
 

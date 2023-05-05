@@ -39,7 +39,7 @@ public class StepBuscadorDeClinicas {
 		scBuscadorDeClinicas.ingresarNombreClinica(nomClinica);
 	}
 	
-	public String obtener_copago() {
+	public boolean obtener_copago() {
 		return scBuscadorDeClinicas.getCopago();
 	}
 	

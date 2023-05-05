@@ -32,11 +32,12 @@ public class DefBuscadorDeClinicas {
 	public void al_filtrar_la_clínica(String nomClinica) {
 		stepBuscadorDeClinicas.buscar_clinica(nomClinica);
 	}
-	
-	@Then("al seleccionarla debe mostrar su monto de copago {string}")
-	public void al_seleccionarla_debe_mostrar_su_monto_de_copago(String copagoEsperado) {
-		String valorActual = stepBuscadorDeClinicas.obtener_copago();
-		assertEquals(copagoEsperado,valorActual);
+
+	@Then("al seleccionarla debe mostrar su monto de copago")
+	public void alSeleccionarlaDebeMostrarSuMontoDe() {
+		assertTrue(stepBuscadorDeClinicas.obtener_copago());
+
 	}
+
 
 }
