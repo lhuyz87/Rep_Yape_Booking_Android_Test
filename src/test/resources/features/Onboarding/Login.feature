@@ -9,7 +9,7 @@ Feature: Onboarding - Login
       | tipoID | id       | password  |
       | DNI    | 70434801 | Rimac2020 |
 
-  @OlvidasteTuContrasenia @ModuloOnboardingFuncional_2_4
+  @OlvidasteTuContrasenia
   Scenario Outline: Recuperar contrasena - Validar que se permita registrar el password respondiendo preguntas
     Given se selecciona la opción ¿Olvidaste tu contraseña?
     And se ingresa el tipo y número de documento: "<tipoID>", "<id>"

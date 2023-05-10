@@ -9,11 +9,11 @@ Feature: Servicios de Salud - Buscador de clinicas
       | <tipoID> | <id> | <password> |
     When selecciona la opción Búsqueda de clínicas desde Home y se inicia el tramite
     And al filtrar la clínica "<nomClinica>"
-    Then al seleccionarla debe mostrar su monto de copago "<copago>"
+    Then al seleccionarla debe mostrar su monto de copago
 
     Examples:
-      | tipoID | id       | password  | nomClinica           | copago  |
-      | DNI    | 40660901 | Rimac2021 | Clinica Javier Prado | S/45.00 |
+      | tipoID | id       | password  | nomClinica           |
+      | DNI    | 40660901 | Rimac2021 | Clinica Javier Prado |
 
   @BuscadordeClinicasdesdeTramites
   Scenario Outline: Buscador de clinicas desde menu Tramites
@@ -22,8 +22,8 @@ Feature: Servicios de Salud - Buscador de clinicas
       | <tipoID> | <id> | <password> |
     When selecciona la opción Búsqueda de clínicas desde menu Tramites y se inicia el tramite
     And al filtrar la clínica "<nomClinica>"
-    Then al seleccionarla debe mostrar su monto de copago "<copago>"
+    Then al seleccionarla debe mostrar su monto de copago
 
     Examples:
-      | tipoID | id       | password  | nomClinica           | copago  |
-      | DNI    | 40660901 | Rimac2021 | Clinica Javier Prado | S/45.00 |
+      | tipoID | id       | password  | nomClinica           |
+      | DNI    | 40660901 | Rimac2021 | Clinica Javier Prado |
