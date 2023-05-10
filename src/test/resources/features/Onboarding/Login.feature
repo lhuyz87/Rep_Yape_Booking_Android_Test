@@ -7,7 +7,7 @@ Feature: Onboarding - Login
 
     Examples:
       | tipoID | id       | password  |
-      | DNI    | 70434801 | Rimac2020 |
+      | DNI    | 22093296 | Rimac2020 |
 
   @OlvidasteTuContrasenia
   Scenario Outline: Recuperar contrasena - Validar que se permita registrar el password respondiendo preguntas
