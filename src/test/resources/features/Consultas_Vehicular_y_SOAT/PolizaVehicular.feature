@@ -13,7 +13,7 @@
 
       Examples:
         | tipoID | id       | password  |
-        | DNI    | 25676942 | Rimac2021 |
+        | DNI    | 25676942 | Rimac2020 |
 
 
     @TiempoInactividadConsultaVehicularySoat
@@ -28,5 +28,5 @@
 
       Examples:
         | tipoID | id       | password  |
-        | DNI    | 25676942 | Rimac2021 |
+        | DNI    | 25676942 | Rimac2020 |
 

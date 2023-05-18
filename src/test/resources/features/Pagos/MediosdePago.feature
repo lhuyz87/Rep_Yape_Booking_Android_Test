@@ -33,7 +33,7 @@ Feature: Pagos - Medios de Pago
       Then debe mostrar el mensaje "Tarjeta afiliada con éxito"
       Examples:
         | tipoID | id       | password  | numtarjeta       | cvv | fecha |
-        | DNI    | 25676942 | Rimac2021 | 4474104525811674 | 111 | 03/28 |
+        | DNI    | 25676942 | Rimac2020 | 4474104525811674 | 111 | 03/28 |
 
     #@EliminarMedioPago
     #Scenario Outline: Eliminar un Medio de Pago a una poliza Vehicular
