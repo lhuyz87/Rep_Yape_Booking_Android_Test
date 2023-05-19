@@ -176,10 +176,12 @@ private long wdwTimeOut = 300L;
 			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
 			util.esperarSegundos(2);
 			util.esperarElementoClick(5,tramitesObject.lblTramites);
+
 			if(element(tramitesObject.opcSalud).isCurrentlyVisible()){
 				element(tramitesObject.opcSalud).click();
 			}
 			int contador=0;
+			util.doSwipe(appiumDriver(), start, end, 500);
 			while(element(tramitesObject.btnReembolsoSalud).isCurrentlyVisible()==false && contador<15) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 				if(element(tramitesObject.btnReembolsoSalud).isCurrentlyVisible()){
