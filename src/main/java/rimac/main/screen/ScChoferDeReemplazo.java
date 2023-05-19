@@ -218,35 +218,6 @@ public class ScChoferDeReemplazo extends BaseDriver{
 
     }
 
-    public void omitirAlertas(int intentos) throws Exception {
-        int contador=0;
-        int i=0;
-        while(i<intentos){
-            if(element(objAlertas.btnHuellaPorAhoraNo).isCurrentlyVisible()){
-                element(objAlertas.btnHuellaPorAhoraNo).click();
-            }
-            if(element(objAlertas.btnCerrarModal).isCurrentlyVisible()){
-                element(objAlertas.btnCerrarModal).click();
-            }
-            if(element(objAlertas.btnEnteratePorAhoraNo).isCurrentlyVisible()){
-                element(objAlertas.btnEnteratePorAhoraNo).click();
-            }
-            if(element(objAlertas.btnCerrarModal).isCurrentlyVisible()){
-                element(objAlertas.btnCerrarModal).click();
-            }
-            if(element(objAlertas.btnCerrarEmail).isCurrentlyVisible()){
-                element(objAlertas.btnCerrarEmail).click();
-            }
-            if(element(objPaginaPrincipal.btnEmergencia).isCurrentlyVisible()){
-                contador++;
-            }
-            i++;
-            util.esperarSegundos(1);
-            if(contador==3){
-                break;
-            }
-        }
-    }
 
     public boolean validacion_solicitud_chofer(String placa) {
         try {
@@ -261,9 +232,5 @@ public class ScChoferDeReemplazo extends BaseDriver{
             Serenity.takeScreenshot();
         }
     }
-
-
-
-
 
 }
