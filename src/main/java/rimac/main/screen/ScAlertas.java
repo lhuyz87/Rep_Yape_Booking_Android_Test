@@ -23,17 +23,17 @@ public class ScAlertas extends BaseDriver {
             if(element(objAlertas.btnCerrarEmail).isCurrentlyVisible()){
                 element(objAlertas.btnCerrarEmail).click();
             }
-            if(element(objAlertas.btnCerrarModalError).isCurrentlyVisible()){
-                element(objAlertas.btnCerrarModalError).click();
-            }
             if(element(objAlertas.btnHuellaPorAhoraNo).isCurrentlyVisible()){
                 element(objAlertas.btnHuellaPorAhoraNo).click();
+            }
+            if(element(objAlertas.btnEnteratePorAhoraNo).isCurrentlyVisible()){
+                element(objAlertas.btnEnteratePorAhoraNo).click();
             }
             if(element(objAlertas.btnCerrarModalInspeccion).isClickable()){
                 element(objAlertas.btnCerrarModalInspeccion).click();
             }
-            if(element(objAlertas.btnEnteratePorAhoraNo).isCurrentlyVisible()){
-                element(objAlertas.btnEnteratePorAhoraNo).click();
+            if(element(objAlertas.btnCerrarModalError).isCurrentlyVisible()){
+                element(objAlertas.btnCerrarModalError).click();
             }
             if(element(objPaginaPrincipal.btnEmergencia).isCurrentlyVisible()){
                 contador++;
