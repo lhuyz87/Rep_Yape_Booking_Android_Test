@@ -1,6 +1,7 @@
 package rimac.main.step;
 
 import net.thucydides.core.annotations.Steps;
+import rimac.main.screen.ScAlertas;
 import rimac.main.screen.ScChoferDeReemplazo;
 import rimac.main.screen.ScHome;
 import rimac.main.screen.ScTusTramites;
@@ -14,6 +15,8 @@ public class StepChoferDeReemplazo {
     ScTusTramites scTusTramites;
     @Steps
     ScChoferDeReemplazo scChoferDeReemplazo;
+    @Steps
+    ScAlertas scAlertas;
 
     public void se_ingresa_a_chofer_reemplazo_desde_tramites() throws Exception {
 
@@ -58,7 +61,7 @@ public class StepChoferDeReemplazo {
 
     public void retornarInicio() throws Exception {
         scChoferDeReemplazo.irAlInicio();
-        scChoferDeReemplazo.omitirAlertas(10);
+        scAlertas.omitirAlertas(10);
     }
 
     public boolean se_valida_solicitud_chofer(String placa) {
