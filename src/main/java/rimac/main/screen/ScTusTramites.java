@@ -18,13 +18,11 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.PushesFiles;
 import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.pages.PageObject;
-import rimac.main.object.ObjAlertas;
+import rimac.main.object.*;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilApp;
 import rimac.main.util.VariablesAppNativa;
-import rimac.main.object.ObjLogin;
-import rimac.main.object.ObjTramites;
 
 import static org.junit.Assert.assertFalse;
 
@@ -35,6 +33,8 @@ private long wdwTimeOut = 300L;
 	
 	protected ObjTramites tramitesObject = ObjTramites.getInstancia();
 	protected ObjAlertas objAlertas = ObjAlertas.getInstancia();
+	protected ObjPaginaPrincipal objPaginaPrincipal=ObjPaginaPrincipal.getInstancia();
+	protected ObjIniciarReembolsoSalud objIniciarReembolsoSalud= ObjIniciarReembolsoSalud.getInstancia();
 	protected MobileObjectUtil mobileObjectUtil = MobileObjectUtil.getInstancia();
 
 	// util
@@ -181,14 +181,21 @@ private long wdwTimeOut = 300L;
 				element(tramitesObject.opcSalud).click();
 			}
 			int contador=0;
-			util.doSwipe(appiumDriver(), start, end, 500);
-			while(element(tramitesObject.btnReembolsoSalud).isCurrentlyVisible()==false && contador<15) {
+			while(element(tramitesObject.btnReembolsoSalud).isCurrentlyVisible()==false && contador<8) {
 				util.doSwipe(appiumDriver(), start, end, 500);
-				if(element(tramitesObject.btnReembolsoSalud).isCurrentlyVisible()){
-					break;
-				}
 				contador++;
 			}
+			/*
+			int x1=tramitesObject.btnReembolsoSalud.getLocation().getX();
+			int y1=tramitesObject.btnReembolsoSalud.getLocation().getY();
+			int x2=objPaginaPrincipal.btnPerfil.getLocation().getX();
+			int y2=objPaginaPrincipal.btnPerfil.getLocation().getY();
+			if (x2 < x1 || (x2 == x1 && y2 < y1)) {
+				System.out.println("El elemento delante está visualmente por encima del elemento detrás.");
+				util.doSwipe(appiumDriver(), start, end, 500);
+			} else {
+				System.out.println("El elemento detrás está visualmente por encima del elemento delante.");
+			}*/
 			Serenity.takeScreenshot();
 			element(tramitesObject.btnReembolsoSalud).click();
 			util.esperarSegundos(2);
@@ -235,7 +242,7 @@ private long wdwTimeOut = 300L;
 			util.esperarSegundos(2);
 			util.esperarElementoClick(5,tramitesObject.lblTramites);
 
-			Point startHorizontal= new Point((int)(dimension.width*0.9), (int)(dimension.height*0.28));
+			Point startHorizontal= new Point((int)(dimension.width*0.85), (int)(dimension.height*0.28));
 			Point endHorizontal= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.28));
 			util.doSwipe(appiumDriver(), startHorizontal, endHorizontal, 1000);
 			util.esperarSegundos(1);
