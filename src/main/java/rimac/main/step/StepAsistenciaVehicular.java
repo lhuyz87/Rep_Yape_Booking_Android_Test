@@ -79,9 +79,9 @@ public class StepAsistenciaVehicular {
     public void se_valida_mensaje_de_inactividad(){
         scTuSesionExpiro.validacion_mensaje_TimeOut();
     }
-    public void retornarInicio() throws Exception {
+    public void retornarInicio() {
         scAsistenciaVehicular.irAlInicio();
-        scAlertas.omitirAlertas(13);
+        scAlertas.omitirAlertas(15);
     }
 
     public void seleccionar_ayuda_auxilio_mecanico(String opcion) throws Exception {
