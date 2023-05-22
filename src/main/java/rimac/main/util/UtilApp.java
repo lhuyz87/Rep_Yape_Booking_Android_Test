@@ -379,13 +379,10 @@ public class UtilApp  extends BaseDriver{
 	}
 	
 	
-	public static void doSwipe2(AppiumDriver driver, Point start, Point end, int duration) {
-        Sequence swipe = new Sequence(FINGER, 1)
-                .addAction(FINGER.createPointerMove(ofMillis(0), viewport(), start.getX(), start.getY()))
-                .addAction(FINGER.createPointerDown(LEFT.asArg()))
-                .addAction(FINGER.createPointerMove(ofMillis(duration), viewport(), end.getX(), end.getY()))
-                .addAction(FINGER.createPointerUp(LEFT.asArg()));
-        driver.perform(Arrays.asList(swipe));
+	public static void doSwipeCoordenadas(AppiumDriver driver, int startX, int startY, int endX, int endY, int duracion) {
+		Point startHorizontal= new Point(startX, startY);
+		Point endHorizontal= new Point(endX, endY);
+		doSwipe(driver, startHorizontal, endHorizontal, duracion);
     }
 	
 	
@@ -722,6 +719,7 @@ public class UtilApp  extends BaseDriver{
 			e.printStackTrace();
 		}
 	}
+
 
 
 }
