@@ -22,7 +22,7 @@ public class StepConsultaPoliza {
     public void selecciona_detalle_del_seguro_planes_medicos_eps(){
         schome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
-        scTusSeguros.ver_Detalle("Planes Médicos EPS");
+        scTusSeguros.ver_vetalle_Salud("Planes Médicos EPS");
     }
 
     public void se_visuliza_el_numero_de_poliza() throws Exception{

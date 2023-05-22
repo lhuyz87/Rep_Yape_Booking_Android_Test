@@ -83,7 +83,7 @@ public class StepReembolso {
 	public void ver_Detalle_Seguros(String seguro){
 		schome.seleccionarOpcionPrincipal("Seguros");
 		scTusSeguros.esperar_Tus_Seguros();
-		scTusSeguros.ver_Detalle(seguro);
+		scTusSeguros.ver_detalle_seguro(seguro);
 	}
 	public void seleccionar_seguro_desde_tus_Servicios(){
 		scServiciosTuSeguro.seleccionarServicio("Reembolso de salud");

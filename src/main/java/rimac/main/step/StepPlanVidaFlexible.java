@@ -22,7 +22,7 @@ public class StepPlanVidaFlexible {
         schome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
         scTusSeguros.seleccionarVida();
-        scTusSeguros.ver_Detalle("Plan Vida Flexible");
+        scTusSeguros.ver_detalle_Vida("Plan Vida Flexible");
     }
     public void ingresarfecha(String anio, String mes) throws InterruptedException {
         mes = new StringBuilder(mes.substring(0,3)).append(".").toString();

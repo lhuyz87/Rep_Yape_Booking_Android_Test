@@ -1,35 +1,16 @@
 package rimac.main.screen;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Logger;
 
-import org.openqa.selenium.By;
+import java.util.logging.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.interactions.Actions;
-
-import com.github.dockerjava.api.model.Driver;
-
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.PushesFiles;
-import io.appium.java_client.android.AndroidDriver;
-import net.serenitybdd.core.pages.PageObject;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilApp;
-import rimac.main.util.VariablesAppNativa;
-import rimac.main.object.ObjLogin;
-import rimac.main.object.ObjPaginaPrincipal;
-import rimac.main.screen.ScTusSeguros;
-import rimac.main.object.ObjAlertas;
 import rimac.main.object.ObjTusSeguros;
-
-
-import java.util.Date;
 import java.util.Timer;
-import java.util.TimerTask;
+
 
 public class ScTusSeguros extends BaseDriver{
 
@@ -70,7 +51,95 @@ public class ScTusSeguros extends BaseDriver{
 		element(objTusSeguros.btnVida).click();
 	}
 
-	public void ver_Detalle(String seguro){
+	public void ver_detalle_seguro(String seguro){
+		try {
+			int contador = 0;
+			while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
+				util.mobileSwipeScreenAndroid();
+				contador++;
+			}
+			element(objTusSeguros.opcSeguro(seguro)).click();
+		}catch(Exception e){
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.8));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.6));
+			util.doSwipe(appiumDriver(), start, end, 500);
+			element(objTusSeguros.opcSeguro(seguro)).click();
+		}
+	}
+	public void ver_detalle_Vehicular(String seguro){
+		try {
+			int contador = 0;
+			int xTodos=objTusSeguros.btnTodos.getLocation().getX();
+			int yTodos=objTusSeguros.btnTodos.getLocation().getY();
+			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
+
+			if(element(objTusSeguros.btnVehicular).isCurrentlyVisible()){
+				element(objTusSeguros.btnVehicular).click();
+			}
+				while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
+					util.mobileSwipeScreenAndroid();
+					contador++;
+				}
+			element(objTusSeguros.opcSeguro(seguro)).click();
+		}catch(Exception e){
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.8));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.6));
+			util.doSwipe(appiumDriver(), start, end, 500);
+			element(objTusSeguros.opcSeguro(seguro)).click();
+		}
+	}
+
+	public void ver_detalle_Vida(String seguro){
+		try {
+			int contador = 0;
+			int xTodos=objTusSeguros.btnTodos.getLocation().getX();
+			int yTodos=objTusSeguros.btnTodos.getLocation().getY();
+			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
+
+			if(element(objTusSeguros.btnVida).isCurrentlyVisible()){
+				element(objTusSeguros.btnVida).click();
+			}
+			while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
+				util.mobileSwipeScreenAndroid();
+				contador++;
+			}
+			element(objTusSeguros.opcSeguro(seguro)).click();
+		}catch(Exception e){
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.8));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.6));
+			util.doSwipe(appiumDriver(), start, end, 500);
+			element(objTusSeguros.opcSeguro(seguro)).click();
+		}
+	}
+
+	public void ver_vetalle_Salud(String seguro){
+		try {
+			int contador = 0;
+			int xTodos=objTusSeguros.btnTodos.getLocation().getX();
+			int yTodos=objTusSeguros.btnTodos.getLocation().getY();
+			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
+
+			if(element(objTusSeguros.btnVehicular).isCurrentlyVisible()){
+				element(objTusSeguros.btnVehicular).click();
+			}
+			while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
+				util.mobileSwipeScreenAndroid();
+				contador++;
+			}
+			element(objTusSeguros.opcSeguro(seguro)).click();
+		}catch(Exception e){
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.8));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.6));
+			util.doSwipe(appiumDriver(), start, end, 500);
+			element(objTusSeguros.opcSeguro(seguro)).click();
+		}
+	}
+
+	public void ver_vetalle_Soat(String seguro){
 		try {
 			int contador = 0;
 			int xTodos=objTusSeguros.btnTodos.getLocation().getX();
@@ -80,10 +149,10 @@ public class ScTusSeguros extends BaseDriver{
 			if(element(objTusSeguros.btnSOAT).isCurrentlyVisible()){
 				element(objTusSeguros.btnSOAT).click();
 			}
-				while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
-					util.mobileSwipeScreenAndroid();
-					contador++;
-				}
+			while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
+				util.mobileSwipeScreenAndroid();
+				contador++;
+			}
 			element(objTusSeguros.opcSeguro(seguro)).click();
 		}catch(Exception e){
 			Dimension dimension = appiumDriver().manage().window().getSize();

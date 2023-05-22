@@ -35,7 +35,7 @@ public class StepMediosdePago {
     public void irMedioPago_desde_tab_pagos(){
         scHome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
-        scTusSeguros.ver_Detalle("Seguro Vehicular");
+        scTusSeguros.ver_detalle_Vehicular("Seguro Vehicular");
         scTusSeguros.irPagos();
         scPagos.irMediosPago();
     }
@@ -92,7 +92,7 @@ public class StepMediosdePago {
     public void ver_detalle_SOAT(){
         scHome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
-        scTusSeguros.ver_Detalle("SOAT");
+        scTusSeguros.ver_vetalle_Soat("SOAT");
     }
 
     public void se_mantiene_la_inactividad_asistencia_vehicular() {

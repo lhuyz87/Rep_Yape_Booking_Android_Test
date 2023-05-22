@@ -14,7 +14,7 @@ public class DefPolizaVehicular {
 
     @When("se ingresa al detalle del Seguro Vehicular desde Seguros")
     public void seIngresaAlDetalleDelSeguroVehicularDesdeSeguros() {
-        stepPolizaVehicular.ver_Detalle_SegurosVehicular();
+        stepPolizaVehicular.ver_detalle_SegurosVehicular();
     }
 
     @And("al descargar la poliza Vehicular")
