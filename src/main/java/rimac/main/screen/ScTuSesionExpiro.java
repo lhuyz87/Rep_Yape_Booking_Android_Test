@@ -49,8 +49,6 @@ public class ScTuSesionExpiro extends BaseDriver {
        // androidDriver().pressKey(new KeyEvent(AndroidKey.ENTER));
         //androidDriver().pressKey(new KeyEvent(AndroidKey.ENTER));
         //element(objTuSesionExpiro.screen).click();
-
-
     }
 
     public void validacion_mensaje_TimeOut(){

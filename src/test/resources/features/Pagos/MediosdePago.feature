@@ -1,8 +1,8 @@
 #Author: Candy Espinoza
-@ModuloPagos_2_7
-Feature: Pagos - Medios de Pago
 
-   @SucripcionDesdePerfil
+Feature: Pagos
+
+   @SucripcionDesdePerfil @ModuloPagos_2_7
     Scenario Outline: Suscripcion de Tarjeta desde Mi perfil opcion medios de pagos
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -13,7 +13,7 @@ Feature: Pagos - Medios de Pago
          | tipoID | id       | password  | numtarjeta       | cvv | fecha |
          | DNI    | 29724303 | Rimac2021 | 4474104525811674 | 111 | 03/28 |
 
-    @SucripcionDesdePagos
+    @SucripcionDesdePagos @ModuloPagos_2_7
     Scenario Outline: Suscripcion de Tarjeta desde Tap de Pagos opcion medios de pagos
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -24,7 +24,7 @@ Feature: Pagos - Medios de Pago
         | tipoID | id       | password  | numtarjeta       | cvv | fecha |
         | DNI    | 29724303 | Rimac2021 | 4474104525811674 | 111 | 03/28 |
 
-    @SucripcionDesdeAfiliacion
+    @SucripcionDesdeAfiliacion @ModuloPagos_2_7
     Scenario Outline: Suscripcion de Tarjetas desde la Afiliacion
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -45,6 +45,18 @@ Feature: Pagos - Medios de Pago
     #  Examples:
     #    | tipoID | id       | password  | numtarjeta       | cvv | fecha |
     #    | DNI    | 23977057 | Rimac2020 | 4474118355632240 | 111 | 03/28 |
+
+    @TiempoInactividadPagos
+    Scenario Outline: Esperar 15 min de inactividad en el modulo de pagos
+      Given realiza el login con credenciales
+        | tipoID   | id   | password   |
+        | <tipoID> | <id> | <password> |
+      When se ingresa al detalle del Seguro SOAT desde Seguros
+      And se mantiene inactivo el módulo en el tab de pagos
+      Then se valida el mensaje para retornar al Login desde el módulo de pagos
+      Examples:
+        | tipoID | id       | password  |
+        | DNI    | 44926877 | Rimac2020 |
 
 
 

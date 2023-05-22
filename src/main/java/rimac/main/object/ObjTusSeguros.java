@@ -36,7 +36,7 @@ public class ObjTusSeguros extends BaseDriver{
 	public WebElement btnDetalleSeguro;
 
 	public WebElement opcSeguro(String seguro) {
-		WebElement we_opcSeguro = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+seguro+"'][1]//parent::android.widget.LinearLayout//following-sibling::android.widget.Button[@text='Ver detalle']"));
+		WebElement we_opcSeguro = appiumDriver().findElement(AppiumBy.xpath("(//*[@text='"+seguro+"']//parent::android.widget.LinearLayout//following-sibling::android.widget.Button[@text='Ver detalle'])[1]"));
 		return we_opcSeguro;
 	}
 
@@ -47,6 +47,12 @@ public class ObjTusSeguros extends BaseDriver{
 
 	@AndroidFindBy(xpath = "//*[@text='Tus seguros']")
 	public WebElement lblTusSeguros;
+
+	@AndroidFindBy(xpath = "//android.widget.CompoundButton[@text='Todos']")
+	public WebElement btnTodos;
+
+	@AndroidFindBy(xpath = "//android.widget.CompoundButton[@text='SOAT']")
+	public WebElement btnSOAT;
 
 	@AndroidFindBy(xpath = "//android.widget.CompoundButton[@text='Vida']")
 	public WebElement btnVida;

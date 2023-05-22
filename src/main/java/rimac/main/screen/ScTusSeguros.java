@@ -73,7 +73,14 @@ public class ScTusSeguros extends BaseDriver{
 	public void ver_Detalle(String seguro){
 		try {
 			int contador = 0;
-				while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 5) {
+			int xTodos=objTusSeguros.btnTodos.getLocation().getX();
+			int yTodos=objTusSeguros.btnTodos.getLocation().getY();
+			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
+
+			if(element(objTusSeguros.btnSOAT).isCurrentlyVisible()){
+				element(objTusSeguros.btnSOAT).click();
+			}
+				while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
 					util.mobileSwipeScreenAndroid();
 					contador++;
 				}

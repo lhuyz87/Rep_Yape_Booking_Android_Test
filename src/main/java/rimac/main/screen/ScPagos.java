@@ -69,4 +69,17 @@ public class ScPagos extends BaseDriver {
         new WebDriverWait(androidDriver(), Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOf(objAfiliarPago.lblAfiliarPago));
     }
+
+    public void irHistorialPagos(){
+        util.esperarElemento(4,objPagos.lblMetodoPago);
+        int contador=0;
+        Dimension dimension = appiumDriver().manage().window().getSize();
+        Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.9));
+        Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+        while(element(objPagos.lnkAfiliarTarjeta).isCurrentlyVisible()==false && contador<4){
+            util.doSwipe(appiumDriver(), start, end, 1000);
+            contador++;
+        }
+        element(objPagos.btnHistorialPagos).click();
+    }
 }

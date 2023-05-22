@@ -1,5 +1,6 @@
 package rimac.main.screen;
 
+import net.serenitybdd.core.Serenity;
 import rimac.main.object.ObjEligeTuPlan;
 import rimac.main.object.ObjSoatDosMinutos;
 import rimac.main.util.BaseDriver;
@@ -31,6 +32,18 @@ public class ScEligePlan extends BaseDriver {
             util.mobileSwipeScreenAndroidFinal();
             contador++;
         }
+        element(objEligeTuPlan.btnContinuar).click();
+    }
+
+    public void planVial(){
+        int contador=0;
+        util.esperarElemento(5,objEligeTuPlan.btnVial);
+        element(objEligeTuPlan.btnVial).click();
+        while(element(objEligeTuPlan.btnContinuar).isCurrentlyVisible()==false && contador<6){
+            util.mobileSwipeScreenAndroidFinal();
+            contador++;
+        }
+        Serenity.takeScreenshot();
         element(objEligeTuPlan.btnContinuar).click();
     }
 

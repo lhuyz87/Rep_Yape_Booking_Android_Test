@@ -16,7 +16,14 @@ public class StepMediosdePago {
     ScMediosDePago scMediosDePago;
     @Steps
     ScPagos scPagos;
+    @Steps
+    ScConsultaTusPagos scConsultaTusPagos;
+    @Steps
+    ScTuSesionExpiro scTuSesionExpiro;
 
+    public void selecciona_TabPagos() {
+        scTusSeguros.irPagos();
+    }
     public void irMedioPago_desde_perfil(){
         scHome.seleccionarOpcionPrincipal("Perfil");
         scPerfil.irMediosDePago();
@@ -70,5 +77,28 @@ public class StepMediosdePago {
     }
     public void iraPagos(){
         scMediosDePago.irPagos();
+    }
+
+    public void selecciona_HistorialPago() {
+        scPagos.irHistorialPagos();
+    }
+    public void descargar_historial(){
+        scConsultaTusPagos.descargar_historial();
+    }
+    public boolean validar_historial(){
+        return scConsultaTusPagos.validacion_pdf();
+    }
+
+    public void ver_detalle_SOAT(){
+        scHome.seleccionarOpcionPrincipal("Seguros");
+        scTusSeguros.esperar_Tus_Seguros();
+        scTusSeguros.ver_Detalle("SOAT");
+    }
+
+    public void se_mantiene_la_inactividad_asistencia_vehicular() {
+        scTuSesionExpiro.inactividad_del_modulo();
+    }
+    public void se_valida_mensaje_de_inactividad(){
+        scTuSesionExpiro.validacion_mensaje_TimeOut();
     }
 }

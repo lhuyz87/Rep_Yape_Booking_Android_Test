@@ -1,5 +1,6 @@
 package rimac.test.definition;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
@@ -58,5 +59,34 @@ public class DefMediosdePago {
     public void debeMostrarElMensaje(String mensaje) {
         assertEquals(mensaje,stepAgregarMedioPago.validarMensajeAfiliacion());
         stepAgregarMedioPago.iraPagos();
+    }
+
+    @And("descargo el historial desde el tab de pagos")
+    public void descargoElHistorialDesdeElTabDePagos() {
+        stepAgregarMedioPago.selecciona_TabPagos();
+        stepAgregarMedioPago.selecciona_HistorialPago();
+        stepAgregarMedioPago.descargar_historial();
+    }
+
+    @Then("debe mostrar el pdf con el historial de pagos")
+    public void debeMostrarElPdfConElHistorialDePagos() {
+        assertTrue(stepAgregarMedioPago.validar_historial());
+    }
+
+    @When("se ingresa al detalle del Seguro SOAT desde Seguros")
+    public void seIngresaAlDetalleDelSeguroSOATDesdeSeguros() {
+        stepAgregarMedioPago.ver_detalle_SOAT();
+        
+    }
+
+    @And("se mantiene inactivo el módulo en el tab de pagos")
+    public void seMantieneInactivoElMóduloEnElTabDePagos() {
+        stepAgregarMedioPago.selecciona_TabPagos();
+        stepAgregarMedioPago.se_mantiene_la_inactividad_asistencia_vehicular();
+    }
+
+    @Then("se valida el mensaje para retornar al Login desde el módulo de pagos")
+    public void seValidaElMensajeParaRetornarAlLoginDesdeElMóduloDePagos() {
+        stepAgregarMedioPago.se_valida_mensaje_de_inactividad();
     }
 }
