@@ -37,5 +37,7 @@ public class ObjEligeTuPlan extends BaseDriver {
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/soatRenewalCheckElectronicPolicy")
     public WebElement rdbEnvioPoliza;
 
+    @AndroidFindBy(xpath = "//*[@text='Vial']")
+    public WebElement btnVial;
 
 }

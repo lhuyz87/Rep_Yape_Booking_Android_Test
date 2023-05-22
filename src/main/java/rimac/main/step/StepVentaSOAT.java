@@ -16,9 +16,12 @@ public class StepVentaSOAT {
     ScPagoConTarjeta scPagaConTarjeta;
     @Steps
     ScPerfil scPerfil;
+    @Steps
+    ScMediosDePago scMediosDePago;
+    @Steps
+    ScTuSesionExpiro scTuSesionExpiro;
 
-    public void irTiendaDesdePerfil() throws Exception {
-        scPerfil.volverPerfil();
+    public void seleccionarTienda() throws Exception {
         schome.seleccionarOpcionPrincipal("Tienda");
     }
 
@@ -34,9 +37,13 @@ public class StepVentaSOAT {
         scEligePlan.ingresarPlaca(placa1,placa2,placa3,placa4,placa5,placa6);
     }
 
-    public void eligePlan() throws Exception{
+    public void eligePlanDigital() throws Exception{
         scEligePlan.planDigital();
         scEligePlan.validaPlan();
+    }
+
+    public void eligePlanVial() throws Exception{
+        scEligePlan.planVial();
     }
 
     public void agregarTarjeta(String numtarjeta, String cvv, String fecha){
@@ -57,5 +64,21 @@ public class StepVentaSOAT {
 
     public void finalizarOperacion() throws Exception{
         scPagaConTarjeta.finalizarOperacion();
+    }
+    public void irMedioPago_desde_perfil(){
+            schome.seleccionarOpcionPrincipal("Perfil");
+            scPerfil.irMediosDePago();
+    }
+    public void eliminarTarjeta(String numTarjeta){
+        scMediosDePago.eliminarTarjeta(numTarjeta);
+    }
+    public void volverDesdePerfil() throws Exception {
+        scPerfil.volverPerfil();
+    }
+    public void se_mantiene_la_inactividad_asistencia_vehicular() {
+        scTuSesionExpiro.inactividad_del_modulo();
+    }
+    public void se_valida_mensaje_de_inactividad(){
+        scTuSesionExpiro.validacion_mensaje_TimeOut();
     }
 }
