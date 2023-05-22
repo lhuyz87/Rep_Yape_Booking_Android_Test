@@ -122,8 +122,8 @@ public class ScTusSeguros extends BaseDriver{
 			int yTodos=objTusSeguros.btnTodos.getLocation().getY();
 			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
 
-			if(element(objTusSeguros.btnVehicular).isCurrentlyVisible()){
-				element(objTusSeguros.btnVehicular).click();
+			if(element(objTusSeguros.btnSalud).isCurrentlyVisible()){
+				element(objTusSeguros.btnSalud).click();
 			}
 			while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
 				util.mobileSwipeScreenAndroid();
