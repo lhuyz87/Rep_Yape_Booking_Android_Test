@@ -7,6 +7,8 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import rimac.main.object.ObjTramites;
 import rimac.main.util.BaseDriver;
 
+import java.util.List;
+
 public class ObjTramites extends BaseDriver{
 	
 	// singleton
@@ -33,6 +35,9 @@ public class ObjTramites extends BaseDriver{
 	
 	@AndroidFindBy(xpath = "//*[@text='Reembolso de salud']//parent::android.view.ViewGroup//following-sibling::android.widget.ImageView")
 	public WebElement btnReembolsoSalud;
+
+	@AndroidFindBy(xpath = "//*[@text='Reembolso de salud']//parent::android.view.ViewGroup//following-sibling::android.widget.ImageView")
+	public List btnReembolsoSaludlist;
 
 	@AndroidFindBy(xpath = "//*[@text='Reembolso de salud']")
 	public WebElement opcReembolsoSalud;

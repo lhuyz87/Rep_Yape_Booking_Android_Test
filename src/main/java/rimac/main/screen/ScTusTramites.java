@@ -32,7 +32,7 @@ public class ScTusTramites extends BaseDriver{
 private long wdwTimeOut = 300L;
 	
 	protected ObjTramites tramitesObject = ObjTramites.getInstancia();
-	protected ObjAlertas objAlertas = ObjAlertas.getInstancia();
+	protected ObjCommons objCommons = ObjCommons.getInstancia();
 	protected ObjPaginaPrincipal objPaginaPrincipal=ObjPaginaPrincipal.getInstancia();
 	protected ObjIniciarReembolsoSalud objIniciarReembolsoSalud= ObjIniciarReembolsoSalud.getInstancia();
 	protected MobileObjectUtil mobileObjectUtil = MobileObjectUtil.getInstancia();
@@ -177,6 +177,9 @@ private long wdwTimeOut = 300L;
 			util.esperarSegundos(2);
 			util.esperarElementoClick(5,tramitesObject.lblTramites);
 
+			int xTodos=objCommons.btnTodos.getLocation().getX();
+			int yTodos=objCommons.btnTodos.getLocation().getY();
+			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
 			if(element(tramitesObject.opcSalud).isCurrentlyVisible()){
 				element(tramitesObject.opcSalud).click();
 			}
@@ -185,17 +188,13 @@ private long wdwTimeOut = 300L;
 				util.doSwipe(appiumDriver(), start, end, 500);
 				contador++;
 			}
-			/*
-			int x1=tramitesObject.btnReembolsoSalud.getLocation().getX();
-			int y1=tramitesObject.btnReembolsoSalud.getLocation().getY();
-			int x2=objPaginaPrincipal.btnPerfil.getLocation().getX();
-			int y2=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if (x2 < x1 || (x2 == x1 && y2 < y1)) {
-				System.out.println("El elemento delante está visualmente por encima del elemento detrás.");
+
+			int ybtnReembolso=tramitesObject.btnReembolsoSalud.getLocation().getY();
+			int ybtnPerfil=tramitesObject.btnReembolsoSalud.getLocation().getY();
+			if ((ybtnPerfil-150) < ybtnReembolso) {
 				util.doSwipe(appiumDriver(), start, end, 500);
-			} else {
-				System.out.println("El elemento detrás está visualmente por encima del elemento delante.");
-			}*/
+			}
+
 			Serenity.takeScreenshot();
 			element(tramitesObject.btnReembolsoSalud).click();
 			util.esperarSegundos(2);
@@ -213,6 +212,10 @@ private long wdwTimeOut = 300L;
 			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
 			util.esperarSegundos(2);
 			util.esperarElementoClick(5,tramitesObject.lblTramites);
+
+			int xTodos=objCommons.btnTodos.getLocation().getX();
+			int yTodos=objCommons.btnTodos.getLocation().getY();
+			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
 			if(element(tramitesObject.opcSalud).isCurrentlyVisible()){
 				element(tramitesObject.opcSalud).click();
 			}
@@ -225,6 +228,11 @@ private long wdwTimeOut = 300L;
 				contador++;
 			}
 			Serenity.takeScreenshot();
+			int ybtnReembolso=tramitesObject.btnBuscarClinica.getLocation().getY();
+			int ybtnPerfil=tramitesObject.btnBuscarClinica.getLocation().getY();
+			if ((ybtnPerfil-150) < ybtnReembolso) {
+				util.doSwipe(appiumDriver(), start, end, 500);
+			}
 			element(tramitesObject.btnBuscarClinica).click();
 			util.esperarSegundos(2);
 		}
@@ -242,9 +250,9 @@ private long wdwTimeOut = 300L;
 			util.esperarSegundos(2);
 			util.esperarElementoClick(5,tramitesObject.lblTramites);
 
-			Point startHorizontal= new Point((int)(dimension.width*0.85), (int)(dimension.height*0.28));
-			Point endHorizontal= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.28));
-			util.doSwipe(appiumDriver(), startHorizontal, endHorizontal, 1000);
+			int xTodos=objCommons.btnTodos.getLocation().getX();
+			int yTodos=objCommons.btnTodos.getLocation().getY();
+			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
 			util.esperarSegundos(1);
 
 			if(element(tramitesObject.opcVehicular).isCurrentlyVisible()){
@@ -257,6 +265,11 @@ private long wdwTimeOut = 300L;
 					break;
 				}
 				contador++;
+			}
+			int ybtnReembolso=tramitesObject.btnAsisVehiculares.getLocation().getY();
+			int ybtnPerfil=tramitesObject.btnAsisVehiculares.getLocation().getY();
+			if ((ybtnPerfil-150) < ybtnReembolso) {
+				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();
 			element(tramitesObject.btnAsisVehiculares).click();
