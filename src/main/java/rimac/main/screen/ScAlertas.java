@@ -17,27 +17,30 @@ public class ScAlertas extends BaseDriver {
         int contador=0;
         int i=0;
         while(i<intentos){
-            if(element(objAlertas.btnHuellaPorAhoraNo).isCurrentlyVisible()){
-                element(objAlertas.btnHuellaPorAhoraNo).click();
-            }
-            if(element(objAlertas.btnCerrarModal).isClickable()){
-                element(objAlertas.btnCerrarModal).click();
+            if(element(objAlertas.btnTalvezMasTarde).isCurrentlyVisible()){
+                element(objAlertas.btnTalvezMasTarde).click();
             }
             if(element(objAlertas.btnCerrarEmail).isCurrentlyVisible()){
                 element(objAlertas.btnCerrarEmail).click();
             }
+            if(element(objAlertas.btnHuellaPorAhoraNo).isCurrentlyVisible()){
+                element(objAlertas.btnHuellaPorAhoraNo).click();
+            }
             if(element(objAlertas.btnEnteratePorAhoraNo).isCurrentlyVisible()){
                 element(objAlertas.btnEnteratePorAhoraNo).click();
             }
-            if(element(objAlertas.btnTalvezMasTarde).isCurrentlyVisible()){
-                element(objAlertas.btnTalvezMasTarde).click();
+            if(element(objAlertas.btnCerrarModalInspeccion).isClickable()){
+                element(objAlertas.btnCerrarModalInspeccion).click();
+            }
+            if(element(objAlertas.btnCerrarModalError).isCurrentlyVisible()){
+                element(objAlertas.btnCerrarModalError).click();
             }
             if(element(objPaginaPrincipal.btnEmergencia).isCurrentlyVisible()){
                 contador++;
             }
             i++;
             util.esperarSegundos(1);
-            if(contador==5){
+            if(contador==3){
                 break;
             }
         }
