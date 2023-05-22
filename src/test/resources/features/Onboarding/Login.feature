@@ -1,7 +1,7 @@
 #Author: your.email@your.domain.com
 Feature: Onboarding - Login
 
-  @Login @ModuloOnboardingFuncional_2_4
+  @Login @ModuloOnboardingFuncional_1_4
   Scenario Outline: Realizar Login Exitoso en Mundo Rimac
     Given realiza el login con credenciales "<tipoID>", "<id>" y "<password>"
 
