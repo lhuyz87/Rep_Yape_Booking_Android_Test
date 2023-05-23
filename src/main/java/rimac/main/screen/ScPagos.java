@@ -75,8 +75,8 @@ public class ScPagos extends BaseDriver {
         int contador=0;
         Dimension dimension = appiumDriver().manage().window().getSize();
         Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.9));
-        Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
-        while(element(objPagos.lnkAfiliarTarjeta).isCurrentlyVisible()==false && contador<4){
+        Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.1));
+        while(element(objPagos.btnHistorialPagos).isCurrentlyVisible()==false && contador<4){
             util.doSwipe(appiumDriver(), start, end, 1000);
             contador++;
         }
