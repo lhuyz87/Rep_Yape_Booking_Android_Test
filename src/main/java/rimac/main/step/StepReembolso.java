@@ -64,6 +64,9 @@ public class StepReembolso {
 	@Steps
 	ScAlertas scAlertas;
 
+	@Steps
+	ScTuSesionExpiro scTuSesionExpiro;
+
 	StepReembolso() {
 		Random randomObj = new Random();
 		Variables objVariables = new Variables();
@@ -247,4 +250,12 @@ public class StepReembolso {
 		return schome.getMontoReembolso(monto);
 	}
 
+	public void se_mantiene_inactivo_en_serviciosalud() {
+		scTuSesionExpiro.inactividad_del_modulo();
+
+	}
+
+	public void se_valida_mensaje_de_inactividad_desde_reembolso() {
+		scTuSesionExpiro.validacion_mensaje_TimeOut();
+	}
 }
