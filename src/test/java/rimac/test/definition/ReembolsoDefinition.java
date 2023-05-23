@@ -172,4 +172,13 @@ public class ReembolsoDefinition {
 	}
 
 
+	@And("se mantiene inactivo en la sección servicios de salud")
+	public void seMantieneInactivoEnLaSecciónServiciosDeSalud() {
+		stepReembolso.se_mantiene_inactivo_en_serviciosalud();
+	}
+
+	@Then("debe validar el mensaje para retornar al Login desde reembolso")
+	public void debeValidarElMensajeParaRetornarAlLoginDesdeReembolso() {
+		stepReembolso.se_valida_mensaje_de_inactividad_desde_reembolso();
+	}
 }

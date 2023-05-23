@@ -64,4 +64,9 @@ public class ScPerfil extends BaseDriver {
         element(objPerfil.btnCerrarSesion).click();
     }
 
+    public void miInformacion() throws Exception {
+        util.esperarElementoVisible(5,objPerfil.btnMiInformacion);
+        Serenity.takeScreenshot();
+        element(objPerfil.btnMiInformacion).click();
+    }
 }

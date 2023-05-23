@@ -36,4 +36,7 @@ public class ObjPerfil extends BaseDriver {
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
     public WebElement btnCerrarSesion;
 
+    @AndroidFindBy(xpath = "//*[@text='Mi información']")
+    public WebElement btnMiInformacion;
+
 }

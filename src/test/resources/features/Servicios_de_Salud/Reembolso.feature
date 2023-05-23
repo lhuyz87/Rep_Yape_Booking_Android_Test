@@ -100,6 +100,28 @@ Feature: Servicios de Salud - Reembolso
       | DNI    | 76243722 | Rimac2021 | Amc Colectiva Fola | AMC COLECTIVA FOLA - Citibank del peru s.a. | Lima          | Hospitalario  |
 
 
+  @TiempoInactividadServiciodeSalud
+  Scenario Outline: Esperar 15 min de inactividad en el modulo Servicio de salud
+    Given realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
+    When se ingresa a Reembolso de Salud desde Tramites y se inicia el tramite
+    And se registra los datos del reembolso sin beneficiario con tipo de cobertura
+      | productoContratante   | lugarAtencion   | tipoCobertura   |
+      | <productoContratante> | <lugarAtencion> | <tipoCobertura> |
+    And registra sus datos de contacto
+    And adjuntamos los documentos y comprobantes del reembolso con tipo de cobertura "<tipoCobertura>"
+    Then debe aparecer el mensaje: "Solicitud de reembolso recibida"
+    When se ingresa al Seguimiento de Reembolso de Salud desde Tramites
+    And se mantiene inactivo en la sección servicios de salud
+    Then debe validar el mensaje para retornar al Login desde reembolso
+
+    Examples:
+      | tipoID | id       | password  | productoContratante                          | lugarAtencion | tipoCobertura |
+      | DNI    | 76243722 | Rimac2021 | AMC COLECTIVA FOLA - Citibank del peru s.a.  | Lima          | Medicinas     |
+
+
+
   ##Scenario Outline: Realizar el Seguimiento de Reembolso de Salud desde Tramites
     ##Given realiza el login con credenciales
     ##  | tipoID   | id   | password   |
