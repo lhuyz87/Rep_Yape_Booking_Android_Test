@@ -190,7 +190,7 @@ private long wdwTimeOut = 300L;
 			}
 
 			int ybtnReembolso=tramitesObject.btnReembolsoSalud.getLocation().getY();
-			int ybtnPerfil=tramitesObject.btnReembolsoSalud.getLocation().getY();
+			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
 			if ((ybtnPerfil-150) < ybtnReembolso) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
@@ -267,7 +267,7 @@ private long wdwTimeOut = 300L;
 				contador++;
 			}
 			int ybtnReembolso=tramitesObject.btnAsisVehiculares.getLocation().getY();
-			int ybtnPerfil=tramitesObject.btnAsisVehiculares.getLocation().getY();
+			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
 			if ((ybtnPerfil-150) < ybtnReembolso) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
