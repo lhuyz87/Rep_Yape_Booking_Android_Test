@@ -139,7 +139,7 @@ public class StepReembolso {
 				}
 				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
 
-				//scReemDocCobertMedica.omitirOCR();
+				scReemDocCobertMedica.omitirOCR();
 
 				scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
 				scReemDocCobertMedica.adjuntarFotoArchivo();
@@ -160,7 +160,7 @@ public class StepReembolso {
 					scReemDocCobertMedica.subirArchivo();
 				}
 				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
-			   //scReemDocCobertMedica.omitirOCR();
+			   scReemDocCobertMedica.omitirOCR();
 				scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
 			    scReemDocCobertMedica.subirDocumentos();
 				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
@@ -179,7 +179,7 @@ public class StepReembolso {
 					scReemDocCobertMedica.subirArchivo();
 				}
 				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
-				//scReemDocCobertMedica.omitirOCR();
+				scReemDocCobertMedica.omitirOCR();
 				scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
 				scReemDocCobertMedica.adjuntarFotoArchivo();
 				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
