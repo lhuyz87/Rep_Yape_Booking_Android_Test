@@ -65,4 +65,29 @@ public class ObjTusSeguros extends BaseDriver{
 	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Pagos\"]")
 	public WebElement btnPagos;
 
+	@AndroidFindBy(xpath = "//*[@text='Seguro Vehicular']")
+	public WebElement titSeguroVehicular;
+
+	public WebElement btnPlacaSeg2(String placa) {
+		WebElement we_tnPlacaSeg = appiumDriver().findElement(AppiumBy.xpath("//*[@text='Placa: "+placa+"']"));
+		return we_tnPlacaSeg;
+	}
+
+	public WebElement btnPlacaSeg(String placa) {
+
+		String matriculaLetras=placa.substring(0,3);
+		String matriculaNumeros=placa.substring(3,6);
+
+		WebElement we_tnPlacaSeg = appiumDriver().findElement(AppiumBy.xpath("//*[@text='Placa: "+matriculaLetras+"-"+matriculaNumeros+"']"));
+		return we_tnPlacaSeg;
+	}
+
+	@AndroidFindBy(xpath = "//*[@text='Ver detalle']")
+	public WebElement btnVerDetallePlaca;
+
+	@AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Retroceder\"]")
+	public WebElement tbSeguroVehicular;
+
+
+
 }

@@ -35,16 +35,23 @@ Feature: Pagos
         | tipoID | id       | password  | numtarjeta       | cvv | fecha |
         | DNI    | 25676942 | Rimac2020 | 4474104525811674 | 111 | 03/28 |
 
-    #@EliminarMedioPago
-    #Scenario Outline: Eliminar un Medio de Pago a una poliza Vehicular
-    #  Given realiza el login con credenciales
-    #    | tipoID   | id   | password   |
-    #    | <tipoID> | <id>     | <password> |
-    #  When realizo la eliminacion de la tarjeta "<numtarjeta>" , "<cvv>" y "<fecha>"
-    #  Then se debe eliminar la tarjeta "<numtarjeta>" de Mis Tarjetas
-    #  Examples:
-    #    | tipoID | id       | password  | numtarjeta       | cvv | fecha |
-    #    | DNI    | 23977057 | Rimac2020 | 4474118355632240 | 111 | 03/28 |
+
+  @SucripcionDesdeOpcionPagar
+    Scenario Outline: Suscripcion de Tarjetas desde la Opcion Pagar, agregar nueva Tarjeta
+      Given realiza el login con credenciales
+        | tipoID   | id   | password   |
+        | <tipoID> | <id> | <password> |
+      When se ingresa a Seguro Vehicular desde Seguros y se inicia el tramite "<placa>" del vehiculo
+      And se realiza el pago añadiendo mi tarjeta "<numtarjeta>" , "<cvv>" y "<fecha>"
+      #Then debe mostrar el mensaje de confirmación "Cuota pagada"
+      Then debe mostrar el mensaje de confirmación ¡Hemos recibido tu pago!
+      And elimino la tarjeta afiliada "<numtarjeta>" desde Mi Perfil
+
+    Examples:
+
+      ###DATOS###@Data|1@01-SuscripcionOpcionPagar
+      | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
+      |9|DNI|45642376|Rimac2021|H2W613|4919107570913512|03/28|111|
 
     @TiempoInactividadPagos
     Scenario Outline: Esperar 15 min de inactividad en el modulo de pagos

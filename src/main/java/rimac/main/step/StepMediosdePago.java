@@ -25,7 +25,7 @@ public class StepMediosdePago {
         scTusSeguros.irPagos();
     }
     public void irMedioPago_desde_perfil(){
-        scHome.seleccionarOpcionPrincipal("Perfil");
+        scMediosDePago.seleccionarOpcionPerfil();
         scPerfil.irMediosDePago();
     }
 
@@ -41,6 +41,7 @@ public class StepMediosdePago {
     }
 
     public void agregarTarjeta(String numTarjeta, String cvv, String fecha){
+
         String nombre = ConstantesDummy.nombre;
         String apellido = ConstantesDummy.apellido;
         String correo = ConstantesDummy.correo;
@@ -50,6 +51,7 @@ public class StepMediosdePago {
     }
 
     public void eliminarTarjeta(String numTarjeta){
+
         scMediosDePago.eliminarTarjeta(numTarjeta);
     }
 
@@ -100,5 +102,24 @@ public class StepMediosdePago {
     }
     public void se_valida_mensaje_de_inactividad(){
         scTuSesionExpiro.validacion_mensaje_TimeOut();
+    }
+    public void irCuotasaPagar_desde_tab_pagos(String placa){
+        scHome.seleccionarOpcionPrincipal("Seguros");
+        scTusSeguros.esperar_Tus_Seguros();
+        scTusSeguros.seleccionar_Placa(placa);
+        scTusSeguros.irPagos();
+        scPagos.iraPagarCuotas();
+        scPagos.seleccionarCuota();
+    }
+    public void se_añade_nueva_tarjeta() {
+        scTusSeguros.añadir_nueva_tarjeta();
+    }
+
+    public boolean obtiene_mensaje_confirmacion() {
+        return scPagos.obtener_mensaje_confirmacion();
+    }
+
+    public String obtiene_mensaje_pago() {
+        return scPagos.obtener_mensaje_pago();
     }
 }

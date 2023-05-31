@@ -48,4 +48,13 @@ public class ObjAnadirTarjeta extends BaseDriver {
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/button")
     public WebElement btnPagar;
 
+    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/cbCfSaveCard")
+    public WebElement btnGuardarTarjetanew;
+
+    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    public WebElement btnPagarNew;
+
+
+
+
 }

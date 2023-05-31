@@ -89,4 +89,32 @@ public class DefMediosdePago {
     public void seValidaElMensajeParaRetornarAlLoginDesdeElMóduloDePagos() {
         stepAgregarMedioPago.se_valida_mensaje_de_inactividad();
     }
+    @When("se ingresa a Seguro Vehicular desde Seguros y se inicia el tramite {string} del vehiculo")
+    public void seIngresaASeguroVehicularDesdeSegurosYSeIniciaElTramiteDelVehiculo(String placa) {
+        stepAgregarMedioPago.irCuotasaPagar_desde_tab_pagos(placa);
+    }
+
+
+    @And("se realiza el pago añadiendo mi tarjeta {string} , {string} y {string}")
+    public void seRealizaElPagoAñadiendoMiTarjetaY(String numTarjeta, String cvv, String fecha) {
+        stepAgregarMedioPago.se_añade_nueva_tarjeta();
+        stepAgregarMedioPago.agregarTarjeta(numTarjeta,cvv,fecha);
+    }
+
+    @Then("debe mostrar el mensaje de confirmación ¡Hemos recibido tu pago!")
+    public void debeMostrarElMensajeDeConfirmaciónHemosRecibidoTuPago() {
+        assertTrue(stepAgregarMedioPago.obtiene_mensaje_confirmacion());
+    }
+
+    @And("elimino la tarjeta afiliada {string} desde Mi Perfil")
+    public void eliminoLaTarjetaAfiliadaDesdeMiPerfil(String numTarjeta) {
+        stepAgregarMedioPago.irMedioPago_desde_perfil();
+        stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
+    }
+
+    @Then("debe mostrar el mensaje de confirmación {string}")
+    public void debeMostrarElMensajeDeConfirmación(String valorEsperado) {
+        String valorObtenido = stepAgregarMedioPago.obtiene_mensaje_pago();
+        assertEquals(valorEsperado, valorObtenido);
+    }
 }
