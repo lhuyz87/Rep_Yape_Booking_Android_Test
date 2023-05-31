@@ -23,14 +23,14 @@ Feature: Onboarding - Login
       | DNI    | 10667872 | 08/01/1978      | SOAT    |
 
     @ValidaVersionMinimaRequerida @ModuloOnboardingNoFuncional1_1_1
-  Scenario: Validar que al usar versiones muy antiguas sea obligatorio actualizar a la ultima Version
+  Scenario: Valida version minima requerida
     Given Se ingresa a la aplicación con una versión menor a la minima requerida
     Then se debe mostar mensaje informativo "Tu App RIMAC necesita actualizarse"
     And mostrar solo opción actualizar
 
 
   @ValidaVersionMinimaRecomendada @ModuloOnboardingNoFuncional2_1_1
-  Scenario: Validar que el App muestre el mensaje: Mundo Rimac Necesita Actualizarse
+  Scenario: Valida version minima recomendada
     Given Se ingresa a la aplicación con una versión menor a la minima recomendada
     Then  se debe mostar mensaje informativo "Tu App RIMAC necesita actualizarse"
     And seleccionamos opción "Mas tarde"
