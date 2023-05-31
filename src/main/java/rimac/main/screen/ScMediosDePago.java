@@ -20,9 +20,10 @@ public class ScMediosDePago extends BaseDriver {
     protected ObjAfiliarPago objAfiliarPago=ObjAfiliarPago.getInstancia();
     protected ObjCommons objCommons = ObjCommons.getInstancia();
     protected ObjMediodePago objMediodePago = ObjMediodePago.getInstancia();
-
+    protected ObjPagos objPagos = ObjPagos.getInstancia();
+    protected ObjTusSeguros objTusSeguros = ObjTusSeguros.getInstancia();
     protected UtilApp util = UtilApp.getInstancia();
-
+    protected ObjPaginaPrincipal objectPrincipal = ObjPaginaPrincipal.getInstancia();
     public void eliminarTarjeta(String numTarjeta){
         int contador = 0;
         boolean condicion1 = objMediodePago.opcTarjetaList(numTarjeta).size() != 0;
@@ -73,33 +74,33 @@ public class ScMediosDePago extends BaseDriver {
     }
     public void agregarTarjeta(String numTarjeta, String nombre, String apellido, StringBuilder mmaa, String cvv, String correo) {
         try {
-            boolean condicion1 = objMediodePago.opcTarjetaList(numTarjeta).size()== 0;
-            boolean condicion2=element(objMediodePago.btnAgregarTarjeta).isCurrentlyVisible();
-            boolean condicion3=element(objMediodePago.lblMisTarjetas).isCurrentlyVisible();
-            if(condicion1){
-                int contador = 0;
-                if (condicion2) {
-                    element(objMediodePago.btnAgregarTarjeta).click();
-                    Serenity.takeScreenshot();
-                }
-                if (condicion3) {
-                    Dimension dimension = appiumDriver().manage().window().getSize();
-                    Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.7));
-                    Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.1));
-                    //util.doSwipe(appiumDriver(), start, end, 1000);
-                    while(element(objMediodePago.lnkAgregarNuevaTarjeta).isCurrentlyVisible()==false && contador<7){
-                        util.doSwipe(appiumDriver(), start, end, 1000);
-                        contador++;
-                    }
-                    util.esperarSegundos(3);
-                    Serenity.takeScreenshot();
-                    element(objMediodePago.lnkAgregarNuevaTarjeta).click();
-                }
-                ingresarDatosTarjeta(numTarjeta,nombre,apellido,mmaa,cvv,correo);
-                new WebDriverWait(androidDriver(), Duration.ofSeconds(20))
-                        .until(ExpectedConditions.visibilityOf(objMediodePago.lblMisTarjetas));
-                util.esperarSegundos(8);
+            Dimension dimension = appiumDriver().manage().window().getSize();
+            Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
+            Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
+            int contador=0;
+            while(element(objMediodePago.btnAnadirNuevaTarjeta).isCurrentlyVisible()==false && contador<15) {
+                util.doSwipe(appiumDriver(), start, end, 1000);
+                contador++;
             }
+            util.esperarElemento(5, objMediodePago.btnAnadirNuevaTarjeta);
+            util.esperarSegundos(1);
+            element(objMediodePago.btnAnadirNuevaTarjeta).click();
+
+            util.esperarElemento(3, objAnadirTarjeta.lblNumTarjeta);
+            element(objAnadirTarjeta.lblNumTarjeta).sendKeys(numTarjeta);
+            element(objAnadirTarjeta.lblNombre).sendKeys(nombre);
+            element(objAnadirTarjeta.lblApellido).sendKeys(apellido);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objAnadirTarjeta.lblMMAA).sendKeys(mmaa);
+            element(objAnadirTarjeta.lblCVV).sendKeys(cvv);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objAnadirTarjeta.lblCorreo).sendKeys(correo);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            util.doSwipe(appiumDriver(), start, end, 1000);
+            element(objAnadirTarjeta.btnPagarNew).click();
+            new WebDriverWait(androidDriver(), Duration.ofSeconds(20))
+                    .until(ExpectedConditions.visibilityOf(objMediodePago.lblMisTarjetas));
+            util.esperarSegundos(8);
         }
         catch(Exception e){
             Serenity.takeScreenshot();
@@ -108,6 +109,35 @@ public class ScMediosDePago extends BaseDriver {
 
     }
 
+    public void anadirTarjeta(String numTarjeta, String nombre, String apellido, StringBuilder mmaa, String cvv, String correo) {
+        try {
+
+
+            util.esperarElemento(3, objAnadirTarjeta.lblNumTarjeta);
+            element(objAnadirTarjeta.lblNumTarjeta).sendKeys(numTarjeta);
+            element(objAnadirTarjeta.lblNombre).sendKeys(nombre);
+            element(objAnadirTarjeta.lblApellido).sendKeys(apellido);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objAnadirTarjeta.lblMMAA).sendKeys(mmaa);
+            element(objAnadirTarjeta.lblCVV).sendKeys(cvv);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objAnadirTarjeta.lblCorreo).sendKeys(correo);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            Dimension dimension = appiumDriver().manage().window().getSize();
+            Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.7));
+            Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.1));
+            util.doSwipe(appiumDriver(), start, end, 1000);
+            util.esperarElemento(4, objAnadirTarjeta.btnGuardarTarjetanew);
+            element(objAnadirTarjeta.btnGuardarTarjetanew).click();
+            element(objAnadirTarjeta.btnPagarNew).click();
+
+        }
+        catch(Exception e){
+            Serenity.takeScreenshot();
+            throw new IllegalAccessError("Error para ingresar los datos de la tarjeta");
+        }
+
+    }
     public void afiliarTarjeta(String numTarjeta, String nombre, String apellido, StringBuilder mmaa, String cvv, String correo){
         try{
             int contador = 0;
@@ -176,5 +206,22 @@ public class ScMediosDePago extends BaseDriver {
         util.esperarElemento(4,objAfiliarPago.btnIrPagos);
         element(objAfiliarPago.btnIrPagos).click();
     }
+
+
+    public void seleccionarOpcionPerfil() {
+        util.esperarSegundos(3);
+        util.esperarElemento(10, objectPrincipal.btnPerfil);
+        element(objectPrincipal.btnPerfil).click();
+    }
+
+    public void regresarSelecOpcionPerfil() {
+        util.esperarSegundos(10);
+        util.esperarElemento(10, objTusSeguros.tbSeguroVehicular);
+        element(objTusSeguros.tbSeguroVehicular).click();
+        util.esperarSegundos(3);
+        util.esperarElemento(10, objectPrincipal.btnPerfil);
+        element(objectPrincipal.btnPerfil).click();
+    }
+
 
 }

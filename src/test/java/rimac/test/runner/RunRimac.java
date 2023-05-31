@@ -13,7 +13,7 @@ import rimac.test.util.ExcelUtilPropio;
 @RunWith(RunPersonalizar.class)
 
 //@CucumberOptions(features = "src/test/resources/features", tags =  "@AsistenciaVehicularAuxilioMecanico", glue = "rimac")
-//@CucumberOptions(features = "src/test/resources/features", tags =  "@reembolsoSaludSinBeneficiarioconCoberturadeMedicinas", glue = "rimac")
+//@CucumberOptions(features = "src/test/resources/features", tags =  "@SucripcionDesdePerfil", glue = "rimac")
 
 public class RunRimac {
 	
@@ -21,8 +21,7 @@ public class RunRimac {
 	public static void previo() {
 		
 		UtilApp.getInstancia().getProperties();
-		//ExcelUtilPropio.getInstancia().escribirFeatures();
-				
+		ExcelUtilPropio.getInstancia().escribirFeatures();
 		EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
 
 	}

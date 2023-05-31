@@ -55,7 +55,7 @@ public class ExcelUtilPropio extends ExcelUtil {
 //			System.out.println(" valor 1: " + excelSplit[0] + " valor 2: " + excelSplit[1] + " LONGITUD: " + excelSplit.length  );
 
 			switch (excelSplit[0]) {
-				case "DataReembolso":
+				case "Data":
 					if(excelSplit[1].compareTo("U")==0) {
 						data = LeerDD_Reembolso.getInstancia().leerUltimaFilaDD(hoja);
 					}else {

@@ -64,6 +64,9 @@ public class StepReembolso {
 	@Steps
 	ScAlertas scAlertas;
 
+	@Steps
+	ScTuSesionExpiro scTuSesionExpiro;
+
 	StepReembolso() {
 		Random randomObj = new Random();
 		Variables objVariables = new Variables();
@@ -83,7 +86,7 @@ public class StepReembolso {
 	public void ver_Detalle_Seguros(String seguro){
 		schome.seleccionarOpcionPrincipal("Seguros");
 		scTusSeguros.esperar_Tus_Seguros();
-		scTusSeguros.ver_Detalle(seguro);
+		scTusSeguros.ver_detalle_seguro(seguro);
 	}
 	public void seleccionar_seguro_desde_tus_Servicios(){
 		scServiciosTuSeguro.seleccionarServicio("Reembolso de salud");
@@ -136,7 +139,7 @@ public class StepReembolso {
 				}
 				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
 
-				//scReemDocCobertMedica.omitirOCR();
+				scReemDocCobertMedica.omitirOCR();
 
 				scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
 				scReemDocCobertMedica.adjuntarFotoArchivo();
@@ -157,7 +160,7 @@ public class StepReembolso {
 					scReemDocCobertMedica.subirArchivo();
 				}
 				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
-			   //scReemDocCobertMedica.omitirOCR();
+			   scReemDocCobertMedica.omitirOCR();
 				scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
 			    scReemDocCobertMedica.subirDocumentos();
 				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
@@ -176,7 +179,7 @@ public class StepReembolso {
 					scReemDocCobertMedica.subirArchivo();
 				}
 				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
-				//scReemDocCobertMedica.omitirOCR();
+				scReemDocCobertMedica.omitirOCR();
 				scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
 				scReemDocCobertMedica.adjuntarFotoArchivo();
 				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
@@ -247,4 +250,12 @@ public class StepReembolso {
 		return schome.getMontoReembolso(monto);
 	}
 
+	public void se_mantiene_inactivo_en_serviciosalud() {
+		scTuSesionExpiro.inactividad_del_modulo();
+
+	}
+
+	public void se_valida_mensaje_de_inactividad_desde_reembolso() {
+		scTuSesionExpiro.validacion_mensaje_TimeOut();
+	}
 }

@@ -36,7 +36,7 @@ public class ObjTusSeguros extends BaseDriver{
 	public WebElement btnDetalleSeguro;
 
 	public WebElement opcSeguro(String seguro) {
-		WebElement we_opcSeguro = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+seguro+"'][1]//parent::android.widget.LinearLayout//following-sibling::android.widget.Button[@text='Ver detalle']"));
+		WebElement we_opcSeguro = appiumDriver().findElement(AppiumBy.xpath("(//*[@text='"+seguro+"']//parent::android.widget.LinearLayout//following-sibling::android.widget.Button[@text='Ver detalle'])[1]"));
 		return we_opcSeguro;
 	}
 
@@ -48,10 +48,46 @@ public class ObjTusSeguros extends BaseDriver{
 	@AndroidFindBy(xpath = "//*[@text='Tus seguros']")
 	public WebElement lblTusSeguros;
 
+	@AndroidFindBy(xpath = "//android.widget.CompoundButton[@text='Todos']")
+	public WebElement btnTodos;
+
+	@AndroidFindBy(xpath = "//android.widget.CompoundButton[@text='SOAT']")
+	public WebElement btnSOAT;
+
+	@AndroidFindBy(xpath = "//android.widget.CompoundButton[@text='Vehicular']")
+	public WebElement btnVehicular;
+
+	@AndroidFindBy(xpath = "//android.widget.CompoundButton[@text='Salud']")
+	public WebElement btnSalud;
 	@AndroidFindBy(xpath = "//android.widget.CompoundButton[@text='Vida']")
 	public WebElement btnVida;
 
 	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Pagos\"]")
 	public WebElement btnPagos;
+
+	@AndroidFindBy(xpath = "//*[@text='Seguro Vehicular']")
+	public WebElement titSeguroVehicular;
+
+	public WebElement btnPlacaSeg2(String placa) {
+		WebElement we_tnPlacaSeg = appiumDriver().findElement(AppiumBy.xpath("//*[@text='Placa: "+placa+"']"));
+		return we_tnPlacaSeg;
+	}
+
+	public WebElement btnPlacaSeg(String placa) {
+
+		String matriculaLetras=placa.substring(0,3);
+		String matriculaNumeros=placa.substring(3,6);
+
+		WebElement we_tnPlacaSeg = appiumDriver().findElement(AppiumBy.xpath("//*[@text='Placa: "+matriculaLetras+"-"+matriculaNumeros+"']"));
+		return we_tnPlacaSeg;
+	}
+
+	@AndroidFindBy(xpath = "//*[@text='Ver detalle']")
+	public WebElement btnVerDetallePlaca;
+
+	@AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Retroceder\"]")
+	public WebElement tbSeguroVehicular;
+
+
 
 }

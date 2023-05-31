@@ -14,10 +14,10 @@ public class StepPolizaVehicular {
     @Steps
     ScTuSesionExpiro scTuSesionExpiro;
 
-    public void ver_Detalle_Seguros(){
+    public void ver_detalle_SegurosVehicular(){
         schome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
-        scTusSeguros.ver_Detalle("Seguro Vehicular");
+        scTusSeguros.ver_detalle_Vehicular("Seguro Vehicular");
     }
 
     public void ver_Detalle_Poliza(){

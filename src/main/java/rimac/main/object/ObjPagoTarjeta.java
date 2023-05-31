@@ -66,7 +66,7 @@ public class ObjPagoTarjeta extends BaseDriver {
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/congratsTitle")
     public WebElement lblCompraSoatExito; //¡Listo! Estamos por enviar tu SOAT
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/button")
+    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
     public WebElement btnFinalizar;
 
 }

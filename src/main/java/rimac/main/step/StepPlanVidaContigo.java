@@ -16,7 +16,7 @@ public class StepPlanVidaContigo {
     public void ver_detalle_vida_contigo(){
         schome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
-        scTusSeguros.ver_Detalle("Vida Contigo");
+        scTusSeguros.ver_detalle_Vida("Vida Contigo");
     }
 
     public void descargar_manual() throws Exception{

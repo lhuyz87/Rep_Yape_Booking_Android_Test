@@ -34,4 +34,10 @@ public class ObjCommons extends BaseDriver {
     @AndroidFindBy(className= "android.widget.ImageButton")
     public WebElement btnVolver;
 
+    @AndroidFindBy(xpath= "//*[@text='Allow']")
+    public WebElement btnAllow;
+
+    @AndroidFindBy(xpath = "//android.widget.CompoundButton[@text='Todos']")
+    public WebElement btnTodos;
+
 }
