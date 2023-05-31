@@ -1,3 +1,4 @@
+@ModuloTramitesSiniestros_1_6
 Feature: Tramite y siniestros
 
   @TiempoInactividadTramiteYSiniestro
