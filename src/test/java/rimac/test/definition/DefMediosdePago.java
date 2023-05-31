@@ -98,7 +98,7 @@ public class DefMediosdePago {
     @And("se realiza el pago añadiendo mi tarjeta {string} , {string} y {string}")
     public void seRealizaElPagoAñadiendoMiTarjetaY(String numTarjeta, String cvv, String fecha) {
         stepAgregarMedioPago.se_añade_nueva_tarjeta();
-        stepAgregarMedioPago.agregarTarjeta(numTarjeta,cvv,fecha);
+        stepAgregarMedioPago.anadirTarjeta(numTarjeta,cvv,fecha);
     }
 
     @Then("debe mostrar el mensaje de confirmación ¡Hemos recibido tu pago!")
@@ -108,7 +108,7 @@ public class DefMediosdePago {
 
     @And("elimino la tarjeta afiliada {string} desde Mi Perfil")
     public void eliminoLaTarjetaAfiliadaDesdeMiPerfil(String numTarjeta) {
-        stepAgregarMedioPago.irMedioPago_desde_perfil();
+        stepAgregarMedioPago.irMedioPago_desde_regresoPerfil();
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
     }
 

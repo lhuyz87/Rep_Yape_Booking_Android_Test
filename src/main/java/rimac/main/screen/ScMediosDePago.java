@@ -74,6 +74,43 @@ public class ScMediosDePago extends BaseDriver {
     }
     public void agregarTarjeta(String numTarjeta, String nombre, String apellido, StringBuilder mmaa, String cvv, String correo) {
         try {
+            Dimension dimension = appiumDriver().manage().window().getSize();
+            Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
+            Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
+            int contador=0;
+            while(element(objMediodePago.btnAnadirNuevaTarjeta).isCurrentlyVisible()==false && contador<15) {
+                util.doSwipe(appiumDriver(), start, end, 1000);
+                contador++;
+            }
+            util.esperarElemento(5, objMediodePago.btnAnadirNuevaTarjeta);
+            util.esperarSegundos(1);
+            element(objMediodePago.btnAnadirNuevaTarjeta).click();
+
+            util.esperarElemento(3, objAnadirTarjeta.lblNumTarjeta);
+            element(objAnadirTarjeta.lblNumTarjeta).sendKeys(numTarjeta);
+            element(objAnadirTarjeta.lblNombre).sendKeys(nombre);
+            element(objAnadirTarjeta.lblApellido).sendKeys(apellido);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objAnadirTarjeta.lblMMAA).sendKeys(mmaa);
+            element(objAnadirTarjeta.lblCVV).sendKeys(cvv);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objAnadirTarjeta.lblCorreo).sendKeys(correo);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            util.doSwipe(appiumDriver(), start, end, 1000);
+            element(objAnadirTarjeta.btnPagarNew).click();
+            new WebDriverWait(androidDriver(), Duration.ofSeconds(20))
+                    .until(ExpectedConditions.visibilityOf(objMediodePago.lblMisTarjetas));
+            util.esperarSegundos(8);
+        }
+        catch(Exception e){
+            Serenity.takeScreenshot();
+            throw new IllegalAccessError("Error para ingresar los datos de la tarjeta");
+        }
+
+    }
+
+    public void anadirTarjeta(String numTarjeta, String nombre, String apellido, StringBuilder mmaa, String cvv, String correo) {
+        try {
 
 
             util.esperarElemento(3, objAnadirTarjeta.lblNumTarjeta);
@@ -101,7 +138,6 @@ public class ScMediosDePago extends BaseDriver {
         }
 
     }
-
     public void afiliarTarjeta(String numTarjeta, String nombre, String apellido, StringBuilder mmaa, String cvv, String correo){
         try{
             int contador = 0;
@@ -173,6 +209,12 @@ public class ScMediosDePago extends BaseDriver {
 
 
     public void seleccionarOpcionPerfil() {
+        util.esperarSegundos(3);
+        util.esperarElemento(10, objectPrincipal.btnPerfil);
+        element(objectPrincipal.btnPerfil).click();
+    }
+
+    public void regresarSelecOpcionPerfil() {
         util.esperarSegundos(10);
         util.esperarElemento(10, objTusSeguros.tbSeguroVehicular);
         element(objTusSeguros.tbSeguroVehicular).click();
@@ -180,4 +222,6 @@ public class ScMediosDePago extends BaseDriver {
         util.esperarElemento(10, objectPrincipal.btnPerfil);
         element(objectPrincipal.btnPerfil).click();
     }
+
+
 }

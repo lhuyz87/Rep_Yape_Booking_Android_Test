@@ -122,4 +122,19 @@ public class StepMediosdePago {
     public String obtiene_mensaje_pago() {
         return scPagos.obtener_mensaje_pago();
     }
+
+    public void irMedioPago_desde_regresoPerfil() {
+        scMediosDePago.regresarSelecOpcionPerfil();
+        scPerfil.irMediosDePago();
+    }
+
+    public void anadirTarjeta(String numTarjeta, String cvv, String fecha) {
+        String nombre = ConstantesDummy.nombre;
+        String apellido = ConstantesDummy.apellido;
+        String correo = ConstantesDummy.correo;
+        StringBuilder mmaa = new StringBuilder(fecha.substring(0,2));
+        mmaa.append(fecha.substring(3,5));
+        scMediosDePago.anadirTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
+
+    }
 }
