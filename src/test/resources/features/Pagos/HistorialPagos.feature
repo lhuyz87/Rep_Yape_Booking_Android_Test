@@ -1,4 +1,5 @@
 #Author: Candy Espinoza
+@ModuloPagos_3_7
 Feature: Pagos
 
   @DescargaHistorialPagos

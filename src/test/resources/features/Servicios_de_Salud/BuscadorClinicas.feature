@@ -1,5 +1,5 @@
 #Author: Luis Retamozo
-@ModuloServiciosDeSalud_3_16
+@ModuloServiciosDeSalud_4_16
 Feature: Servicios de Salud - Buscador de clinicas
 
   @BuscadordeClinicasdesdeHome

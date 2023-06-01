@@ -1,8 +1,8 @@
 #Author: Candy Espinoza
-
+@ModuloPagos_3_7
 Feature: Pagos
 
-   @SucripcionDesdePerfil @ModuloPagos_2_7
+   @SucripcionDesdePerfil
     Scenario Outline: Suscripcion de Tarjeta desde Mi perfil opcion medios de pagos
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -13,7 +13,7 @@ Feature: Pagos
          | tipoID | id       | password  | numtarjeta       | cvv | fecha |
          | DNI    | 29724303 | Rimac2021 | 4474104525811674 | 111 | 03/28 |
 
-    @SucripcionDesdePagos @ModuloPagos_2_7
+    @SucripcionDesdePagos
     Scenario Outline: Suscripcion de Tarjeta desde Tap de Pagos opcion medios de pagos
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -24,7 +24,7 @@ Feature: Pagos
         | tipoID | id       | password  | numtarjeta       | cvv | fecha |
         | DNI    | 29724303 | Rimac2021 | 4474104525811674 | 111 | 03/28 |
 
-    @SucripcionDesdeAfiliacion @ModuloPagos_2_7
+    @SucripcionDesdeAfiliacion
     Scenario Outline: Suscripcion de Tarjetas desde la Afiliacion
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
