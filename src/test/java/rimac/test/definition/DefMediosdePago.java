@@ -14,7 +14,7 @@ public class DefMediosdePago {
     StepMediosdePago stepAgregarMedioPago;
 
     @When("ingreso mis datos bancarios desde Perfil para suscribir mi tarjeta {string} , {string} y {string}")
-    public void ingresoMisDatosBancariosDesdePerfilParaSuscribirMiTarjetaY(String numTarjeta, String cvv, String fecha) {
+    public void ingresoMisDatosBancariosDesdePerfilParaSuscribirMiTarjetaY(String numTarjeta, String cvv, String fecha) throws Exception {
         stepAgregarMedioPago.irMedioPago_desde_perfil();
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
         stepAgregarMedioPago.agregarTarjeta(numTarjeta,cvv,fecha);
@@ -35,7 +35,7 @@ public class DefMediosdePago {
     }
 
     @When("realizo la eliminacion de la tarjeta {string} , {string} y {string}")
-    public void realizoLaEliminacionDeLaTarjeta(String numTarjeta, String cvv, String fecha) {
+    public void realizoLaEliminacionDeLaTarjeta(String numTarjeta, String cvv, String fecha) throws Exception {
         stepAgregarMedioPago.irMedioPago_desde_tab_pagos();
         stepAgregarMedioPago.agregarTarjeta(numTarjeta,cvv,fecha);
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
@@ -90,13 +90,13 @@ public class DefMediosdePago {
         stepAgregarMedioPago.se_valida_mensaje_de_inactividad();
     }
     @When("se ingresa a Seguro Vehicular desde Seguros y se inicia el tramite {string} del vehiculo")
-    public void seIngresaASeguroVehicularDesdeSegurosYSeIniciaElTramiteDelVehiculo(String placa) {
+    public void seIngresaASeguroVehicularDesdeSegurosYSeIniciaElTramiteDelVehiculo(String placa) throws Exception {
         stepAgregarMedioPago.irCuotasaPagar_desde_tab_pagos(placa);
     }
 
 
     @And("se realiza el pago añadiendo mi tarjeta {string} , {string} y {string}")
-    public void seRealizaElPagoAñadiendoMiTarjetaY(String numTarjeta, String cvv, String fecha) {
+    public void seRealizaElPagoAñadiendoMiTarjetaY(String numTarjeta, String cvv, String fecha) throws Exception {
         stepAgregarMedioPago.se_añade_nueva_tarjeta();
         stepAgregarMedioPago.anadirTarjeta(numTarjeta,cvv,fecha);
     }
