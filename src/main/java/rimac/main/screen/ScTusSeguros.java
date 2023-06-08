@@ -89,6 +89,9 @@ public class ScTusSeguros extends BaseDriver{
 					contador++;
 				}
 			element(objTusSeguros.opcSeguro(seguro)).click();
+			if(element(objTusSeguros.btnEntendido).isCurrentlyVisible()){
+				element(objTusSeguros.btnEntendido).click();
+			}
 		}catch(Exception e){
 			Dimension dimension = appiumDriver().manage().window().getSize();
 			Point start= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.8));

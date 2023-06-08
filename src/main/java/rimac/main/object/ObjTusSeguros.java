@@ -57,6 +57,8 @@ public class ObjTusSeguros extends BaseDriver{
 	@AndroidFindBy(xpath = "//android.widget.CompoundButton[@text='Vehicular']")
 	public WebElement btnVehicular;
 
+	@AndroidFindBy(xpath = "//*[@text='Entendido']")
+	public WebElement btnEntendido;
 	@AndroidFindBy(xpath = "//android.widget.CompoundButton[@text='Salud']")
 	public WebElement btnSalud;
 	@AndroidFindBy(xpath = "//android.widget.CompoundButton[@text='Vida']")
