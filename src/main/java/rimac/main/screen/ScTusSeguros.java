@@ -1,6 +1,7 @@
 package rimac.main.screen;
 
 
+import java.util.NoSuchElementException;
 import java.util.logging.Logger;
 
 import io.appium.java_client.MobileBy;
@@ -9,12 +10,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import io.appium.java_client.AppiumDriver;
-import rimac.main.object.ObjMediodePago;
-import rimac.main.object.ObjPagos;
+import rimac.main.object.*;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilApp;
-import rimac.main.object.ObjTusSeguros;
+
 import java.util.Timer;
 
 
@@ -24,6 +24,8 @@ public class ScTusSeguros extends BaseDriver{
 	
 	private long wdwTimeOut = 300L;
 
+	protected ObjTramites objTramites = ObjTramites.getInstancia();
+	protected ObjPaginaPrincipal objPaginaPrincipal=ObjPaginaPrincipal.getInstancia();
 	protected ObjTusSeguros objTusSeguros = ObjTusSeguros.getInstancia();
 	protected ObjMediodePago objMediodePago = ObjMediodePago.getInstancia();
 	protected ObjPagos objPagos = ObjPagos.getInstancia();
@@ -88,6 +90,7 @@ public class ScTusSeguros extends BaseDriver{
 					util.mobileSwipeScreenAndroid();
 					contador++;
 				}
+			Serenity.takeScreenshot();
 			element(objTusSeguros.opcSeguro(seguro)).click();
 		}catch(Exception e){
 			Dimension dimension = appiumDriver().manage().window().getSize();
@@ -95,6 +98,38 @@ public class ScTusSeguros extends BaseDriver{
 			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.6));
 			util.doSwipe(appiumDriver(), start, end, 500);
 			element(objTusSeguros.opcSeguro(seguro)).click();
+		}
+	}
+
+	public void ver_detalle_Vehicular_placa(String placa){
+		try {
+			int contador = 0;
+			int xTodos=objTusSeguros.btnTodos.getLocation().getX();
+			int yTodos=objTusSeguros.btnTodos.getLocation().getY();
+			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
+
+			if(element(objTusSeguros.btnVehicular).isCurrentlyVisible()){
+				element(objTusSeguros.btnVehicular).click();
+			}
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+
+			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
+			while (contador < 8) {
+				if(objTusSeguros.verDetalleXPlaca2(placa).size()!=0){
+					break;
+				}
+				util.mobileSwipeScreenAndroid();
+				contador++;
+			}
+			if ((ybtnPerfil-100) < objTusSeguros.verDetalleXPlaca(placa).getLocation().getY()) {
+				util.doSwipe(appiumDriver(), start, end, 500);
+			}
+			Serenity.takeScreenshot();
+			element(objTusSeguros.verDetalleXPlaca(placa)).click();
+		}catch(NoSuchElementException e){
+			throw new IllegalAccessError("No se encontró la placa del vehiculo");
 		}
 	}
 
@@ -112,6 +147,7 @@ public class ScTusSeguros extends BaseDriver{
 				util.mobileSwipeScreenAndroid();
 				contador++;
 			}
+			Serenity.takeScreenshot();
 			element(objTusSeguros.opcSeguro(seguro)).click();
 		}catch(Exception e){
 			Dimension dimension = appiumDriver().manage().window().getSize();
@@ -136,6 +172,7 @@ public class ScTusSeguros extends BaseDriver{
 				util.mobileSwipeScreenAndroid();
 				contador++;
 			}
+			Serenity.takeScreenshot();
 			element(objTusSeguros.opcSeguro(seguro)).click();
 		}catch(Exception e){
 			Dimension dimension = appiumDriver().manage().window().getSize();
@@ -160,6 +197,7 @@ public class ScTusSeguros extends BaseDriver{
 				util.mobileSwipeScreenAndroid();
 				contador++;
 			}
+			Serenity.takeScreenshot();
 			element(objTusSeguros.opcSeguro(seguro)).click();
 		}catch(Exception e){
 			Dimension dimension = appiumDriver().manage().window().getSize();
