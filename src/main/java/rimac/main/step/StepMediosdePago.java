@@ -40,14 +40,17 @@ public class StepMediosdePago {
         scPagos.irMediosPago();
     }
 
-    public void agregarTarjeta(String numTarjeta, String cvv, String fecha){
+    public void agregarTarjeta(String numTarjeta, String cvv, String fecha) throws Exception {
 
         String nombre = ConstantesDummy.nombre;
         String apellido = ConstantesDummy.apellido;
         String correo = ConstantesDummy.correo;
         StringBuilder mmaa = new StringBuilder(fecha.substring(0,2));
         mmaa.append(fecha.substring(3,5));
-        scMediosDePago.agregarTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
+        scMediosDePago.agregarTarjetaNueva();
+        scMediosDePago.ingresarDatosTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
+        scMediosDePago.pagar();
+        scMediosDePago.esperarListadoTarjetas();
     }
 
     public void eliminarTarjeta(String numTarjeta){
@@ -103,7 +106,7 @@ public class StepMediosdePago {
     public void se_valida_mensaje_de_inactividad(){
         scTuSesionExpiro.validacion_mensaje_TimeOut();
     }
-    public void irCuotasaPagar_desde_tab_pagos(String placa){
+    public void irCuotasaPagar_desde_tab_pagos(String placa) throws Exception {
         scHome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
         scTusSeguros.seleccionar_Placa(placa);
@@ -128,13 +131,13 @@ public class StepMediosdePago {
         scPerfil.irMediosDePago();
     }
 
-    public void anadirTarjeta(String numTarjeta, String cvv, String fecha) {
+    public void anadirTarjeta(String numTarjeta, String cvv, String fecha) throws Exception {
         String nombre = ConstantesDummy.nombre;
         String apellido = ConstantesDummy.apellido;
         String correo = ConstantesDummy.correo;
         StringBuilder mmaa = new StringBuilder(fecha.substring(0,2));
         mmaa.append(fecha.substring(3,5));
-        scMediosDePago.anadirTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
+        scMediosDePago.ingresarDatosTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
 
     }
 }
