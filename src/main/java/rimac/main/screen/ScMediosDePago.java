@@ -133,8 +133,15 @@ public class ScMediosDePago extends BaseDriver {
         boolean tarjetaExiste=false;
         try{
             util.esperarElementoVisible(9,objMediodePago.opcTarjeta(numTarjeta));
-            Serenity.takeScreenshot();
+            int contador=0;
+            while(contador<8){
+                if(objMediodePago.opcTarjetaList(numTarjeta).size() != 0){
+                    break;
+                }
+                contador++;
+            }
             tarjetaExiste = objMediodePago.opcTarjetaList(numTarjeta).size() != 0;
+            Serenity.takeScreenshot();
 
         }catch(Exception e){
             Serenity.takeScreenshot();

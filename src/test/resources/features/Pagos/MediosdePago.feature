@@ -9,6 +9,8 @@ Feature: Pagos
         | <tipoID> | <id> | <password> |
       When ingreso mis datos bancarios desde Perfil para suscribir mi tarjeta "<numtarjeta>" , "<cvv>" y "<fecha>"
       Then se debe agregar la tarjeta "<numtarjeta>" a Mis Tarjetas
+      And elimino la tarjeta agregada "<numtarjeta>" desde Mis Tarjetas
+
        Examples:
          | tipoID | id       | password  | numtarjeta       | cvv | fecha |
          | DNI    | 29724303 | Rimac2021 | 4474104525811674 | 111 | 03/28 |
@@ -20,6 +22,8 @@ Feature: Pagos
         | <tipoID> | <id> | <password> |
       When ingreso mis datos bancarios desde el tab de Pagos para suscribir mi tarjeta "<numtarjeta>" , "<cvv>" y "<fecha>"
       Then se debe agregar la tarjeta "<numtarjeta>" a Mis Tarjetas
+      And elimino la tarjeta agregada "<numtarjeta>" desde Mis Tarjetas
+
       Examples:
         | tipoID | id       | password  | numtarjeta       | cvv | fecha |
         | DNI    | 29724303 | Rimac2021 | 4474104525811674 | 111 | 03/28 |
@@ -31,6 +35,8 @@ Feature: Pagos
         | <tipoID> | <id> | <password> |
       When ingreso mis datos bancarios desde afiliacion de tarjetas "<numtarjeta>" , "<cvv>" y "<fecha>"
       Then debe mostrar el mensaje "Tarjeta afiliada con éxito"
+      And elimino la tarjeta afiliada "<numtarjeta>" desde Mi Perfil
+
       Examples:
         | tipoID | id       | password  | numtarjeta       | cvv | fecha |
         | DNI    | 25676942 | Rimac2020 | 4474104525811674 | 111 | 03/28 |
@@ -51,8 +57,9 @@ Feature: Pagos
       ###DATOS###@Data|1@01-SuscripcionOpcionPagar
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
-    @TiempoInactividadPagos
-    Scenario Outline: Esperar 15 min de inactividad en el modulo de pagos
+
+  @TiempoInactividadPagos
+  Scenario Outline: Esperar 15 min de inactividad en el modulo de pagos
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
         | <tipoID> | <id> | <password> |

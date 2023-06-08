@@ -33,11 +33,14 @@ public class StepMediosdePago {
         scPerfil.volverPerfil();
     }
     public void irMedioPago_desde_tab_pagos(){
+        scTusSeguros.irPagos();
+        scPagos.irMediosPago();
+    }
+
+    public void detalle_seguro_vehicular(){
         scHome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
         scTusSeguros.ver_detalle_Vehicular("Seguro Vehicular");
-        scTusSeguros.irPagos();
-        scPagos.irMediosPago();
     }
 
     public void agregarTarjeta(String numTarjeta, String cvv, String fecha) throws Exception {
@@ -59,7 +62,6 @@ public class StepMediosdePago {
     }
 
     public void afiliarTarjeta(String numTarjeta, String cvv, String fecha) throws Exception{
-        scMediosDePago.volverTabPagos();
         scPagos.irAfiliarTarjeta();
         String nombre = ConstantesDummy.nombre;
         String apellido = ConstantesDummy.apellido;

@@ -16,15 +16,12 @@ public class DefMediosdePago {
     @When("ingreso mis datos bancarios desde Perfil para suscribir mi tarjeta {string} , {string} y {string}")
     public void ingresoMisDatosBancariosDesdePerfilParaSuscribirMiTarjetaY(String numTarjeta, String cvv, String fecha) throws Exception {
         stepAgregarMedioPago.irMedioPago_desde_perfil();
-        stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
         stepAgregarMedioPago.agregarTarjeta(numTarjeta,cvv,fecha);
     }
 
     @When("ingreso mis datos bancarios desde el tab de Pagos para suscribir mi tarjeta {string} , {string} y {string}")
     public void ingresoMisDatosBancariosDesdeElTabDePagosParaSuscribirMiTarjetaY(String numTarjeta, String cvv, String fecha) throws Exception {
-        stepAgregarMedioPago.irMedioPago_desde_perfil();
-        stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
-        stepAgregarMedioPago.volverDesdePerfil();
+        stepAgregarMedioPago.detalle_seguro_vehicular();
         stepAgregarMedioPago.irMedioPago_desde_tab_pagos();
         stepAgregarMedioPago.agregarTarjeta(numTarjeta,cvv,fecha);
     }
@@ -36,7 +33,7 @@ public class DefMediosdePago {
 
     @When("realizo la eliminacion de la tarjeta {string} , {string} y {string}")
     public void realizoLaEliminacionDeLaTarjeta(String numTarjeta, String cvv, String fecha) throws Exception {
-        stepAgregarMedioPago.irMedioPago_desde_tab_pagos();
+        stepAgregarMedioPago.detalle_seguro_vehicular();
         stepAgregarMedioPago.agregarTarjeta(numTarjeta,cvv,fecha);
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
     }
@@ -48,10 +45,8 @@ public class DefMediosdePago {
 
     @When("ingreso mis datos bancarios desde afiliacion de tarjetas {string} , {string} y {string}")
     public void ingresoMisDatosBancariosDesdeAfiliacionDeTarjetasY(String numTarjeta, String cvv, String fecha) throws Exception {
-        stepAgregarMedioPago.irMedioPago_desde_perfil();
-        stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
-        stepAgregarMedioPago.volverDesdePerfil();
-        stepAgregarMedioPago.irMedioPago_desde_tab_pagos();
+        stepAgregarMedioPago.detalle_seguro_vehicular();
+        stepAgregarMedioPago.selecciona_TabPagos();
         stepAgregarMedioPago.afiliarTarjeta(numTarjeta,cvv,fecha);
     }
 
@@ -116,5 +111,10 @@ public class DefMediosdePago {
     public void debeMostrarElMensajeDeConfirmación(String valorEsperado) {
         String valorObtenido = stepAgregarMedioPago.obtiene_mensaje_pago();
         assertEquals(valorEsperado, valorObtenido);
+    }
+
+    @And("elimino la tarjeta agregada {string} desde Mis Tarjetas")
+    public void eliminoLaTarjetaAgregadaDesdeMisTarjetas(String numTarjeta) {
+        stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
     }
 }
