@@ -69,18 +69,8 @@ public class ObjPagos extends BaseDriver {
         return we_opcProblema;
     }
 
-    @AndroidFindBy(xpath= "//android.widget.ImageButton[@content-desc=\"Cerrar modal\"]")
-    public WebElement btnCerrarDejanosTuOpinionX;
-
-    @AndroidFindBy(xpath = "//*[@text='¡Hemos recibido tu pago!']")
-    public WebElement titHemosRecibidosuPago1;
-
-    @AndroidFindBy(xpath = "//*[@text='Ya tienes un servicio en proceso']")
-    public WebElement titYaTienesunServicio1;
-
     @AndroidFindBy(xpath= "//*[@text='Ir al inicio']")
     public WebElement btnIrAInicio;
-
 
     @AndroidFindBy(xpath= "//*[@text='Estás afiliado a Débito Automático']")
     public WebElement titPagoAfiliado;
