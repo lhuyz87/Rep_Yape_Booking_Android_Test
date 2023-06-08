@@ -8,52 +8,48 @@ import rimac.main.util.UtilApp;
 import java.util.NoSuchElementException;
 import java.util.logging.Logger;
 
+import static net.serenitybdd.core.pages.WebElementExpectations.elementIsPresent;
+
 public class ScAlertas extends BaseDriver {
 
-    protected ObjAlertas objAlertas=ObjAlertas.getInstancia();
-    protected ObjPaginaPrincipal objPaginaPrincipal =ObjPaginaPrincipal.getInstancia();
+    protected ObjAlertas objAlertas = ObjAlertas.getInstancia();
+    protected ObjPaginaPrincipal objPaginaPrincipal = ObjPaginaPrincipal.getInstancia();
     protected UtilApp util = UtilApp.getInstancia();
 
     public void omitirAlertas(int intentos) {
-        int i=0;
-        while(i<intentos){
-            try{
-                element(objAlertas.btnCerrarEmail).click();
-            }catch(Exception e){
+        int i = 0;
+        while (i < intentos) {
+            try {
+                if (element(objAlertas.btnCerrarEmail).isCurrentlyVisible()) {
+                    element(objAlertas.btnCerrarEmail).click();
+                }
 
-            }
-            try{
-                element(objAlertas.btnTalvezMasTarde).click();
-            }catch(Exception e){
+                if (element(objAlertas.btnTalvezMasTarde).isCurrentlyVisible()) {
+                    element(objAlertas.btnTalvezMasTarde).click();
+                }
 
-            }
-            try{
-                element(objAlertas.btnHuellaPorAhoraNo).click();
-            }catch(Exception e){
+                if (element(objAlertas.btnHuellaPorAhoraNo).isCurrentlyVisible()) {
+                    element(objAlertas.btnHuellaPorAhoraNo).click();
+                }
 
-            }
-            try{
-                element(objAlertas.btnEnteratePorAhoraNo).click();
-            }catch(Exception e){
+                if (element(objAlertas.btnEnteratePorAhoraNo).isCurrentlyVisible()) {
+                    element(objAlertas.btnEnteratePorAhoraNo).click();
+                }
 
-            }
-            try{
-                element(objAlertas.btnEnteratePorAhoraNo).click();
-            }catch(Exception e){
+                if (element(objAlertas.btnCerrarModalInspeccion).isCurrentlyVisible()) {
+                    element(objAlertas.btnCerrarModalInspeccion).click();
+                }
 
-            }
-            try{
-                element(objAlertas.btnCerrarModalInspeccion).click();
-            }catch(Exception e){
+                if (element(objAlertas.btnCerrarModalError).isCurrentlyVisible()) {
+                    element(objAlertas.btnCerrarModalError).click();
+                }
 
+                util.esperarSegundos(1);
+                i++;
+            } catch (Exception e) {
+                System.out.println("Error al omitir la alerta");
             }
-            try{
-                element(objAlertas.btnCerrarModalError).click();
-            }catch(Exception e){
-
-            }
-            util.esperarSegundos(1);
-            i++;
         }
     }
+
 }
