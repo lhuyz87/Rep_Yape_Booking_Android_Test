@@ -45,10 +45,11 @@ public class ScAlertas extends BaseDriver {
                 }
 
                 util.esperarSegundos(1);
-                i++;
+
             } catch (Exception e) {
                 System.out.println("Error al omitir la alerta");
             }
+            i++;
         }
     }
 
