@@ -18,7 +18,10 @@ public class ScAlertas extends BaseDriver {
 
     public void omitirAlertas(int intentos) {
         int i = 0;
+        int contador = 0;
         while (i < intentos) {
+            util.esperarSegundos(1);
+            i++;
             try {
                 if (element(objAlertas.btnCerrarEmail).isCurrentlyVisible()) {
                     element(objAlertas.btnCerrarEmail).click();
@@ -43,13 +46,15 @@ public class ScAlertas extends BaseDriver {
                 if (element(objAlertas.btnCerrarModalError).isCurrentlyVisible()) {
                     element(objAlertas.btnCerrarModalError).click();
                 }
-
-                util.esperarSegundos(1);
-
+                if (element(objPaginaPrincipal.btnEmergencia).isCurrentlyVisible()) {
+                    contador++;
+                }
+                if(contador==2){
+                    break;
+                }
             } catch (Exception e) {
                 System.out.println("Error al omitir la alerta");
             }
-            i++;
         }
     }
 
