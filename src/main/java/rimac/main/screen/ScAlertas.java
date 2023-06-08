@@ -5,6 +5,7 @@ import rimac.main.object.ObjPaginaPrincipal;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.UtilApp;
 
+import java.util.NoSuchElementException;
 import java.util.logging.Logger;
 
 public class ScAlertas extends BaseDriver {
@@ -14,35 +15,45 @@ public class ScAlertas extends BaseDriver {
     protected UtilApp util = UtilApp.getInstancia();
 
     public void omitirAlertas(int intentos) {
-        int contador=0;
         int i=0;
         while(i<intentos){
-            if(element(objAlertas.btnCerrarEmail).isCurrentlyVisible()){
+            try{
                 element(objAlertas.btnCerrarEmail).click();
+            }catch(Exception e){
+
             }
-            if(element(objAlertas.btnTalvezMasTarde).isCurrentlyVisible()){
+            try{
                 element(objAlertas.btnTalvezMasTarde).click();
+            }catch(Exception e){
+
             }
-            if (element(objAlertas.btnHuellaPorAhoraNo).isCurrentlyVisible()) {
-                    element(objAlertas.btnHuellaPorAhoraNo).click();
-                }
-            if (element(objAlertas.btnEnteratePorAhoraNo).isCurrentlyVisible()) {
-                    element(objAlertas.btnEnteratePorAhoraNo).click();
-                }
-            if (element(objAlertas.btnCerrarModalInspeccion).isCurrentlyVisible()) {
-                    element(objAlertas.btnCerrarModalInspeccion).click();
-                }
-            if (element(objAlertas.btnCerrarModalError).isCurrentlyVisible()) {
-                    element(objAlertas.btnCerrarModalError).click();
-                }
-            if (element(objPaginaPrincipal.btnEmergencia).isCurrentlyVisible()) {
-                    contador++;
-                }
-            i++;
-            if(contador==3){
-                break;
+            try{
+                element(objAlertas.btnHuellaPorAhoraNo).click();
+            }catch(Exception e){
+
+            }
+            try{
+                element(objAlertas.btnEnteratePorAhoraNo).click();
+            }catch(Exception e){
+
+            }
+            try{
+                element(objAlertas.btnEnteratePorAhoraNo).click();
+            }catch(Exception e){
+
+            }
+            try{
+                element(objAlertas.btnCerrarModalInspeccion).click();
+            }catch(Exception e){
+
+            }
+            try{
+                element(objAlertas.btnCerrarModalError).click();
+            }catch(Exception e){
+
             }
             util.esperarSegundos(1);
+            i++;
         }
     }
 }
