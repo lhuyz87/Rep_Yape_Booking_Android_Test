@@ -34,6 +34,7 @@ private long wdwTimeOut = 300L;
 	protected ObjTramites tramitesObject = ObjTramites.getInstancia();
 	protected ObjCommons objCommons = ObjCommons.getInstancia();
 	protected ObjPaginaPrincipal objPaginaPrincipal=ObjPaginaPrincipal.getInstancia();
+	protected ObjChoferReemplazo objChoferReemplazo = ObjChoferReemplazo.getInstancia();
 	protected ObjIniciarReembolsoSalud objIniciarReembolsoSalud= ObjIniciarReembolsoSalud.getInstancia();
 	protected MobileObjectUtil mobileObjectUtil = MobileObjectUtil.getInstancia();
 
@@ -189,9 +190,8 @@ private long wdwTimeOut = 300L;
 				contador++;
 			}
 
-			int ybtnReembolso=tramitesObject.btnReembolsoSalud.getLocation().getY();
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-150) < ybtnReembolso) {
+			if ((ybtnPerfil-150) < tramitesObject.btnReembolsoSalud.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 
@@ -228,9 +228,8 @@ private long wdwTimeOut = 300L;
 				contador++;
 			}
 			Serenity.takeScreenshot();
-			int ybtnReembolso=tramitesObject.btnBuscarClinica.getLocation().getY();
 			int ybtnPerfil=tramitesObject.btnBuscarClinica.getLocation().getY();
-			if ((ybtnPerfil-150) < ybtnReembolso) {
+			if ((ybtnPerfil-150) < tramitesObject.btnBuscarClinica.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			element(tramitesObject.btnBuscarClinica).click();
@@ -253,22 +252,19 @@ private long wdwTimeOut = 300L;
 			int xTodos=objCommons.btnTodos.getLocation().getX();
 			int yTodos=objCommons.btnTodos.getLocation().getY();
 			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
-			util.esperarSegundos(1);
-
 			if(element(tramitesObject.opcVehicular).isCurrentlyVisible()){
 				element(tramitesObject.opcVehicular).click();
 			}
 			int contador=0;
-			while(element(tramitesObject.btnAsisVehiculares).isCurrentlyVisible()==false && contador<15) {
+			while(element(tramitesObject.btnAsisVehiculares).isCurrentlyVisible()==false && contador<8) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 				if(element(tramitesObject.btnAsisVehiculares).isCurrentlyVisible()){
 					break;
 				}
 				contador++;
 			}
-			int ybtnReembolso=tramitesObject.btnAsisVehiculares.getLocation().getY();
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-150) < ybtnReembolso) {
+			if ((ybtnPerfil-100) < tramitesObject.btnAsisVehiculares.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();
@@ -278,6 +274,39 @@ private long wdwTimeOut = 300L;
 		catch (Exception e) {
 			Serenity.takeScreenshot();
 			throw new IllegalAccessError("Error en el aplicativo, para igresar a Asistencias Vehiculares");
+		}
+	}
+
+	public void seleccionaChoferReemplazo() {
+		try {
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+			util.esperarSegundos(2);
+			util.esperarElementoClick(5,tramitesObject.lblTramites);
+			if(element(tramitesObject.opcVehicular).isCurrentlyVisible()){
+				element(tramitesObject.opcVehicular).click();
+			}
+			int contador=0;
+			while(element(objChoferReemplazo.opcChoferReemplazo).isCurrentlyVisible()==false && contador<15) {
+				util.doSwipe(appiumDriver(), start, end, 500);
+				if(element(objChoferReemplazo.opcChoferReemplazo).isCurrentlyVisible()){
+					break;
+				}
+				contador++;
+			}
+			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
+			if ((ybtnPerfil-100) < objChoferReemplazo.opcChoferReemplazo.getLocation().getY()) {
+				util.doSwipe(appiumDriver(), start, end, 500);
+			}
+			Serenity.takeScreenshot();
+			element(objChoferReemplazo.opcChoferReemplazo).click();
+			util.esperarSegundos(2);
+
+		}
+		catch (Exception e) {
+			Serenity.takeScreenshot();
+			throw new IllegalAccessError("Error en el aplicativo, para igresar a Chofer de reemplazo");
 		}
 	}
 	
