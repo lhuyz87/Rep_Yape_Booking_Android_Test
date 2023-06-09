@@ -54,7 +54,7 @@ Feature: Pagos
       And elimino la tarjeta afiliada "<numtarjeta>" desde Mi Perfil
 
     Examples:
-      ###DATOS###@Data|1@01-SuscripcionOpcionPagar
+      ###DATOS###@Data|1@SuscripcionOpcionPagar
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
 
