@@ -32,35 +32,6 @@ public class ScChoferDeReemplazo extends BaseDriver{
 
     UtilApp util = new UtilApp();
 
-    public void seleccionaChoferReemplazo() {
-        try {
-            Dimension dimension = appiumDriver().manage().window().getSize();
-            Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
-            Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
-            util.esperarSegundos(2);
-            util.esperarElementoClick(5,tramitesObject.lblTramites);
-            if(element(tramitesObject.opcVehicular).isCurrentlyVisible()){
-                element(tramitesObject.opcVehicular).click();
-            }
-            int contador=0;
-            while(element(objChoferReemplazo.opcChoferReemplazo).isCurrentlyVisible()==false && contador<15) {
-                util.doSwipe(appiumDriver(), start, end, 500);
-                if(element(objChoferReemplazo.opcChoferReemplazo).isCurrentlyVisible()){
-                    break;
-                }
-                contador++;
-            }
-            Serenity.takeScreenshot();
-            element(objChoferReemplazo.opcChoferReemplazo).click();
-            util.esperarSegundos(2);
-
-        }
-        catch (Exception e) {
-            Serenity.takeScreenshot();
-            throw new IllegalAccessError("Error en el aplicativo, para igresar a Chofer de reemplazo");
-        }
-    }
-
     public void terminosCondicionesChoferDeReemplazo(){
         try{
             util.esperarElementoVisible(5,objChoferReemplazo.titSolicitaChoferR);

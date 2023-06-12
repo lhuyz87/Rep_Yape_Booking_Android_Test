@@ -21,7 +21,7 @@ public class StepChoferDeReemplazo {
     public void se_ingresa_a_chofer_reemplazo_desde_tramites() throws Exception {
 
         scHome.seleccionarOpcionPrincipal("Tramites");
-        scChoferDeReemplazo.seleccionaChoferReemplazo();
+        scTusTramites.seleccionaChoferReemplazo();
 
     }
 

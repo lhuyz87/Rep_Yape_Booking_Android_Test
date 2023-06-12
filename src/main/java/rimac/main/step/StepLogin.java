@@ -56,7 +56,7 @@ public class StepLogin {
 			Variables.listaStrings.add(password);
 
 			scLogin.login(id, password);
-		    scAlertas.omitirAlertas(16);
+		    scAlertas.omitirAlertas(7);
 		}
 
 	public void seleccOlvidaContra() {

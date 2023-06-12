@@ -33,9 +33,13 @@ public class ScTuSesionExpiro extends BaseDriver {
         int contadorMinutos=0;
         while(contadorMinutos<15){
             util.mobileSwipeScreenAndroid();
-            util.esperarSegundos(30);
+            util.esperarSegundos(15);
             util.mobileSwipeScreenAndroid();
-            util.esperarSegundos(30);
+            util.esperarSegundos(15);
+            util.mobileSwipeScreenAndroid();
+            util.esperarSegundos(15);
+            util.mobileSwipeScreenAndroid();
+            util.esperarSegundos(15);
             System.out.println(contadorMinutos);
             contadorMinutos++;
         }
