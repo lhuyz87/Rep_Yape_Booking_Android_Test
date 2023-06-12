@@ -264,7 +264,7 @@ private long wdwTimeOut = 300L;
 				contador++;
 			}
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-100) < tramitesObject.btnAsisVehiculares.getLocation().getY()) {
+			if ((ybtnPerfil-150) < tramitesObject.btnAsisVehiculares.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();
@@ -296,17 +296,51 @@ private long wdwTimeOut = 300L;
 				contador++;
 			}
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-100) < objChoferReemplazo.opcChoferReemplazo.getLocation().getY()) {
+			if ((ybtnPerfil-150) < objChoferReemplazo.opcChoferReemplazo.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();
 			element(objChoferReemplazo.opcChoferReemplazo).click();
-			util.esperarSegundos(2);
-
+			util.esperarSegundos(1);
 		}
 		catch (Exception e) {
 			Serenity.takeScreenshot();
 			throw new IllegalAccessError("Error en el aplicativo, para igresar a Chofer de reemplazo");
+		}
+	}
+
+	public void seleccionaDescuentoAsistencias() {
+		try {
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+			util.esperarSegundos(2);
+			util.esperarElementoClick(5,tramitesObject.lblTramites);
+
+			int xTodos=objCommons.btnTodos.getLocation().getX();
+			int yTodos=objCommons.btnTodos.getLocation().getY();
+			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
+			if(element(tramitesObject.opcVehicular).isCurrentlyVisible()){
+				element(tramitesObject.opcVehicular).click();
+			}
+			int contador=0;
+			while(element(tramitesObject.btnDescuentoAsistencias).isCurrentlyVisible()==false && contador<8) {
+				util.doSwipe(appiumDriver(), start, end, 500);
+				if(element(tramitesObject.btnDescuentoAsistencias).isCurrentlyVisible()){
+					break;
+				}
+				contador++;
+			}
+			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
+			if ((ybtnPerfil-150) < tramitesObject.btnDescuentoAsistencias.getLocation().getY()) {
+				util.doSwipe(appiumDriver(), start, end, 500);
+			}
+			Serenity.takeScreenshot();
+			element(tramitesObject.btnDescuentoAsistencias).click();
+		}
+		catch (Exception e) {
+			Serenity.takeScreenshot();
+			throw new IllegalAccessError("Error en el aplicativo, para igresar a Descuento en Asistencias Vehiculares");
 		}
 	}
 	
