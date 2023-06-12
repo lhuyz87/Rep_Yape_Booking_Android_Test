@@ -123,7 +123,7 @@ public class ScTusSeguros extends BaseDriver{
 				util.mobileSwipeScreenAndroid();
 				contador++;
 			}
-			if ((ybtnPerfil-100) < objTusSeguros.verDetalleXPlaca(placa).getLocation().getY()) {
+			if ((ybtnPerfil-150) < objTusSeguros.verDetalleXPlaca(placa).getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();

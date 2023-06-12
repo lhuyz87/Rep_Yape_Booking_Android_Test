@@ -49,7 +49,7 @@ public class ScConsultaTusPagos extends BaseDriver {
             Point end = new Point((int) (dimension.width * 0.5), (int) (dimension.height * 0.5));
             int contador = 0;
             util.esperarElemento(10, objConsultaTusPagos.btnDescargaHistorial);
-            while (contador < 3) {
+            while (contador < 4) {
                 util.doSwipe(appiumDriver(), start, end, 1000);
                 contador++;
             }

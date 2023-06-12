@@ -41,7 +41,8 @@ public class ObjPagos extends BaseDriver {
     public WebElement btnHistorialPagos;
     @AndroidFindBy(xpath= "//*[@text='Pagar cuotas']")
     public WebElement btnPagarCuotas;
-
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/btnPayQuotePending")
+    public WebElement btnAdelantarCuotas;
     @AndroidFindBy(xpath= "//*[@text='Cuotas a pagar']")
     public WebElement lblCuotasAPagar;
 

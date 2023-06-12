@@ -93,10 +93,17 @@ public class ScPagos extends BaseDriver {
         Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
         Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.3));
         while(element(objPagos.btnPagarCuotas).isCurrentlyVisible()==false && contador<4){
+            if(element(objPagos.btnAdelantarCuotas).isCurrentlyVisible()){
+                break;
+            }
             util.doSwipe(appiumDriver(), start, end, 1000);
             contador++;
         }
-        element(objPagos.btnPagarCuotas).click();
+        if(element(objPagos.btnPagarCuotas).isCurrentlyVisible()){
+            element(objPagos.btnPagarCuotas).click();
+        }else{
+            element(objPagos.btnAdelantarCuotas).click();
+        }
         if(element(objPagos.titPagoAfiliado).isCurrentlyVisible() == true){
             element(objPagos.btnEntendido).click();
         }

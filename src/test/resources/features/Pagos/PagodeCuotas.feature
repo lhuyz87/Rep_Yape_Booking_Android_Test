@@ -26,3 +26,15 @@ Feature: Pagos
     Examples:
      ###DATOS###@Data|1@PagoSinTarjetaAsociada
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
+
+  @PagoConTarjetaAsociada
+  Scenario Outline: Realizar Pago Seguro Vehicular Exitoso validando historial de pago en Mundo Rimac
+    Given realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
+    When se realiza el pago del seguro vehicular de la "<placa>" del vehiculo
+    Then debe mostrar el mensaje ¡Hemos recibido tu pago!
+
+    Examples:
+    ###DATOS###@Data|1@PagaConTarjetaAsociada
+      | 0 | tipoID | id | password | placa |
