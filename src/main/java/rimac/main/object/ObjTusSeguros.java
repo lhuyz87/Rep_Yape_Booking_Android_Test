@@ -8,6 +8,8 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import rimac.main.object.ObjTusSeguros;
 import rimac.main.util.BaseDriver;
 
+import java.util.List;
+
 public class ObjTusSeguros extends BaseDriver{
 	
 	// singleton
@@ -90,6 +92,12 @@ public class ObjTusSeguros extends BaseDriver{
 	@AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Retroceder\"]")
 	public WebElement tbSeguroVehicular;
 
-
-
+	public WebElement verDetalleXPlaca(String placa) {
+		WebElement  we_tnPlacaSeg = appiumDriver().findElement(AppiumBy.xpath("(//*[@text='Placa: "+placa+"']//parent::*//following-sibling::*)[3]"));
+		return we_tnPlacaSeg;
+	}
+	public List<WebElement> verDetalleXPlaca2(String placa) {
+		List<WebElement>  we_tnPlacaSeg = appiumDriver().findElements(AppiumBy.xpath("(//*[@text='Placa: "+placa+"']//parent::*//following-sibling::*)[3]"));
+		return we_tnPlacaSeg;
+	}
 }

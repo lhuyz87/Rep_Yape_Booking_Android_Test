@@ -48,10 +48,8 @@ Feature: Pagos
       And elimino la tarjeta afiliada "<numtarjeta>" desde Mi Perfil
 
     Examples:
-
       ###DATOS###@Data|1@01-SuscripcionOpcionPagar
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
-      |9|DNI|45642376|Rimac2021|H2W613|4919107570913512|03/28|111|
 
     @TiempoInactividadPagos
     Scenario Outline: Esperar 15 min de inactividad en el modulo de pagos

@@ -1,6 +1,7 @@
 package rimac.main.screen;
 
 
+import java.util.NoSuchElementException;
 import java.util.logging.Logger;
 
 import io.appium.java_client.MobileBy;
@@ -10,6 +11,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import io.appium.java_client.AppiumDriver;
 import rimac.main.object.ObjMediodePago;
+import rimac.main.object.ObjPaginaPrincipal;
 import rimac.main.object.ObjPagos;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
@@ -24,6 +26,7 @@ public class ScTusSeguros extends BaseDriver{
 	
 	private long wdwTimeOut = 300L;
 
+	protected ObjPaginaPrincipal objPaginaPrincipal=ObjPaginaPrincipal.getInstancia();
 	protected ObjTusSeguros objTusSeguros = ObjTusSeguros.getInstancia();
 	protected ObjMediodePago objMediodePago = ObjMediodePago.getInstancia();
 	protected ObjPagos objPagos = ObjPagos.getInstancia();
@@ -183,32 +186,32 @@ public class ScTusSeguros extends BaseDriver{
 		}
 	}
 	public void seleccionar_Placa(String placa){
-		try {
-			Dimension dimension = appiumDriver().manage().window().getSize();
-			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.7));
-			Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
-			util.doSwipe(appiumDriver(), start, end, 1000);
-			util.esperarElemento(15, objTusSeguros.titSeguroVehicular);
-			element(objTusSeguros.titSeguroVehicular).click();
-			util.esperarSegundos(5);
+		int contador = 0;
+		int xTodos=objTusSeguros.btnTodos.getLocation().getX();
+		int yTodos=objTusSeguros.btnTodos.getLocation().getY();
+		util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
 
-			util.esperarElemento(15, objTusSeguros.btnPlacaSeg(placa));
-			if (element(objTusSeguros.btnPlacaSeg(placa)).isCurrentlyVisible() == false) {
-				appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"" + placa + "\").instance(0))"));
-			}
-			util.esperarElemento(15, objTusSeguros.btnPlacaSeg(placa));
-			Serenity.takeScreenshot();
-			element(objTusSeguros.btnPlacaSeg(placa)).click();
-			element(objTusSeguros.btnVerDetallePlaca).click();
-
-
-		}catch(Exception e){
-			Serenity.takeScreenshot();
-			throw new IllegalAccessError("Error para seleccionar la placa del vehiculo");
+		if(element(objTusSeguros.btnVehicular).isCurrentlyVisible()){
+			element(objTusSeguros.btnVehicular).click();
 		}
+		Dimension dimension = appiumDriver().manage().window().getSize();
+		Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
+		Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
 
+		int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
+		while (contador < 8) {
+			if(objTusSeguros.verDetalleXPlaca2(placa).size()!=0){
+				break;
+			}
+			util.mobileSwipeScreenAndroid();
+			contador++;
+		}
+		if ((ybtnPerfil-100) < objTusSeguros.verDetalleXPlaca(placa).getLocation().getY()) {
+			util.doSwipe(appiumDriver(), start, end, 500);
+		}
+		Serenity.takeScreenshot();
+		element(objTusSeguros.verDetalleXPlaca(placa)).click();
 	}
-
 	public void añadir_nueva_tarjeta() {
 		Dimension dimension = appiumDriver().manage().window().getSize();
 		Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));

@@ -5,44 +5,57 @@ import rimac.main.object.ObjPaginaPrincipal;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.UtilApp;
 
+import java.util.NoSuchElementException;
 import java.util.logging.Logger;
+
+import static net.serenitybdd.core.pages.WebElementExpectations.elementIsPresent;
 
 public class ScAlertas extends BaseDriver {
 
-    protected ObjAlertas objAlertas=ObjAlertas.getInstancia();
-    protected ObjPaginaPrincipal objPaginaPrincipal =ObjPaginaPrincipal.getInstancia();
+    protected ObjAlertas objAlertas = ObjAlertas.getInstancia();
+    protected ObjPaginaPrincipal objPaginaPrincipal = ObjPaginaPrincipal.getInstancia();
     protected UtilApp util = UtilApp.getInstancia();
 
     public void omitirAlertas(int intentos) {
-        int contador=0;
-        int i=0;
-        while(i<intentos){
-            if(element(objAlertas.btnTalvezMasTarde).isCurrentlyVisible()){
-                element(objAlertas.btnTalvezMasTarde).click();
-            }
-            if(element(objAlertas.btnCerrarEmail).isCurrentlyVisible()){
-                element(objAlertas.btnCerrarEmail).click();
-            }
-            if(element(objAlertas.btnHuellaPorAhoraNo).isCurrentlyVisible()){
-                element(objAlertas.btnHuellaPorAhoraNo).click();
-            }
-            if(element(objAlertas.btnEnteratePorAhoraNo).isCurrentlyVisible()){
-                element(objAlertas.btnEnteratePorAhoraNo).click();
-            }
-            if(element(objAlertas.btnCerrarModalInspeccion).isClickable()){
-                element(objAlertas.btnCerrarModalInspeccion).click();
-            }
-            if(element(objAlertas.btnCerrarModalError).isCurrentlyVisible()){
-                element(objAlertas.btnCerrarModalError).click();
-            }
-            if(element(objPaginaPrincipal.btnEmergencia).isCurrentlyVisible()){
-                contador++;
-            }
-            i++;
+        int i = 0;
+        int contador = 0;
+        while (i < intentos) {
             util.esperarSegundos(1);
-            if(contador==3){
-                break;
+            i++;
+            try {
+                if (element(objAlertas.btnCerrarEmail).isCurrentlyVisible()) {
+                    element(objAlertas.btnCerrarEmail).click();
+                }
+
+                if (element(objAlertas.btnTalvezMasTarde).isCurrentlyVisible()) {
+                    element(objAlertas.btnTalvezMasTarde).click();
+                }
+
+                if (element(objAlertas.btnHuellaPorAhoraNo).isCurrentlyVisible()) {
+                    element(objAlertas.btnHuellaPorAhoraNo).click();
+                }
+
+                if (element(objAlertas.btnEnteratePorAhoraNo).isCurrentlyVisible()) {
+                    element(objAlertas.btnEnteratePorAhoraNo).click();
+                }
+
+                if (element(objAlertas.btnCerrarModalInspeccion).isCurrentlyVisible()) {
+                    element(objAlertas.btnCerrarModalInspeccion).click();
+                }
+
+                if (element(objAlertas.btnCerrarModalError).isCurrentlyVisible()) {
+                    element(objAlertas.btnCerrarModalError).click();
+                }
+                if (element(objPaginaPrincipal.btnEmergencia).isCurrentlyVisible()) {
+                    contador++;
+                }
+                if(contador==2){
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("Error al omitir la alerta");
             }
         }
     }
+
 }
