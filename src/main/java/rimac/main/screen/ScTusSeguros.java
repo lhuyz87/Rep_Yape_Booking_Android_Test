@@ -80,12 +80,13 @@ public class ScTusSeguros extends BaseDriver{
 	public void ver_detalle_Vehicular(String seguro){
 		try {
 			int contador = 0;
-			int xTodos=objTusSeguros.btnTodos.getLocation().getX();
-			int yTodos=objTusSeguros.btnTodos.getLocation().getY();
-			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
-
-			if(element(objTusSeguros.btnVehicular).isCurrentlyVisible()){
-				element(objTusSeguros.btnVehicular).click();
+			if(element(objTusSeguros.btnTodos).isCurrentlyVisible()){
+				int xTodos=objTusSeguros.btnTodos.getLocation().getX();
+				int yTodos=objTusSeguros.btnTodos.getLocation().getY();
+				util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
+				if(element(objTusSeguros.btnVehicular).isCurrentlyVisible()){
+					element(objTusSeguros.btnVehicular).click();
+				}
 			}
 				while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
 					util.mobileSwipeScreenAndroid();
@@ -108,12 +109,13 @@ public class ScTusSeguros extends BaseDriver{
 	public void ver_detalle_Vehicular_placa(String placa){
 		try {
 			int contador = 0;
-			int xTodos=objTusSeguros.btnTodos.getLocation().getX();
-			int yTodos=objTusSeguros.btnTodos.getLocation().getY();
-			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
-
-			if(element(objTusSeguros.btnVehicular).isCurrentlyVisible()){
-				element(objTusSeguros.btnVehicular).click();
+			if(element(objTusSeguros.btnTodos).isCurrentlyVisible()){
+				int xTodos=objTusSeguros.btnTodos.getLocation().getX();
+				int yTodos=objTusSeguros.btnTodos.getLocation().getY();
+				util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
+				if(element(objTusSeguros.btnVehicular).isCurrentlyVisible()){
+					element(objTusSeguros.btnVehicular).click();
+				}
 			}
 			Dimension dimension = appiumDriver().manage().window().getSize();
 			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
@@ -140,12 +142,13 @@ public class ScTusSeguros extends BaseDriver{
 	public void ver_detalle_Vida(String seguro){
 		try {
 			int contador = 0;
-			int xTodos=objTusSeguros.btnTodos.getLocation().getX();
-			int yTodos=objTusSeguros.btnTodos.getLocation().getY();
-			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
-
-			if(element(objTusSeguros.btnVida).isCurrentlyVisible()){
-				element(objTusSeguros.btnVida).click();
+			if(element(objTusSeguros.btnTodos).isCurrentlyVisible()){
+				int xTodos=objTusSeguros.btnTodos.getLocation().getX();
+				int yTodos=objTusSeguros.btnTodos.getLocation().getY();
+				util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
+				if(element(objTusSeguros.btnVida).isCurrentlyVisible()){
+					element(objTusSeguros.btnVida).click();
+				}
 			}
 			while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
 				util.mobileSwipeScreenAndroid();
@@ -165,12 +168,13 @@ public class ScTusSeguros extends BaseDriver{
 	public void ver_vetalle_Salud(String seguro){
 		try {
 			int contador = 0;
-			int xTodos=objTusSeguros.btnTodos.getLocation().getX();
-			int yTodos=objTusSeguros.btnTodos.getLocation().getY();
-			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
-
-			if(element(objTusSeguros.btnSalud).isCurrentlyVisible()){
-				element(objTusSeguros.btnSalud).click();
+			if(element(objTusSeguros.btnTodos).isCurrentlyVisible()){
+				int xTodos=objTusSeguros.btnTodos.getLocation().getX();
+				int yTodos=objTusSeguros.btnTodos.getLocation().getY();
+				util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
+				if(element(objTusSeguros.btnSalud).isCurrentlyVisible()){
+					element(objTusSeguros.btnSalud).click();
+				}
 			}
 			while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
 				util.mobileSwipeScreenAndroid();
@@ -190,12 +194,13 @@ public class ScTusSeguros extends BaseDriver{
 	public void ver_vetalle_Soat(String seguro){
 		try {
 			int contador = 0;
-			int xTodos=objTusSeguros.btnTodos.getLocation().getX();
-			int yTodos=objTusSeguros.btnTodos.getLocation().getY();
-			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
-
-			if(element(objTusSeguros.btnSOAT).isCurrentlyVisible()){
-				element(objTusSeguros.btnSOAT).click();
+			if(element(objTusSeguros.btnTodos).isCurrentlyVisible()){
+				int xTodos=objTusSeguros.btnTodos.getLocation().getX();
+				int yTodos=objTusSeguros.btnTodos.getLocation().getY();
+				util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
+				if(element(objTusSeguros.btnSOAT).isCurrentlyVisible()){
+					element(objTusSeguros.btnSOAT).click();
+				}
 			}
 			while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
 				util.mobileSwipeScreenAndroid();
@@ -223,12 +228,13 @@ public class ScTusSeguros extends BaseDriver{
 	}
 	public void seleccionar_Placa(String placa){
 		int contador = 0;
-		int xTodos=objTusSeguros.btnTodos.getLocation().getX();
-		int yTodos=objTusSeguros.btnTodos.getLocation().getY();
-		util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
-
-		if(element(objTusSeguros.btnVehicular).isCurrentlyVisible()){
-			element(objTusSeguros.btnVehicular).click();
+		if(element(objTusSeguros.btnTodos).isCurrentlyVisible()){
+			int xTodos=objTusSeguros.btnTodos.getLocation().getX();
+			int yTodos=objTusSeguros.btnTodos.getLocation().getY();
+			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
+			if(element(objTusSeguros.btnVehicular).isCurrentlyVisible()){
+				element(objTusSeguros.btnVehicular).click();
+			}
 		}
 		Dimension dimension = appiumDriver().manage().window().getSize();
 		Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
