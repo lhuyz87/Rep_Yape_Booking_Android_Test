@@ -66,6 +66,7 @@ Feature: Pagos
       When se ingresa al detalle del Seguro SOAT desde Seguros
       And se mantiene inactivo el módulo en el tab de pagos
       Then se valida el mensaje para retornar al Login desde el módulo de pagos
+
       Examples:
         | tipoID | id       | password  |
         | DNI    | 44926877 | Rimac2020 |
