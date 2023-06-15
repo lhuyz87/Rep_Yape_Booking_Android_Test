@@ -2,6 +2,7 @@ package rimac.main.screen;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.logging.Logger;
 
 import org.openqa.selenium.html5.Location;
@@ -15,6 +16,8 @@ import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilApp;
@@ -51,11 +54,14 @@ private long wdwTimeOut = 300L;
 		Location location = new Location(-12.06110283453986, -77.03333258628847, 0);
 		androidDriver().setLocation(location);
 		looger.info("aplicación iniciada");
-		util.esperarElemento(20, objLogin.btnIngresarSesion);
-		element(objLogin.btnIngresarSesion).click();
+		//util.esperarElemento(20, objLogin.btnIngresarSesion);
+		//element(objLogin.btnIngresarSesion).click();
+		new WebDriverWait(androidDriver(), Duration.ofSeconds(10))
+				.until(ExpectedConditions.visibilityOf(objLogin.txtNumDocumento));
 		element(objLogin.txtNumDocumento).click();
 		element(objLogin.txtNumDocumento).sendKeys(dniUser);
 		util.pressEnter(androidDriver());
+		element(objLogin.btnContinuar).click();
 		element(objLogin.txtPassword).click();
 		element(objLogin.txtPassword).sendKeys(passUser);
 		util.pressEnter(androidDriver());

@@ -36,15 +36,21 @@ public class ObjLogin extends BaseDriver{
 	
 	@AndroidFindBy(xpath = "//*[@text='Iniciar sesión']")
 	public WebElement btnIngresarSesion;
-	
 
-    @AndroidFindBy(xpath = "//*[@text='Nº de documento']")
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+	public WebElement btnContinuar;
+
+   /* @AndroidFindBy(xpath = "//*[@text='Nº de documento']")
+	public WebElement txtNumDocumento;*/
+
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dropdownEditText")
 	public WebElement txtNumDocumento;
-    
 
-    @AndroidFindBy(xpath = "//*[@text='Contraseña']")
+    /*@AndroidFindBy(xpath = "//*[@text='Contraseña']")
+	public WebElement txtPassword;*/
+
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/bodyEt")
 	public WebElement txtPassword;
-    
 	
 	public WebElement diaAtencion(WebDriver webDriver, String dia) {
 		By by = By.xpath("//*[@text='"+dia+"']");
