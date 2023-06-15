@@ -187,12 +187,13 @@ public class ScTusSeguros extends BaseDriver{
 	}
 	public void seleccionar_Placa(String placa){
 		int contador = 0;
-		int xTodos=objTusSeguros.btnTodos.getLocation().getX();
-		int yTodos=objTusSeguros.btnTodos.getLocation().getY();
-		util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
-
-		if(element(objTusSeguros.btnVehicular).isCurrentlyVisible()){
-			element(objTusSeguros.btnVehicular).click();
+		if(element(objTusSeguros.btnTodos).isCurrentlyVisible()){
+			int xTodos=objTusSeguros.btnTodos.getLocation().getX();
+			int yTodos=objTusSeguros.btnTodos.getLocation().getY();
+			util.doSwipeCoordenadas(appiumDriver(), (xTodos+500), yTodos,xTodos,yTodos, 1000);
+			if(element(objTusSeguros.btnVehicular).isCurrentlyVisible()){
+				element(objTusSeguros.btnVehicular).click();
+			}
 		}
 		Dimension dimension = appiumDriver().manage().window().getSize();
 		Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
