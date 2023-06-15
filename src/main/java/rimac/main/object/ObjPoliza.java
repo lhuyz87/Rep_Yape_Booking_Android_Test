@@ -36,4 +36,6 @@ public class ObjPoliza extends BaseDriver {
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/policyTextPlate")
     public WebElement numeroPoliza;
 
+    @AndroidFindBy(xpath = "//*[@text='Entendido']")
+    public WebElement btnEntendido;
 }
