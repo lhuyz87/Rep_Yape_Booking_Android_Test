@@ -72,5 +72,6 @@ public class ObjTramites extends BaseDriver{
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/processTitle")
 	public WebElement lblTramites;
 
-
+	@AndroidFindBy(xpath = "//*[@text='Descuento en asistencias']//parent::android.view.ViewGroup//following-sibling::android.widget.ImageView")
+	public WebElement btnDescuentoAsistencias;
 }

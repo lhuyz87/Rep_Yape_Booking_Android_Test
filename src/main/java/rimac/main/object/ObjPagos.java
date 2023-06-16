@@ -41,7 +41,8 @@ public class ObjPagos extends BaseDriver {
     public WebElement btnHistorialPagos;
     @AndroidFindBy(xpath= "//*[@text='Pagar cuotas']")
     public WebElement btnPagarCuotas;
-
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/btnPayQuotePending")
+    public WebElement btnAdelantarCuotas;
     @AndroidFindBy(xpath= "//*[@text='Cuotas a pagar']")
     public WebElement lblCuotasAPagar;
 
@@ -69,18 +70,8 @@ public class ObjPagos extends BaseDriver {
         return we_opcProblema;
     }
 
-    @AndroidFindBy(xpath= "//android.widget.ImageButton[@content-desc=\"Cerrar modal\"]")
-    public WebElement btnCerrarDejanosTuOpinionX;
-
-    @AndroidFindBy(xpath = "//*[@text='¡Hemos recibido tu pago!']")
-    public WebElement titHemosRecibidosuPago1;
-
-    @AndroidFindBy(xpath = "//*[@text='Ya tienes un servicio en proceso']")
-    public WebElement titYaTienesunServicio1;
-
     @AndroidFindBy(xpath= "//*[@text='Ir al inicio']")
     public WebElement btnIrAInicio;
-
 
     @AndroidFindBy(xpath= "//*[@text='Estás afiliado a Débito Automático']")
     public WebElement titPagoAfiliado;

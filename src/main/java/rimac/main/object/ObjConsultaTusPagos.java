@@ -2,6 +2,7 @@ package rimac.main.object;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import rimac.main.util.BaseDriver;
 
@@ -34,4 +35,12 @@ public class ObjConsultaTusPagos extends BaseDriver {
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc='']")
     public WebElement lblPdfHistorial;
+
+    @AndroidFindBy(xpath = "(//*[@resource-id='com.rimac.rimac_surrogas.qa:id/amount'])[last()]")
+    public WebElement lblMontoHistorial;
+
+    public WebElement lblNumeroCuotaHistorial(String cuota){
+        WebElement we_lblNumeroCuotaHistorial = appiumDriver().findElement(By.ByXPath.xpath("//*[@text='"+cuota+"']"));
+        return we_lblNumeroCuotaHistorial;
+    }
 }

@@ -96,18 +96,10 @@ public class ObjCuentaDeAbono extends BaseDriver{
 		
 		return elementEntBancaria.get(1);
 	}
-	
-	
+
 	@AndroidFindBy(xpath = "//android.widget.EditText[@content-desc=\"createAccountEditEmail\"]")
 	public WebElement txtCorreo;
-	
-	
-	
+
 	@AndroidFindBy(xpath = "//*[@text='Continuar']")
 	public WebElement btnContinuar;
-	
-
-	
-	
-	
 }
