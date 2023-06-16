@@ -49,7 +49,6 @@ private long wdwTimeOut = 300L;
 	UtilApp util = new UtilApp();
 	protected MobileObjectUtil mobil = MobileObjectUtil.getInstancia();
 	AppiumDriver driver;
-	
 	public void login(String dniUser, String passUser) {
 		Location location = new Location(-12.06110283453986, -77.03333258628847, 0);
 		androidDriver().setLocation(location);
