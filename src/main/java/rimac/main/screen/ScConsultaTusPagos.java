@@ -24,13 +24,14 @@ public class ScConsultaTusPagos extends BaseDriver {
         boolean existePdf = false;
         while (element(objConsultaTusPagos.btnDownload).isCurrentlyVisible() && intentos < 5) {
             intentos++;
-          }
-        existePdf = element(objConsultaTusPagos.btnAbrir).isCurrentlyVisible();
-        try{
-            element(objConsultaTusPagos.btnDescargaHistorial).click();
-            util.esperarElementoVisible(5,objConsultaTusPagos.btnAbrir);
-            element(objConsultaTusPagos.btnAbrir).click();
-        }catch(Exception e){
+
+            existePdf = element(objConsultaTusPagos.btnAbrir).isCurrentlyVisible();
+            try {
+                element(objConsultaTusPagos.btnDescargaHistorial).click();
+                util.esperarElementoVisible(5, objConsultaTusPagos.btnAbrir);
+                element(objConsultaTusPagos.btnAbrir).click();
+            } catch (Exception e) {
+            }
         }
         Serenity.takeScreenshot();
         return existePdf;
