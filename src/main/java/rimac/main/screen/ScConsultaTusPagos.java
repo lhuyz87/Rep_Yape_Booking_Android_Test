@@ -33,4 +33,5 @@ public class ScConsultaTusPagos extends BaseDriver {
         Serenity.takeScreenshot();
         return existePdf;
     }
+
 }
