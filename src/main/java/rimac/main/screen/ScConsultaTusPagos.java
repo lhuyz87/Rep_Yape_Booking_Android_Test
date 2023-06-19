@@ -13,25 +13,20 @@ public class ScConsultaTusPagos extends BaseDriver {
     ObjCommons objCommons= ObjCommons.getInstancia();
 
     public void descargar_historial() {
-        util.esperarElemento(10, objConsultaTusPagos.btnDescargaHistorial);
+        util.esperarElemento(6, objConsultaTusPagos.btnDescargaHistorial);
         element(objConsultaTusPagos.btnDescargaHistorial).click();
-        Serenity.takeScreenshot();
     }
 
     public boolean validacion_pdf() {
         int intentos = 0;
-
         boolean existePdf = false;
-        while (element(objConsultaTusPagos.btnDownload).isCurrentlyVisible() && intentos < 5) {
-            if(element(objConsultaTusPagos.btnAbrir).isCurrentlyVisible()){
-                existePdf=true;
-                break;
-            }
+        while (element(objConsultaTusPagos.btnDownload).isCurrentlyVisible() && intentos < 8) {
             intentos++;
         }
+            existePdf = element(objConsultaTusPagos.btnAbrir).isCurrentlyVisible();
             try {
                 element(objConsultaTusPagos.btnDescargaHistorial).click();
-                util.esperarElementoVisible(3, objConsultaTusPagos.btnAbrir);
+                util.esperarElementoVisible(5, objConsultaTusPagos.btnAbrir);
                 element(objConsultaTusPagos.btnAbrir).click();
             } catch (Exception e) {
             }
