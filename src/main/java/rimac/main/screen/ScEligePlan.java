@@ -23,7 +23,7 @@ public class ScEligePlan extends BaseDriver {
         while(element(objEligeTuPlan.lblEligetuPlan).isCurrentlyVisible()==false && contador<8){
             util.esperarSegundos(1);
         }
-        util.esperarElementoVisible(30,objEligeTuPlan.lblEligetuPlan);
+        util.esperarElementoVisible(7,objEligeTuPlan.lblEligetuPlan);
     }
 
     public void planDigital(){

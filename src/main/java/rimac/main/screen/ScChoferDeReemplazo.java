@@ -179,8 +179,10 @@ public class ScChoferDeReemplazo extends BaseDriver{
             util.esperarElemento(15, objChoferReemplazo.titChoferReemplazo);
             util.esperarActivoClick(10, objChoferReemplazo.btnIrInicio);
             element(objChoferReemplazo.btnIrInicio).click();
-            util.esperarActivoClick(10, objChoferReemplazo.opcHome);
-            element(objChoferReemplazo.opcHome).click();
+            if(element(objChoferReemplazo.btnCerrarmodal).isCurrentlyVisible())
+            { element(objChoferReemplazo.btnCerrarmodal).click();}
+            else{  util.esperarActivoClick(10, objChoferReemplazo.opcHome);
+                element(objChoferReemplazo.opcHome).click();}
 
         }catch(Exception e){
             Serenity.takeScreenshot();
