@@ -100,4 +100,5 @@ public class ObjTusSeguros extends BaseDriver{
 		List<WebElement>  we_tnPlacaSeg = appiumDriver().findElements(AppiumBy.xpath("(//*[@text='Placa: "+placa+"']//parent::*//following-sibling::*)[3]"));
 		return we_tnPlacaSeg;
 	}
+
 }

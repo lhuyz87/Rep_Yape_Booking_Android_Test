@@ -267,4 +267,27 @@ public class ScTusSeguros extends BaseDriver{
 		util.esperarSegundos(1);
 		element(objMediodePago.btnAnadirNuevaTarjeta).click();
 	}
+
+	public void seleccionaSOAT() {
+		try {
+			util.esperarElemento(5, objTusSeguros.btnSOAT);
+			element(objTusSeguros.btnSOAT).click();
+			Serenity.takeScreenshot();
+		}
+		catch(org.openqa.selenium.NoSuchElementException ex) {
+			System.out.println("Error cuando seleccionamos tapSOAT " + ex);
+		}
+
+	}
+	public void verDetalle() {
+		try {
+			util.esperarElemento(5, objTusSeguros.btnVerDetallePlaca);
+			element(objTusSeguros.btnVerDetallePlaca).click();
+			Serenity.takeScreenshot();
+		}
+		catch(org.openqa.selenium.NoSuchElementException ex) {
+			System.out.println("Error cuando seleccionamos  Ver detalle" + ex);
+		}
+
+	}
 }

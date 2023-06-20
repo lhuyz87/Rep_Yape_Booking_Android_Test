@@ -10,7 +10,7 @@ public class StepPagoCuotas {
     @Steps
     ScHome scHome;
     @Steps
-    ScPerfil scPerfil;
+    ScSoat scSoat;
     @Steps
     ScTusSeguros scTusSeguros;
     @Steps
@@ -61,4 +61,23 @@ public class StepPagoCuotas {
         Variables.montoCuotaHistorial= scConsultaTusPagos.obtenerUltimoMonto(cuota);
     }
 
+    public void iraSegurosDesdePerfil() {
+        scHome.seleccionarOpcionPrincipal("Seguros");
+
+    }
+    public void iraSoatDesdeSeguros() {
+        scTusSeguros.seleccionaSOAT();
+    }
+
+    public void verDetalleSoat() {
+        scTusSeguros.verDetalle();
+    }
+
+    public void mostrarDetallePago() {
+        scSoat.iraPagos();
+    }
+
+    public boolean obtiene_mensaje_detallePago() {
+        return scSoat.obtener_mensaje_detallePago();
+    }
 }

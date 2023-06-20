@@ -1,6 +1,24 @@
 #Author: Candy Espinoza
 Feature: Pagos
 
+  @PagoPolizaSoat
+  Scenario Outline: Validar Pago Poliza Soat en Mundo Rimac
+    Given realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
+    When ingresamos al seguro SOAT desde el menú
+    Then debe mostrar el detalle del pago anual
+
+    Examples:
+      | tipoID | id       | password  |
+      | DNI    | 44926877 |  Rimac2020 |
+
+
+
+
+
+    
+
   @PagoConValidacionHistorial
   Scenario Outline: Realizar Pago Seguro Vehicular Exitoso validando historial de pago en Mundo Rimac
     Given realiza el login con credenciales
@@ -13,6 +31,7 @@ Feature: Pagos
     Examples:
     ###DATOS###@Data|1@PagaConValidacionHistorial
       | 0 | tipoID | id | password | placa |
+      |1|DNI|45642376|Rimac2021|H2W-613|
 
   @PagoSinTarjetaAsociada
   Scenario Outline: Realizar Pago Seguro Vehicular Exitoso sin tarjeta asociada en Mundo Rimac
@@ -26,6 +45,7 @@ Feature: Pagos
     Examples:
      ###DATOS###@Data|1@PagoSinTarjetaAsociada
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
+      |1|DNI|40010131|Rimac2021|En trámite|4919107570913512|03/28|111|
 
   @PagoConTarjetaAsociada
   Scenario Outline: Realizar Pago Seguro Vehicular Exitoso validando historial de pago en Mundo Rimac
@@ -38,3 +58,4 @@ Feature: Pagos
     Examples:
     ###DATOS###@Data|1@PagaConTarjetaAsociada
       | 0 | tipoID | id | password | placa |
+      |1|DNI|45642376|Rimac2021|BAD-098|

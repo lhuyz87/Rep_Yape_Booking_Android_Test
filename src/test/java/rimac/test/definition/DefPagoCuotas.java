@@ -46,4 +46,18 @@ public class DefPagoCuotas {
     public void seAgregaLaTarjetaYParaRealizarElPago(String numTarjeta, String cvv, String fecha) throws Exception {
         stepPagoCuotas.pagarSinTarjetaAsociada(numTarjeta,cvv,fecha);
     }
+
+    @When("ingresamos al seguro SOAT desde el menú")
+    public void ingresamosAlSeguroSOATDesdeElMenú() {
+        stepPagoCuotas.iraSegurosDesdePerfil();
+        stepPagoCuotas.iraSoatDesdeSeguros();
+        stepPagoCuotas.verDetalleSoat();
+        
+    }
+
+    @Then("debe mostrar el detalle del pago anual")
+    public void debeMostrarElDetalleDelPagoAnual() {
+        stepPagoCuotas.mostrarDetallePago();
+        assertTrue(stepPagoCuotas.obtiene_mensaje_detallePago());
+    }
 }
