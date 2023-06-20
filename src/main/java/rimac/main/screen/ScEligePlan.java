@@ -20,7 +20,7 @@ public class ScEligePlan extends BaseDriver {
         element(objSoatDosMinutos.inputPlaca("6")).sendKeys(placa5);
         element(objSoatDosMinutos.inputPlaca("7")).sendKeys(placa6);
         int contador=0;
-        while(element(objEligeTuPlan.lblEligetuPlan).isCurrentlyVisible()==false && contador<30){
+        while(element(objEligeTuPlan.lblEligetuPlan).isCurrentlyVisible()==false && contador<8){
             util.esperarSegundos(1);
         }
         util.esperarElementoVisible(30,objEligeTuPlan.lblEligetuPlan);
