@@ -120,7 +120,8 @@ public class StepLogin {
 
 	public boolean validarNoIngresoConMensaje(String opcion) {
 		return scLogin.noMuestraLogin();
-		
+
+
 	}
 	
 	public void cerrarSesion(){
