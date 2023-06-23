@@ -19,7 +19,7 @@ Feature: Servicios de Salud - Reembolso
 
     Examples:
       | tipoID | id       | password  | productoContratante                         | lugarAtencion | tipoCobertura |
-      | DNI    | 76243722 | Rimac2021 | AMC COLECTIVA FOLA - Citibank del peru s.a. | Lima          | Medicinas     |
+      | DNI    | 76243722 | Rimac2020 | AMC COLECTIVA FOLA - Citibank del peru s.a. | Lima          | Medicinas     |
 
   @reembolsoSaludConBeneficiariosDesdeMenuTramites
   Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas con beneficiarios desde Tramites
@@ -80,7 +80,7 @@ Feature: Servicios de Salud - Reembolso
 
     Examples:
       | tipoID | id       | password  | productoContratante                         | lugarAtencion | tipoCobertura        |
-      | DNI    | 76243722 | Rimac2021 | AMC COLECTIVA FOLA - Citibank del peru s.a. | Lima          | Atención ambulatoria |
+      | DNI    | 76243722 | Rimac2020 | AMC COLECTIVA FOLA - Citibank del peru s.a. | Lima          | Atención ambulatoria |
 
   @reembolsoSaludSinBeneficiariosDesdeSeguros
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde detalle de seguro salud
@@ -97,7 +97,7 @@ Feature: Servicios de Salud - Reembolso
 
     Examples:
       | tipoID | id       | password  | seguro             | productoContratante                         | lugarAtencion | tipoCobertura |
-      | DNI    | 76243722 | Rimac2021 | Amc Colectiva Fola | AMC COLECTIVA FOLA - Citibank del peru s.a. | Lima          | Hospitalario  |
+      | DNI    | 76243722 | Rimac2020 | Amc Colectiva Fola | AMC COLECTIVA FOLA - Citibank del peru s.a. | Lima          | Hospitalario  |
 
 
   @TiempoInactividadServiciodeSalud
@@ -118,7 +118,7 @@ Feature: Servicios de Salud - Reembolso
 
     Examples:
       | tipoID | id       | password  | productoContratante                          | lugarAtencion | tipoCobertura |
-      | DNI    | 76243722 | Rimac2021 | AMC COLECTIVA FOLA - Citibank del peru s.a.  | Lima          | Medicinas     |
+      | DNI    | 76243722 | Rimac2020 | AMC COLECTIVA FOLA - Citibank del peru s.a.  | Lima          | Medicinas     |
 
 
 
