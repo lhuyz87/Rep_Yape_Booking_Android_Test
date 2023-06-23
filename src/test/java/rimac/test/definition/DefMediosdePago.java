@@ -117,4 +117,9 @@ public class DefMediosdePago {
     public void eliminoLaTarjetaAgregadaDesdeMisTarjetas(String numTarjeta) {
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
     }
+    @And("ingreso mis datos bancarios desde la opcion pagar cuotas para suscribir mi tarjeta {string} , {string} y {string} para realizar el pago")
+    public void ingresoMisDatosBancariosDesdeLaOpcionPagarCuotasParaSuscribirMiTarjetaYParaRealizarElPago(String numTarjeta, String cvv, String fecha) throws Exception {
+        stepAgregarMedioPago.seleccionaPagos();
+        stepAgregarMedioPago.pagarcuotas(numTarjeta,cvv,fecha);
+    }
 }

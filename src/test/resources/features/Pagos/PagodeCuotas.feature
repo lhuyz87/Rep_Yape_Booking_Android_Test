@@ -1,6 +1,21 @@
 #Author: Candy Espinoza
 Feature: Pagos
 
+  @PagoExitosoAsociadoTarjeta
+  Scenario Outline: Realizar Pago exitoso asociado a tarjeta- Tap de Pagos
+    Given realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
+    When se ingresa a un seguro Vehicular desde el Menù seleccionando la "<placa>" del vehiculo
+    And ingreso mis datos bancarios desde la opcion pagar cuotas para suscribir mi tarjeta "<numtarjeta>" , "<cvv>" y "<fecha>" para realizar el pago
+    Then debe mostrar el mensaje de confirmación ¡Hemos recibido tu pago!
+    And elimino la tarjeta afiliada "<numtarjeta>" desde Mi Perfil
+
+    Examples:
+     ###DATOS###@Data|1@PagoExitosoAsociadoTarjeta
+      | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
+      |10|DNI|44926877|Rimac2020|En trámite|4919107570913512|03/28|111|
+
   @PagoPolizaSoat
   Scenario Outline: Validar Pago Poliza Soat en Mundo Rimac
     Given realiza el login con credenciales
@@ -12,12 +27,6 @@ Feature: Pagos
     Examples:
       | tipoID | id       | password  |
       | DNI    | 44926877 |  Rimac2020 |
-
-
-
-
-
-    
 
   @PagoConValidacionHistorial
   Scenario Outline: Realizar Pago Seguro Vehicular Exitoso validando historial de pago en Mundo Rimac

@@ -3,6 +3,7 @@ package rimac.main.step;
 import net.thucydides.core.annotations.Steps;
 import rimac.main.screen.*;
 import rimac.main.util.ConstantesDummy;
+import rimac.main.util.Variables;
 
 public class StepMediosdePago {
 
@@ -140,6 +141,18 @@ public class StepMediosdePago {
         StringBuilder mmaa = new StringBuilder(fecha.substring(0,2));
         mmaa.append(fecha.substring(3,5));
         scMediosDePago.ingresarDatosTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
+
+    }
+    public void seleccionaPagos() throws Exception {
+        scTusSeguros.irPagos();
+        scPagos.iraPagarCuotas();
+        scPagos.seleccionarCuota();
+        scMediosDePago.agregarTarjetaNueva();
+    }
+    public void pagarcuotas(String numTarjeta, String cvv, String fecha) throws Exception {
+
+        scMediosDePago.guardarTarjetaCuotas(numTarjeta, ConstantesDummy.nombre,ConstantesDummy.apellido, fecha,cvv,ConstantesDummy.correo);
+        scMediosDePago.pagar();
 
     }
 }

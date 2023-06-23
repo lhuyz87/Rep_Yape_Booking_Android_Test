@@ -210,4 +210,25 @@ public class ScMediosDePago extends BaseDriver {
         element(objMediodePago.btnAnadirTarjeta).click();
     }
 
+    public void guardarTarjetaCuotas(String numTarjeta, String nombre, String apellido, String fecha, String cvv, String correo)throws Exception {
+        try{
+            util.esperarElemento(3, objAnadirTarjeta.lblNumTarjeta);
+            element(objAnadirTarjeta.lblNumTarjeta).sendKeys(numTarjeta);
+            element(objAnadirTarjeta.lblNombre).sendKeys(nombre);
+            element(objAnadirTarjeta.lblApellido).sendKeys(apellido);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objAnadirTarjeta.lblMMAA).sendKeys(fecha);
+            element(objAnadirTarjeta.lblCVV).sendKeys(cvv);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objAnadirTarjeta.lblCorreo).sendKeys(correo);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            util.esperarElemento(3, objAnadirTarjeta.btnPagoAuto);
+            element(objAnadirTarjeta.btnPagoAuto).click();
+
+        }catch(Exception e){
+            Serenity.takeScreenshot();
+            throw new IllegalAccessError("Error para ingresar los datos de la tarjeta");
+        }
+
+    }
 }

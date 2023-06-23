@@ -60,4 +60,10 @@ public class DefPagoCuotas {
         stepPagoCuotas.mostrarDetallePago();
         assertTrue(stepPagoCuotas.obtiene_mensaje_detallePago());
     }
+
+    @When("se ingresa a un seguro Vehicular desde el Menù seleccionando la {string} del vehiculo")
+    public void seIngresaAUnSeguroVehicularDesdeElMenùSeleccionandoLaDelVehiculo(String placa) {
+        stepPagoCuotas.verDetalleSeguroVehicular(placa);
+    }
+
 }
