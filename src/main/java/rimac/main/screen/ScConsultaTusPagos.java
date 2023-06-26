@@ -18,23 +18,25 @@ public class ScConsultaTusPagos extends BaseDriver {
     ObjCommons objCommons= ObjCommons.getInstancia();
 
     public void descargar_historial() {
-        util.esperarElemento(6, objConsultaTusPagos.btnDescargaHistorial);
+        util.esperarElemento(10, objConsultaTusPagos.btnDescargaHistorial);
         element(objConsultaTusPagos.btnDescargaHistorial).click();
+        Serenity.takeScreenshot();
     }
 
     public boolean validacion_pdf() {
         int intentos = 0;
+
         boolean existePdf = false;
-        while (element(objConsultaTusPagos.btnDownload).isCurrentlyVisible() && intentos < 8) {
+        while (element(objConsultaTusPagos.btnDownload).isCurrentlyVisible() && intentos < 5) {
             intentos++;
         }
-            existePdf = element(objConsultaTusPagos.btnAbrir).isCurrentlyVisible();
-            try {
-                element(objConsultaTusPagos.btnDescargaHistorial).click();
-                util.esperarElementoVisible(5, objConsultaTusPagos.btnAbrir);
-                element(objConsultaTusPagos.btnAbrir).click();
-            } catch (Exception e) {
-            }
+        existePdf = element(objConsultaTusPagos.btnAbrir).isCurrentlyVisible();
+        try{
+            element(objConsultaTusPagos.btnDescargaHistorial).click();
+            util.esperarElementoVisible(5,objConsultaTusPagos.btnAbrir);
+            element(objConsultaTusPagos.btnAbrir).click();
+        }catch(Exception e){
+        }
         Serenity.takeScreenshot();
         return existePdf;
     }
@@ -58,8 +60,8 @@ public class ScConsultaTusPagos extends BaseDriver {
             montoHistorial= element(objConsultaTusPagos.lblMontoHistorial).getText();
 
         }catch(NoSuchElementException ex){
-                Serenity.takeScreenshot();
-                throw new IllegalAccessError("No se visualiza la cuota pagada");
+            Serenity.takeScreenshot();
+            throw new IllegalAccessError("No se visualiza la cuota pagada");
         }
         return montoHistorial;
     }
