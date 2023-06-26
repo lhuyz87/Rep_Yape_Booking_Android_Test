@@ -14,7 +14,22 @@ Feature: Pagos
     Examples:
      ###DATOS###@Data|1@PagoExitosoAsociadoTarjeta
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
-      |10|DNI|44926877|Rimac2020|En trámite|4919107570913512|03/28|111|
+
+
+  @PagoAfiliadoDebitoAuto
+  Scenario Outline: Realizar Pago estando afiliado a debito automatico - Tap de Pagos
+    Given realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
+    When se ingresa a un seguro Vehicular desde el Menù seleccionando la "<placa>" del vehiculo
+    And ingreso mis datos bancarios desde la opcion pagar cuotas estando afilidado a debito automatico "<numtarjeta>" , "<cvv>" y "<fecha>"
+    Then debe mostrar el mensaje de confirmación ¡Hemos recibido tu pago!
+    And elimino la tarjeta afiliada "<numtarjeta>" desde Mi Perfil
+
+    Examples:
+    ###DATOS###@Data|1@PagoAfiliadoDebitoAuto
+      | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
+
 
   @PagoPolizaSoat
   Scenario Outline: Validar Pago Poliza Soat en Mundo Rimac
@@ -40,7 +55,7 @@ Feature: Pagos
     Examples:
     ###DATOS###@Data|1@PagaConValidacionHistorial
       | 0 | tipoID | id | password | placa |
-      |1|DNI|45642376|Rimac2021|H2W-613|
+
 
   @PagoSinTarjetaAsociada
   Scenario Outline: Realizar Pago Seguro Vehicular Exitoso sin tarjeta asociada en Mundo Rimac
@@ -54,10 +69,10 @@ Feature: Pagos
     Examples:
      ###DATOS###@Data|1@PagoSinTarjetaAsociada
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
-      |1|DNI|40010131|Rimac2021|En trámite|4919107570913512|03/28|111|
+
 
   @PagoConTarjetaAsociada
-  Scenario Outline: Realizar Pago Seguro Vehicular Exitoso validando historial de pago en Mundo Rimac
+  Scenario Outline: Realizar Pago Seguro Vehicular Exitoso con tarjeta asociada en Mundo Rimac
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -67,4 +82,4 @@ Feature: Pagos
     Examples:
     ###DATOS###@Data|1@PagaConTarjetaAsociada
       | 0 | tipoID | id | password | placa |
-      |1|DNI|45642376|Rimac2021|BAD-098|
+

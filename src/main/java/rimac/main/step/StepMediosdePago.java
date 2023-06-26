@@ -150,9 +150,10 @@ public class StepMediosdePago {
         scMediosDePago.agregarTarjetaNueva();
     }
     public void pagarcuotas(String numTarjeta, String cvv, String fecha) throws Exception {
-
         scMediosDePago.guardarTarjetaCuotas(numTarjeta, ConstantesDummy.nombre,ConstantesDummy.apellido, fecha,cvv,ConstantesDummy.correo);
-        scMediosDePago.pagar();
+    }
 
+    public void pagarcuotasTarAfil(String numTarjeta, String cvv, String fecha) {
+        scMediosDePago.pagarTarjetaAfil(numTarjeta, ConstantesDummy.nombre,ConstantesDummy.apellido, fecha,cvv,ConstantesDummy.correo);
     }
 }

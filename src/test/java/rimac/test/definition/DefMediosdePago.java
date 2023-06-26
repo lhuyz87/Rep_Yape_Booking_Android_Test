@@ -122,4 +122,10 @@ public class DefMediosdePago {
         stepAgregarMedioPago.seleccionaPagos();
         stepAgregarMedioPago.pagarcuotas(numTarjeta,cvv,fecha);
     }
+
+    @And("ingreso mis datos bancarios desde la opcion pagar cuotas estando afilidado a debito automatico {string} , {string} y {string}")
+    public void ingresoMisDatosBancariosDesdeLaOpcionPagarCuotasEstandoAfilidadoADebitoAutomaticoY(String numTarjeta, String cvv, String fecha) throws Exception {
+        stepAgregarMedioPago.seleccionaPagos();
+        stepAgregarMedioPago.pagarcuotasTarAfil(numTarjeta,cvv,fecha);
+    }
 }

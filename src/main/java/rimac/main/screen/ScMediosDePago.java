@@ -224,13 +224,44 @@ public class ScMediosDePago extends BaseDriver {
             ((HidesKeyboard) appiumDriver()).hideKeyboard();
             element(objAnadirTarjeta.lblCorreo).sendKeys(correo);
             ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            Dimension dimension = appiumDriver().manage().window().getSize();
+            Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
+            Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
+            util.doSwipe(appiumDriver(), start, end, 1000);
             util.esperarElemento(3, objAnadirTarjeta.btnPagoAuto);
             element(objAnadirTarjeta.btnPagoAuto).click();
+            element(objAnadirTarjeta.btnPagarNew).click();
 
         }catch(Exception e){
             Serenity.takeScreenshot();
             throw new IllegalAccessError("Error para ingresar los datos de la tarjeta");
         }
 
+    }
+
+    public void pagarTarjetaAfil(String numTarjeta, String nombre, String apellido, String fecha, String cvv, String correo) {
+        try{
+            util.esperarElemento(3, objAnadirTarjeta.lblNumTarjeta);
+            element(objAnadirTarjeta.lblNumTarjeta).sendKeys(numTarjeta);
+            element(objAnadirTarjeta.lblNombre).sendKeys(nombre);
+            element(objAnadirTarjeta.lblApellido).sendKeys(apellido);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objAnadirTarjeta.lblMMAA).sendKeys(fecha);
+            element(objAnadirTarjeta.lblCVV).sendKeys(cvv);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objAnadirTarjeta.lblCorreo).sendKeys(correo);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            Dimension dimension = appiumDriver().manage().window().getSize();
+            Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
+            Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
+            util.doSwipe(appiumDriver(), start, end, 1000);
+            util.esperarElemento(3, objAnadirTarjeta.btnGuardarTarjetanew);
+            element(objAnadirTarjeta.btnGuardarTarjetanew).click();
+            element(objAnadirTarjeta.btnPagarNew).click();
+
+        }catch(Exception e){
+            Serenity.takeScreenshot();
+            throw new IllegalAccessError("Error para ingresar los datos de la tarjeta");
+        }
     }
 }
