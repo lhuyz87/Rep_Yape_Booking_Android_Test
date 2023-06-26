@@ -122,6 +122,7 @@ Feature: Servicios de Salud - Reembolso
 
 
 
+
   ##Scenario Outline: Realizar el Seguimiento de Reembolso de Salud desde Tramites
     ##Given realiza el login con credenciales
     ##  | tipoID   | id   | password   |
