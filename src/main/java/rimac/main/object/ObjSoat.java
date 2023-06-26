@@ -2,8 +2,9 @@ package rimac.main.object;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
+import rimac.main.util.BaseDriver;
 
-public class ObjSoat {
+public class ObjSoat extends BaseDriver {
     private static ObjSoat obj = null;
 
     private ObjSoat() {
@@ -25,10 +26,8 @@ public class ObjSoat {
         throw new CloneNotSupportedException();
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/btnText")
-    public WebElement btnPagos;
-
     @AndroidFindBy(xpath= "//*[@text='Detalle de pago']")
-    public WebElement msjDetPagos;
+    public WebElement msjDetPagos2;
+
 
 }

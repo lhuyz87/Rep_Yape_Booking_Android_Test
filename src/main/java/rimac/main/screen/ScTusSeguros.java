@@ -219,8 +219,15 @@ public class ScTusSeguros extends BaseDriver{
 
 	public void irPagos(){
 		try {
+			if(element(objTusSeguros.btnEntendido).isCurrentlyVisible()){
+				element(objTusSeguros.btnEntendido).click();
+				util.esperarElemento(10,objTusSeguros.btnPagos);
+				element(objTusSeguros.btnPagos).click();
+			}
+			else{
 			util.esperarElemento(10,objTusSeguros.btnPagos);
 			element(objTusSeguros.btnPagos).click();
+			}
 
 		}catch(Exception e){
 			throw new IllegalAccessError("Error para ingresar a pagos");

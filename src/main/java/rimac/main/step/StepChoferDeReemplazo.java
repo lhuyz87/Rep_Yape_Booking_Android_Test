@@ -61,6 +61,7 @@ public class StepChoferDeReemplazo {
 
     public void retornarInicio() throws Exception {
         scChoferDeReemplazo.irAlInicio();
+        scHome.seleccionarOpcionPrincipal("Home");
         scAlertas.omitirAlertas(10);
     }
 

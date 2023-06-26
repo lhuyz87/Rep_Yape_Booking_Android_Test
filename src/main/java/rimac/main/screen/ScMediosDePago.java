@@ -192,6 +192,8 @@ public class ScMediosDePago extends BaseDriver {
     }
 
     public void regresarSelecOpcionPerfil() {
+        if(element(objTusSeguros.btnCerrarmodal).isCurrentlyVisible())
+        { element(objTusSeguros.btnCerrarmodal).click();}
         util.esperarSegundos(10);
         util.esperarElemento(10, objTusSeguros.tbSeguroVehicular);
         element(objTusSeguros.tbSeguroVehicular).click();

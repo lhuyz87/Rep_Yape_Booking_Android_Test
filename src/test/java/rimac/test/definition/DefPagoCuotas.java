@@ -52,12 +52,12 @@ public class DefPagoCuotas {
         stepPagoCuotas.iraSegurosDesdePerfil();
         stepPagoCuotas.iraSoatDesdeSeguros();
         stepPagoCuotas.verDetalleSoat();
+        stepPagoCuotas.mostrarDetallePago();
         
     }
 
     @Then("debe mostrar el detalle del pago anual")
     public void debeMostrarElDetalleDelPagoAnual() {
-        stepPagoCuotas.mostrarDetallePago();
         assertTrue(stepPagoCuotas.obtiene_mensaje_detallePago());
     }
 

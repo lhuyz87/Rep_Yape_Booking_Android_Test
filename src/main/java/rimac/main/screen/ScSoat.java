@@ -2,10 +2,7 @@ package rimac.main.screen;
 
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.NoSuchElementException;
-import rimac.main.object.ObjDocumentoComprobantes;
-import rimac.main.object.ObjDocumentos;
-import rimac.main.object.ObjMediodePago;
-import rimac.main.object.ObjSoat;
+import rimac.main.object.*;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.UtilApp;
 
@@ -16,7 +13,7 @@ public class ScSoat extends BaseDriver {
 
     // util
     public static Logger looger = Logger.getLogger(ScAgregarNuevoDocumento.class.getName());
-
+    protected ObjTusSeguros objTusSeguros = ObjTusSeguros.getInstancia();
     public long getWdwTimeOut() {
         return wdwTimeOut;
     }
@@ -26,24 +23,25 @@ public class ScSoat extends BaseDriver {
 
     public void iraPagos() {
         try {
-            util.esperarElemento(10, objSoat.btnPagos);
-            element(objSoat.btnPagos).click();
-            Serenity.takeScreenshot();
+            util.esperarElemento(10,objTusSeguros.btnPagos);
+            element(objTusSeguros.btnPagos).click();
+            util.esperarSegundos(30);
         }
         catch(org.openqa.selenium.NoSuchElementException ex) {
-            System.out.println("Error cuando seleccionamos opcion ir a pagos" + ex);
+            System.out.println("Error cuando seleccionamos ir a pagos" + ex);
         }
 
     }
 
     public boolean obtener_mensaje_detallePago(){
         try {
-            boolean solicitudExiste;
-            util.esperarElemento(10, objSoat.msjDetPagos);
-            solicitudExiste = element(objSoat.msjDetPagos).isCurrentlyVisible();
+            util.esperarElementoVisible(10, objSoat.msjDetPagos2);
+            boolean solicitudExiste = element(objSoat.msjDetPagos2).isCurrentlyVisible();
+            Serenity.takeScreenshot();
             return solicitudExiste;
+
         } catch (Exception e) {
-            throw new IllegalAccessError("Error no se puede validar el seguimiento de asistencias vehiculares en el home");
+            throw new IllegalAccessError("Error en obtener mensaje detalle pago");
         } finally {
             Serenity.takeScreenshot();
         }
