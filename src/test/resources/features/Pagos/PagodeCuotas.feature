@@ -1,7 +1,7 @@
 #Author: Candy Espinoza
 Feature: Pagos
 
-  @PagoExitosoAsociadoTarjeta
+  @PagoAsociandoTarjeta
   Scenario Outline: Realizar Pago exitoso asociado a tarjeta- Tap de Pagos
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
