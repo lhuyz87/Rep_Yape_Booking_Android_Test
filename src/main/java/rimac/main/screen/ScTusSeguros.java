@@ -297,4 +297,13 @@ public class ScTusSeguros extends BaseDriver{
 		}
 
 	}
+
+	public void irPoliza() {
+		try {
+			util.esperarElemento(10,objTusSeguros.btnPoliza);
+			element(objTusSeguros.btnPoliza).click();
+		}catch(Exception e){
+			throw new IllegalAccessError("Error para ingresar a poliza");
+		}
+	}
 }

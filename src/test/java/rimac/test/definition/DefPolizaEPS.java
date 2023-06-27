@@ -6,6 +6,8 @@ import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import rimac.main.step.StepConsultaPoliza;
 
+import static org.junit.Assert.assertTrue;
+
 public class DefPolizaEPS {
 
     @Steps
@@ -31,4 +33,15 @@ public class DefPolizaEPS {
     }
 
 
+    @When("se ingresa al detalle del seguro de Salud")
+    public void seIngresaAlDetalleDelSeguroDeSalud() {
+        stepConsultaPoliza.selecciona_detalle_de_opción_salud();
+    }
+
+    @Then("Se valida el número de póliza")
+    public void seValidaElNúmeroDePóliza() throws Exception {
+        stepConsultaPoliza.se_valida_numero_poliza();
+        stepConsultaPoliza.se_visuliza_el_numero_de_poliza();
+
+    }
 }

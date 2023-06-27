@@ -36,4 +36,16 @@ public class StepConsultaPoliza {
     public void se_valida_mensaje_de_inactividad_desde_Consulta_Poliza(){
         scTuSesionExpiro.validacion_mensaje_TimeOut();
     }
+
+    public void selecciona_detalle_de_opción_salud() {
+        schome.seleccionarOpcionPrincipal("Seguros");
+        scTusSeguros.esperar_Tus_Seguros();
+        scTusSeguros.ver_vetalle_Salud("Amc Colectiva Regular");
+    }
+
+    public void se_valida_numero_poliza() {
+        scTusSeguros.irPoliza();
+
+    }
+
 }
