@@ -73,12 +73,12 @@ public class ScMediosDePago extends BaseDriver {
     }
 
     public void guardarTarjeta() throws Exception {
-        int contador=0;
-        while(element(objAnadirTarjeta.btnGuardarTarjeta).isCurrentlyVisible()==false && contador<5){
-            util.mobileSwipeScreenAndroid();
-            contador++;
-        }
-        element(objAnadirTarjeta.btnGuardarTarjeta).click();
+        Serenity.takeScreenshot();
+        Dimension dimension = appiumDriver().manage().window().getSize();
+        Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
+        Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
+        util.doSwipe(appiumDriver(), start, end, 1000);
+        element(objAnadirTarjeta.btnGuardarTarjetanew).click();
     }
 
     public void pagar(){

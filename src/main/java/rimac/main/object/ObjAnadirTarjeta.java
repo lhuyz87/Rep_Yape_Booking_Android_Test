@@ -40,9 +40,6 @@ public class ObjAnadirTarjeta extends BaseDriver {
     public WebElement lblCorreo;
 
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
-    public WebElement btnGuardarTarjeta;
-
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
     public WebElement btnAfiliarTarjeta;
 
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/paymentCardFrontLayout")
