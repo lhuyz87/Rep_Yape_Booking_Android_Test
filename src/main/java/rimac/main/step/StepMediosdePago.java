@@ -141,7 +141,8 @@ public class StepMediosdePago {
         StringBuilder mmaa = new StringBuilder(fecha.substring(0,2));
         mmaa.append(fecha.substring(3,5));
         scMediosDePago.ingresarDatosTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
-
+        scMediosDePago.guardarTarjeta();
+        scMediosDePago.pagar();
     }
     public void seleccionaPagos() throws Exception {
         scTusSeguros.irPagos();
