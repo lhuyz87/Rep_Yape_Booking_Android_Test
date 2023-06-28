@@ -77,7 +77,6 @@ private long wdwTimeOut = 300L;
 		}catch(AssertionError e){
 			throw new IllegalAccessError("No se pudo completar el Login");
 		}
-
 	}
 
 	public void seleccOlvidaContra() {
