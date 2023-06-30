@@ -56,11 +56,7 @@ public class ExcelUtilPropio extends ExcelUtil {
 
 			switch (excelSplit[0]) {
 				case "Data":
-					if(excelSplit[1].compareTo("U")==0) {
-						data = LeerDD_Reembolso.getInstancia().leerUltimaFilaDD(hoja);
-					}else {
 						data = LeerDD_Reembolso.getInstancia().leerDD(hoja);
-					}
 					break;
 				default:
 					break;
