@@ -21,7 +21,13 @@ public class DefPagoCuotas {
     public void seRealizaElPagoDelSeguroVehicularDeLaDelVehiculo(String placa) throws Exception {
         stepPagoCuotas.verDetalleSeguroVehicular(placa);
         stepPagoCuotas.pagarCuotas();
-        stepPagoCuotas.pagarConTarjetaAsociada();
+    }
+
+    @When("se realiza el pago del seguro vehicular de la {string} del vehiculo con la tarjeta {string} , {string} y {string}")
+    public void seRealizaElPagoDelSeguroVehicularDeLaDelVehiculoConLaTarjetaY(String placa, String numTarjeta, String cvv, String fecha) throws Exception {
+        stepPagoCuotas.verDetalleSeguroVehicular(placa);
+        stepPagoCuotas.pagarCuotas();
+        stepPagoCuotas.pagarSinTarjetaAsociada(numTarjeta,cvv,fecha);
     }
 
     @And("debe mostrar el mensaje ¡Hemos recibido tu pago!")
@@ -65,5 +71,6 @@ public class DefPagoCuotas {
     public void seIngresaAUnSeguroVehicularDesdeElMenùSeleccionandoLaDelVehiculo(String placa) {
         stepPagoCuotas.verDetalleSeguroVehicular(placa);
     }
+
 
 }
