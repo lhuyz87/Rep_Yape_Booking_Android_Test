@@ -22,13 +22,13 @@ public class StepBuscadorDeClinicas {
 
 	public void selecciona_buscador_de_clinicas_desde_home() throws Exception {
 		//scHome.cerrarAlertas(15);
-		scAlertas.omitirAlertas(14);
+		scAlertas.omitirAlertas(7);
 		scHome.seleccionaBuscadorClinicas();
 	}
 	
 	public void selecciona_buscador_de_clinicas_desde_tramites() throws Exception {
 		//scHome.cerrarAlertas(15);
-		scAlertas.omitirAlertas(15);
+		scAlertas.omitirAlertas(7);
 		scHome.seleccionarOpcionPrincipal("Tramites");;
 		scTusTramites.seleccionaBuscadordeSalud();
 

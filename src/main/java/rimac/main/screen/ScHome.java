@@ -201,7 +201,8 @@ public class ScHome extends BaseDriver{
 		Point end= new Point((int)(dimension.width*0.5),(0));
 		util.doSwipe(appiumDriver(), start, end, 1000);
 		element(objectPrincipal.lnkVerTodas).click();
-		util.esperarElemento(8,objectPrincipal.lblTusAsistencias);
+		util.esperarSegundos(3);
+		//util.esperarElemento(8,objectPrincipal.lblTusAsistencias);
 	}
 
 	public String getMontoReembolso(String monto) {

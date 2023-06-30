@@ -62,7 +62,7 @@ public class StepChoferDeReemplazo {
     public void retornarInicio() throws Exception {
         scChoferDeReemplazo.irAlInicio();
         scHome.seleccionarOpcionPrincipal("Home");
-        scAlertas.omitirAlertas(10);
+        scAlertas.omitirAlertas(7);
     }
 
     public boolean se_valida_solicitud_chofer(String placa) {

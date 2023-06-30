@@ -16,11 +16,11 @@ public class ScAlertas extends BaseDriver {
     protected ObjPaginaPrincipal objPaginaPrincipal = ObjPaginaPrincipal.getInstancia();
     protected UtilApp util = UtilApp.getInstancia();
 
-    public void omitirAlertas(int intentos) {
+    public void omitirAlertas(int intentos) throws InterruptedException {
         int i = 0;
         int contador = 0;
         while (i < intentos) {
-            util.esperarSegundos(1);
+            Thread.sleep(1000);
             i++;
             try {
                 if (element(objAlertas.btnCerrarEmail).isCurrentlyVisible()) {

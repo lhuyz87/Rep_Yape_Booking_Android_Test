@@ -233,8 +233,7 @@ public class StepReembolso {
 
 
 	public void selecSeguiReemSalud() throws Exception {
-		//schome.cerrarAlertas(15);
-		scAlertas.omitirAlertas(14);
+		scAlertas.omitirAlertas(5);
 		schome.seleccionarOpcionPrincipal("Tramites");
 		scTusTramites.seleccionarSegui();
 		

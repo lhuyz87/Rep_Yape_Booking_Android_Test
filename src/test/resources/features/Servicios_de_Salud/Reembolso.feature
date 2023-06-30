@@ -73,7 +73,7 @@ Feature: Servicios de Salud - Reembolso
     And adjuntamos los documentos y comprobantes del reembolso con tipo de cobertura "<tipoCobertura>"
     Then debe aparecer el mensaje: "Solicitud de reembolso recibida"
     And se cierra la sesión del aplicativo
-    And realiza el login con credenciales
+    And realiza el logeo nuevamente de sesion
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
     And debe aparecer el monto  del reembolso solicitado en Inicio
@@ -133,17 +133,3 @@ Feature: Servicios de Salud - Reembolso
     ##Examples:
      ###DATOS###@DataReembolso|1@01-SegReembolso
     ##  | 0 | tipoID | id | password | monto |
-
- ## Scenario Outline: Realizar el Seguimiento de Reembolso de Salud desde Inicio
-   ## Given realiza el login con credenciales
-    ##  | tipoID   | id   | password   |
-    ##  | <tipoID> | <id> | <password> |
-   ## Then debe aparecer el monto "<monto>" del reembolso solicitado en Inicio
-
-   ## Examples:
-      ###DATOS###@DataReembolso|U@01-SegReembolso
-     ## | 0 | tipoID | id | password | monto |
-
-
-
-

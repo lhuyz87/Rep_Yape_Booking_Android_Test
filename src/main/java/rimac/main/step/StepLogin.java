@@ -50,15 +50,18 @@ public class StepLogin {
 			String tipoID = user.get(0).get("tipoID");
 			String id = user.get(0).get("id");
 			String password = user.get(0).get("password");
-
 			Variables.listaStrings = new ArrayList<String>();
 			Variables.listaStrings.add(id);
 			Variables.listaStrings.add(password);
-
 			scLogin.login(id, password);
 		    scAlertas.omitirAlertas(7);
 		}
-
+	public void realiza_el_relogeo(DataTable userCredentials) throws Exception{
+		List<Map<String, String>> user = userCredentials.asMaps(String.class, String.class);
+		String password = user.get(0).get("password");
+		scLogin.login_(password);
+		scAlertas.omitirAlertas(5);
+	}
 	public void seleccOlvidaContra() {
 		scLogin.seleccOlvidaContra();
 		
