@@ -215,8 +215,8 @@ public class UtilApp  extends BaseDriver{
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
-	public void esperarVisibilityElement(WebDriver driver, WebElement element){
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	public void esperarVisibilityElement(WebDriver driver, WebElement element, int tiempo){
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(tiempo));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	public void esperarActivoClick(int intentos, WebElement elemento) {

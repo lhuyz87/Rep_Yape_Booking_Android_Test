@@ -67,10 +67,10 @@ private long wdwTimeOut = 300L;
 //			System.out.println("In catch block to handle no such element");
 			e.printStackTrace();
 		} 
-		util.esperarVisibilityElement(androidDriver(),objBuscadorDeClinicas.txtBuscarClinica);
+		util.esperarVisibilityElement(androidDriver(),objBuscadorDeClinicas.txtBuscarClinica,15);
 		element(objBuscadorDeClinicas.txtBuscarClinica).sendKeys(nomClinica);
 		Serenity.takeScreenshot();
-		util.esperarVisibilityElement(androidDriver(),objBuscadorDeClinicas.lblClinicaEncontra);
+		util.esperarVisibilityElement(androidDriver(),objBuscadorDeClinicas.lblClinicaEncontra,20);
 		element(objBuscadorDeClinicas.lblClinicaEncontra).click();
 		
 

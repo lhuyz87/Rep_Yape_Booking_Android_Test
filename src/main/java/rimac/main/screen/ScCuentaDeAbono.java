@@ -97,7 +97,7 @@ private long wdwTimeOut = 300L;
 //			// TODO: handle exception
 //		}
 		element(cuentaDeAbonoObject.btnContinuar).click();
-		util.esperarVisibilityElement(androidDriver(),cuentaDeAbonoObject.txtCorreo);
+		util.esperarVisibilityElement(androidDriver(),cuentaDeAbonoObject.txtCorreo,15);
 		element(cuentaDeAbonoObject.txtCorreo).clear();
 		element(cuentaDeAbonoObject.txtCorreo).sendKeys(correo);
 		//((HidesKeyboard) appiumDriver()).hideKeyboard();
