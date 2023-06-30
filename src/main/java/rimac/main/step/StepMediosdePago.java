@@ -151,10 +151,22 @@ public class StepMediosdePago {
         scMediosDePago.agregarTarjetaNueva();
     }
     public void pagarcuotas(String numTarjeta, String cvv, String fecha) throws Exception {
-        scMediosDePago.guardarTarjetaCuotas(numTarjeta, ConstantesDummy.nombre,ConstantesDummy.apellido, fecha,cvv,ConstantesDummy.correo);
+        String nombre = ConstantesDummy.nombre;
+        String apellido = ConstantesDummy.apellido;
+        String correo = ConstantesDummy.correo;
+        StringBuilder mmaa = new StringBuilder(fecha.substring(0,2));
+        mmaa.append(fecha.substring(3,5));
+        scMediosDePago.ingresarDatosTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
+        scMediosDePago.guardarTarjetaCuotas();
     }
 
-    public void pagarcuotasTarAfil(String numTarjeta, String cvv, String fecha) {
-        scMediosDePago.pagarTarjetaAfil(numTarjeta, ConstantesDummy.nombre,ConstantesDummy.apellido, fecha,cvv,ConstantesDummy.correo);
+    public void pagarcuotasTarAfil(String numTarjeta, String cvv, String fecha) throws Exception {
+        String nombre = ConstantesDummy.nombre;
+        String apellido = ConstantesDummy.apellido;
+        String correo = ConstantesDummy.correo;
+        StringBuilder mmaa = new StringBuilder(fecha.substring(0,2));
+        mmaa.append(fecha.substring(3,5));
+        scMediosDePago.ingresarDatosTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
+        scMediosDePago.pagarTarjetaAfil();
     }
 }
