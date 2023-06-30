@@ -32,7 +32,6 @@ public class StepPagoCuotas {
         Variables.cuotaPorPagar= scPagos.obtenerNumeroCuota();
         Variables.montoCuotaPagos= scPagos.obtenerMontoCuota();
         scPagos.seleccionarCuota();
-
     }
 
     public void pagarConTarjetaAsociada() throws Exception {

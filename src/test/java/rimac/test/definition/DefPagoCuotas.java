@@ -21,6 +21,7 @@ public class DefPagoCuotas {
     public void seRealizaElPagoDelSeguroVehicularDeLaDelVehiculo(String placa) throws Exception {
         stepPagoCuotas.verDetalleSeguroVehicular(placa);
         stepPagoCuotas.pagarCuotas();
+        stepPagoCuotas.pagarConTarjetaAsociada();
     }
 
     @When("se realiza el pago del seguro vehicular de la {string} del vehiculo con la tarjeta {string} , {string} y {string}")

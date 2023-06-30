@@ -1,4 +1,5 @@
 #Author: Candy Espinoza
+@ModuloPagos_5_7
 Feature: Pagos
 
   @PagoAsociandoTarjeta
@@ -12,9 +13,8 @@ Feature: Pagos
     And elimino la tarjeta afiliada "<numtarjeta>" desde Mi Perfil
 
     Examples:
-     ###DATOS###@Data|1@PagoExitosoAsociadoTarjeta
+     ###DATOS###@Data|1@PagoAsociandoTarjeta
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
-
 
   @PagoAfiliadoDebitoAuto
   Scenario Outline: Realizar Pago estando afiliado a debito automatico - Tap de Pagos
@@ -40,21 +40,22 @@ Feature: Pagos
     Then debe mostrar el detalle del pago anual
 
     Examples:
-      | tipoID | id       | password  |
-      | DNI    | 44926877 |  Rimac2020 |
+     ###DATOS###@Data|1@PagoPolizaSoat
+      | 0 | tipoID | id | password |
+
 
   @PagoConValidacionHistorial
   Scenario Outline: Realizar Pago Seguro Vehicular Exitoso validando historial de pago en Mundo Rimac
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
-    When se realiza el pago del seguro vehicular de la "<placa>" del vehiculo
+    When se realiza el pago del seguro vehicular de la "<placa>" del vehiculo con la tarjeta "<numtarjeta>" , "<cvv>" y "<fecha>"
     And debe mostrar el mensaje ¡Hemos recibido tu pago!
     Then se valida la cuota pagada en el historial de pago
 
     Examples:
-    ###DATOS###@Data|1@PagaConValidacionHistorial
-      | 0 | tipoID | id | password | placa |
+    ###DATOS###@Data|1@PagoConValidacionHistorial
+      | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
 
   @PagoSinTarjetaAsociada
@@ -80,6 +81,6 @@ Feature: Pagos
     Then debe mostrar el mensaje ¡Hemos recibido tu pago!
 
     Examples:
-    ###DATOS###@Data|1@PagaConTarjetaAsociada
+    ###DATOS###@Data|1@PagoConTarjetaAsociada
       | 0 | tipoID | id | password | placa |
 
