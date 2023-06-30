@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.PushesFiles;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import net.thucydides.core.util.EnvironmentVariables;
@@ -89,7 +90,7 @@ private long wdwTimeOut = 300L;
 	
 	
 	public void continuar() {
-		util.esperarActivoClick(4, reemDocCobertMedicaObject.btnContinuar);
+		util.esperarElementToClic(androidDriver(),reemDocCobertMedicaObject.btnContinuar);
 		element(reemDocCobertMedicaObject.btnContinuar).click();
 		util.esperarSegundos(5);
 	}

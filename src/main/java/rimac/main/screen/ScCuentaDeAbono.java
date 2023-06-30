@@ -43,18 +43,18 @@ private long wdwTimeOut = 300L;
 	UtilApp util = new UtilApp();
 	AppiumDriver driver;
 	
-	@SuppressWarnings("null")
+
 	public void llenarDatosDeCuenta(String entidad, String tipoCuenta, String moneda, String numCuenta, String correo) throws Exception {
 		looger.info("LLenar Cuenta");
 		util.mobileSwipeScreenAndroidFinal();
-		util.esperarElemento(5, cuentaDeAbonoObject.lstEntidadBancaria);
+		util.esperarElementToClic(androidDriver(),cuentaDeAbonoObject.lstEntidadBancaria);
 		List<WebElement> elementos = new ArrayList<>();
 
 		//Interbank, BBVA, Scotiabank, Scotiabank
-		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(appiumDriver(), "Interbank"));
-		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(appiumDriver(), "BBVA"));
-		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(appiumDriver(), "Scotiabank"));
-		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(appiumDriver(), "BCP"));
+		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(androidDriver(), "Interbank"));
+		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(androidDriver(), "BBVA"));
+		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(androidDriver(), "Scotiabank"));
+		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(androidDriver(), "BCP"));
 		int auxEntidad=util.existeWebElementPorTexto(elementos);
 		System.out.println("Cantidad de entidades "   + auxEntidad);
 //		util.esperarElemento(5, cuentaDeAbonoObject.txtEntidadBancaria);
@@ -67,9 +67,9 @@ private long wdwTimeOut = 300L;
 			util.esperarSegundos(2);
 			element(cuentaDeAbonoObject.lstEntidadBancaria).click();
 			element(cuentaDeAbonoObject.getEntidadBancaria(appiumDriver(), entidad)).click();
-			util.esperarSegundos(4);
+			util.esperarElementToClic(androidDriver(),cuentaDeAbonoObject.lstTipoCuenta);
 			element(cuentaDeAbonoObject.lstTipoCuenta).click();
-			element(cuentaDeAbonoObject.getTipoCuenta(appiumDriver(), tipoCuenta)).click();
+			element(cuentaDeAbonoObject.getTipoCuenta(androidDriver(), tipoCuenta)).click();
 			try {
 				util.scroll();
 			} catch (Exception e) {
@@ -97,8 +97,7 @@ private long wdwTimeOut = 300L;
 //			// TODO: handle exception
 //		}
 		element(cuentaDeAbonoObject.btnContinuar).click();
-		
-		util.esperarElementoVisible(10, cuentaDeAbonoObject.txtCorreo);
+		util.esperarVisibilityElement(androidDriver(),cuentaDeAbonoObject.txtCorreo);
 		element(cuentaDeAbonoObject.txtCorreo).clear();
 		element(cuentaDeAbonoObject.txtCorreo).sendKeys(correo);
 		//((HidesKeyboard) appiumDriver()).hideKeyboard();

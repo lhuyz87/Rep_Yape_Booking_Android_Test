@@ -13,6 +13,6 @@ Feature: Venta SOAT
 
     Examples:
       | tipoID | id       | password  | placa  | numtarjeta       | cvv | fecha |
-      | DNI    | 23977057 | Rimac2020 | AXT435 | 4919107570913512 | 111 | 03/28 |
+      | DNI    | 23977057 | Rimac2020 | AXT435 | 4474118355632240 | 111 | 03/28 |
 
 

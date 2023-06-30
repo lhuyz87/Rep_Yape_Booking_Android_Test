@@ -73,7 +73,7 @@ Feature: Servicios de Salud - Reembolso
     And adjuntamos los documentos y comprobantes del reembolso con tipo de cobertura "<tipoCobertura>"
     Then debe aparecer el mensaje: "Solicitud de reembolso recibida"
     And se cierra la sesión del aplicativo
-    And realiza el login con credenciales
+    And realiza el logeo nuevamente de sesion
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
     And debe aparecer el monto  del reembolso solicitado en Inicio
