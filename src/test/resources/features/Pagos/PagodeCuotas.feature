@@ -71,7 +71,6 @@ Feature: Pagos
      ###DATOS###@Data|1@PagoSinTarjetaAsociada
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
-
   @PagoConTarjetaAsociada
   Scenario Outline: Realizar Pago Seguro Vehicular Exitoso con tarjeta asociada en Mundo Rimac
     Given realiza el login con credenciales
