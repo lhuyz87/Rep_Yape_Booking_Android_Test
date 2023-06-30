@@ -57,7 +57,6 @@ Feature: Suscripcion de medios de pago
       ###DATOS###@Data|1@SuscripcionOpcionPagar
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
-
   @TiempoInactividadPagos
   Scenario Outline: Esperar 15 min de inactividad en el modulo de pagos
       Given realiza el login con credenciales
