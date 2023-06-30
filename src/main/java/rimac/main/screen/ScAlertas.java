@@ -18,7 +18,6 @@ public class ScAlertas extends BaseDriver {
 
     public void omitirAlertas(int intentos) throws InterruptedException {
         int i = 0;
-        int contador = 0;
         while (i < intentos) {
             Thread.sleep(1000);
             i++;
