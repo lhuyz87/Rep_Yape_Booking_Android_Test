@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-@ModuloConsultaSalud_1_5
+@ModuloConsultaSalud_2_5
 Feature: Consulta Salud - Plan Medico EPS
 
   @ConsultaNumeroDePoliza

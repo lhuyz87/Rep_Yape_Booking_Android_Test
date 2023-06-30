@@ -1,3 +1,4 @@
+@ModuloServiciosSoat_1_5
 Feature:Servicios de SOAT
 
   @TiempoInactividadServiciosSOAT

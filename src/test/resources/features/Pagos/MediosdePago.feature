@@ -1,6 +1,6 @@
 #Author: Candy Espinoza
-@ModuloPagos_3_7
-Feature: Pagos
+@ModuloPagos_5_7
+Feature: Suscripcion de medios de pago
 
    @SucripcionDesdePerfil
     Scenario Outline: Suscripcion de Tarjeta desde Mi perfil opcion medios de pagos
