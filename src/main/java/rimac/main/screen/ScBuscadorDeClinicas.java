@@ -72,7 +72,6 @@ private long wdwTimeOut = 300L;
 		Serenity.takeScreenshot();
 		util.esperarVisibilityElement(androidDriver(),objBuscadorDeClinicas.lblClinicaEncontra);
 		element(objBuscadorDeClinicas.lblClinicaEncontra).click();
-		
 
 	}
 
