@@ -225,18 +225,8 @@ public class ScMediosDePago extends BaseDriver {
         }
     }
 
-    public void guardarTarjetaCuotas(String numTarjeta, String nombre, String apellido, String fecha, String cvv, String correo)throws Exception {
+    public void pagarTarjetaAfil() {
         try{
-            util.esperarElemento(3, objAnadirTarjeta.lblNumTarjeta);
-            element(objAnadirTarjeta.lblNumTarjeta).sendKeys(numTarjeta);
-            element(objAnadirTarjeta.lblNombre).sendKeys(nombre);
-            element(objAnadirTarjeta.lblApellido).sendKeys(apellido);
-            ((HidesKeyboard) appiumDriver()).hideKeyboard();
-            element(objAnadirTarjeta.lblMMAA).sendKeys(fecha);
-            element(objAnadirTarjeta.lblCVV).sendKeys(cvv);
-            ((HidesKeyboard) appiumDriver()).hideKeyboard();
-            element(objAnadirTarjeta.lblCorreo).sendKeys(correo);
-            ((HidesKeyboard) appiumDriver()).hideKeyboard();
             Dimension dimension = appiumDriver().manage().window().getSize();
             Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
             Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
@@ -252,18 +242,8 @@ public class ScMediosDePago extends BaseDriver {
 
     }
 
-    public void pagarTarjetaAfil(String numTarjeta, String nombre, String apellido, String fecha, String cvv, String correo) {
+    public void guardarTarjetaCuotas() {
         try{
-            util.esperarElemento(3, objAnadirTarjeta.lblNumTarjeta);
-            element(objAnadirTarjeta.lblNumTarjeta).sendKeys(numTarjeta);
-            element(objAnadirTarjeta.lblNombre).sendKeys(nombre);
-            element(objAnadirTarjeta.lblApellido).sendKeys(apellido);
-            ((HidesKeyboard) appiumDriver()).hideKeyboard();
-            element(objAnadirTarjeta.lblMMAA).sendKeys(fecha);
-            element(objAnadirTarjeta.lblCVV).sendKeys(cvv);
-            ((HidesKeyboard) appiumDriver()).hideKeyboard();
-            element(objAnadirTarjeta.lblCorreo).sendKeys(correo);
-            ((HidesKeyboard) appiumDriver()).hideKeyboard();
             Dimension dimension = appiumDriver().manage().window().getSize();
             Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
             Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
