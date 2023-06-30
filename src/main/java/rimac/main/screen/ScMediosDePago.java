@@ -207,9 +207,22 @@ public class ScMediosDePago extends BaseDriver {
         element(objMediodePago.btnPagar).click();
     }
 
-    public void añadir_tarjeta() {
-        util.esperarElemento(3, objMediodePago.btnAnadirTarjeta);
-        element(objMediodePago.btnAnadirTarjeta).click();
+    public void añadir_tarjeta() throws InterruptedException {
+        int contador=0;
+        while(element(objMediodePago.btnAnadirTarjeta).isCurrentlyVisible()==false && contador<5){
+            if(element(objMediodePago.listTjetas).isCurrentlyVisible()){
+                break;
+            }
+            Thread.sleep(500);
+            contador++;
+        }
+        Thread.sleep(1000);
+        if(element(objMediodePago.btnAnadirTarjeta).isCurrentlyVisible()){
+            element(objMediodePago.btnAnadirTarjeta).click();
+        }
+        else{
+            element(objMediodePago.btnAnadirNuevaTarjeta).click();
+        }
     }
 
     public void guardarTarjetaCuotas(String numTarjeta, String nombre, String apellido, String fecha, String cvv, String correo)throws Exception {

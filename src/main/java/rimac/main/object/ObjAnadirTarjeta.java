@@ -24,6 +24,7 @@ public class ObjAnadirTarjeta extends BaseDriver {
 
     @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/editCfNumberCard']//following-sibling::android.widget.EditText")
     public WebElement lblNumTarjeta;
+
     @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/editCfNameHolder']//following-sibling::android.widget.EditText")
     public WebElement lblNombre;
 
