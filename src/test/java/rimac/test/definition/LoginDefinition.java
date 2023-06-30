@@ -112,16 +112,10 @@ public class LoginDefinition {
 		boolean soloActualizar = stepLogin.mostrarSoloActualizar();
 		assertEquals(false, soloActualizar);
 	}
-	
-	
-	
-	
-	
+
 	@Given("Se ingresa a la aplicación con un dispositivo con modo desarrollador activado")
 	public void ingresa_aplicacion_modo_desarrollador() {
-		
 		stepLogin.activarRootModoDesarrollo(Variables.hostModoRootDesa, Variables.pathModoRootDesa,"","ANDROID","activar",null);
-				
 	}
 	
 	@Then("no debe permitir el ingreso al aplicativo y debe mostar mensaje informativo relacionado a {string}")
@@ -133,7 +127,8 @@ public class LoginDefinition {
 		assertEquals(false, ingreso);
 	}
 
-	
-
-
+	@And("realiza el logeo nuevamente de sesion")
+	public void realizaElLogeoNuevamenteDeSesion(DataTable userCredentials) throws Exception  {
+		stepLogin.realiza_el_relogeo(userCredentials);
+	}
 }

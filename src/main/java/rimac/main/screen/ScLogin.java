@@ -80,6 +80,21 @@ private long wdwTimeOut = 300L;
 
 	}
 
+	public void login_(String passUser) {
+		try {
+			new WebDriverWait(androidDriver(), Duration.ofSeconds(15))
+					.until(ExpectedConditions.visibilityOf(objLogin.txtPassword));
+			element(objLogin.txtPassword).click();
+			element(objLogin.txtPassword).sendKeys(passUser);
+			util.pressEnter(androidDriver());
+			Serenity.takeScreenshot();
+			element(objLogin.btnIngresarSesion).click();
+		}catch(AssertionError e){
+			throw new IllegalAccessError("No se pudo completar el Login");
+		}
+	}
+
+
 	public void seleccOlvidaContra() {
 		// TODO Auto-generated method stub
 		looger.info("aplicación iniciada");
