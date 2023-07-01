@@ -221,6 +221,10 @@ public class ScMediosDePago extends BaseDriver {
             element(objMediodePago.btnAnadirTarjeta).click();
         }
         else{
+            while(element(objMediodePago.btnAnadirNuevaTarjeta).isCurrentlyVisible()==false && contador<5){
+                util.mobileSwipeScreenAndroidFinal();
+                contador++;
+            }
             element(objMediodePago.btnAnadirNuevaTarjeta).click();
         }
     }
