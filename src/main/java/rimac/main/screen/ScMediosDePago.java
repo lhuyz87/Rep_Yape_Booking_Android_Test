@@ -79,6 +79,7 @@ public class ScMediosDePago extends BaseDriver {
         Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
         util.doSwipe(appiumDriver(), start, end, 1000);
         element(objAnadirTarjeta.btnGuardarTarjetanew).click();
+
     }
 
     public void pagar(){
