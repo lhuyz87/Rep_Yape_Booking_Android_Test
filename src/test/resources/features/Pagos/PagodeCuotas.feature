@@ -30,7 +30,6 @@ Feature: Pagos
     ###DATOS###@Data|1@PagoAfiliadoDebitoAuto
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
-
   @PagoPolizaSoat
   Scenario Outline: Validar Pago Poliza Soat en Mundo Rimac
     Given realiza el login con credenciales
@@ -42,7 +41,6 @@ Feature: Pagos
     Examples:
      ###DATOS###@Data|1@PagoPolizaSoat
       | 0 | tipoID | id | password |
-
 
   @PagoConValidacionHistorial
   Scenario Outline: Realizar Pago Seguro Vehicular Exitoso validando historial de pago en Mundo Rimac
@@ -57,7 +55,6 @@ Feature: Pagos
     ###DATOS###@Data|1@PagoConValidacionHistorial
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
-
   @PagoSinTarjetaAsociada
   Scenario Outline: Realizar Pago Seguro Vehicular Exitoso sin tarjeta asociada en Mundo Rimac
     Given realiza el login con credenciales
@@ -71,6 +68,7 @@ Feature: Pagos
      ###DATOS###@Data|1@PagoSinTarjetaAsociada
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
+
   @PagoConTarjetaAsociada
   Scenario Outline: Realizar Pago Seguro Vehicular Exitoso con tarjeta asociada en Mundo Rimac
     Given realiza el login con credenciales
@@ -82,4 +80,3 @@ Feature: Pagos
     Examples:
     ###DATOS###@Data|1@PagoConTarjetaAsociada
       | 0 | tipoID | id | password | placa |
-

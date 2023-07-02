@@ -209,7 +209,7 @@ public class ScMediosDePago extends BaseDriver {
 
     public void añadir_tarjeta() throws InterruptedException {
         int contador=0;
-        while(element(objMediodePago.btnAnadirTarjeta).isCurrentlyVisible()==false && contador<5){
+        while(element(objMediodePago.btnAnadirTarjeta).isCurrentlyVisible()==false && contador<8){
             if(element(objMediodePago.listTjetas).isCurrentlyVisible()){
                 break;
             }
@@ -221,9 +221,13 @@ public class ScMediosDePago extends BaseDriver {
             element(objMediodePago.btnAnadirTarjeta).click();
         }
         else{
-            while(element(objMediodePago.btnAnadirNuevaTarjeta).isCurrentlyVisible()==false && contador<5){
-                util.mobileSwipeScreenAndroidFinal();
-                contador++;
+            int intentos=0;
+            Dimension dimension = appiumDriver().manage().window().getSize();
+            Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
+            Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
+            while(element(objMediodePago.btnAnadirNuevaTarjeta).isCurrentlyVisible()==false  && intentos<5){
+                util.doSwipe(appiumDriver(), start, end, 1000);
+                intentos++;
             }
             element(objMediodePago.btnAnadirNuevaTarjeta).click();
         }

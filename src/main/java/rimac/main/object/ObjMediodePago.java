@@ -69,7 +69,7 @@ public class ObjMediodePago extends BaseDriver {
     @AndroidFindBy(xpath= "//*[@text='La tarjeta fue eliminada con éxito.']")
     public WebElement lblTarjetaEliminadaExito;
 
-    @AndroidFindBy(xpath= "//*[@text='Añadir nueva tarjeta']")
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/txtAddPaymentListCard")
     public WebElement btnAnadirNuevaTarjeta;
 
     @AndroidFindBy(xpath= "//android.widget.Button[@text='Añadir tarjeta']")
