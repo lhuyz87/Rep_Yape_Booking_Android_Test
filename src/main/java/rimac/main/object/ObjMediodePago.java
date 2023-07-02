@@ -69,7 +69,22 @@ public class ObjMediodePago extends BaseDriver {
     @AndroidFindBy(xpath= "//*[@text='La tarjeta fue eliminada con éxito.']")
     public WebElement lblTarjetaEliminadaExito;
 
-    @AndroidFindBy(xpath= "//*[@text='Añadir nueva tarjeta']")
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/txtAddPaymentListCard")
     public WebElement btnAnadirNuevaTarjeta;
+
+    @AndroidFindBy(xpath= "//android.widget.Button[@text='Añadir tarjeta']")
+    public WebElement btnAnadirTarjeta;
+
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/rvPaymentListCard")
+    public WebElement listTarjetas;
+
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/ctnListCardRv")
+    public WebElement listTjetas;
+
+    @AndroidFindBy(xpath= "(//*[@resource-id='com.rimac.rimac_surrogas.qa:id/rbPaymentCardSelected'])[1]")
+    public WebElement rdbPrimeraTarjeta;
+
+    @AndroidFindBy(xpath="//*[@text='Pagar']")
+    public WebElement btnPagar;
 
 }

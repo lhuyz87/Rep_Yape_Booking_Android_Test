@@ -14,17 +14,14 @@ public class DefMediosdePago {
     StepMediosdePago stepAgregarMedioPago;
 
     @When("ingreso mis datos bancarios desde Perfil para suscribir mi tarjeta {string} , {string} y {string}")
-    public void ingresoMisDatosBancariosDesdePerfilParaSuscribirMiTarjetaY(String numTarjeta, String cvv, String fecha) {
+    public void ingresoMisDatosBancariosDesdePerfilParaSuscribirMiTarjetaY(String numTarjeta, String cvv, String fecha) throws Exception {
         stepAgregarMedioPago.irMedioPago_desde_perfil();
-        stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
         stepAgregarMedioPago.agregarTarjeta(numTarjeta,cvv,fecha);
     }
 
     @When("ingreso mis datos bancarios desde el tab de Pagos para suscribir mi tarjeta {string} , {string} y {string}")
     public void ingresoMisDatosBancariosDesdeElTabDePagosParaSuscribirMiTarjetaY(String numTarjeta, String cvv, String fecha) throws Exception {
-        stepAgregarMedioPago.irMedioPago_desde_perfil();
-        stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
-        stepAgregarMedioPago.volverDesdePerfil();
+        stepAgregarMedioPago.detalle_seguro_vehicular();
         stepAgregarMedioPago.irMedioPago_desde_tab_pagos();
         stepAgregarMedioPago.agregarTarjeta(numTarjeta,cvv,fecha);
     }
@@ -35,8 +32,8 @@ public class DefMediosdePago {
     }
 
     @When("realizo la eliminacion de la tarjeta {string} , {string} y {string}")
-    public void realizoLaEliminacionDeLaTarjeta(String numTarjeta, String cvv, String fecha) {
-        stepAgregarMedioPago.irMedioPago_desde_tab_pagos();
+    public void realizoLaEliminacionDeLaTarjeta(String numTarjeta, String cvv, String fecha) throws Exception {
+        stepAgregarMedioPago.detalle_seguro_vehicular();
         stepAgregarMedioPago.agregarTarjeta(numTarjeta,cvv,fecha);
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
     }
@@ -48,10 +45,8 @@ public class DefMediosdePago {
 
     @When("ingreso mis datos bancarios desde afiliacion de tarjetas {string} , {string} y {string}")
     public void ingresoMisDatosBancariosDesdeAfiliacionDeTarjetasY(String numTarjeta, String cvv, String fecha) throws Exception {
-        stepAgregarMedioPago.irMedioPago_desde_perfil();
-        stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
-        stepAgregarMedioPago.volverDesdePerfil();
-        stepAgregarMedioPago.irMedioPago_desde_tab_pagos();
+        stepAgregarMedioPago.detalle_seguro_vehicular();
+        stepAgregarMedioPago.selecciona_TabPagos();
         stepAgregarMedioPago.afiliarTarjeta(numTarjeta,cvv,fecha);
     }
 
@@ -90,13 +85,13 @@ public class DefMediosdePago {
         stepAgregarMedioPago.se_valida_mensaje_de_inactividad();
     }
     @When("se ingresa a Seguro Vehicular desde Seguros y se inicia el tramite {string} del vehiculo")
-    public void seIngresaASeguroVehicularDesdeSegurosYSeIniciaElTramiteDelVehiculo(String placa) {
+    public void seIngresaASeguroVehicularDesdeSegurosYSeIniciaElTramiteDelVehiculo(String placa) throws Exception {
         stepAgregarMedioPago.irCuotasaPagar_desde_tab_pagos(placa);
     }
 
 
     @And("se realiza el pago añadiendo mi tarjeta {string} , {string} y {string}")
-    public void seRealizaElPagoAñadiendoMiTarjetaY(String numTarjeta, String cvv, String fecha) {
+    public void seRealizaElPagoAñadiendoMiTarjetaY(String numTarjeta, String cvv, String fecha) throws Exception {
         stepAgregarMedioPago.se_añade_nueva_tarjeta();
         stepAgregarMedioPago.anadirTarjeta(numTarjeta,cvv,fecha);
     }
@@ -116,5 +111,21 @@ public class DefMediosdePago {
     public void debeMostrarElMensajeDeConfirmación(String valorEsperado) {
         String valorObtenido = stepAgregarMedioPago.obtiene_mensaje_pago();
         assertEquals(valorEsperado, valorObtenido);
+    }
+
+    @And("elimino la tarjeta agregada {string} desde Mis Tarjetas")
+    public void eliminoLaTarjetaAgregadaDesdeMisTarjetas(String numTarjeta) {
+        stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
+    }
+    @And("ingreso mis datos bancarios desde la opcion pagar cuotas para suscribir mi tarjeta {string} , {string} y {string} para realizar el pago")
+    public void ingresoMisDatosBancariosDesdeLaOpcionPagarCuotasParaSuscribirMiTarjetaYParaRealizarElPago(String numTarjeta, String cvv, String fecha) throws Exception {
+        stepAgregarMedioPago.seleccionaPagos();
+        stepAgregarMedioPago.pagarcuotas(numTarjeta,cvv,fecha);
+    }
+
+    @And("ingreso mis datos bancarios desde la opcion pagar cuotas estando afilidado a debito automatico {string} , {string} y {string}")
+    public void ingresoMisDatosBancariosDesdeLaOpcionPagarCuotasEstandoAfilidadoADebitoAutomaticoY(String numTarjeta, String cvv, String fecha) throws Exception {
+        stepAgregarMedioPago.seleccionaPagos();
+        stepAgregarMedioPago.pagarcuotasTarAfil(numTarjeta,cvv,fecha);
     }
 }

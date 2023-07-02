@@ -6,10 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import rimac.main.object.ObjAfiliarPago;
-import rimac.main.object.ObjCommons;
-import rimac.main.object.ObjMediodePago;
-import rimac.main.object.ObjPagos;
+import rimac.main.object.*;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.UtilApp;
 
@@ -24,6 +21,7 @@ public class ScPagos extends BaseDriver {
     }
     UtilApp util = UtilApp.getInstancia();
     protected ObjPagos objPagos = ObjPagos.getInstancia();
+    protected ObjCuotasPagar objCuotasPagar = ObjCuotasPagar.getInstancia();
     protected ObjMediodePago objMediodePago = ObjMediodePago.getInstancia();
     protected ObjAfiliarPago objAfiliarPago= ObjAfiliarPago.getInstancia();
     protected ObjCommons objCommons = ObjCommons.getInstancia();
@@ -75,6 +73,7 @@ public class ScPagos extends BaseDriver {
     }
 
     public void irHistorialPagos(){
+        util.esperarSegundos(1);
         util.esperarElemento(4,objPagos.lblMetodoPago);
         int contador=0;
         Dimension dimension = appiumDriver().manage().window().getSize();
@@ -87,46 +86,56 @@ public class ScPagos extends BaseDriver {
         element(objPagos.btnHistorialPagos).click();
     }
 
-    public void iraPagarCuotas(){
-        util.esperarSegundos(10);
-        util.esperarElemento(4,objPagos.lblCuotasAPagar);
-        System.out.println("entra aca1");
+    public void iraPagarCuotas() throws Exception {
+        util.esperarElementoVisible(2,objPagos.lblCuotasAPagar);
         int contador=0;
         Dimension dimension = appiumDriver().manage().window().getSize();
-        Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.9));
-        Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.1));
+        Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
+        Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.3));
         while(element(objPagos.btnPagarCuotas).isCurrentlyVisible()==false && contador<4){
+            if(element(objPagos.btnAdelantarCuotas).isCurrentlyVisible()){
+                break;
+            }
             util.doSwipe(appiumDriver(), start, end, 1000);
             contador++;
         }
-        element(objPagos.btnPagarCuotas).click();
+        if(element(objPagos.btnPagarCuotas).isCurrentlyVisible()){
+            element(objPagos.btnPagarCuotas).click();
+        }else{
+            element(objPagos.btnAdelantarCuotas).click();
+        }
         if(element(objPagos.titPagoAfiliado).isCurrentlyVisible() == true){
             element(objPagos.btnEntendido).click();
-            System.out.println("entra aca2");
         }
-
-
     }
 
-
+    public String obtenerNumeroCuota(){
+        String cuota=element(objCuotasPagar.lblNumeroCuotaPagar).getText();
+        return cuota;
+    }
+    public String obtenerMontoCuota(){
+       String montoCuota= element(objCuotasPagar.lblMontoCuota).getText();
+       String monto=montoCuota.substring(1,montoCuota.length());
+        Serenity.takeScreenshot();
+       return monto;
+    }
     public void seleccionarCuota() {
         element(objPagos.chkCuota1).click();
         element(objPagos.btnIniciarPago).click();
     }
 
-
     public boolean obtener_mensaje_confirmacion() {
         try {
-            util.esperarSegundos(7);
-            util.esperarElemento(4,objPagos.titHemosRecibidosuPago);
+            util.esperarVisibilityElement(androidDriver(),objPagos.titHemosRecibidosuPago,20);
+          //  util.esperarElementoVisible(8,objPagos.titHemosRecibidosuPago);
             boolean solicitudExiste = element(objPagos.titHemosRecibidosuPago).isCurrentlyVisible();
             Serenity.takeScreenshot();
-            util.esperarSegundos(3);
+            util.esperarElementoVisible(5,objPagos.btnIrAInicio);
             element(objPagos.btnIrAInicio).click();
             return solicitudExiste;
 
         } catch (Exception e) {
-            throw new IllegalAccessError("Error no se puede validar el seguimiento de asistencias vehiculares en el home");
+            throw new IllegalAccessError("Error no se puede validar mensaje de confirmación de compra");
         } finally {
             Serenity.takeScreenshot();
         }

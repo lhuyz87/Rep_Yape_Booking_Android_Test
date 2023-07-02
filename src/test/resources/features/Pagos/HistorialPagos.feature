@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-@ModuloPagos_3_7
+@ModuloPagos_5_7
 Feature: Pagos
 
   @DescargaHistorialPagos
@@ -14,3 +14,4 @@ Feature: Pagos
       Examples:
       | tipoID | id       | password  |
       | DNI    | 29724303 | Rimac2021 |
+

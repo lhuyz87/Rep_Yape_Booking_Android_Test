@@ -24,6 +24,7 @@ public class ObjAnadirTarjeta extends BaseDriver {
 
     @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/editCfNumberCard']//following-sibling::android.widget.EditText")
     public WebElement lblNumTarjeta;
+
     @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/editCfNameHolder']//following-sibling::android.widget.EditText")
     public WebElement lblNombre;
 
@@ -40,7 +41,7 @@ public class ObjAnadirTarjeta extends BaseDriver {
     public WebElement lblCorreo;
 
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
-    public WebElement btnGuardarTarjeta;
+    public WebElement btnAfiliarTarjeta;
 
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/paymentCardFrontLayout")
     public WebElement imgTarjeta;
@@ -53,7 +54,8 @@ public class ObjAnadirTarjeta extends BaseDriver {
 
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
     public WebElement btnPagarNew;
-
+    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/switchSw")
+    public WebElement btnPagoAuto;
 
 
 

@@ -102,4 +102,7 @@ public class ObjTusSeguros extends BaseDriver{
 	}
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/csatImageClose")
 	public WebElement btnCerrarmodal;
+
+	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Póliza\"]")
+	public WebElement btnPoliza;
 }
