@@ -50,8 +50,8 @@ public class ScSeguroPoliza extends BaseDriver {
         Dimension dimension = appiumDriver().manage().window().getSize();
         Point startAnio= new Point((int)(dimension.width*0.6), (int)(dimension.height*0.5));
         Point endAnio= new Point((int)(dimension.width*0.6), (int)(dimension.height*0.6));
-        Point startMes= new Point((int)(dimension.width*0.4), (int)(dimension.height*0.6));
-        Point endMes= new Point((int)(dimension.width*0.4), (int)(dimension.height*0.5));
+        Point startMes= new Point((int)(dimension.width*0.4), (int)(dimension.height*0.5));
+        Point endMes= new Point((int)(dimension.width*0.4), (int)(dimension.height*0.6));
         String anioObtenido = element(objSeguroVehicular.fechaAnio).getText();
         String mesObtenido = element(objSeguroVehicular.fechaMes).getText();
         int contador=0;
