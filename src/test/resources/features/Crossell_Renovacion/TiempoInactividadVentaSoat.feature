@@ -3,7 +3,6 @@
 Feature: Venta de SOAT
 
   @TiempoInactividadCrossellyRenovacion
-
   Scenario Outline: Esperar 15 min de inactividad en el modulo Crossell y Renovacion
     Given realiza el login con credenciales
     | tipoID   | id   | password   |
