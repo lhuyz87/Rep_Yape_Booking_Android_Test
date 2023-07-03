@@ -15,3 +15,4 @@ Feature: Pagos
       | tipoID | id       | password  |
       | DNI    | 16563172 | Rimac2020 |
 
+
