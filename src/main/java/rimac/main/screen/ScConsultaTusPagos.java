@@ -24,6 +24,7 @@ public class ScConsultaTusPagos extends BaseDriver {
     }
 
     public boolean validacion_pdf() {
+        util.esperarElemento(8, objConsultaTusPagos.btnDownload);
         int intentos = 0;
 
         boolean existePdf = false;

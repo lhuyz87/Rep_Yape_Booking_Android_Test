@@ -13,5 +13,5 @@ Feature: Pagos
 
       Examples:
       | tipoID | id       | password  |
-      | DNI    | 29724303 | Rimac2021 |
+      | DNI    | 16563172 | Rimac2020 |
 
