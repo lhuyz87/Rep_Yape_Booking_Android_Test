@@ -11,8 +11,8 @@ Feature: Consulta Salud - Plan Medico EPS
     Then Se valida el número de póliza
 
     Examples:
-      | tipoID | id       | password  |
-      | DNI    | 10318552 | Rimac2020 |
+    ###DATOS###@Data|1@ConsultaNumeroDePoliza
+      | 0 | tipoID | id | password |
 
   @TiempoInactividadConsultasSalud
   Scenario Outline: Esperar 15 min de inactividad en el modulo de seguro Consulta Salud
@@ -25,5 +25,5 @@ Feature: Consulta Salud - Plan Medico EPS
     Then debe validar el mensaje para retornar al Login desde seguros Consulta de póliza
 
     Examples:
-      | tipoID | id       | password  |
-      | DNI    | 40660901 | Rimac2021 |
+      ###DATOS###@Data|1@TiempoInactividadConsultasSalud
+      | 0 | tipoID | id | password |

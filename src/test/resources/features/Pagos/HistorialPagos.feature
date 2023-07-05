@@ -12,6 +12,5 @@ Feature: Pagos
     Then debe mostrar el pdf con el historial de pagos
 
       Examples:
-      | tipoID | id       | password  |
-      | DNI    | 16563172 | Rimac2020 |
-
+      ###DATOS###@Data|1@DescargaHistorialPagos
+        | 0 | tipoID | id | password |

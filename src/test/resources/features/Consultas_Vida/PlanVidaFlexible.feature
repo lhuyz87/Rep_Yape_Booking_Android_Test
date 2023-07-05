@@ -11,8 +11,8 @@ Feature: Consultas Vida - Plan Vida Flexible
     Then debe visualizarse el estado de cuenta de mi seguro Vida Flexible
 
     Examples:
-      | tipoID | id       | password  | mes  | año  |
-      | DNI    | 44926877 | Rimac2020 | Mayo | 2022 |
+    ###DATOS###@Data|1@DescargaEstadoCuentaPlanVidaFle
+      | 0 | tipoID | id | password |mes  | año  |
 
   @TiempoInactividadConsultasVida
   Scenario Outline: Esperar 15 min de inactividad en el modulo de Consultas Vida
@@ -24,5 +24,5 @@ Feature: Consultas Vida - Plan Vida Flexible
     Then debe validar el mensaje para retornar al Login desde plan Vida Flexible
 
     Examples:
-      | tipoID | id       | password  | mes  | año  |
-      | DNI    | 44926877 | Rimac2020 | Mayo | 2022 |
+     ###DATOS###@Data|1@TiempoInactividadConsultasVida
+     | 0 | tipoID | id | password |mes  | año  |

@@ -11,5 +11,5 @@ Feature:Servicios de SOAT
     Then se valida el mensaje para retornar al Login desde el módulo Servicios de Soat
 
     Examples:
-      | tipoID | id       | password  |
-      | DNI    | 40861606 | Rimac2021 |
+    ###DATOS###@Data|1@TiempoInactividadServiciosSOAT
+      |0|tipoID| id       | password  |

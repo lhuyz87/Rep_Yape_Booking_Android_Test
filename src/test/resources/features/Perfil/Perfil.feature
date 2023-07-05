@@ -13,5 +13,5 @@ Feature: Perfil
 
     Examples:
 
-      | tipoID | id       | password  |
-      | DNI    | 44926877 | Rimac2020 |
+      ###DATOS###@Data|1@TiempoInactividadPerfil
+      | 0 | tipoID | id | password |
