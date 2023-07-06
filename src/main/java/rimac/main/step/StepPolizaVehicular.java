@@ -40,4 +40,13 @@ public class StepPolizaVehicular {
     public void se_valida_mensaje_de_inactividad_desde_cobertura(){
         scTuSesionExpiro.validacion_mensaje_TimeOut();
     }
+
+    public void ver_detalle_SegurosSOAT(String placa) {
+        schome.seleccionarOpcionPrincipal("Seguros");
+        scTusSeguros.esperar_Tus_Seguros();
+        scTusSeguros.seleccionaSOAT();
+        scTusSeguros.ver_detalle_Soat_placa(placa);
+        scTusSeguros.irPoliza();
+
+    }
 }

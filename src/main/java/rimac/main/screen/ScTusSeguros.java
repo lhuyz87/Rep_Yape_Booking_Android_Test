@@ -306,4 +306,31 @@ public class ScTusSeguros extends BaseDriver{
 			throw new IllegalAccessError("Error para ingresar a poliza");
 		}
 	}
+
+	public void ver_detalle_Soat_placa(String placa) {
+		try {
+		Dimension dimension = appiumDriver().manage().window().getSize();
+		Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
+		Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+
+		int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
+		while (contador < 8) {
+			if(objTusSeguros.verDetalleXPlaca2(placa).size()!=0){
+				break;
+			}
+			util.mobileSwipeScreenAndroid();
+			contador++;
+		}
+		if ((ybtnPerfil-150) < objTusSeguros.verDetalleXPlaca(placa).getLocation().getY()) {
+			util.doSwipe(appiumDriver(), start, end, 500);
+		}
+		Serenity.takeScreenshot();
+		element(objTusSeguros.verDetalleXPlaca(placa)).click();
+			System.out.println("objTusSeguros.verDetalleXPlaca(placa)");
+		}catch(NoSuchElementException e){
+		throw new IllegalAccessError("No se encontró poliza Soat");
+		}
+
+
+	}
 }
