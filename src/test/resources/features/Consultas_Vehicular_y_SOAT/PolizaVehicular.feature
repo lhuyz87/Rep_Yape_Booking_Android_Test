@@ -14,6 +14,18 @@
     ###DATOS###@Data|1@ConsultaNumeroDePolizaVehiSoat
         | 0 | tipoID | id | password |placa|
 
+    @ConsultarDeudasSaldosdePoliza
+    Scenario Outline: Consultar Deudas y Saldos de la Poliza - Vehicular
+      Given realiza el login con credenciales
+        | tipoID   | id   | password   |
+        | <tipoID> | <id> | <password> |
+      When se ingresa al detalle de la "<placa>" del seguro vehicular
+      Then se valida que muestre el historial de pago
+
+      Examples:
+      ###DATOS###@Data|1@ConsultarDeudasSaldosdePoliza
+        | 0 | tipoID | id | password |placa|
+
    @DescargaPolizaVehicularDigital
     Scenario Outline: Descarga poliza digital desde el tab poliza
       Given realiza el login con credenciales

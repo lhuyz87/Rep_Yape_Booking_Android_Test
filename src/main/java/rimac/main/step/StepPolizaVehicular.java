@@ -1,6 +1,7 @@
 package rimac.main.step;
 
 import net.thucydides.core.annotations.Steps;
+import rimac.main.object.ObjPoliza;
 import rimac.main.screen.*;
 
 public class StepPolizaVehicular {
@@ -13,6 +14,10 @@ public class StepPolizaVehicular {
     ScSeguroPoliza scSeguroVehicular;
     @Steps
     ScTuSesionExpiro scTuSesionExpiro;
+    @Steps
+    ScPagos scPagos;
+
+
 
     public void ver_detalle_SegurosVehicular(){
         schome.seleccionarOpcionPrincipal("Seguros");
@@ -47,6 +52,23 @@ public class StepPolizaVehicular {
         scTusSeguros.seleccionaSOAT();
         scTusSeguros.ver_detalle_Soat_placa(placa);
         scTusSeguros.irPoliza();
+        scTusSeguros.ver_resumen_Poliza();
 
+    }
+    public void se_valida_numero_polizaSoat() throws Exception {
+        scTusSeguros.se_visualiza_numero_PolizaSoat();
+
+    }
+
+    public void ver_detalle_SegurosVehicularPlaca(String placa) {
+        schome.seleccionarOpcionPrincipal("Seguros");
+        scTusSeguros.esperar_Tus_Seguros();
+        scTusSeguros.ver_detalle_Vehicular_placa(placa);
+        scTusSeguros.irPagos();
+        scPagos.irHistorialPagos();
+    }
+
+    public void se_valida_historial_pago() throws Exception {
+        scTusSeguros.se_visualiza_historial_pagos();
     }
 }
