@@ -11,7 +11,7 @@
   #    Then Se valida el número de póliza Soat
 
   #    Examples:
-        | 0 | tipoID | id | password |placa|
+  #      | 0 | tipoID | id | password |placa|
 
    @DescargaPolizaVehicularDigital
     Scenario Outline: Descarga poliza digital desde el tab poliza
