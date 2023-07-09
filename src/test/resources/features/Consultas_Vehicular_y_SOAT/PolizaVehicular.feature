@@ -11,7 +11,6 @@
   #    Then Se valida el número de póliza Soat
 
   #    Examples:
-    ###DATOS###@ConsultaVehicularSoat|1@ConsultaNumeroDePolizaVehiSoat
         | 0 | tipoID | id | password |placa|
 
    @DescargaPolizaVehicularDigital
