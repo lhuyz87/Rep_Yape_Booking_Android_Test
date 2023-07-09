@@ -24,10 +24,19 @@ public class Constantes {
     public static String passCorreoRemitente = UtilDef.getInstancia().getVarEnvPro("v_passCorreoRemitente");
     //public static final String RutaLocal = "/Users/christianmaurysolis/Documents/Documentos/";
     public static final String RutaLocal = "/home/adminqa/Documents/Auto/Android/";
-    //public static final String RutaLocal = "/home/adminqa/Documents/data-Android-test-Cloud-v1/";
+    //public static final String RutaLocal = "/Users/candyespinzabaez/Documents/Android/";
     //public static final String RutaLocal = "/home/adminqa/Documents/data-Android-test-Cloud-v1/";
     public static final String RutaRemota = "smb://01-045923.rimac.com.pe//DataPuebaAutomatizacion//Proy_CanalAPP_iOS//datapool//";
     public static final String fileData_01 = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"Data.xlsx" : RutaRemota+"Data.xlsx");
-
-
+    public static final String file_ConsultaSalud = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"ConsultaSalud.xlsx" : RutaRemota+"ConsultaSalud.xlsx");
+    public static final String file_ConsultaVehicularSoat = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"ConsultaVehicularSoat.xlsx" : RutaRemota+"ConsultaVehicularSoat.xlsx");
+    public static final String file_ConsultasVida = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"ConsultasVida.xlsx" : RutaRemota+"ConsultasVida.xlsx");
+    public static final String file_CrossellRenovacion = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"CrossellRenovacion.xlsx" : RutaRemota+"CrossellRenovacion.xlsx");
+    public static final String file_Onboarding = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"Onboarding.xlsx" : RutaRemota+"Onboarding.xlsx");
+    public static final String file_Pagos = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"Pagos.xlsx" : RutaRemota+"Pagos.xlsx");
+    public static final String file_Perfil = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"Perfil.xlsx" : RutaRemota+"Perfil.xlsx");
+    public static final String file_ServiciosSalud = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"ServiciosSalud.xlsx" : RutaRemota+"ServiciosSalud.xlsx");
+    public static final String file_ServiciosSoat = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"ServiciosSoat.xlsx" : RutaRemota+"ServiciosSoat.xlsx");
+    public static final String file_ServiciosVehiculares = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"ServiciosVehiculares.xlsx" : RutaRemota+"ServiciosVehiculares.xlsx");
+    public static final String file_TramitesSiniestros = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"TramitesSiniestros.xlsx" : RutaRemota+"TramitesSiniestros.xlsx");
 }

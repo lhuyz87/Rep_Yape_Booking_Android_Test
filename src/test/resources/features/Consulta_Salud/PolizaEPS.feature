@@ -11,7 +11,7 @@ Feature: Consulta Salud - Plan Medico EPS
     Then Se valida el número de póliza
 
     Examples:
-    ###DATOS###@Data|1@ConsultaNumeroDePoliza
+    ###DATOS###@ConsultaSalud|1@ConsultaNumeroDePoliza
       | 0 | tipoID | id | password |
 
   @TiempoInactividadConsultasSalud
@@ -25,5 +25,5 @@ Feature: Consulta Salud - Plan Medico EPS
     Then debe validar el mensaje para retornar al Login desde seguros Consulta de póliza
 
     Examples:
-      ###DATOS###@Data|1@TiempoInactividadConsultasSalud
+      ###DATOS###@ConsultaSalud|1@TiempoInactividadConsultasSalud
       | 0 | tipoID | id | password |

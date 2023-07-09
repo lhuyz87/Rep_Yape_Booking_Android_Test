@@ -12,7 +12,7 @@ Feature: Servicios de Salud - Buscador de clinicas
     Then al seleccionarla debe mostrar su monto de copago
 
     Examples:
-    ###DATOS###@Data|1@BuscadordeClinicasdesdeHome
+    ###DATOS###@ServiciosSalud|1@BuscadordeClinicasdesdeHome
       | 0 | tipoID | id | password | nomClinica |
 
   @BuscadordeClinicasdesdeTramites
@@ -25,5 +25,5 @@ Feature: Servicios de Salud - Buscador de clinicas
     Then al seleccionarla debe mostrar su monto de copago
 
     Examples:
-      ###DATOS###@Data|1@BuscadordeClinicasdesdeTramites
+      ###DATOS###@ServiciosSalud|1@BuscadordeClinicasdesdeTramites
       | 0 | tipoID | id | password | nomClinica |

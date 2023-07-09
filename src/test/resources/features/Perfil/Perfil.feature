@@ -13,5 +13,5 @@ Feature: Perfil
 
     Examples:
 
-      ###DATOS###@Data|1@TiempoInactividadPerfil
+      ###DATOS###@Perfil|1@TiempoInactividadPerfil
       | 0 | tipoID | id | password |

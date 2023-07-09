@@ -18,7 +18,7 @@ Feature: Servicios de Salud - Reembolso
     And debe aparecer el monto del reembolso solicitado
 
     Examples:
-    ###DATOS###@Data|1@reembolsoSaludSinBeneficiarioDe
+    ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiarioTramite
       | 0 | tipoID | id | password | productoContratante  | lugarAtencion | tipoCobertura |
 
   @reembolsoSaludConBeneficiariosDesdeMenuTramites
@@ -38,8 +38,8 @@ Feature: Servicios de Salud - Reembolso
     And debe aparecer el monto del reembolso solicitado
 
     Examples:
-     ###DATOS###@Data|1@reembolsoSaludConBeneficiarios
-      |0|tipoID| id  | password| productoContratante               | paciente                               | lugarAtencion | tipoCobertura |
+     ###DATOS###@ServiciosSalud|1@reembolsoConBeneficiarioTramite
+      | 0 | tipoID | id | password | productoContratante | paciente | lugarAtencion | tipoCobertura |
 
   @reembolsoOdontologicoDesdeMenuTramites
   Scenario Outline: Realizar solicitud de reembolso cliente con cobertura odontologica con beneficiarios desde menu Tramites
@@ -57,7 +57,7 @@ Feature: Servicios de Salud - Reembolso
     And debe aparecer el monto del reembolso solicitado
 
     Examples:
-    ###DATOS###@Data|1@reembolsoOdontologicoDesdeMenuT
+    ###DATOS###@ServiciosSalud|1@reembolsoOdontologicoDesdeMenuT
       |0|tipoID| id  | password| productoContratante               | paciente                               | lugarAtencion | tipoCobertura |tipoTratamiento |
 
   @reembolsoSaludSinBeneficiarioaDesdeMenuInicio
@@ -79,7 +79,7 @@ Feature: Servicios de Salud - Reembolso
     And debe aparecer el monto  del reembolso solicitado en Inicio
 
     Examples:
-    ###DATOS###@Data|1@reembolsoSaludSinBeneficiarioa
+    ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiarioInicio
       |0|tipoID| id  | password| productoContratante               | lugarAtencion                               | tipoCobertura |
 
   @reembolsoSaludSinBeneficiariosDesdeSeguros
@@ -96,7 +96,7 @@ Feature: Servicios de Salud - Reembolso
     Then debe aparecer el mensaje: "Solicitud de reembolso recibida"
 
     Examples:
-    ###DATOS###@Data|1@reembolsoSaludSinBeneficiariosD
+    ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiariosSeguro
       |0|tipoID| id       | password  | seguro             | productoContratante                         | lugarAtencion |tipoCobertura |
 
   @TiempoInactividadServiciodeSalud
@@ -116,5 +116,5 @@ Feature: Servicios de Salud - Reembolso
     Then debe validar el mensaje para retornar al Login desde reembolso
 
     Examples:
-    ###DATOS###@Data|1@TiempoInactividadServiciodeSalu
+    ###DATOS###@ServiciosSalud|1@TiempoInactividadServiciodeSalu
       |0|tipoID| id       | password  | productoContratante                          | lugarAtencion |tipoCobertura |

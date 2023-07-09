@@ -13,7 +13,7 @@ Feature: Pagos
     And elimino la tarjeta afiliada "<numtarjeta>" desde Mi Perfil
 
     Examples:
-     ###DATOS###@Data|1@PagoAsociandoTarjeta
+     ###DATOS###@Pagos|1@PagoAsociandoTarjeta
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
   @PagoAfiliadoDebitoAuto
@@ -27,7 +27,7 @@ Feature: Pagos
     And elimino la tarjeta afiliada "<numtarjeta>" desde Mi Perfil
 
     Examples:
-    ###DATOS###@Data|1@PagoAfiliadoDebitoAuto
+    ###DATOS###@Pagos|1@PagoAfiliadoDebitoAuto
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
   @PagoPolizaSoat
@@ -39,7 +39,7 @@ Feature: Pagos
     Then debe mostrar el detalle del pago anual
 
     Examples:
-     ###DATOS###@Data|1@PagoPolizaSoat
+     ###DATOS###@Pagos|1@PagoPolizaSoat
       | 0 | tipoID | id | password |
 
   @PagoConValidacionHistorial
@@ -52,7 +52,7 @@ Feature: Pagos
     Then se valida la cuota pagada en el historial de pago
 
     Examples:
-    ###DATOS###@Data|1@PagoConValidacionHistorial
+    ###DATOS###@Pagos|1@PagoConValidacionHistorial
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
   @PagoSinTarjetaAsociada
@@ -65,7 +65,7 @@ Feature: Pagos
     Then debe mostrar el mensaje ¡Hemos recibido tu pago!
 
     Examples:
-     ###DATOS###@Data|1@PagoSinTarjetaAsociada
+     ###DATOS###@Pagos|1@PagoSinTarjetaAsociada
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
   @PagoConTarjetaAsociada
@@ -77,5 +77,5 @@ Feature: Pagos
     Then debe mostrar el mensaje ¡Hemos recibido tu pago!
 
     Examples:
-    ###DATOS###@Data|1@PagoConTarjetaAsociada
+    ###DATOS###@Pagos|1@PagoConTarjetaAsociada
       | 0 | tipoID | id | password | placa |

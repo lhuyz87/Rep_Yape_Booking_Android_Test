@@ -11,7 +11,7 @@ Feature: Consultas Vida - Plan Vida Flexible
     Then debe visualizarse el estado de cuenta de mi seguro Vida Flexible
 
     Examples:
-    ###DATOS###@Data|1@DescargaEstadoCuentaPlanVidaFle
+    ###DATOS###@ConsultasVida|1@DescargaEstadoCuentaPlanVidaFle
       | 0 | tipoID | id | password |mes  | año  |
 
   @TiempoInactividadConsultasVida
@@ -24,5 +24,5 @@ Feature: Consultas Vida - Plan Vida Flexible
     Then debe validar el mensaje para retornar al Login desde plan Vida Flexible
 
     Examples:
-     ###DATOS###@Data|1@TiempoInactividadConsultasVida
+     ###DATOS###@ConsultasVida|1@TiempoInactividadConsultasVida
      | 0 | tipoID | id | password |mes  | año  |

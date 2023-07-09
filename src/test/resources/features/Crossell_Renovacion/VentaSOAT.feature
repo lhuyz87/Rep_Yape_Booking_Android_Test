@@ -12,5 +12,5 @@ Feature: Venta SOAT
     And elimino la tarjeta guardada "<numtarjeta>" desde Mi Perfil
 
     Examples:
-   ###DATOS###@Data|1@CompraSOATDigital
+   ###DATOS###@CrossellRenovacion|1@CompraSOATDigital
       | 0 | tipoID | id | password | placa | numtarjeta | cvv | fecha |

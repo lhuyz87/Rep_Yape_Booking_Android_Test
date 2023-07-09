@@ -13,5 +13,5 @@ Feature: Venta de SOAT
     Then se valida el mensaje para retornar al Login desde la pantalla de confirmación de compra
 
     Examples:
-   ###DATOS###@Data|1@TiempoInactividadCrossellyRenov
+   ###DATOS###@CrossellRenovacion|1@TiempoInactividadCrossellyRenov
       | 0 | tipoID | id | password | placa | numtarjeta | cvv | fecha |

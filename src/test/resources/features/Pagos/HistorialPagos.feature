@@ -12,5 +12,5 @@ Feature: Pagos
     Then debe mostrar el pdf con el historial de pagos
 
       Examples:
-      ###DATOS###@Data|1@DescargaHistorialPagos
+      ###DATOS###@Pagos|1@DescargaHistorialPagos
         | 0 | tipoID | id | password |
