@@ -105,4 +105,13 @@ public class ObjTusSeguros extends BaseDriver{
 
 	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Póliza\"]")
 	public WebElement btnPoliza;
+	@AndroidFindBy(xpath = "//*[@text='Ver resumen']")
+	public WebElement btnResumPoliza;
+
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/policyTextNumber")
+	public WebElement numeroPolizaSoat;
+
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/textBadge")
+	public WebElement numeroCuota;
+
 }

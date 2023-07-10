@@ -13,6 +13,6 @@ Feature: Venta de SOAT
     Then se valida el mensaje para retornar al Login desde la pantalla de confirmación de compra
 
     Examples:
-    | tipoID | id       | password  | placa  | numtarjeta       | cvv | fecha |
-    | DNI    | 23977057 | Rimac2020 | ACE187 | 4919107570913512 | 111 | 03/28 |
+   ###DATOS###@CrossellRenovacion|1@TiempoInactividadCrossellyRenov
+      | 0 | tipoID | id | password | placa | numtarjeta | cvv | fecha |
 

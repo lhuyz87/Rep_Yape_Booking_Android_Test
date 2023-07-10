@@ -11,5 +11,5 @@ Feature: Tramite y siniestros
     Then se valida el mensaje para retornar al login desde pantalla de pagos
 
     Examples:
-      | tipoID | id       | password  |
-      | DNI    | 44926877 | Rimac2020 |
+     ###DATOS###@TramitesSiniestros|1@TiempoInactividadTramiteYSinies
+      | 0 | tipoID | id | password |

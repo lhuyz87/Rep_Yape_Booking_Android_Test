@@ -10,7 +10,7 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import net.thucydides.core.annotations.Steps;
-import rimac.test.inout.LeerDD_Reembolso;
+import rimac.test.inout.LeerDD;
 
 
 public class ExcelUtilPropio extends ExcelUtil {
@@ -50,13 +50,40 @@ public class ExcelUtilPropio extends ExcelUtil {
 //		System.out.println("excel: " + excel + "-hoja: " + hoja + " VEZ: " + vez  );
 		try {
 			String[] excelSplit = excel.split("\\|");
-			// int v = Integer.parseInt(vez);
-
-//			System.out.println(" valor 1: " + excelSplit[0] + " valor 2: " + excelSplit[1] + " LONGITUD: " + excelSplit.length  );
 
 			switch (excelSplit[0]) {
-				case "Data":
-						data = LeerDD_Reembolso.getInstancia().leerDD(hoja);
+				case "ConsultaSalud":
+						data = LeerDD.getInstancia().leerDDConsultaSalud(hoja);
+					break;
+				case "ConsultaVehicularSoat":
+						data = LeerDD.getInstancia().leerDDConsultaVehicularSoat(hoja);
+					break;
+				case "ConsultasVida":
+						data = LeerDD.getInstancia().leerDDConsultasVida(hoja);
+					break;
+				case "Onboarding":
+						data = LeerDD.getInstancia().leerDDOnboarding(hoja);
+					break;
+				case "CrossellRenovacion":
+					data = LeerDD.getInstancia().leerDDCrossellRenovacion(hoja);
+					break;
+				case "Pagos":
+					data = LeerDD.getInstancia().leerDDPagos(hoja);
+					break;
+				case "Perfil":
+					data = LeerDD.getInstancia().leerDDPerfil(hoja);
+					break;
+				case "ServiciosSalud":
+					data = LeerDD.getInstancia().leerDDServiciosSalud(hoja);
+					break;
+				case "ServiciosSoat":
+					data = LeerDD.getInstancia().leerDDServiciosSoat(hoja);
+					break;
+				case "ServiciosVehiculares":
+					data = LeerDD.getInstancia().leerDDServiciosVehiculares(hoja);
+					break;
+				case "TramitesSiniestros":
+					data = LeerDD.getInstancia().leerDDTramitesSiniestros(hoja);
 					break;
 				default:
 					break;
@@ -83,36 +110,6 @@ public class ExcelUtilPropio extends ExcelUtil {
 
 		return placa;
 	}
-	
-		/*
-	public void copiarPlantillas() {
-		System.out.println("Entrando a Copiar Plantilla...");
-		String rutas[] = util.verificarRutaOrigenDestino();
-		File file = new File(rutas[0]);
-		String[] archivos = file.list();
-		
-		// verificar si existe directorio
-		File rutaDestino = new File(rutas[1]);
-
-		if (!rutaDestino.exists()) {
-			System.out.println("creando directorio local para los data driven");
-			rutaDestino.mkdir();
-		}
-		System.out.println("*********"   + archivos.length);
-		System.out.println("********* Origen "   + rutas[0]);
-		System.out.println("********* Destino "   + rutas[1]);
-		
-		if(variables.UsarRemota.compareTo("SI")==0) {
-			rutas[0]=rutas[0]+"/";
-			rutas[1]=rutas[1]+"/";
-		}
-		
-		for (int i = 0; i < archivos.length; i++) {
-			System.out.println(archivos[i]);
-			copiarArchivo(archivos[i], rutas[0], rutas[1]);
-		
-		}
-	}*/
 
 	private void copiarArchivo(String archivo, String rutaOrigen, String rutaDestino) {
 		Path origenPath = FileSystems.getDefault().getPath(rutaOrigen + archivo);
@@ -126,8 +123,4 @@ public class ExcelUtilPropio extends ExcelUtil {
 		}
 	}
 
-	
-	
-	
-	
 }

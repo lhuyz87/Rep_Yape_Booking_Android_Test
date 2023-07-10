@@ -6,8 +6,8 @@ Feature: Onboarding - Login
     Given realiza el login con credenciales "<tipoID>", "<id>" y "<password>"
 
     Examples:
-      | tipoID | id       | password  |
-      | DNI    | 22093296 | Rimac2020 |
+    ###DATOS###@Onboarding|1@Login
+      | 0 | tipoID | id | password |
 
   @OlvidasteTuContrasenia
   Scenario Outline: Recuperar contrasena - Validar que se permita registrar el password respondiendo preguntas

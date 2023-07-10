@@ -13,5 +13,5 @@ Feature: Servicios Vehiculares - Chofer Reemplazo
 
 
     Examples:
-      | tipoID | id       | password  | placa  |
-      | DNI    | 22093296 | Rimac2020 | ASQ191 |
+      ###DATOS###@ServiciosVehiculares|1@ChoferReemplazo
+      | 0 | tipoID | id | password | placa  |

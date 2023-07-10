@@ -20,6 +20,8 @@ import rimac.main.util.UtilApp;
 
 import java.util.Timer;
 
+import static org.junit.Assert.assertTrue;
+
 
 public class ScTusSeguros extends BaseDriver{
 
@@ -304,6 +306,62 @@ public class ScTusSeguros extends BaseDriver{
 			element(objTusSeguros.btnPoliza).click();
 		}catch(Exception e){
 			throw new IllegalAccessError("Error para ingresar a poliza");
+		}
+	}
+
+	public void ver_detalle_Soat_placa(String placa) {
+		try {
+		Dimension dimension = appiumDriver().manage().window().getSize();
+		Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
+		Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+
+		int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
+		while (contador < 8) {
+			if(objTusSeguros.verDetalleXPlaca2(placa).size()!=0){
+				break;
+			}
+			util.mobileSwipeScreenAndroid();
+			contador++;
+		}
+		if ((ybtnPerfil-150) < objTusSeguros.verDetalleXPlaca(placa).getLocation().getY()) {
+			util.doSwipe(appiumDriver(), start, end, 500);
+		}
+		Serenity.takeScreenshot();
+		element(objTusSeguros.verDetalleXPlaca(placa)).click();
+			System.out.println("objTusSeguros.verDetalleXPlaca(placa)");
+		}catch(NoSuchElementException e){
+		throw new IllegalAccessError("No se encontró placa");
+		}
+
+
+	}
+	public void ver_resumen_Poliza() {
+		try{	util.esperarElemento(10,objTusSeguros.btnResumPoliza);
+			element(objTusSeguros.btnResumPoliza).click();}
+		catch(NoSuchElementException e){
+			throw new IllegalAccessError("No se encontró placa");
+		}
+	}
+	public void se_visualiza_numero_PolizaSoat() throws Exception {
+
+		util.esperarElementoVisible(5, objTusSeguros.numeroPolizaSoat);
+		try{
+			assertTrue(element(objTusSeguros.numeroPolizaSoat).isCurrentlyVisible());
+		}catch(AssertionError e){
+			throw new IllegalAccessError("No se visualiza el número de Poliza");
+		}finally{
+			Serenity.takeScreenshot();
+		}
+	}
+
+	public void se_visualiza_historial_pagos() throws Exception {
+		util.esperarElementoVisible(5, objTusSeguros.numeroCuota);
+		try{
+			assertTrue(element(objTusSeguros.numeroCuota).isCurrentlyVisible());
+		}catch(AssertionError e){
+			throw new IllegalAccessError("No se visualiza el número de Poliza");
+		}finally{
+			Serenity.takeScreenshot();
 		}
 	}
 }
