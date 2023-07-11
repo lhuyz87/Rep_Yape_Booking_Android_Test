@@ -13,7 +13,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     And se debe mostrar el seguimiento de la asistencia vehicular "Auxilio mecánico" de la "<placa>"
 
     Examples:
-       ###DATOS###@Data|1@AsistenciaVehicularRepuesto
+       ###DATOS###@ServiciosVehiculares|1@AsistenciaVehicularRepuesto
       | 0 | tipoID | id | password | placa  | problema         |
 
   @AsistenciaVehicularProblema
@@ -28,7 +28,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     And se debe mostrar el seguimiento de la asistencia vehicular "Auxilio mecánico" de la "<placa>"
 
     Examples:
-     ###DATOS###@Data|1@AsistenciaVehicularProblema
+     ###DATOS###@ServiciosVehiculares|1@AsistenciaVehicularProblema
       | 0 | tipoID | id | password | placa  | problema         |
 
   @AsistenciaVehicularGrua
@@ -43,7 +43,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     And se debe mostrar el seguimiento de la asistencia vehicular "Grúa" de la "<placa>"
 
     Examples:
-     ###DATOS###@Data|1@AsistenciaVehicularGrua
+     ###DATOS###@ServiciosVehiculares|1@AsistenciaVehicularGrua
       | 0 | tipoID | id | password | placa  |
 
   @NecesitoAyudaAuxilioMecanico
@@ -57,7 +57,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     Then se debe mostrar el mensaje : "¡Solicitud enviada!"
 
     Examples:
-    ###DATOS###@Data|1@NecesitoAyudaAuxilioMecanico
+    ###DATOS###@ServiciosVehiculares|1@NecesitoAyudaAuxilioMecanico
       | 0 | tipoID | id | password | placa  |opción             |
 
   @NecesitoAyudaGrua
@@ -71,7 +71,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     Then se debe mostrar el mensaje : "¡Solicitud enviada!"
 
     Examples:
-    ###DATOS###@Data|1@NecesitoAyudaGrua
+    ###DATOS###@ServiciosVehiculares|1@NecesitoAyudaGrua
       | 0 | tipoID | id | password | placa  |opción             |
 
   @TiempoInactividadServicioVehicular
@@ -84,5 +84,5 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     And se mantiene inactivo el modulo en Asistencias Vehiculares
     Then se valida el mensaje para retornar al Login
     Examples:
-    ###DATOS###@Data|1@TiempoInactividadServicioVehicu
+    ###DATOS###@ServiciosVehiculares|1@TiempoInactividadServicioVehicu
       | 0 | tipoID | id | password | placa  |problema             |

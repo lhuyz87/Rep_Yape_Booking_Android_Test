@@ -11,5 +11,5 @@ Feature:Servicios de SOAT
     Then se valida el mensaje para retornar al Login desde el módulo Servicios de Soat
 
     Examples:
-    ###DATOS###@Data|1@TiempoInactividadServiciosSOAT
+    ###DATOS###@ServiciosSoat|1@TiempoInactividadServiciosSOAT
       |0|tipoID| id       | password  |

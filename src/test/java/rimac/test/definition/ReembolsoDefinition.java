@@ -10,7 +10,7 @@ import rimac.main.screen.ScLogin;
 import rimac.main.step.StepLogin;
 import rimac.main.step.StepReembolso;
 import rimac.main.util.Variables;
-import rimac.test.inout.LeerDD_Reembolso;
+
 
 import static org.junit.Assert.assertEquals;
 
@@ -30,7 +30,6 @@ public class ReembolsoDefinition {
 	StepLogin stepLogin;
 
 
-	private LeerDD_Reembolso excel = LeerDD_Reembolso.getInstancia();
 
 	//-------------------------------------------------------------------------------------------------------------
 	@Given("realiza el login con credenciales {string}, {string} y {string}")

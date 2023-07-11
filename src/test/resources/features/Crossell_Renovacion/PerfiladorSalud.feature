@@ -12,5 +12,5 @@ Feature: Perfilador de salud
     Then muestra la opcion recomendada
 
     Examples:
-      ###DATOS###@Data|1@PerfiladorSalud
+      ###DATOS###@CrossellRenovacion|1@PerfiladorSalud
       | 0 | tipoID | id | password |

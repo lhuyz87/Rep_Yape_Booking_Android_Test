@@ -11,5 +11,5 @@ Feature: Tramite y siniestros
     Then se valida el mensaje para retornar al login desde pantalla de pagos
 
     Examples:
-     ###DATOS###@Data|1@TiempoInactividadTramiteYSinies
+     ###DATOS###@TramitesSiniestros|1@TiempoInactividadTramiteYSinies
       | 0 | tipoID | id | password |

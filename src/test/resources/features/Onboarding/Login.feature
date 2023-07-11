@@ -6,7 +6,7 @@ Feature: Onboarding - Login
     Given realiza el login con credenciales "<tipoID>", "<id>" y "<password>"
 
     Examples:
-    ###DATOS###@Data|1@Login
+    ###DATOS###@Onboarding|1@Login
       | 0 | tipoID | id | password |
 
   @OlvidasteTuContrasenia

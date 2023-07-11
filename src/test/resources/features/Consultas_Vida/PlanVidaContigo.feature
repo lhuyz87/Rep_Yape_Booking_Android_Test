@@ -11,5 +11,5 @@ Feature: Consultas Vida - Plan Vida Contigo
     Then debe descargar el manual de uso de mi seguro
 
     Examples:
-    ###DATOS###@Data|1@DescargaManualdeUsoPlanVidaCont
+    ###DATOS###@ConsultasVida|1@DescargaManualdeUsoPlanVidaCont
     | 0 | tipoID | id | password |

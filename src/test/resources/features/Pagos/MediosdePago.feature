@@ -12,7 +12,7 @@ Feature: Suscripcion de medios de pago
       And elimino la tarjeta agregada "<numtarjeta>" desde Mis Tarjetas
 
        Examples:
-       ###DATOS###@Data|1@SucripcionDesdePerfil
+       ###DATOS###@Pagos|1@SucripcionDesdePerfil
          | 0 | tipoID | id | password |numtarjeta       | cvv | fecha |
 
     @SucripcionDesdePagos
@@ -25,7 +25,7 @@ Feature: Suscripcion de medios de pago
       And elimino la tarjeta agregada "<numtarjeta>" desde Mis Tarjetas
 
       Examples:
-       ###DATOS###@Data|1@SucripcionDesdePagos
+       ###DATOS###@Pagos|1@SucripcionDesdePagos
         | 0 | tipoID | id | password |numtarjeta       | cvv | fecha |
 
     @SucripcionDesdeAfiliacion
@@ -38,7 +38,7 @@ Feature: Suscripcion de medios de pago
       And elimino la tarjeta afiliada "<numtarjeta>" desde Mi Perfil
 
       Examples:
-      ###DATOS###@Data|1@SucripcionDesdeAfiliacion
+      ###DATOS###@Pagos|1@SucripcionDesdeAfiliacion
         | 0 | tipoID | id | password |numtarjeta       | cvv | fecha |
 
   @SucripcionDesdeOpcionPagar
@@ -53,7 +53,7 @@ Feature: Suscripcion de medios de pago
       And elimino la tarjeta afiliada "<numtarjeta>" desde Mi Perfil
 
     Examples:
-      ###DATOS###@Data|1@SuscripcionOpcionPagar
+      ###DATOS###@Pagos|1@SuscripcionOpcionPagar
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
   @TiempoInactividadPagos
@@ -66,5 +66,5 @@ Feature: Suscripcion de medios de pago
       Then se valida el mensaje para retornar al Login desde el módulo de pagos
 
       Examples:
-       ###DATOS###@Data|1@TiempoInactividadPagos
+       ###DATOS###@Pagos|1@TiempoInactividadPagos
         | 0 | tipoID | id | password |

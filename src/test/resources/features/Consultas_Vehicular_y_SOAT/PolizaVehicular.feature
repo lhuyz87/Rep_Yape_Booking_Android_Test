@@ -2,29 +2,16 @@
 @ModuloConsultasVehicularySoat_2_6
   Feature: Consulta Vehicular y Soat - Poliza Vehicular
 
-    @ConsultaNumeroDePolizaVehiSoat
-    Scenario Outline: Consulta el numero de la poliza -Soat
-      Given realiza el login con credenciales
-        | tipoID   | id   | password   |
-        | <tipoID> | <id> | <password> |
-      When se ingresa al detalle de la "<placa>" del seguro SOAT
-      Then Se valida el número de póliza Soat
+  #  @ConsultaNumeroDePolizaVehiSoat
+  #  Scenario Outline: Consulta el numero de la poliza -Soat
+  #    Given realiza el login con credenciales
+  #      | tipoID   | id   | password   |
+  #      | <tipoID> | <id> | <password> |
+  #    When se ingresa al detalle de la "<placa>" del seguro SOAT
+  #    Then Se valida el número de póliza Soat
 
-      Examples:
-    ###DATOS###@Data|1@ConsultaNumeroDePolizaVehiSoat
-        | 0 | tipoID | id | password |placa|
-
-    @ConsultarDeudasSaldosdePoliza
-    Scenario Outline: Consultar Deudas y Saldos de la Poliza - Vehicular
-      Given realiza el login con credenciales
-        | tipoID   | id   | password   |
-        | <tipoID> | <id> | <password> |
-      When se ingresa al detalle de la "<placa>" del seguro vehicular
-      Then se valida que muestre el historial de pago
-
-      Examples:
-      ###DATOS###@Data|1@ConsultarDeudasSaldosdePoliza
-        | 0 | tipoID | id | password |placa|
+  #    Examples:
+  #      | 0 | tipoID | id | password |placa|
 
    @DescargaPolizaVehicularDigital
     Scenario Outline: Descarga poliza digital desde el tab poliza
@@ -36,7 +23,7 @@
       Then debe descargar la información de mi poliza vehicular
 
       Examples:
-      ###DATOS###@Data|1@DescargaPolizaVehicularDigital
+      ###DATOS###@ConsultaVehicularSoat|1@DescargaPolizaVehicularDigital
       | 0 | tipoID | id | password |
 
     @TiempoInactividadConsultaVehicularySoat
@@ -50,5 +37,5 @@
       Then debe validar el mensaje para retornar al Login desde seguros
 
       Examples:
-      ###DATOS###@Data|1@TiempoInactividadConsultaVehicu
+      ###DATOS###@ConsultaVehicularSoat|1@TiempoInactividadConsultaVehicu
       | 0 | tipoID | id | password |

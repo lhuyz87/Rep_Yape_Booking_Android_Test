@@ -13,5 +13,5 @@ Feature: Servicios Vehiculares - Chofer Reemplazo
 
 
     Examples:
-      ###DATOS###@Data|1@ChoferReemplazo
+      ###DATOS###@ServiciosVehiculares|1@ChoferReemplazo
       | 0 | tipoID | id | password | placa  |

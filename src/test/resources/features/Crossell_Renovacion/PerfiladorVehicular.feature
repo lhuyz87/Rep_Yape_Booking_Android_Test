@@ -11,5 +11,5 @@ Feature: Perfilador vehicular
     Then muestra plan ideal vehicular
 
     Examples:
-    ###DATOS###@Data|1@PerfiladorVehicular
+    ###DATOS###@CrossellRenovacion|1@PerfiladorVehicular
       | 0 | tipoID | id | password |placa  |
