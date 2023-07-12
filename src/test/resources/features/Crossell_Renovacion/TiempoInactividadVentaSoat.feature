@@ -15,3 +15,4 @@ Feature: Venta de SOAT
     Examples:
    ###DATOS###@CrossellRenovacion|1@TiempoInactividadCrossellyRenov
       | 0 | tipoID | id | password | placa | numtarjeta | cvv | fecha |
+

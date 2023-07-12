@@ -40,3 +40,4 @@ Feature: Información de pagos
       Examples:
       ###DATOS###@Pagos|1@DescargaHistorialPagos
         | 0 | tipoID | id | password |
+
