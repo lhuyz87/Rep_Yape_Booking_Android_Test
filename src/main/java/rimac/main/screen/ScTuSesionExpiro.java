@@ -67,11 +67,18 @@ public class ScTuSesionExpiro extends BaseDriver {
             }
             assertTrue(element(objTuSesionExpiro.titTusesionExpiro).isCurrentlyVisible());
             Serenity.takeScreenshot();
+            element(objTuSesionExpiro.btnEntendido).click();
         }catch(Exception e){
             Serenity.takeScreenshot();
             throw new IllegalAccessError("No aparece mensaje de Inactividad para retornar al login");
         }
-        element(objTuSesionExpiro.btnEntendido).click();
+        try{
+            util.esperarElementoVisible(5,objLogin.txtPassword);
+            Serenity.takeScreenshot();
+            assertTrue(element(objLogin.txtPassword).isCurrentlyVisible());
+        }catch(Exception e){
+            throw new IllegalAccessError("No logro retornar al Login");
+        }
     }
 
 }
