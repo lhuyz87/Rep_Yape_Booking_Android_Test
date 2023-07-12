@@ -24,7 +24,7 @@ public class ScPagos extends BaseDriver {
     protected ObjCuotasPagar objCuotasPagar = ObjCuotasPagar.getInstancia();
     protected ObjMediodePago objMediodePago = ObjMediodePago.getInstancia();
     protected ObjAfiliarPago objAfiliarPago= ObjAfiliarPago.getInstancia();
-    protected ObjCommons objCommons = ObjCommons.getInstancia();
+
 
 
     public void irMediosPago(){
@@ -123,7 +123,11 @@ public class ScPagos extends BaseDriver {
         element(objPagos.chkCuota1).click();
         element(objPagos.btnIniciarPago).click();
     }
-
+    public boolean validarCronograma(){
+        util.esperarVisibilityElement(androidDriver(),objPagos.lblCuotasAPagar,5);
+        boolean existeCronograma= element(objPagos.chkCuota1).isCurrentlyVisible();
+        return existeCronograma;
+    }
     public boolean obtener_mensaje_confirmacion() {
         try {
             util.esperarVisibilityElement(androidDriver(),objPagos.titHemosRecibidosuPago,20);

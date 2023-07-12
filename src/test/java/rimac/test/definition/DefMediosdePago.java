@@ -56,18 +56,6 @@ public class DefMediosdePago {
         stepAgregarMedioPago.iraPagos();
     }
 
-    @And("descargo el historial desde el tab de pagos")
-    public void descargoElHistorialDesdeElTabDePagos() {
-        stepAgregarMedioPago.selecciona_TabPagos();
-        stepAgregarMedioPago.selecciona_HistorialPago();
-        stepAgregarMedioPago.descargar_historial();
-    }
-
-    @Then("debe mostrar el pdf con el historial de pagos")
-    public void debeMostrarElPdfConElHistorialDePagos() {
-        assertTrue(stepAgregarMedioPago.validar_historial());
-    }
-
     @When("se ingresa al detalle del Seguro SOAT desde Seguros")
     public void seIngresaAlDetalleDelSeguroSOATDesdeSeguros() {
         stepAgregarMedioPago.ver_detalle_SOAT();
