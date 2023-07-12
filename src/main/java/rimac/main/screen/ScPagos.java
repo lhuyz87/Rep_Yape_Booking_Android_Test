@@ -128,6 +128,12 @@ public class ScPagos extends BaseDriver {
         boolean existeCronograma= element(objPagos.chkCuota1).isCurrentlyVisible();
         return existeCronograma;
     }
+
+    public boolean validarHistorial(){
+        util.esperarVisibilityElement(androidDriver(),objPagos.lblConsultaTusPagos,5);
+        boolean existeHistorial= element(objPagos.lblHistorial).isCurrentlyVisible();
+        return existeHistorial;
+    }
     public boolean obtener_mensaje_confirmacion() {
         try {
             util.esperarVisibilityElement(androidDriver(),objPagos.titHemosRecibidosuPago,20);

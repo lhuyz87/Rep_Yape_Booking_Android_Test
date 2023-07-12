@@ -15,6 +15,19 @@ Feature: Información de pagos
       ###DATOS###@Pagos|1@CronogramaPagos
       | 0 | tipoID | id | password |
 
+  @HistorialPagos
+  Scenario Outline: Descargar el historial de pagos de una poliza vehicular
+    Given realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
+    When se ingresa al detalle del Seguro Vehicular desde la opcion Seguros
+    And ingreso a historial de pagos
+    Then debe mostrar el listado de pagos desde historial de pagos
+
+    Examples:
+      ###DATOS###@Pagos|1@HistorialPagos
+      | 0 | tipoID | id | password |
+
   @DescargaHistorialPagos
     Scenario Outline: Descargar el historial de pagos de una poliza vehicular
     Given realiza el login con credenciales

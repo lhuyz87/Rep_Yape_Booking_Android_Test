@@ -48,4 +48,14 @@ public class DefHistorialPagos {
         assertTrue(stepHistorialPagos.validarCronograma());
     }
 
+    @And("ingreso a historial de pagos")
+    public void ingresoAHistorialDePagos() {
+        stepAgregarMedioPago.selecciona_TabPagos();
+        stepAgregarMedioPago.selecciona_HistorialPago();
+    }
+
+    @Then("debe mostrar el listado de pagos desde historial de pagos")
+    public void debeMostrarElListadoDePagosDesdeHistorialDePagos() throws Exception {
+        assertTrue(stepHistorialPagos.validarHistorial());
+    }
 }

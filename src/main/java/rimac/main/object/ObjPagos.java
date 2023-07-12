@@ -45,9 +45,12 @@ public class ObjPagos extends BaseDriver {
     public WebElement btnAdelantarCuotas;
     @AndroidFindBy(xpath= "//*[@text='Cuotas a pagar']")
     public WebElement lblCuotasAPagar;
-
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/historyTitle")
+    public WebElement lblConsultaTusPagos;
     @AndroidFindBy(xpath= "(//android.widget.CheckBox[@resource-id='com.rimac.rimac_surrogas.qa:id/rowPaymentQuoteCheck'])[1]")
     public WebElement chkCuota1;
+    @AndroidFindBy(xpath= "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/prRecyclerData']//following-sibling::*[@text='Pagado']")
+    public WebElement lblHistorial;
     @AndroidFindBy(xpath= "//*[@text='Iniciar pago']")
     public WebElement btnIniciarPago;
 

@@ -20,4 +20,7 @@ public class StepHistorialPagos {
     public boolean validarCronograma() throws Exception {
        return scPagos.validarCronograma();
     }
+    public boolean validarHistorial() throws Exception {
+        return scPagos.validarHistorial();
+    }
 }
