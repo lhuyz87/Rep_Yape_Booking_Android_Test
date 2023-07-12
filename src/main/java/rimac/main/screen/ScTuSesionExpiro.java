@@ -22,12 +22,6 @@ public class ScTuSesionExpiro extends BaseDriver {
     public void inactividad_del_modulo() {
         util.esperarSegundos(3);
         androidDriver().activateApp("com.google.android.youtube");
-        //androidDriver().activateApp("com.google.android.apps.maps");
-        //androidDriver().runAppInBackground(Duration.ofSeconds(10));
-        //androidDriver().pressKey(new KeyEvent(AndroidKey.CAMERA));
-        //androidDriver().pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
-       /* androidDriver().activateApp("com.android.chrome");
-        //androidDriver().pressKey(new KeyEvent(AndroidKey.MENU));*/
         androidDriver().rotate(ScreenOrientation.PORTRAIT);
         Serenity.takeScreenshot();
         int contadorMinutos=0;
