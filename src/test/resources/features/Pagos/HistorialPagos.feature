@@ -1,6 +1,6 @@
 #Author: Candy Espinoza
 @ModuloPagos_5_7
-Feature: Información de pagos
+Feature: Informacion de pagos
 
   @CronogramaPagos
   Scenario Outline: Ver el Cronograma de Pagos de una poliza Vehicular-Tap Pagos y se ve el listado de cuotas
@@ -16,7 +16,7 @@ Feature: Información de pagos
       | 0 | tipoID | id | password |
 
   @HistorialPagos
-  Scenario Outline: Descargar el historial de pagos de una poliza vehicular
+  Scenario Outline: Ver el Historial de Pagos de una poliza Vehicular-Tap Pagos y se ve el listado de cuotas
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
@@ -40,4 +40,3 @@ Feature: Información de pagos
       Examples:
       ###DATOS###@Pagos|1@DescargaHistorialPagos
         | 0 | tipoID | id | password |
-

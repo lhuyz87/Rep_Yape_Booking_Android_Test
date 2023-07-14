@@ -94,7 +94,7 @@ public class StepMediosdePago {
         scConsultaTusPagos.descargar_historial();
     }
     public boolean validar_historial(){
-        return scConsultaTusPagos.validacion_pdf();
+        return scConsultaTusPagos.validacion_descarga();
     }
 
     public void ver_detalle_SOAT(){
