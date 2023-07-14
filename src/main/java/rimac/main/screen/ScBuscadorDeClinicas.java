@@ -47,7 +47,6 @@ private long wdwTimeOut = 300L;
 	}
 
 	public void seleccionar_datos_para_continuar(){
-
 		util.esperarElemento(3,objBuscadorDeClinicas.lblAntesdeComenzar);
 			element(objBuscadorDeClinicas.cmbPaciente).click();
 			element(objBuscadorDeClinicas.rdbPaciente).click();
