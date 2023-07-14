@@ -47,12 +47,11 @@ private long wdwTimeOut = 300L;
 	}
 
 	public void seleccionar_datos_para_continuar(){
-		util.esperarSegundos(3);
-		if(element(objBuscadorDeClinicas.lblAntesdeComenzar).isCurrentlyVisible()){
+
+		util.esperarElemento(3,objBuscadorDeClinicas.lblAntesdeComenzar);
 			element(objBuscadorDeClinicas.cmbPaciente).click();
 			element(objBuscadorDeClinicas.rdbPaciente).click();
 			element(objBuscadorDeClinicas.btnContinuar).click();
-		}
 	}
 	public void ingresarNombreClinica(String nomClinica) {
 		
