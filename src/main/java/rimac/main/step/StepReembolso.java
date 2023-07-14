@@ -111,14 +111,9 @@ public class StepReembolso {
 	}
 
 	public void registraDireccionContacto() {
-		String departamento = ConstantesDummy.departamentoAncash;
-		String provincia = ConstantesDummy.provinciaAncash;
-		String distrito = ConstantesDummy.distritoAncash;
-		String direccion = ConstantesDummy.direccionTest;
-		
-		scConfirmarDatosReembolsoSalud.llenarDatosDireccion(departamento, provincia, distrito, direccion);
-		
-		
+		String correo = ConstantesDummy.correo;
+		String celular = ConstantesDummy.celular;
+		scConfirmarDatosReembolsoSalud.completarDatos(correo,celular);
 	}
 	
 	public void iniciarRegistroDoc() {

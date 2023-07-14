@@ -178,9 +178,9 @@ public class ScHome extends BaseDriver{
 	public void seleccionaBuscadorClinicas() {
 		// TODO Auto-generated method stub
 		util.esperarElemento(7, objectPrincipal.btnEmergencia);
-
+		int contador=0;
 		try {
-			while(element(objectPrincipal.btnBuscadorClinica).isCurrentlyVisible()==false){
+			while(element(objectPrincipal.btnBuscadorClinica).isCurrentlyVisible()==false && contador<5){
 				util.mobileSwipeScreenAndroid();
 			}
 			element(objectPrincipal.btnBuscadorClinica).click();
@@ -189,9 +189,6 @@ public class ScHome extends BaseDriver{
 			// TODO: handle exception
 			util.scrollDown(appiumDriver());
 		}
-		
-//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Buscador de clínicas\").instance(0))"));
-//		element(objectPrincipal.btnBuscadorClinica).click();
 	}
 
 	public void seleccionaVerTodas() {

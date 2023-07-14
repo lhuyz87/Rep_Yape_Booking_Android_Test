@@ -64,14 +64,7 @@ public class ObjConfirmarDatosReembolsoSalud extends BaseDriver{
 	
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiEditDistrict")
 	public WebElement selDistrito;
-	
-	
 
-//	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/uiEditDistrict")
-//	public WebElement selDireccion;
-//	
-	
-	
 	
 	public WebElement departamento(WebDriver webDriver, String departamento) {
 		By by = By.xpath("//*[@text='"+departamento+"']");
@@ -98,7 +91,12 @@ public class ObjConfirmarDatosReembolsoSalud extends BaseDriver{
 
 	@AndroidFindBy(xpath = "//*[@text='Continuar']")
 	public WebElement btnContinuar;
-	
+
+	@AndroidFindBy(xpath = "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/uiEditEmail']//following-sibling::android.widget.EditText")
+	public WebElement txtCorreo;
+
+	@AndroidFindBy(xpath = "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/uiEditCellphoneNumber']//following-sibling::android.widget.EditText")
+	public WebElement txtCelular;
 	
 	@AndroidFindBy(xpath = "//*[@text='Departamento']")
 	public WebElement txtDepartamento;
