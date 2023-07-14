@@ -81,8 +81,6 @@ private long wdwTimeOut = 300L;
 		util.esperarVisibilityElement(androidDriver(),cuentaDeAbonoObject.txtCorreo,15);
 		element(cuentaDeAbonoObject.txtCorreo).clear();
 		element(cuentaDeAbonoObject.txtCorreo).sendKeys(correo);
-		//((HidesKeyboard) appiumDriver()).hideKeyboard();
-//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
 		util.esperarElementoVisible(5,cuentaDeAbonoObject.btnContinuar);
 		element(cuentaDeAbonoObject.btnContinuar).click();
 
