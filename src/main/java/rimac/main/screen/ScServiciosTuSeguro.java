@@ -52,34 +52,14 @@ public class ScServiciosTuSeguro extends BaseDriver{
 	}
 	
 	UtilApp util = new UtilApp();
-	public void seleccionarServicio(String servicio) {
+	public void seleccionarServicioReembolso() {
 		looger.info("Inicia selección del seguro");
-
-		
-		
-		switch (servicio) {
-		case "Atención médica virtual":
-			
-			break;
-			
-		case "Reembolso de salud":
 			int contador=0;
 			while(element(objServicioTuSeguro.btnReembolsoSalud).isCurrentlyVisible()==false && contador<5){
 				util.mobileSwipeScreenAndroid();
 			}
 			util.esperarElemento(5, objServicioTuSeguro.btnReembolsoSalud);
 			element(objServicioTuSeguro.btnReembolsoSalud).click();
-		case "Buscador de clínicas":
-			break;
-			
-		case "Programa Cuídate":
-			
-			break;
-			
-		default:
-			break;
-		}
-		
 	}
 	
 	

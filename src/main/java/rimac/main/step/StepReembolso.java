@@ -89,7 +89,7 @@ public class StepReembolso {
 		scTusSeguros.ver_detalle_seguro(seguro);
 	}
 	public void seleccionar_seguro_desde_tus_Servicios(){
-		scServiciosTuSeguro.seleccionarServicio("Reembolso de salud");
+		scServiciosTuSeguro.seleccionarServicioReembolso();
 	}
 	public void selecciona_reembolso_de_salud_desde_asistencias() {
 		scTusAsistencias.seleccionaProductoReembolsoSalud();
