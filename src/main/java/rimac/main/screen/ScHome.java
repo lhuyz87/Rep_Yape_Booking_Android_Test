@@ -208,8 +208,8 @@ public class ScHome extends BaseDriver{
 
 		try {
 			Dimension dimension = appiumDriver().manage().window().getSize();
-			Point start= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.8));
-			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.9));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.3));
 			util.doSwipe(appiumDriver(), start, end, 1000); //with duration 1s
 
 			util.esperarElemento(15, objectPrincipal.txtMontoReembolso(monto));
