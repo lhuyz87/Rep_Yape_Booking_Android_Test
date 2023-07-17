@@ -211,7 +211,6 @@ public class ScHome extends BaseDriver{
 			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.9));
 			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.3));
 			util.doSwipe(appiumDriver(), start, end, 1000); //with duration 1s
-
 			util.esperarElemento(15, objectPrincipal.txtMontoReembolso(monto));
 			montoReembolso = element(objectPrincipal.txtMontoReembolso(monto)).isVisible() == true ? monto: "no existe";
 		}catch(NoSuchElementException ex) {
