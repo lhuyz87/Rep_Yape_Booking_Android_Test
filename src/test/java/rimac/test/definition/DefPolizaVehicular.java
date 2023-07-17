@@ -43,4 +43,23 @@ public class DefPolizaVehicular {
         stepPolizaVehicular.se_valida_mensaje_de_inactividad_desde_cobertura();
     }
 
+    @When("se ingresa al detalle de la {string} del seguro SOAT")
+    public void seIngresaAlDetalleDeLaDelSeguroSOAT(String placa){
+        stepPolizaVehicular.ver_detalle_SegurosSOAT(placa);
+    }
+
+    @Then("Se valida el número de póliza Soat")
+    public void seValidaElNúmeroDePólizaSoat() throws Exception {
+        stepPolizaVehicular.se_valida_numero_polizaSoat();
+    }
+
+    @When("se ingresa al detalle de la {string} del seguro vehicular")
+    public void seIngresaAlDetalleDeLaDelSeguroVehicular(String placa) {
+        stepPolizaVehicular.ver_detalle_SegurosVehicularPlaca(placa);
+    }
+
+    @Then("se valida que muestre el historial de pago")
+    public void seValidaQueMuestreElHistorialDePago() throws Exception {
+        stepPolizaVehicular.se_valida_historial_pago();
+    }
 }

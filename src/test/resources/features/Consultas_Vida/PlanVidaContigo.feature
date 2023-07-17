@@ -11,5 +11,5 @@ Feature: Consultas Vida - Plan Vida Contigo
     Then debe descargar el manual de uso de mi seguro
 
     Examples:
-      | tipoID | id       | password  |
-      | DNI    | 07525151 | Rimac2020 |
+    ###DATOS###@ConsultasVida|1@DescargaManualdeUsoPlanVidaCont
+    | 0 | tipoID | id | password |

@@ -49,19 +49,20 @@ private long wdwTimeOut = 300L;
 	UtilApp util = new UtilApp();
 	protected MobileObjectUtil mobil = MobileObjectUtil.getInstancia();
 	AppiumDriver driver;
-	
 	public void login(String dniUser, String passUser) {
 		Location location = new Location(-12.06110283453986, -77.03333258628847, 0);
 		androidDriver().setLocation(location);
 		looger.info("aplicación iniciada");
 		//util.esperarElemento(20, objLogin.btnIngresarSesion);
 		//element(objLogin.btnIngresarSesion).click();
-		new WebDriverWait(androidDriver(), Duration.ofSeconds(10))
+		new WebDriverWait(androidDriver(), Duration.ofSeconds(15))
 				.until(ExpectedConditions.visibilityOf(objLogin.txtNumDocumento));
 		element(objLogin.txtNumDocumento).click();
 		element(objLogin.txtNumDocumento).sendKeys(dniUser);
 		util.pressEnter(androidDriver());
 		element(objLogin.btnContinuar).click();
+		new WebDriverWait(androidDriver(), Duration.ofSeconds(15))
+				.until(ExpectedConditions.visibilityOf(objLogin.txtPassword));
 		element(objLogin.txtPassword).click();
 		element(objLogin.txtPassword).sendKeys(passUser);
 		util.pressEnter(androidDriver());
@@ -75,8 +76,22 @@ private long wdwTimeOut = 300L;
 		}catch(AssertionError e){
 			throw new IllegalAccessError("No se pudo completar el Login");
 		}
-
 	}
+
+	public void login_(String passUser) {
+		try {
+			new WebDriverWait(androidDriver(), Duration.ofSeconds(15))
+					.until(ExpectedConditions.visibilityOf(objLogin.txtPassword));
+			element(objLogin.txtPassword).click();
+			element(objLogin.txtPassword).sendKeys(passUser);
+			util.pressEnter(androidDriver());
+			Serenity.takeScreenshot();
+			element(objLogin.btnIngresarSesion).click();
+		}catch(AssertionError e){
+			throw new IllegalAccessError("No se pudo completar el Login");
+		}
+	}
+
 
 	public void seleccOlvidaContra() {
 		// TODO Auto-generated method stub

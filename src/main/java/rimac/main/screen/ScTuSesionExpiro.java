@@ -22,12 +22,6 @@ public class ScTuSesionExpiro extends BaseDriver {
     public void inactividad_del_modulo() {
         util.esperarSegundos(3);
         androidDriver().activateApp("com.google.android.youtube");
-        //androidDriver().activateApp("com.google.android.apps.maps");
-        //androidDriver().runAppInBackground(Duration.ofSeconds(10));
-        //androidDriver().pressKey(new KeyEvent(AndroidKey.CAMERA));
-        //androidDriver().pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
-       /* androidDriver().activateApp("com.android.chrome");
-        //androidDriver().pressKey(new KeyEvent(AndroidKey.MENU));*/
         androidDriver().rotate(ScreenOrientation.PORTRAIT);
         Serenity.takeScreenshot();
         int contadorMinutos=0;
@@ -67,11 +61,18 @@ public class ScTuSesionExpiro extends BaseDriver {
             }
             assertTrue(element(objTuSesionExpiro.titTusesionExpiro).isCurrentlyVisible());
             Serenity.takeScreenshot();
+            element(objTuSesionExpiro.btnEntendido).click();
         }catch(Exception e){
             Serenity.takeScreenshot();
             throw new IllegalAccessError("No aparece mensaje de Inactividad para retornar al login");
         }
-        element(objTuSesionExpiro.btnEntendido).click();
+        try{
+            util.esperarElementoVisible(5,objLogin.txtPassword);
+            Serenity.takeScreenshot();
+            assertTrue(element(objLogin.txtPassword).isCurrentlyVisible());
+        }catch(Exception e){
+            throw new IllegalAccessError("No logro retornar al Login");
+        }
     }
 
 }

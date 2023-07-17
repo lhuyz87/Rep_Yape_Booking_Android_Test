@@ -1,3 +1,4 @@
+@ModuloCrossellRenovacion_4_13
 Feature: Perfilador vehicular
 
   @PerfiladorVehicular
@@ -10,5 +11,5 @@ Feature: Perfilador vehicular
     Then muestra plan ideal vehicular
 
     Examples:
-      | tipoID | id       | password  |placa  |
-      | DNI    | 09328751 | Rimac2021 | ACE198|
+    ###DATOS###@CrossellRenovacion|1@PerfiladorVehicular
+      | 0 | tipoID | id | password |placa  |

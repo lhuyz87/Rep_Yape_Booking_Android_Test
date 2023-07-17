@@ -100,4 +100,18 @@ public class ObjTusSeguros extends BaseDriver{
 		List<WebElement>  we_tnPlacaSeg = appiumDriver().findElements(AppiumBy.xpath("(//*[@text='Placa: "+placa+"']//parent::*//following-sibling::*)[3]"));
 		return we_tnPlacaSeg;
 	}
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/csatImageClose")
+	public WebElement btnCerrarmodal;
+
+	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Póliza\"]")
+	public WebElement btnPoliza;
+	@AndroidFindBy(xpath = "//*[@text='Ver resumen']")
+	public WebElement btnResumPoliza;
+
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/policyTextNumber")
+	public WebElement numeroPolizaSoat;
+
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/textBadge")
+	public WebElement numeroCuota;
+
 }

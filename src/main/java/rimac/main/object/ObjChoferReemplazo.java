@@ -113,4 +113,8 @@ public ObjChoferReemplazo(){}
 
     @AndroidFindBy(xpath= "//*[@text='Hemos recibido tu solicitud']")
     public WebElement titChoferReemplazo;
+
+    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/csatImageClose")
+    public WebElement btnCerrarmodal;
+
 }

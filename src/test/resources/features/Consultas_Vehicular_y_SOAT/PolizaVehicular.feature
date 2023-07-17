@@ -2,6 +2,17 @@
 @ModuloConsultasVehicularySoat_2_6
   Feature: Consulta Vehicular y Soat - Poliza Vehicular
 
+  #  @ConsultaNumeroDePolizaVehiSoat
+  #  Scenario Outline: Consulta el numero de la poliza -Soat
+  #    Given realiza el login con credenciales
+  #      | tipoID   | id   | password   |
+  #      | <tipoID> | <id> | <password> |
+  #    When se ingresa al detalle de la "<placa>" del seguro SOAT
+  #    Then Se valida el número de póliza Soat
+
+  #    Examples:
+  #      | 0 | tipoID | id | password |placa|
+
    @DescargaPolizaVehicularDigital
     Scenario Outline: Descarga poliza digital desde el tab poliza
       Given realiza el login con credenciales
@@ -12,9 +23,8 @@
       Then debe descargar la información de mi poliza vehicular
 
       Examples:
-        | tipoID | id       | password  |
-        | DNI    | 25676942 | Rimac2020 |
-
+      ###DATOS###@ConsultaVehicularSoat|1@DescargaPolizaVehicularDigital
+      | 0 | tipoID | id | password |
 
     @TiempoInactividadConsultaVehicularySoat
     Scenario Outline: Esperar 15 min de inactividad en el modulo de Consulta Vehicular SOAT
@@ -27,6 +37,5 @@
       Then debe validar el mensaje para retornar al Login desde seguros
 
       Examples:
-        | tipoID | id       | password  |
-        | DNI    | 25676942 | Rimac2020 |
-
+      ###DATOS###@ConsultaVehicularSoat|1@TiempoInactividadConsultaVehicu
+      | 0 | tipoID | id | password |

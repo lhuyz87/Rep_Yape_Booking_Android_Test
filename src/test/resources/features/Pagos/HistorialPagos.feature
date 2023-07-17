@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-@ModuloPagos_3_7
+@ModuloPagos_5_7
 Feature: Pagos
 
   @DescargaHistorialPagos
@@ -12,5 +12,6 @@ Feature: Pagos
     Then debe mostrar el pdf con el historial de pagos
 
       Examples:
-      | tipoID | id       | password  |
-      | DNI    | 29724303 | Rimac2021 |
+      ###DATOS###@Pagos|1@DescargaHistorialPagos
+        | 0 | tipoID | id | password |
+

@@ -13,19 +13,8 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     And se debe mostrar el seguimiento de la asistencia vehicular "Auxilio mecánico" de la "<placa>"
 
     Examples:
-      | tipoID | id       | password  | placa  | problema         |
-      | DNI    | 22093296 | Rimac2020 | ASQ191 | Cambio de llanta |
-
-  #@SeguimientoAsistenciaVehicularRepuesto
-  #Scenario Outline: Realizar el Flujo del Seguimiento de cambio de llanta con Repuesto
-  #  Given realiza el login con credenciales
-  #    | tipoID   | id   | password   |
-  #    | <tipoID> | <id>     | <password> |
-  #  Then se debe mostrar el seguimiento de la asistencia vehicular "Auxilio mecánico" de la "<placa>"
-
-  #  Examples:
-  #    | tipoID | id       | password  | placa  |
-  #    | DNI    | 22093296 | Rimac2020 | ASQ191 |
+       ###DATOS###@ServiciosVehiculares|1@AsistenciaVehicularRepuesto
+      | 0 | tipoID | id | password | placa  | problema         |
 
   @AsistenciaVehicularProblema
   Scenario Outline: Solicitar Auxilio Mecanico - Problema
@@ -39,19 +28,8 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     And se debe mostrar el seguimiento de la asistencia vehicular "Auxilio mecánico" de la "<placa>"
 
     Examples:
-      | tipoID | id       | password  | placa  | problema     |
-      | DNI    | 22093296 | Rimac2020 | ASE310 | Batería baja |
-
- # @SeguimientoAsistenciaVehicularProblema
- # Scenario Outline: Realizar el Flujo del Seguimiento de auxilio mecanico por Problema
- #   Given realiza el login con credenciales
-  #    | tipoID   | id   | password   |
-  #    | <tipoID> | <id>     | <password> |
- #   Then se debe mostrar el seguimiento de la asistencia vehicular "Auxilio mecánico" de la "<placa>"
-
-  #  Examples:
-  #    | tipoID | id       | password  | placa  |
-  #    | DNI    | 22093296 | Rimac2020 | ASE310 |
+     ###DATOS###@ServiciosVehiculares|1@AsistenciaVehicularProblema
+      | 0 | tipoID | id | password | placa  | problema         |
 
   @AsistenciaVehicularGrua
   Scenario Outline: Realizar una solicitud de Grua
@@ -65,8 +43,8 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     And se debe mostrar el seguimiento de la asistencia vehicular "Grúa" de la "<placa>"
 
     Examples:
-      | tipoID | id       | password  | placa  |
-      | DNI    | 41430164 | Rimac2020 | AWA099 |
+     ###DATOS###@ServiciosVehiculares|1@AsistenciaVehicularGrua
+      | 0 | tipoID | id | password | placa  |
 
   @NecesitoAyudaAuxilioMecanico
   Scenario Outline: Necesito ayuda para seleccionar la asistencia Vehicular - Auxilio Mecanico
@@ -79,9 +57,8 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     Then se debe mostrar el mensaje : "¡Solicitud enviada!"
 
     Examples:
-      | tipoID | id       | password  | placa  | opción             |
-      | DNI    | 22093296 | Rimac2020 | ARV469 | Vehículo no prende |
-
+    ###DATOS###@ServiciosVehiculares|1@NecesitoAyudaAuxilioMecanico
+      | 0 | tipoID | id | password | placa  |opción             |
 
   @NecesitoAyudaGrua
   Scenario Outline: Necesito ayuda  Para seleccionar la asistencia Vehicular - Grua
@@ -94,19 +71,8 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     Then se debe mostrar el mensaje : "¡Solicitud enviada!"
 
     Examples:
-      | tipoID | id       | password  | placa  | opción             |
-      | DNI    | 10741647 | Rimac2020 | ALH099 | Fuga de gas (olor) |
-
-  #@SeguimientodeGrua
-  #Scenario Outline: Realizar el Flujo del Seguimiento de Solicitar Grua
-  #  Given realiza el login con credenciales
-  #    | tipoID   | id   | password   |
-  #    | <tipoID> | <id>     | <password> |
-  #  Then se debe mostrar el seguimiento de la asistencia vehicular "Grúa" de la "<placa>"
-
-  #  Examples:
-  #    | tipoID | id       | password  | placa  |
-  #    | DNI    | 41430164 | Rimac2020 | AWA099 |
+    ###DATOS###@ServiciosVehiculares|1@NecesitoAyudaGrua
+      | 0 | tipoID | id | password | placa  |opción             |
 
   @TiempoInactividadServicioVehicular
   Scenario Outline: Esperar 15 min de inactividad en Asistencias Vehiculares
@@ -118,5 +84,5 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     And se mantiene inactivo el modulo en Asistencias Vehiculares
     Then se valida el mensaje para retornar al Login
     Examples:
-      | tipoID | id       | password  | placa  |problema     |
-      | DNI    | 22093296 | Rimac2020 | ASE310 |Batería baja |
+    ###DATOS###@ServiciosVehiculares|1@TiempoInactividadServicioVehicu
+      | 0 | tipoID | id | password | placa  |problema             |

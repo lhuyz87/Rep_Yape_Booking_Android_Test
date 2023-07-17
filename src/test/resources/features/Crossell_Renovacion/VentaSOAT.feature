@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-@ModuloCrossellRenovacion_2_13
+@ModuloCrossellRenovacion_4_13
 Feature: Venta SOAT
 
   @CompraSOATDigital
@@ -12,7 +12,5 @@ Feature: Venta SOAT
     And elimino la tarjeta guardada "<numtarjeta>" desde Mi Perfil
 
     Examples:
-      | tipoID | id       | password  | placa  | numtarjeta       | cvv | fecha |
-      | DNI    | 23977057 | Rimac2020 | AXT435 | 4919107570913512 | 111 | 03/28 |
-
-
+   ###DATOS###@CrossellRenovacion|1@CompraSOATDigital
+      | 0 | tipoID | id | password | placa | numtarjeta | cvv | fecha |

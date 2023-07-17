@@ -1,4 +1,4 @@
-@ModuloCrossellRenovacion_2_13
+@ModuloCrossellRenovacion_4_13
 
 Feature: Perfilador de salud
 
@@ -12,5 +12,5 @@ Feature: Perfilador de salud
     Then muestra la opcion recomendada
 
     Examples:
-      | tipoID | id       | password  |
-      | DNI    | 09328751 | Rimac2021 |
+      ###DATOS###@CrossellRenovacion|1@PerfiladorSalud
+      | 0 | tipoID | id | password |

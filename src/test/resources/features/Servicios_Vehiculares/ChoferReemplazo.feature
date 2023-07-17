@@ -1,5 +1,7 @@
+@ModuloServiciosVehiculares_9_17
 Feature: Servicios Vehiculares - Chofer Reemplazo
-  @ChoferReemplazo @ModuloServiciosVehiculares_9_17
+
+  @ChoferReemplazo
   Scenario Outline: Solicitar Chofer reemplazo
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -11,5 +13,5 @@ Feature: Servicios Vehiculares - Chofer Reemplazo
 
 
     Examples:
-      | tipoID | id       | password  | placa  |
-      | DNI    | 22093296 | Rimac2020 | ASQ191 |
+      ###DATOS###@ServiciosVehiculares|1@ChoferReemplazo
+      | 0 | tipoID | id | password | placa  |

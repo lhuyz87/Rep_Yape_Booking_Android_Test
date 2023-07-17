@@ -47,10 +47,10 @@ private long wdwTimeOut = 300L;
 	}
 
 	public void seleccionar_datos_para_continuar(){
-		util.esperarElemento(10, objBuscadorDeClinicas.lblAntesdeComenzar);
-		element(objBuscadorDeClinicas.cmbPaciente).click();
-		element(objBuscadorDeClinicas.rdbPaciente).click();
-		element(objBuscadorDeClinicas.btnContinuar).click();
+		util.esperarElemento(3,objBuscadorDeClinicas.lblAntesdeComenzar);
+			element(objBuscadorDeClinicas.cmbPaciente).click();
+			element(objBuscadorDeClinicas.rdbPaciente).click();
+			element(objBuscadorDeClinicas.btnContinuar).click();
 	}
 	public void ingresarNombreClinica(String nomClinica) {
 		
@@ -67,13 +67,11 @@ private long wdwTimeOut = 300L;
 //			System.out.println("In catch block to handle no such element");
 			e.printStackTrace();
 		} 
-				
-		util.esperarActivoClick(10, objBuscadorDeClinicas.txtBuscarClinica);
+		util.esperarVisibilityElement(androidDriver(),objBuscadorDeClinicas.txtBuscarClinica,15);
 		element(objBuscadorDeClinicas.txtBuscarClinica).sendKeys(nomClinica);
 		Serenity.takeScreenshot();
-		util.esperarActivoClick(10, objBuscadorDeClinicas.lblClinicaEncontra);
+		util.esperarVisibilityElement(androidDriver(),objBuscadorDeClinicas.lblClinicaEncontra,20);
 		element(objBuscadorDeClinicas.lblClinicaEncontra).click();
-		
 
 	}
 

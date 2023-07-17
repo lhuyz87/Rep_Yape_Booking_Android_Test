@@ -9,6 +9,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.ios.IOSDriver;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.json.JSONObject;
 
@@ -44,6 +45,8 @@ import net.thucydides.core.annotations.findby.By;
 //import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.util.SystemEnvironmentVariables;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import rimac.main.util.UtilApp;
 import static java.time.Duration.ofMillis;
 import static org.openqa.selenium.interactions.PointerInput.Origin.viewport;
@@ -206,7 +209,16 @@ public class UtilApp  extends BaseDriver{
 			throw new Exception("Se ha producido un error");
 		}
 	}
-	
+
+	public void esperarElementToClic(WebDriver driver, WebElement element){
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+
+	public void esperarVisibilityElement(WebDriver driver, WebElement element, int tiempo){
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(tiempo));
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
 	public void esperarActivoClick(int intentos, WebElement elemento) {
 		try{
 			int contador=0;
