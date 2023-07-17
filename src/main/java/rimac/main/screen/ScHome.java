@@ -178,9 +178,9 @@ public class ScHome extends BaseDriver{
 	public void seleccionaBuscadorClinicas() {
 		// TODO Auto-generated method stub
 		util.esperarElemento(7, objectPrincipal.btnEmergencia);
-
+		int contador=0;
 		try {
-			while(element(objectPrincipal.btnBuscadorClinica).isCurrentlyVisible()==false){
+			while(element(objectPrincipal.btnBuscadorClinica).isCurrentlyVisible()==false && contador<5){
 				util.mobileSwipeScreenAndroid();
 			}
 			element(objectPrincipal.btnBuscadorClinica).click();
@@ -189,9 +189,6 @@ public class ScHome extends BaseDriver{
 			// TODO: handle exception
 			util.scrollDown(appiumDriver());
 		}
-		
-//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Buscador de clínicas\").instance(0))"));
-//		element(objectPrincipal.btnBuscadorClinica).click();
 	}
 
 	public void seleccionaVerTodas() {
@@ -211,10 +208,9 @@ public class ScHome extends BaseDriver{
 
 		try {
 			Dimension dimension = appiumDriver().manage().window().getSize();
-			Point start= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.8));
-			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.9));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.3));
 			util.doSwipe(appiumDriver(), start, end, 1000); //with duration 1s
-
 			util.esperarElemento(15, objectPrincipal.txtMontoReembolso(monto));
 			montoReembolso = element(objectPrincipal.txtMontoReembolso(monto)).isVisible() == true ? monto: "no existe";
 		}catch(NoSuchElementException ex) {

@@ -41,15 +41,12 @@ private long wdwTimeOut = 300L;
 	}
 	
 	UtilApp util = new UtilApp();
-	AppiumDriver driver;
-	
-
 	public void llenarDatosDeCuenta(String entidad, String tipoCuenta, String moneda, String numCuenta, String correo) throws Exception {
 		looger.info("LLenar Cuenta");
 		util.mobileSwipeScreenAndroidFinal();
-		util.esperarElementToClic(androidDriver(),cuentaDeAbonoObject.lstEntidadBancaria);
+		util.esperarElementoVisible(7,cuentaDeAbonoObject.lstEntidadBancaria);
+		util.esperarSegundos(2);
 		List<WebElement> elementos = new ArrayList<>();
-
 		//Interbank, BBVA, Scotiabank, Scotiabank
 		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(androidDriver(), "Interbank"));
 		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(androidDriver(), "BBVA"));
@@ -57,16 +54,9 @@ private long wdwTimeOut = 300L;
 		elementos.add(cuentaDeAbonoObject.getEntidadBancaria(androidDriver(), "BCP"));
 		int auxEntidad=util.existeWebElementPorTexto(elementos);
 		System.out.println("Cantidad de entidades "   + auxEntidad);
-//		util.esperarElemento(5, cuentaDeAbonoObject.txtEntidadBancaria);
-//		boolean existeEntidad = util.existeEntidadBancaria(cuentaDeAbonoObject.txtEntidadBancaria);
-//		System.out.println("Pasa ");
-//		boolean existeEntidad = util.existeEntidadBancaria2(cuentaDeAbonoObject.txtEntBancaria);
-		
-//		System.out.println("Existe entidad "   + existeEntidad);
 		if(auxEntidad==0) {
-			util.esperarSegundos(2);
 			element(cuentaDeAbonoObject.lstEntidadBancaria).click();
-			element(cuentaDeAbonoObject.getEntidadBancaria(appiumDriver(), entidad)).click();
+			element(cuentaDeAbonoObject.getEntidadBancaria(androidDriver(), entidad)).click();
 			util.esperarElementToClic(androidDriver(),cuentaDeAbonoObject.lstTipoCuenta);
 			element(cuentaDeAbonoObject.lstTipoCuenta).click();
 			element(cuentaDeAbonoObject.getTipoCuenta(androidDriver(), tipoCuenta)).click();
@@ -86,37 +76,19 @@ private long wdwTimeOut = 300L;
 				// TODO: handle exception
 			}
 		}
-		
-//		util.scroll();
-//		try {
-//			
-//			appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Correo electrónico\").instance(0))"));
-//			
-//			
-//		}catch (Exception e) {
-//			// TODO: handle exception
-//		}
+
 		element(cuentaDeAbonoObject.btnContinuar).click();
 		util.esperarVisibilityElement(androidDriver(),cuentaDeAbonoObject.txtCorreo,15);
 		element(cuentaDeAbonoObject.txtCorreo).clear();
 		element(cuentaDeAbonoObject.txtCorreo).sendKeys(correo);
-		//((HidesKeyboard) appiumDriver()).hideKeyboard();
-//		appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"Continuar\").instance(0))"));
 		util.esperarElementoVisible(5,cuentaDeAbonoObject.btnContinuar);
 		element(cuentaDeAbonoObject.btnContinuar).click();
 
 	}
 	
 	public void comentariosAdicionales(String comentarios) throws Exception {
-//		util.esperarElemento(5, comentariosAdicionalesObject.txtDescripcion);
-//		element(comentariosAdicionalesObject.txtDescripcion).click();
-//		element(comentariosAdicionalesObject.txtDescripcion).sendKeys(comentarios);
-//		((HidesKeyboard) appiumDriver()).hideKeyboard();
-		//util.esperarSegundos(8);
 		util.esperarElementoVisible(10,comentariosAdicionalesObject.btnEnviarSolicitud);
 		element(comentariosAdicionalesObject.btnEnviarSolicitud).click();
-		//util.esperarElemento(9,comentariosAdicionalesObject.btnIralinicio);
-
 	}
 	
 }

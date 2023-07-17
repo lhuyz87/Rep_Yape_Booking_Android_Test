@@ -39,16 +39,13 @@ private long wdwTimeOut = 300L;
 	}
 	
 	UtilApp util = new UtilApp();
-	AppiumDriver driver;
+
 	
 	public void llenarDatosDireccion(String departamento, String provincia, String distrito, String direccion) {
 		
 		looger.info("LLena datos dirección");
 		System.out.println("***************************************************");
-		util.esperarElemento(15,confirmarDatosReembolsoSaludObject.lblDataTitle);
-		//util.esperarElementoVisible(15, confirmarDatosReembolsoSaludObject.lblDni);
-		//util.mobileSwipeScreenAndroidFinal();
-//		util.esperarElemento(5, confirmarDatosReembolsoSaludObject.selDepartamento);
+		util.esperarElemento(8,confirmarDatosReembolsoSaludObject.lblDataTitle);
 		util.esperarSegundos(3);
 		util.mobileSwipeScreenAndroidFinal();
 		
@@ -100,5 +97,16 @@ private long wdwTimeOut = 300L;
 		element(confirmarDatosReembolsoSaludObject.btnContinuar).click();
 		util.esperarSegundos(10);
 	}
-	
+
+	public void completarDatos(String correo, String celular){
+		util.esperarElemento(8,confirmarDatosReembolsoSaludObject.lblDataTitle);
+		util.esperarVisibilityElement(androidDriver(),confirmarDatosReembolsoSaludObject.txtCorreo,5);
+		element(confirmarDatosReembolsoSaludObject.txtCorreo).clear();
+		element(confirmarDatosReembolsoSaludObject.txtCorreo).sendKeys(correo);
+		element(confirmarDatosReembolsoSaludObject.txtCelular).clear();
+		element(confirmarDatosReembolsoSaludObject.txtCelular).sendKeys(celular);
+		element(confirmarDatosReembolsoSaludObject.btnContinuar).click();
+	}
+
+
 }
