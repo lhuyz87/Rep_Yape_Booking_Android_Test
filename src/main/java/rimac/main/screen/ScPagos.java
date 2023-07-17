@@ -127,7 +127,6 @@ public class ScPagos extends BaseDriver {
     public boolean obtener_mensaje_confirmacion() {
         try {
             util.esperarElementoVisible(10,objPagos.titHemosRecibidosuPago);
-          //  util.esperarElementoVisible(8,objPagos.titHemosRecibidosuPago);
             boolean solicitudExiste = element(objPagos.titHemosRecibidosuPago).isCurrentlyVisible();
             Serenity.takeScreenshot();
             util.esperarElementoVisible(5,objPagos.btnIrAInicio);
