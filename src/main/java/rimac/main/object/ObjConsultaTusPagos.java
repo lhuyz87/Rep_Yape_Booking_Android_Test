@@ -39,6 +39,11 @@ public class ObjConsultaTusPagos extends BaseDriver {
     @AndroidFindBy(xpath = "(//*[@resource-id='com.rimac.rimac_surrogas.qa:id/amount'])[last()]")
     public WebElement lblMontoHistorial;
 
+    @AndroidFindBy(xpath = "(//*[@text='Documents']")
+    public WebElement btnDocuments;
+    @AndroidFindBy(xpath = "(//*[@text='historial']")
+    public WebElement lblHistorialPdf;
+
     public WebElement lblNumeroCuotaHistorial(String cuota){
         WebElement we_lblNumeroCuotaHistorial = appiumDriver().findElement(By.ByXPath.xpath("//*[@text='"+cuota+"']"));
         return we_lblNumeroCuotaHistorial;

@@ -1,5 +1,4 @@
 package rimac.main.screen;
-
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
@@ -8,7 +7,6 @@ import rimac.main.object.ObjCommons;
 import rimac.main.object.ObjConsultaTusPagos;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.UtilApp;
-
 import java.util.NoSuchElementException;
 
 public class ScConsultaTusPagos extends BaseDriver {
@@ -24,20 +22,27 @@ public class ScConsultaTusPagos extends BaseDriver {
         Serenity.takeScreenshot();
     }
 
-    public boolean validacion_descarga() {
+    public boolean validacion_descarga(){
         boolean existePdf = false;
         int contador = 0;
-        while(contador<15){
-            if(element(objConsultaTusPagos.btnAbrir).isCurrentlyVisible()){
-                existePdf = true;
-                break;
-            }
+        while(contador<9){
             try{
                 element(objConsultaTusPagos.btnDescargaHistorial).click();
-                element(objConsultaTusPagos.btnAbrir).click();
+                if(element(objConsultaTusPagos.btnAbrir).isCurrentlyVisible()){
+                    element(objConsultaTusPagos.btnAbrir).click();
+                    existePdf = true;
+                    break;
+                 }
             }catch(Exception e){
 
             }
+            contador++;
+        }
+        if(element(objConsultaTusPagos.btnDocuments).isCurrentlyVisible()){
+            element(objConsultaTusPagos.btnDocuments).click();
+        }
+        if(element(objCommons.btnAllow).isCurrentlyVisible()){
+            element(objCommons.btnAllow).click();
         }
         Serenity.takeScreenshot();
         return existePdf;

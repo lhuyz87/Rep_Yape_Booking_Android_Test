@@ -1,5 +1,4 @@
 package rimac.main.step;
-
 import net.thucydides.core.annotations.Steps;
 import rimac.main.screen.*;
 import rimac.main.util.ConstantesDummy;
