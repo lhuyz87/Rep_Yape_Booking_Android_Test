@@ -10,6 +10,8 @@ public class StepPagoCuotas {
     @Steps
     ScHome scHome;
     @Steps
+    ScPerfil scPerfil;
+    @Steps
     ScSoat scSoat;
     @Steps
     ScTusSeguros scTusSeguros;
@@ -79,4 +81,13 @@ public class StepPagoCuotas {
     public boolean obtiene_mensaje_detallePago() {
         return scSoat.obtener_mensaje_detallePago();
     }
+
+    public void irMedioPago_desde_regresoPerfil() {
+        scMediosDePago.regresarSelecOpcionPerfil();
+        scPerfil.irMediosDePago();
+    }
+    public void eliminarTarjeta(String numTarjeta){
+        scMediosDePago.eliminarTarjeta(numTarjeta);
+    }
+
 }
