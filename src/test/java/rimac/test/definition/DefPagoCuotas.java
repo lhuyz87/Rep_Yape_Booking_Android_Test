@@ -74,4 +74,9 @@ public class DefPagoCuotas {
     }
 
 
+    @And("elimino la tarjeta del listado {string} desde Mi Perfil")
+    public void eliminoLaTarjetaDelListadoDesdeMiPerfil(String numTarjeta) {
+        stepPagoCuotas.irMedioPago_desde_regresoPerfil();
+        stepPagoCuotas.eliminarTarjeta(numTarjeta);
+    }
 }

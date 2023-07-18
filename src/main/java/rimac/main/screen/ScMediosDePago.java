@@ -26,33 +26,31 @@ public class ScMediosDePago extends BaseDriver {
     protected ObjPaginaPrincipal objectPrincipal = ObjPaginaPrincipal.getInstancia();
     public void eliminarTarjeta(String numTarjeta){
         int contador = 0;
-        boolean condicion1 = objMediodePago.opcTarjetaList(numTarjeta).size() != 0;
-        boolean condicion2 = element(objMediodePago.lblMisTarjetas).isCurrentlyVisible();
-        boolean condicion3 = element(objMediodePago.btnAgregarTarjeta).isCurrentlyVisible();
-        //Si la tarjeta existe en el listado, borrar la tarjeta
-        if (condicion1) {
+        //permite realizar la espera del listado de tarjetas o del boton agregar tarjeta
+        while(element(objMediodePago.listTarjetas).isCurrentlyVisible()== false && contador < 5){
+            if(element(objMediodePago.btnAgregarTarjeta).isCurrentlyVisible()){
+                break;
+            }
+            contador++;
+        }
+        if (element(objMediodePago.listTarjetas).isCurrentlyVisible()) {
             while (element(objMediodePago.opcTarjeta(numTarjeta)).isCurrentlyVisible() == false && contador < 5) {
                 util.mobileSwipeScreenAndroid();
             }
-            element((WebElement) objMediodePago.opcTarjeta(numTarjeta)).click();
+            element((WebElement) objMediodePago.opcTarjetaSinSeguros(numTarjeta)).click();
             element(objMediodePago.btnEliminarTarjeta).click();
             element(objMediodePago.btnSiEliminar).click();
             new WebDriverWait(androidDriver(), Duration.ofSeconds(20))
                     .until(ExpectedConditions.visibilityOf(objMediodePago.lblMisTarjetas));
             Serenity.takeScreenshot();
         }
-        while(contador<10){
-            if(condicion2){
+        while(element(objMediodePago.listTarjetas).isCurrentlyVisible()== false && contador < 5){
+            if(element(objMediodePago.btnAgregarTarjeta).isCurrentlyVisible()){
                 break;
             }
-            if(condicion3){
-                break;
-            }
-            util.esperarSegundos(1);
             contador++;
         }
     }
-
     public void ingresarDatosTarjeta(String numTarjeta, String nombre, String apellido, StringBuilder mmaa, String cvv, String correo) throws Exception{
        try{
            util.esperarElemento(3, objAnadirTarjeta.lblNumTarjeta);
@@ -79,9 +77,16 @@ public class ScMediosDePago extends BaseDriver {
         Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
         util.doSwipe(appiumDriver(), start, end, 1000);
         element(objAnadirTarjeta.btnGuardarTarjetanew).click();
-
     }
 
+    public void guardarFuturosPagos() throws Exception {
+        Serenity.takeScreenshot();
+        Dimension dimension = appiumDriver().manage().window().getSize();
+        Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
+        Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
+        util.doSwipe(appiumDriver(), start, end, 1000);
+        element(objAnadirTarjeta.chkGuardarTarjeta).click();
+    }
     public void pagar(){
         Serenity.takeScreenshot();
         Dimension dimension = appiumDriver().manage().window().getSize();
@@ -258,7 +263,7 @@ public class ScMediosDePago extends BaseDriver {
             Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
             util.doSwipe(appiumDriver(), start, end, 1000);
             util.esperarElemento(3, objAnadirTarjeta.btnGuardarTarjetanew);
-            element(objAnadirTarjeta.btnGuardarTarjetanew).click();
+            element(objAnadirTarjeta.chkGuardarTarjeta).click();
             element(objAnadirTarjeta.btnPagarNew).click();
 
         }catch(Exception e){

@@ -50,7 +50,7 @@ Feature: Suscripcion de medios de pago
       And se realiza el pago añadiendo mi tarjeta "<numtarjeta>" , "<cvv>" y "<fecha>"
       #Then debe mostrar el mensaje de confirmación "Cuota pagada"
       Then debe mostrar el mensaje de confirmación ¡Hemos recibido tu pago!
-      And elimino la tarjeta afiliada "<numtarjeta>" desde Mi Perfil
+      And elimino la tarjeta suscrita "<numtarjeta>" desde Mi Perfil
 
     Examples:
       ###DATOS###@Pagos|1@SuscripcionOpcionPagar
