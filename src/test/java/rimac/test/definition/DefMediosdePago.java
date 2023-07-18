@@ -31,17 +31,6 @@ public class DefMediosdePago {
         assertTrue(stepAgregarMedioPago.validarExisteTarjeta(numTarjeta));
     }
 
-    @When("realizo la eliminacion de la tarjeta {string} , {string} y {string}")
-    public void realizoLaEliminacionDeLaTarjeta(String numTarjeta, String cvv, String fecha) throws Exception {
-        stepAgregarMedioPago.detalle_seguro_vehicular();
-        stepAgregarMedioPago.agregarTarjeta(numTarjeta,cvv,fecha);
-        stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
-    }
-
-    @Then("se debe eliminar la tarjeta {string} de Mis Tarjetas")
-    public void seDebeEliminarLaTarjetaDeMisTarjetas(String numTarjeta) {
-        assertFalse(stepAgregarMedioPago.validarEliminarTarjeta(numTarjeta));
-    }
 
     @When("ingreso mis datos bancarios desde afiliacion de tarjetas {string} , {string} y {string}")
     public void ingresoMisDatosBancariosDesdeAfiliacionDeTarjetasY(String numTarjeta, String cvv, String fecha) throws Exception {
@@ -93,7 +82,7 @@ public class DefMediosdePago {
     @And("se realiza el pago añadiendo mi tarjeta {string} , {string} y {string}")
     public void seRealizaElPagoAñadiendoMiTarjetaY(String numTarjeta, String cvv, String fecha) throws Exception {
         stepAgregarMedioPago.se_añade_nueva_tarjeta();
-        stepAgregarMedioPago.anadirTarjeta(numTarjeta,cvv,fecha);
+        stepAgregarMedioPago.anadirTarjetaFuturosPagos(numTarjeta,cvv,fecha);
     }
 
     @Then("debe mostrar el mensaje de confirmación ¡Hemos recibido tu pago!")
@@ -104,6 +93,7 @@ public class DefMediosdePago {
     @And("elimino la tarjeta afiliada {string} desde Mi Perfil")
     public void eliminoLaTarjetaAfiliadaDesdeMiPerfil(String numTarjeta) {
         stepAgregarMedioPago.irMedioPago_desde_regresoPerfil();
+        assertTrue(stepAgregarMedioPago.validarExisteTarjeta(numTarjeta));
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
     }
 
@@ -127,5 +117,12 @@ public class DefMediosdePago {
     public void ingresoMisDatosBancariosDesdeLaOpcionPagarCuotasEstandoAfilidadoADebitoAutomaticoY(String numTarjeta, String cvv, String fecha) throws Exception {
         stepAgregarMedioPago.seleccionaPagos();
         stepAgregarMedioPago.pagarcuotasTarAfil(numTarjeta,cvv,fecha);
+    }
+
+    @And("elimino la tarjeta suscrita {string} desde Mi Perfil")
+    public void eliminoLaTarjetaSuscritaDesdeMiPerfil(String numTarjeta) {
+        stepAgregarMedioPago.irMedioPago_desde_regresoPerfil();
+        assertTrue(stepAgregarMedioPago.validarExisteTarjeta(numTarjeta));
+        stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
     }
 }

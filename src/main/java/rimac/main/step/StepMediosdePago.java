@@ -53,7 +53,7 @@ public class StepMediosdePago {
         mmaa.append(fecha.substring(3,5));
         scMediosDePago.agregarTarjetaNueva();
         scMediosDePago.ingresarDatosTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
-        scMediosDePago.pagar();
+        scMediosDePago.guardarTarjeta();
         scMediosDePago.esperarListadoTarjetas();
     }
 
@@ -134,14 +134,14 @@ public class StepMediosdePago {
         scPerfil.irMediosDePago();
     }
 
-    public void anadirTarjeta(String numTarjeta, String cvv, String fecha) throws Exception {
+    public void anadirTarjetaFuturosPagos(String numTarjeta, String cvv, String fecha) throws Exception {
         String nombre = ConstantesDummy.nombre;
         String apellido = ConstantesDummy.apellido;
         String correo = ConstantesDummy.correo;
         StringBuilder mmaa = new StringBuilder(fecha.substring(0,2));
         mmaa.append(fecha.substring(3,5));
         scMediosDePago.ingresarDatosTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
-        scMediosDePago.guardarTarjeta();
+        scMediosDePago.guardarFuturosPagos();
         scMediosDePago.pagar();
     }
     public void seleccionaPagos() throws Exception {
