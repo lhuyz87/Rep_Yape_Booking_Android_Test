@@ -53,37 +53,37 @@ public class ExcelUtilPropio extends ExcelUtil {
 
 			switch (excelSplit[0]) {
 				case "ConsultaSalud":
-						data = LeerDD.getInstancia().leerDDConsultaSalud(hoja);
+					    data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_ConsultaSalud);
 					break;
 				case "ConsultaVehicularSoat":
-						data = LeerDD.getInstancia().leerDDConsultaVehicularSoat(hoja);
+						data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_ConsultaVehicularSoat);
 					break;
 				case "ConsultasVida":
-						data = LeerDD.getInstancia().leerDDConsultasVida(hoja);
+						data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_ConsultasVida);
 					break;
 				case "Onboarding":
-						data = LeerDD.getInstancia().leerDDOnboarding(hoja);
+						data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_Onboarding);
 					break;
 				case "CrossellRenovacion":
-					data = LeerDD.getInstancia().leerDDCrossellRenovacion(hoja);
+					data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_CrossellRenovacion);
 					break;
 				case "Pagos":
-					data = LeerDD.getInstancia().leerDDPagos(hoja);
+					data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_Pagos);
 					break;
 				case "Perfil":
-					data = LeerDD.getInstancia().leerDDPerfil(hoja);
+					data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_Perfil);
 					break;
 				case "ServiciosSalud":
-					data = LeerDD.getInstancia().leerDDServiciosSalud(hoja);
+					data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_ServiciosSalud);
 					break;
 				case "ServiciosSoat":
-					data = LeerDD.getInstancia().leerDDServiciosSoat(hoja);
+					data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_ServiciosSoat);
 					break;
 				case "ServiciosVehiculares":
-					data = LeerDD.getInstancia().leerDDServiciosVehiculares(hoja);
+					data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_ServiciosVehiculares);
 					break;
 				case "TramitesSiniestros":
-					data = LeerDD.getInstancia().leerDDTramitesSiniestros(hoja);
+					data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_TramitesSiniestros);
 					break;
 				default:
 					break;
