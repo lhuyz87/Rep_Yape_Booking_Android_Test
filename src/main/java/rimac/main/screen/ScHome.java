@@ -77,7 +77,6 @@ public class ScHome extends BaseDriver{
 		case "Tienda":
 			util.esperarElemento(10, objectPrincipal.btnTienda);
 			element(objectPrincipal.btnTienda).click();
-			util.esperarElemento(5, objTienda.lblDescripcion);
 			break;
 			
 		case "Perfil":

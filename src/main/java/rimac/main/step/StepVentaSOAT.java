@@ -20,6 +20,10 @@ public class StepVentaSOAT {
     ScMediosDePago scMediosDePago;
     @Steps
     ScTuSesionExpiro scTuSesionExpiro;
+    @Steps
+    ScActualizaDatos scActualizaDatos;
+    @Steps
+    ScIngresarPlaca scIngresarPlaca;
 
     public void seleccionarTienda() throws Exception {
         schome.seleccionarOpcionPrincipal("Tienda");
@@ -34,7 +38,7 @@ public class StepVentaSOAT {
         String placa4 = new String(String.valueOf(digitosPLaca[3]));
         String placa5 = new String(String.valueOf(digitosPLaca[4]));
         String placa6 = new String(String.valueOf(digitosPLaca[5]));
-        scEligePlan.ingresarPlaca(placa1,placa2,placa3,placa4,placa5,placa6);
+        scIngresarPlaca.ingresarPlaca(placa1,placa2,placa3,placa4,placa5,placa6);
     }
 
     public void eligePlanDigital() throws Exception{
@@ -44,6 +48,16 @@ public class StepVentaSOAT {
 
     public void eligePlanVial() throws Exception{
         scEligePlan.planVial();
+    }
+
+    public void eligePlanPlus() throws Exception{
+        scEligePlan.planPlus();
+    }
+
+    public void actualizaDatos() throws Exception{
+        String correo = ConstantesDummy.correo;
+        String celular = ConstantesDummy.celular;
+        scActualizaDatos.actualizar_datos(correo,celular);
     }
 
     public void agregarTarjeta(String numtarjeta, String cvv, String fecha){
