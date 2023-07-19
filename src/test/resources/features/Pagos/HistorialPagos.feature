@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-@ModuloPagos_5_7
+@ModuloPagos_6_7
 Feature: Informacion de pagos
 
   @CronogramaPagos
