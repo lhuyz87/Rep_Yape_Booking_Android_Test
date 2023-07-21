@@ -85,6 +85,13 @@ public class ExcelUtilPropio extends ExcelUtil {
 				case "TramitesSiniestros":
 					data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_TramitesSiniestros);
 					break;
+				case "VentaNueva":
+					data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_VentaNueva);
+					break;
+				case "ServiciosVida":
+					data = LeerDD.getInstancia().leerDDEscenario(hoja, Constantes.file_ServiciosVida);
+					break;
+
 				default:
 					break;
 			}

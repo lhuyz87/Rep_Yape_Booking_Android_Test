@@ -22,7 +22,7 @@ public class Constantes {
     public static String correoDestino = UtilDef.getInstancia().getVarEnvPro("v_correoDestino");
     public static String correoRemitente = UtilDef.getInstancia().getVarEnvPro("v_correoRemitente");
     public static String passCorreoRemitente = UtilDef.getInstancia().getVarEnvPro("v_passCorreoRemitente");
-    //public static final String RutaLocal = "/Users/christianmaurysolis/Documents/Documentos/";
+    //public static final String RutaLocal = "/Users/christianmaurysolis/Documents/Documentos/ANDROID/";
     public static final String RutaLocal = "/home/adminqa/Documents/Auto/Android/";
     //public static final String RutaLocal = "/Users/candyespinzabaez/Documents/Android/";
     //public static final String RutaLocal = "/home/adminqa/Documents/data-Android-test-Cloud-v1/";
@@ -39,4 +39,6 @@ public class Constantes {
     public static final String file_ServiciosSoat = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"ServiciosSoat.xlsx" : RutaRemota+"ServiciosSoat.xlsx");
     public static final String file_ServiciosVehiculares = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"ServiciosVehiculares.xlsx" : RutaRemota+"ServiciosVehiculares.xlsx");
     public static final String file_TramitesSiniestros = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"TramitesSiniestros.xlsx" : RutaRemota+"TramitesSiniestros.xlsx");
+    public static final String file_VentaNueva = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"VentaNueva.xlsx" : RutaRemota+"VentaNueva.xlsx");
+    public static final String file_ServiciosVida = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"ServiciosVida.xlsx" : RutaRemota+"ServiciosVida.xlsx");
 }

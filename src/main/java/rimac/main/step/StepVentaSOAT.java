@@ -95,4 +95,16 @@ public class StepVentaSOAT {
     public void se_valida_mensaje_de_inactividad(){
         scTuSesionExpiro.validacion_mensaje_TimeOut();
     }
+
+    public void ingresarSoatDosMinutos(String placa) throws Exception {
+        schome.seleccionaSoatDosMinutos();
+        char[] digitosPLaca = placa.toCharArray();
+        String placa1 = new String(String.valueOf(digitosPLaca[0]));
+        String placa2 = new String(String.valueOf(digitosPLaca[1]));
+        String placa3 = new String(String.valueOf(digitosPLaca[2]));
+        String placa4 = new String(String.valueOf(digitosPLaca[3]));
+        String placa5 = new String(String.valueOf(digitosPLaca[4]));
+        String placa6 = new String(String.valueOf(digitosPLaca[5]));
+        scIngresarPlaca.ingresarPlaca(placa1,placa2,placa3,placa4,placa5,placa6);
+    }
 }
