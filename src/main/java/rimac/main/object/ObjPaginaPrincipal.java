@@ -75,4 +75,11 @@ public class ObjPaginaPrincipal extends BaseDriver{
 	@AndroidFindBy(xpath = "//*[@text='Plan Vida Flexible']//following-sibling::android.widget.Button")
 	public WebElement btnPlanVidaFlexibleHo;
 
+	@AndroidFindBy(xpath = "(//*[@text='Ver detalle'])[1]")
+	public WebElement btnVerDetalleHome1;
+
+	@AndroidFindBy(xpath = "(//*[@text='Ver detalle'])[2]")
+	public WebElement btnVerDetalleHome2;
+
+
 }

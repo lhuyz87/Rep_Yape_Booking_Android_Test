@@ -239,6 +239,17 @@ public class ScHome extends BaseDriver{
 
 	}
 	public void seleccionaSegurosHome() {
+
+		int xVerDetalle=objectPrincipal.btnVerDetalleHome1.getLocation().getX();
+		int yVerDetalle=objectPrincipal.btnVerDetalleHome1.getLocation().getY();
+		int xVerDetalle2=objectPrincipal.btnVerDetalleHome2.getLocation().getX();
+		Point start= new Point(xVerDetalle2, yVerDetalle);
+		Point end= new Point(xVerDetalle,  yVerDetalle);
+		int contador=0;
+		while(element(objectPrincipal.btnPlanVidaFlexibleHo).isCurrentlyVisible()==false && contador<9){
+			util.doSwipe(appiumDriver(), start, end, 1000);
+			contador++;
+		}
 		pageObjectUtil2.tapElement(appiumDriver(),objectPrincipal.btnPlanVidaFlexibleHo);
 		util.esperarSegundos(3);
 	}

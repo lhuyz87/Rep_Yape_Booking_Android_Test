@@ -1,4 +1,4 @@
-@ModuloVentaNueva
+@ModuloVentaNueva_1_7
   Feature: Venta nueva
 
 @TiempoInactividadVentaNueva

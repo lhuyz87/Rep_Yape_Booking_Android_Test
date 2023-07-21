@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-@ModuloConsultasVehicularySoat_2_6
+@ModuloConsultasVehicularySoat_4_6
   Feature: Consulta Vehicular y Soat - Poliza Vehicular
 
     @ConsultaNumeroDePolizaVehiSoat

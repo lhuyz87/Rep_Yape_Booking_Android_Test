@@ -10,7 +10,6 @@ Feature: Pagos
     When se ingresa a un seguro Vehicular desde el Menù seleccionando la "<placa>" del vehiculo
     And ingreso mis datos bancarios desde la opcion pagar cuotas para suscribir mi tarjeta "<numtarjeta>" , "<cvv>" y "<fecha>" para realizar el pago
     Then debe mostrar el mensaje de confirmación ¡Hemos recibido tu pago!
-    And elimino la tarjeta del listado "<numtarjeta>" desde Mi Perfil
 
     Examples:
      ###DATOS###@Pagos|1@PagoAsociandoTarjeta
@@ -24,7 +23,6 @@ Feature: Pagos
     When se ingresa a un seguro Vehicular desde el Menù seleccionando la "<placa>" del vehiculo
     And ingreso mis datos bancarios desde la opcion pagar cuotas estando afilidado a debito automatico "<numtarjeta>" , "<cvv>" y "<fecha>"
     Then debe mostrar el mensaje de confirmación ¡Hemos recibido tu pago!
-    And elimino la tarjeta del listado "<numtarjeta>" desde Mi Perfil
 
     Examples:
     ###DATOS###@Pagos|1@PagoAfiliadoDebitoAuto
