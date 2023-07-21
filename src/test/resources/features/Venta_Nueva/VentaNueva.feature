@@ -13,3 +13,4 @@
   Examples:
     ###DATOS###@VentaNueva|1@TiempoInactividadVentaNueva
     | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
+
