@@ -222,29 +222,21 @@ public class ScHome extends BaseDriver{
 
 	}
 	public void seleccionaSoatDosMinutos() {
-
-		int contador=0;
 		try {
+			int contador = 0;
 			while(element(objectPrincipal.btnSoatHome).isCurrentlyVisible()==false && contador<5){
+				util.mobileSwipeScreenAndroidFinal();
+				contador ++;
+			}
+			int ybtnPerfil=objectPrincipal.btnPerfil.getLocation().getY();
+			if ((ybtnPerfil-150) < objectPrincipal.btnSoatHome.getLocation().getY()) {
 				util.mobileSwipeScreenAndroid();
 			}
 			element(objectPrincipal.btnSoatHome).click();
-			System.out.println("Se encontro elemento  ");
-		} catch (Exception e) {
-			// TODO: handle exception
-			util.scrollDown(appiumDriver());
-		}
-
-
-		/*try {
-			while(element(objectPrincipal.btnSoatHome).isCurrentlyVisible()==false && contador<5){
-				util.mobileSwipeScreenAndroidFinal();
-			}
-			element(objectPrincipal.btnSoatHome).click();
 		} catch (Exception e) {
 			util.scrollDown(appiumDriver());
 		}
-		*/
+
 	}
 	public void seleccionaSegurosHome() {
 		pageObjectUtil2.tapElement(appiumDriver(),objectPrincipal.btnPlanVidaFlexibleHo);
