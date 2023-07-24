@@ -15,6 +15,7 @@ Feature: Venta SOAT
    ###DATOS###@CrossellRenovacion|1@CompraSOATDigital
       | 0 | tipoID | id | password | placa | numtarjeta | cvv | fecha |
 
+
   @CompraSOATVial
   Scenario Outline: Plan SOAT Vial
     Given realiza el login con credenciales
