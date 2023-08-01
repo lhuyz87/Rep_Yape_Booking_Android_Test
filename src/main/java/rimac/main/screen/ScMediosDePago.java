@@ -36,6 +36,7 @@ public class ScMediosDePago extends BaseDriver {
         if (element(objMediodePago.listTarjetas).isCurrentlyVisible()) {
             while (element(objMediodePago.opcTarjeta(numTarjeta)).isCurrentlyVisible() == false && contador < 5) {
                 util.mobileSwipeScreenAndroid();
+                contador++;
             }
             element((WebElement) objMediodePago.opcTarjetaSinSeguros(numTarjeta)).click();
             element(objMediodePago.btnEliminarTarjeta).click();
