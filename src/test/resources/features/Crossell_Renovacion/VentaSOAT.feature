@@ -46,7 +46,7 @@ Feature: Venta SOAT
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
-    And elimino la tarjeta guardada "<numtarjeta>" desde Mi Perfil
+   # And elimino la tarjeta guardada "<numtarjeta>" desde Mi Perfil
     When ingreso mis datos bancarios "<numtarjeta>","<cvv>" y "<fecha>" para generar la compra del SOAT Plan Vial para el vehiculo "<placa>"
     And se mantiene inactivo el modulo en la pantalla de confirmación de la compra
     Then se valida el mensaje para retornar al Login desde la pantalla de confirmación de compra
