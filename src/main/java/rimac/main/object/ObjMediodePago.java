@@ -91,4 +91,10 @@ public class ObjMediodePago extends BaseDriver {
     @AndroidFindBy(xpath="//*[@text='Pagar']")
     public WebElement btnPagar;
 
+    @AndroidFindBy(id="com.rimac.rimac_surrogas.qa:id/bodyEt")
+    public WebElement txtCorreo;
+
+    @AndroidFindBy(id="com.rimac.rimac_surrogas.qa:id/materialBtn")
+    public WebElement btnContinuar;
+
 }

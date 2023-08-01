@@ -208,10 +208,14 @@ public class ScMediosDePago extends BaseDriver {
         util.esperarElemento(10, objectPrincipal.btnPerfil);
         element(objectPrincipal.btnPerfil).click();
     }
-    public void pagarTarjetaAsociada() throws Exception {
+    public void pagarTarjetaAsociada(String correo) throws Exception {
         util.esperarElementoVisible(5,objMediodePago.listTarjetas);
         element(objMediodePago.rdbPrimeraTarjeta).click();
         element(objMediodePago.btnPagar).click();
+        util.esperarElementoVisible(5,objMediodePago.txtCorreo);
+        element(objMediodePago.txtCorreo).sendKeys(correo);
+        util.esperarElementoVisible(5,objMediodePago.btnContinuar);
+        element(objMediodePago.btnContinuar).click();
     }
 
     public void añadir_tarjeta() throws InterruptedException {

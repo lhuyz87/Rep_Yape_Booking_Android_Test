@@ -37,7 +37,8 @@ public class StepPagoCuotas {
     }
 
     public void pagarConTarjetaAsociada() throws Exception {
-        scMediosDePago.pagarTarjetaAsociada();
+        String correo= ConstantesDummy.correo;
+        scMediosDePago.pagarTarjetaAsociada(correo);
     }
 
     public void pagarSinTarjetaAsociada(String numTarjeta, String cvv, String fecha) throws Exception {
