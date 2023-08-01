@@ -18,6 +18,7 @@ public class ScEligePlan extends BaseDriver {
             int contador = 0;
             while (element(objEligeTuPlan.lblEligetuPlan).isCurrentlyVisible() == false && contador < 8) {
                 util.esperarSegundos(1);
+                contador++;
             }
             util.esperarElementoVisible(7, objEligeTuPlan.lblEligetuPlan);
             while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && contador < 6) {
@@ -26,6 +27,7 @@ public class ScEligePlan extends BaseDriver {
             }
             element(objEligeTuPlan.btnContinuar).click();
         }catch(Exception e){
+            Serenity.takeScreenshot();
             throw new IllegalAccessError("No se encuentra plan digital");
         }
     }
@@ -35,6 +37,7 @@ public class ScEligePlan extends BaseDriver {
             int contador = 0;
             while (element(objEligeTuPlan.lblEligetuPlan).isCurrentlyVisible() == false && contador < 8) {
                 util.esperarSegundos(1);
+                contador++;
             }
             util.esperarElementoVisible(7, objEligeTuPlan.lblEligetuPlan);
             util.esperarElemento(5, objEligeTuPlan.btnVial);
@@ -46,6 +49,7 @@ public class ScEligePlan extends BaseDriver {
             Serenity.takeScreenshot();
             element(objEligeTuPlan.btnContinuar).click();
         }catch(Exception e){
+            Serenity.takeScreenshot();
             throw new IllegalAccessError("No se encuentra plan Vial");
         }
     }
@@ -55,6 +59,7 @@ public class ScEligePlan extends BaseDriver {
             int contador = 0;
             while (element(objEligeTuPlan.lblEligetuPlan).isCurrentlyVisible() == false && contador < 8) {
                 util.esperarSegundos(1);
+                contador++;
             }
             util.esperarElementoVisible(7, objEligeTuPlan.lblEligetuPlan);
             util.esperarElemento(5, objEligeTuPlan.btnPlus);
@@ -66,6 +71,7 @@ public class ScEligePlan extends BaseDriver {
             Serenity.takeScreenshot();
             element(objEligeTuPlan.btnContinuar).click();
         }catch(Exception e){
+            Serenity.takeScreenshot();
             throw new IllegalAccessError("No se encuentra plan Plus");
         }
     }
