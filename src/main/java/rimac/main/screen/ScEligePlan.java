@@ -21,7 +21,8 @@ public class ScEligePlan extends BaseDriver {
                 contador++;
             }
             util.esperarElementoVisible(7, objEligeTuPlan.lblEligetuPlan);
-            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && contador < 6) {
+            int intentos = 0;
+            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && intentos < 6) {
                 util.mobileSwipeScreenAndroidFinal();
                 contador++;
             }
@@ -42,7 +43,8 @@ public class ScEligePlan extends BaseDriver {
             util.esperarElementoVisible(7, objEligeTuPlan.lblEligetuPlan);
             util.esperarElemento(5, objEligeTuPlan.btnVial);
             element(objEligeTuPlan.btnVial).click();
-            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && contador < 6) {
+            int intentos = 0;
+            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && intentos < 6) {
                 util.mobileSwipeScreenAndroidFinal();
                 contador++;
             }
@@ -64,7 +66,8 @@ public class ScEligePlan extends BaseDriver {
             util.esperarElementoVisible(7, objEligeTuPlan.lblEligetuPlan);
             util.esperarElemento(5, objEligeTuPlan.btnPlus);
             element(objEligeTuPlan.btnPlus).click();
-            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && contador < 6) {
+            int intentos=0;
+            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && intentos < 6) {
                 util.mobileSwipeScreenAndroidFinal();
                 contador++;
             }
