@@ -64,20 +64,19 @@ public class ScTusSeguros extends BaseDriver{
 	}
 
 	public void ver_detalle_seguro(String seguro){
-		try {
-			int contador = 0;
-			while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
-				util.mobileSwipeScreenAndroid();
-				contador++;
-			}
-			element(objTusSeguros.opcSeguro(seguro)).click();
-		}catch(Exception e){
-			Dimension dimension = appiumDriver().manage().window().getSize();
-			Point start= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.8));
-			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.6));
-			util.doSwipe(appiumDriver(), start, end, 500);
-			element(objTusSeguros.opcSeguro(seguro)).click();
+		Dimension dimension = appiumDriver().manage().window().getSize();
+		Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
+		Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+		int contador = 0;
+		while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
+			util.mobileSwipeScreenAndroid();
+			contador++;
 		}
+		int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
+		if ((ybtnPerfil-150) < objTusSeguros.opcSeguro(seguro).getLocation().getY()) {
+			util.doSwipe(appiumDriver(), start, end, 500);
+		}
+		element(objTusSeguros.opcSeguro(seguro)).click();
 	}
 	public void ver_detalle_Vehicular(String seguro){
 		try {
