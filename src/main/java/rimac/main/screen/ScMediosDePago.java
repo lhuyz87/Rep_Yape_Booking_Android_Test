@@ -235,7 +235,6 @@ public class ScMediosDePago extends BaseDriver {
     }
 
     public void pagarTarjetaAfil() {
-        try{
             Dimension dimension = appiumDriver().manage().window().getSize();
             Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
             Point end= new Point((int)(dimension.width*0.2), (int)(dimension.height*0.2));
@@ -243,11 +242,6 @@ public class ScMediosDePago extends BaseDriver {
             util.esperarElemento(3, objAnadirTarjeta.btnPagoAuto);
             element(objAnadirTarjeta.btnPagoAuto).click();
             element(objAnadirTarjeta.btnPagarNew).click();
-
-        }catch(Exception e){
-            Serenity.takeScreenshot();
-            throw new IllegalAccessError("Error para ingresar los datos de la tarjeta");
-        }
 
     }
 

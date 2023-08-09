@@ -74,7 +74,6 @@ public class ScPagos extends BaseDriver {
         }else{
             element(objPagos.lnkCambiarTarjeta).click();
         }
-
     }
 
     public void irHistorialPagos(){
