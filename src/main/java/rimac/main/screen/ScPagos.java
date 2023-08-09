@@ -21,6 +21,7 @@ public class ScPagos extends BaseDriver {
     }
     UtilApp util = UtilApp.getInstancia();
     protected ObjPagos objPagos = ObjPagos.getInstancia();
+    protected ObjCommons objCommons= ObjCommons.getInstancia();
     protected ObjCuotasPagar objCuotasPagar = ObjCuotasPagar.getInstancia();
     protected ObjMediodePago objMediodePago = ObjMediodePago.getInstancia();
     protected ObjAfiliarPago objAfiliarPago= ObjAfiliarPago.getInstancia();
@@ -144,6 +145,10 @@ public class ScPagos extends BaseDriver {
             Serenity.takeScreenshot();
             util.esperarElementoVisible(5,objPagos.btnIrAInicio);
             element(objPagos.btnIrAInicio).click();
+            util.esperarSegundos(2);
+            if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){
+                element(objCommons.btnCerrarmodal).click();
+            }
             return solicitudExiste;
 
         } catch (Exception e) {
