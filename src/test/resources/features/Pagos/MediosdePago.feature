@@ -34,8 +34,7 @@ Feature: Suscripcion de medios de pago
         | tipoID   | id   | password   |
         | <tipoID> | <id> | <password> |
       When ingreso mis datos bancarios desde afiliacion de tarjetas "<numtarjeta>" , "<cvv>" y "<fecha>"
-      Then debe mostrar el mensaje "Tarjeta afiliada con éxito"
-      And elimino la tarjeta afiliada "<numtarjeta>" desde Mi Perfil
+      Then debe mostrar el mensaje de afiliación exitoso
 
       Examples:
       ###DATOS###@Pagos|1@SucripcionDesdeAfiliacion

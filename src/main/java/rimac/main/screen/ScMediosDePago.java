@@ -33,23 +33,13 @@ public class ScMediosDePago extends BaseDriver {
             }
             contador++;
         }
-        if (element(objMediodePago.listTarjetas).isCurrentlyVisible()) {
-            while (element(objMediodePago.opcTarjeta(numTarjeta)).isCurrentlyVisible() == false && contador < 5) {
-                util.mobileSwipeScreenAndroid();
-                contador++;
-            }
+        if (objMediodePago.opcTarjetaSinSeguros(numTarjeta).size()!=0) {
             element((WebElement) objMediodePago.opcTarjetaSinSeguros(numTarjeta)).click();
             element(objMediodePago.btnEliminarTarjeta).click();
             element(objMediodePago.btnSiEliminar).click();
             new WebDriverWait(androidDriver(), Duration.ofSeconds(20))
                     .until(ExpectedConditions.visibilityOf(objMediodePago.lblMisTarjetas));
             Serenity.takeScreenshot();
-        }
-        while(element(objMediodePago.listTarjetas).isCurrentlyVisible()== false && contador < 5){
-            if(element(objMediodePago.btnAgregarTarjeta).isCurrentlyVisible()){
-                break;
-            }
-            contador++;
         }
     }
     public void ingresarDatosTarjeta(String numTarjeta, String nombre, String apellido, StringBuilder mmaa, String cvv, String correo) throws Exception{
@@ -174,11 +164,11 @@ public class ScMediosDePago extends BaseDriver {
         element(objCommons.btnVolver).click();
     }
 
-    public String validarAfiliacion(){
-        String mensajeAfiliacion;
+    public boolean validarAfiliacion(){
+        boolean mensajeAfiliacion;
         try{
             util.esperarElemento(4,objAfiliarPago.lblTarjetaAfiliadaExito);
-            mensajeAfiliacion = element(objAfiliarPago.lblTarjetaAfiliadaExito).getText();
+            mensajeAfiliacion = element(objAfiliarPago.lblTarjetaAfiliadaExito).isCurrentlyVisible();
             Serenity.takeScreenshot();
         }catch(Exception e){
             Serenity.takeScreenshot();

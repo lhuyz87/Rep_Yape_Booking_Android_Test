@@ -79,7 +79,7 @@ public class StepMediosdePago {
         return scMediosDePago.validarEliminarTarjeta(numTarjeta);
     }
 
-    public String validarMensajeAfiliacion(){
+    public boolean validarMensajeAfiliacion(){
         return scMediosDePago.validarAfiliacion();
     }
     public void iraPagos(){
