@@ -54,6 +54,13 @@ public class ObjMediodePago extends BaseDriver {
         List<WebElement> we_opcTarjeta1 = appiumDriver().findElements(AppiumBy.xpath("//*[@text='Ningún seguro asociado']//parent::android.view.ViewGroup//preceding-sibling::android.widget.TextView[@text='**** "+ultimosNumerosTarjeta+"']"));
         return  we_opcTarjeta1;
     }
+
+    public WebElement opcTarjetaSinSeguros2 (String numTarjeta) {
+        String ultimosNumerosTarjeta=numTarjeta.substring(12,16);
+        WebElement we_opcTarjeta1 = appiumDriver().findElement(AppiumBy.xpath("//*[@text='Ningún seguro asociado']//parent::android.view.ViewGroup//preceding-sibling::android.widget.TextView[@text='**** "+ultimosNumerosTarjeta+"']"));
+        return  we_opcTarjeta1;
+    }
+
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/card_option_trash")
     public WebElement btnEliminarTarjeta;
 

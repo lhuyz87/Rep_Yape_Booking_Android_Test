@@ -34,7 +34,7 @@ public class ScMediosDePago extends BaseDriver {
             contador++;
         }
         if (objMediodePago.opcTarjetaSinSeguros(numTarjeta).size()!=0) {
-            element((WebElement) objMediodePago.opcTarjetaSinSeguros(numTarjeta)).click();
+            element(objMediodePago.opcTarjetaSinSeguros2(numTarjeta)).click();
             element(objMediodePago.btnEliminarTarjeta).click();
             element(objMediodePago.btnSiEliminar).click();
             new WebDriverWait(androidDriver(), Duration.ofSeconds(20))
