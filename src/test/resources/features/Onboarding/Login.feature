@@ -37,7 +37,7 @@ Feature: Onboarding - Login
     And debe permitir el ingreso a la aplicación
 
 
-  @TiempoInactividadOnboarding @ModuloOnboardingFuncional_2_4
+  @TiempoInactividadOnboarding @TiempoInactAndroid
   Scenario Outline: Ejecutar los Procesos por Modulo y esperar 15 min y validar el regreso al login por inactividad
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

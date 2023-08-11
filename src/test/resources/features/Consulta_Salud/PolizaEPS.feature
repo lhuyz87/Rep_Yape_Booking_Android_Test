@@ -1,8 +1,7 @@
 #Author: Candy Espinoza
-@ModuloConsultaSalud_2_5
 Feature: Consulta Salud - Plan Medico EPS
 
-  @ConsultaNumeroDePoliza
+  @ConsultaNumeroDePoliza @ModuloConsultaSalud_2_5
   Scenario Outline: Consulta el numero de la poliza
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -14,7 +13,7 @@ Feature: Consulta Salud - Plan Medico EPS
     ###DATOS###@ConsultaSalud|1@ConsultaNumeroDePoliza
       | 0 | tipoID | id | password |
 
-  @TiempoInactividadConsultasSalud
+  @TiempoInactividadConsultasSalud @TiempoInactAndroid
   Scenario Outline: Esperar 15 min de inactividad en el modulo de seguro Consulta Salud
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

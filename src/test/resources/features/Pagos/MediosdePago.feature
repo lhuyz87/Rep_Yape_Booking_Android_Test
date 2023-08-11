@@ -1,8 +1,7 @@
 #Author: Candy Espinoza
-@ModuloPagos_6_7
 Feature: Suscripcion de medios de pago
 
-   @SucripcionDesdePerfil
+   @SucripcionDesdePerfil @ModuloPagos_6_7
     Scenario Outline: Suscripcion de Tarjeta desde Mi perfil opcion medios de pagos
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -15,7 +14,7 @@ Feature: Suscripcion de medios de pago
        ###DATOS###@Pagos|1@SucripcionDesdePerfil
          | 0 | tipoID | id | password |numtarjeta       | cvv | fecha |
 
-    @SucripcionDesdePagos
+    @SucripcionDesdePagos @ModuloPagos_6_7
     Scenario Outline: Suscripcion de Tarjeta desde Tap de Pagos opcion medios de pagos
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -28,7 +27,7 @@ Feature: Suscripcion de medios de pago
        ###DATOS###@Pagos|1@SucripcionDesdePagos
         | 0 | tipoID | id | password |numtarjeta       | cvv | fecha |
 
-    @SucripcionDesdeAfiliacion
+    @SucripcionDesdeAfiliacion @ModuloPagos_6_7
     Scenario Outline: Suscripcion de Tarjetas desde la Afiliacion
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -39,7 +38,7 @@ Feature: Suscripcion de medios de pago
       ###DATOS###@Pagos|1@SucripcionDesdeAfiliacion
         | 0 | tipoID | id | password |numtarjeta       | cvv | fecha |
 
-  @SucripcionDesdeOpcionPagar
+  @SucripcionDesdeOpcionPagar @ModuloPagos_6_7
     Scenario Outline: Suscripcion de Tarjetas desde la Opcion Pagar, agregar nueva Tarjeta
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -54,7 +53,7 @@ Feature: Suscripcion de medios de pago
       ###DATOS###@Pagos|1@SuscripcionOpcionPagar
       | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
-  @TiempoInactividadPagos
+  @TiempoInactividadPagos @TiempoInactAndroid
   Scenario Outline: Esperar 15 min de inactividad en el modulo de pagos
       Given realiza el login con credenciales
         | tipoID   | id   | password   |

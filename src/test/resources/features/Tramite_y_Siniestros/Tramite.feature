@@ -1,7 +1,6 @@
-@ModuloTramitesSiniestros_1_6
 Feature: Tramite y siniestros
 
-  @TiempoInactividadTramiteYSiniestro
+  @TiempoInactividadTramiteYSiniestro @TiempoInactAndroid
   Scenario Outline: Esperar 15 min de inactividad en el modulo Tramite y Siniestro
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
