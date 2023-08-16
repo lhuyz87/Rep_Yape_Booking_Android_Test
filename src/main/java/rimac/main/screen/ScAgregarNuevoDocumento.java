@@ -77,11 +77,7 @@ private long wdwTimeOut = 300L;
 	}
 	
 	
-	public void llenarDatosRecetaMedica(String descripcion) {
-//		element(agregarNuevoDocumentoObject.txtDescipcion).click();
-//		element(agregarNuevoDocumentoObject.txtDescipcion).sendKeys(descripcion);
-//		((HidesKeyboard) appiumDriver()).hideKeyboard();
-		looger.info("Iniciar llenar Datos Receta Médica");
+	public void adjuntarDocumento() {
 		element(agregarNuevoDocumentoObject.btnSubirDocumento).click();
 		
 	}
