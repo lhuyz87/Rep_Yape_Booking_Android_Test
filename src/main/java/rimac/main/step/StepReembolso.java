@@ -118,6 +118,7 @@ public class StepReembolso {
 	
 	public void iniciarRegistroDoc() throws Exception {
 		scDocRequeridosReembolsoSalud.continuarDocRequeridos();
+
 	}
 
 	public void registrarDocumentoPorCobert(String tipoCobertura) throws Exception {
