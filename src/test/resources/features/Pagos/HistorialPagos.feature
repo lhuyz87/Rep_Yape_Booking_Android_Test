@@ -25,11 +25,11 @@ Feature: Informacion de pagos
     Then debe mostrar el listado de pagos desde historial de pagos
 
     Examples:
-      ###DATOS###@Pagos|1@HistorialPagos
-      | 0 | tipoID | id | password |
+      ###DATOS###@Pagos|1@PagoConValidacionHistorial
+      | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
 
   @DescargaHistorialPagos
-    Scenario Outline: Descargar el historial de pagos de una poliza vehicular
+  Scenario Outline: Descargar el historial de pagos de una poliza vehicular
     Given realiza el login con credenciales
     | tipoID   | id   | password   |
     | <tipoID> | <id> | <password> |
@@ -38,5 +38,5 @@ Feature: Informacion de pagos
     Then debe mostrar el pdf con el historial de pagos
 
       Examples:
-      ###DATOS###@Pagos|1@DescargaHistorialPagos
-        | 0 | tipoID | id | password |
+      ###DATOS###@Pagos|1@PagoConValidacionHistorial
+        | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |

@@ -76,6 +76,7 @@ public class ScTusSeguros extends BaseDriver{
 			if ((ybtnPerfil-150) < objTusSeguros.opcSeguro(seguro).getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
+		element(objTusSeguros.opcSeguro(seguro)).click();
 	}
 	public void ver_detalle_Vehicular(String seguro){
 		try {
@@ -122,7 +123,7 @@ public class ScTusSeguros extends BaseDriver{
 			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
 
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			while (contador < 8) {
+			while (contador < 12) {
 				if(objTusSeguros.verDetalleXPlaca2(placa).size()!=0){
 					break;
 				}

@@ -21,6 +21,7 @@ public class ScPagos extends BaseDriver {
     }
     UtilApp util = UtilApp.getInstancia();
     protected ObjPagos objPagos = ObjPagos.getInstancia();
+    protected ObjCommons objCommons= ObjCommons.getInstancia();
     protected ObjCuotasPagar objCuotasPagar = ObjCuotasPagar.getInstancia();
     protected ObjMediodePago objMediodePago = ObjMediodePago.getInstancia();
     protected ObjAfiliarPago objAfiliarPago= ObjAfiliarPago.getInstancia();
@@ -63,12 +64,17 @@ public class ScPagos extends BaseDriver {
         Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.9));
         Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
         while(element(objPagos.lnkAfiliarTarjeta).isCurrentlyVisible()==false && contador<7){
+            if(element(objPagos.lnkCambiarTarjeta).isCurrentlyVisible()){
+                break;
+            }
             util.doSwipe(appiumDriver(), start, end, 1000);
             contador++;
         }
-        element(objPagos.lnkAfiliarTarjeta).click();
-        new WebDriverWait(androidDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOf(objAfiliarPago.lblAfiliarPago));
+        if(element(objPagos.lnkAfiliarTarjeta).isCurrentlyVisible()){
+            element(objPagos.lnkAfiliarTarjeta).click();
+        }else{
+            element(objPagos.lnkCambiarTarjeta).click();
+        }
     }
 
     public void irHistorialPagos(){
@@ -139,6 +145,10 @@ public class ScPagos extends BaseDriver {
             Serenity.takeScreenshot();
             util.esperarElementoVisible(5,objPagos.btnIrAInicio);
             element(objPagos.btnIrAInicio).click();
+            util.esperarSegundos(2);
+            if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){
+                element(objCommons.btnCerrarmodal).click();
+            }
             return solicitudExiste;
 
         } catch (Exception e) {

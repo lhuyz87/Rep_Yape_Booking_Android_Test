@@ -37,6 +37,8 @@ public class ObjPagos extends BaseDriver {
     @AndroidFindBy(xpath= "//*[@text='Afiliar mi tarjeta']")
     public WebElement lnkAfiliarTarjeta;
 
+    @AndroidFindBy(xpath= "//*[@text='Cambiar tarjeta']")
+    public WebElement lnkCambiarTarjeta;
     @AndroidFindBy(xpath= "//*[@text='Historial de pagos']")
     public WebElement btnHistorialPagos;
     @AndroidFindBy(xpath= "//*[@text='Pagar cuotas']")

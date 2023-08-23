@@ -1,8 +1,6 @@
-@ModuloVentaNueva_1_7
-  Feature: Venta nueva
+Feature: Venta nueva
 
-
-@TiempoInactividadVentaNueva
+  @TiempoInactividadVentaNueva @TiempoInactAndroid
   Scenario Outline: Esperar 15 min de inactividad en el modulo Venta nueva
   Given realiza el login con credenciales
     | tipoID   | id   | password   |

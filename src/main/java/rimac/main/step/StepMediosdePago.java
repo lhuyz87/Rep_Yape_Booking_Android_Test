@@ -17,6 +17,8 @@ public class StepMediosdePago {
     @Steps
     ScPagos scPagos;
     @Steps
+    ScAlertas scAlertas;
+    @Steps
     ScConsultaTusPagos scConsultaTusPagos;
     @Steps
     ScTuSesionExpiro scTuSesionExpiro;
@@ -79,7 +81,7 @@ public class StepMediosdePago {
         return scMediosDePago.validarEliminarTarjeta(numTarjeta);
     }
 
-    public String validarMensajeAfiliacion(){
+    public boolean validarMensajeAfiliacion(){
         return scMediosDePago.validarAfiliacion();
     }
     public void iraPagos(){
@@ -109,6 +111,7 @@ public class StepMediosdePago {
         scTuSesionExpiro.validacion_mensaje_TimeOut();
     }
     public void irCuotasaPagar_desde_tab_pagos(String placa) throws Exception {
+        scAlertas.omitirAlertas(5);
         scHome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
         scTusSeguros.seleccionar_Placa(placa);

@@ -1,8 +1,7 @@
 #Author: Candy Espinoza
-@ModuloConsultasVehicularySoat_4_6
   Feature: Consulta Vehicular y Soat - Poliza Vehicular
 
-    @ConsultaNumeroDePolizaVehiSoat
+    @ConsultaNumeroDePolizaVehiSoat @ModuloConsultasVehicularySoat_4_6
     Scenario Outline: Consulta el numero de la poliza -Soat
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -14,7 +13,7 @@
     ###DATOS###@ConsultaVehicularSoat|1@ConsultaNumeroDePolizaVehiSoat
         | 0 | tipoID | id | password |placa|
 
-    @ConsultarDeudasSaldosdePoliza
+    @ConsultarDeudasSaldosdePoliza @ModuloConsultasVehicularySoat_4_6
     Scenario Outline: Consultar Deudas y Saldos de la Poliza - Vehicular
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -26,7 +25,7 @@
       ###DATOS###@ConsultaVehicularSoat|1@ConsultarDeudasSaldosdePoliza
         | 0 | tipoID | id | password |placa|
 
-   @DescargaPolizaVehicularDigital
+   @DescargaPolizaVehicularDigital @ModuloConsultasVehicularySoat_4_6
     Scenario Outline: Descarga poliza digital desde el tab poliza
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -39,7 +38,7 @@
       ###DATOS###@ConsultaVehicularSoat|1@DescargaPolizaVehicularDigital
       | 0 | tipoID | id | password |
 
-    @TiempoInactividadConsultaVehicularySoat
+    @TiempoInactividadConsultaVehicularySoat @TiempoInactAndroid
     Scenario Outline: Esperar 15 min de inactividad en el modulo de Consulta Vehicular SOAT
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
