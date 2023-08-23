@@ -29,16 +29,15 @@ public class ScSolicitudReembolsoRecibida extends BaseDriver{
 	
 	public String  obtenerMensaje() {
 		looger.info("Ultimo Paso");
+		String mensajeObtenido="";
 		int contador=0;
 		while(element(objSolicitudReembolsoRecibida.lblSolicitudRecibida).isCurrentlyVisible()==false && contador<20){
-			//Permite cerrar el modal de recomendación para calificar la app en la playstore
 			if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){
 				element(objCommons.btnCerrarmodal).click();
 			}
 			util.esperarSegundos(1);
 			contador++;
 		}
-		String mensajeObtenido = element(objSolicitudReembolsoRecibida.lblSolicitudRecibida).getText();
 		Serenity.takeScreenshot();
 		while(element(objSolicitudReembolsoRecibida.btnIrInicio).isCurrentlyVisible()==false && contador<10){
 			if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){
@@ -46,6 +45,7 @@ public class ScSolicitudReembolsoRecibida extends BaseDriver{
 			}
 			contador++;
 		}
+		mensajeObtenido= element(objSolicitudReembolsoRecibida.lblSolicitudRecibida).getText();
 		element(objSolicitudReembolsoRecibida.btnIrInicio).click();
 		util.esperarSegundos(2);
 		return mensajeObtenido;

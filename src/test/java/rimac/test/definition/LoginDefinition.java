@@ -131,4 +131,14 @@ public class LoginDefinition {
 	public void realizaElLogeoNuevamenteDeSesion(DataTable userCredentials) throws Exception  {
 		stepLogin.realiza_el_relogeo(userCredentials);
 	}
+
+    @And("se mantiene inactiva la sesión en el módulo onboarding")
+    public void seMantieneInactivaLaSesiónEnElMóduloOnboarding() throws InterruptedException {
+		stepLogin.se_mantiene_la_inactividad_onboarding();
+    }
+
+	@Then("se valida el mensaje para retornar al Login desde el home")
+	public void seValidaElMensajeParaRetornarAlLoginDesdeElHome() {
+		stepLogin.se_valida_mensaje_de_inactividad();
+	}
 }

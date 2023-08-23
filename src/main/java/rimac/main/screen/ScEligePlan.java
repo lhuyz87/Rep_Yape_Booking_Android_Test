@@ -11,44 +11,76 @@ public class ScEligePlan extends BaseDriver {
     UtilApp util=UtilApp.getInstancia();
     ObjSoatDosMinutos objSoatDosMinutos = ObjSoatDosMinutos.getInstancia();
     ObjEligeTuPlan objEligeTuPlan= ObjEligeTuPlan.getInstancia();
-    public void ingresarPlaca(String placa1, String placa2, String placa3, String placa4, String placa5, String placa6) throws Exception{
-        util.esperarElementoVisible(10,objSoatDosMinutos.lblTitle);
-        element(objSoatDosMinutos.inputPlaca("1")).sendKeys(placa1);
-        element(objSoatDosMinutos.inputPlaca("2")).sendKeys(placa2);
-        element(objSoatDosMinutos.inputPlaca("3")).sendKeys(placa3);
-        element(objSoatDosMinutos.inputPlaca("5")).sendKeys(placa4);
-        element(objSoatDosMinutos.inputPlaca("6")).sendKeys(placa5);
-        element(objSoatDosMinutos.inputPlaca("7")).sendKeys(placa6);
-        int contador=0;
-        while(element(objEligeTuPlan.lblEligetuPlan).isCurrentlyVisible()==false && contador<8){
-            util.esperarSegundos(1);
+
+
+    public void planDigital() throws Exception {
+        try {
+            int contador = 0;
+            while (element(objEligeTuPlan.lblEligetuPlan).isCurrentlyVisible() == false && contador < 8) {
+                util.esperarSegundos(1);
+                contador++;
+            }
+            util.esperarElementoVisible(7, objEligeTuPlan.lblEligetuPlan);
+            int intentos = 0;
+            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && intentos < 6) {
+                util.mobileSwipeScreenAndroidFinal();
+                contador++;
+            }
+            element(objEligeTuPlan.btnContinuar).click();
+        }catch(Exception e){
+            Serenity.takeScreenshot();
+            throw new IllegalAccessError("No se encuentra plan digital");
         }
-        util.esperarElementoVisible(7,objEligeTuPlan.lblEligetuPlan);
     }
 
-    public void planDigital(){
-        int contador=0;
-        while(element(objEligeTuPlan.btnContinuar).isCurrentlyVisible()==false && contador<6){
-            util.mobileSwipeScreenAndroidFinal();
-            contador++;
+    public void planVial() throws Exception {
+        try {
+            int contador = 0;
+            while (element(objEligeTuPlan.lblEligetuPlan).isCurrentlyVisible() == false && contador < 8) {
+                util.esperarSegundos(1);
+                contador++;
+            }
+            util.esperarElementoVisible(7, objEligeTuPlan.lblEligetuPlan);
+            util.esperarElemento(5, objEligeTuPlan.btnVial);
+            element(objEligeTuPlan.btnVial).click();
+            int intentos = 0;
+            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && intentos < 6) {
+                util.mobileSwipeScreenAndroidFinal();
+                contador++;
+            }
+            Serenity.takeScreenshot();
+            element(objEligeTuPlan.btnContinuar).click();
+        }catch(Exception e){
+            Serenity.takeScreenshot();
+            throw new IllegalAccessError("No se encuentra plan Vial");
         }
-        element(objEligeTuPlan.btnContinuar).click();
     }
 
-    public void planVial(){
-        int contador=0;
-        util.esperarElemento(5,objEligeTuPlan.btnVial);
-        element(objEligeTuPlan.btnVial).click();
-        while(element(objEligeTuPlan.btnContinuar).isCurrentlyVisible()==false && contador<6){
-            util.mobileSwipeScreenAndroidFinal();
-            contador++;
+    public void planPlus() throws Exception {
+        try {
+            int contador = 0;
+            while (element(objEligeTuPlan.lblEligetuPlan).isCurrentlyVisible() == false && contador < 8) {
+                util.esperarSegundos(1);
+                contador++;
+            }
+            util.esperarElementoVisible(7, objEligeTuPlan.lblEligetuPlan);
+            util.esperarElemento(5, objEligeTuPlan.btnPlus);
+            element(objEligeTuPlan.btnPlus).click();
+            int intentos=0;
+            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && intentos < 6) {
+                util.mobileSwipeScreenAndroidFinal();
+                contador++;
+            }
+            Serenity.takeScreenshot();
+            element(objEligeTuPlan.btnContinuar).click();
+        }catch(Exception e){
+            Serenity.takeScreenshot();
+            throw new IllegalAccessError("No se encuentra plan Plus");
         }
-        Serenity.takeScreenshot();
-        element(objEligeTuPlan.btnContinuar).click();
     }
 
     public void validaPlan() throws Exception{
-        util.esperarElementoVisible(20,objSoatDosMinutos.lblTitle);
+        util.esperarElementoVisible(10,objSoatDosMinutos.lblTitle);
         int contador=0;
         while(element(objEligeTuPlan.btnContinuar).isCurrentlyVisible()==false && contador<6){
             util.mobileSwipeScreenAndroidFinal();

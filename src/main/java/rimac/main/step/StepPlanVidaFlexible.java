@@ -47,4 +47,11 @@ public class StepPlanVidaFlexible {
     public void se_valida_mensaje_de_inactividad_desde_Consulta_Poliza(){
         scTuSesionExpiro.validacion_mensaje_TimeOut();
     }
+
+    public void desde_home_ver_detalle_vida_flexible() {
+        schome.seleccionaSegurosHome();
+    }
+
+    public void ir_EstadoCuenta_vida_Flexible() {
+    }
 }

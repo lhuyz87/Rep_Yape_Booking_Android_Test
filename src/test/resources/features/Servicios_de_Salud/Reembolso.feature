@@ -1,8 +1,7 @@
 #Author: Luis Retamozo
-@ModuloServiciosDeSalud_4_16
 Feature: Servicios de Salud - Reembolso
 
-  @reembolsoSaludSinBeneficiarioDesdeMenuTramites
+  @reembolsoSaludSinBeneficiarioDesdeMenuTramites @ModuloServiciosDeSalud_4_16
   Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas sin beneficiarios desde menu Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -21,7 +20,7 @@ Feature: Servicios de Salud - Reembolso
     ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiarioTramite
       | 0 | tipoID | id | password | productoContratante  | lugarAtencion | tipoCobertura |
 
-  @reembolsoSaludConBeneficiariosDesdeMenuTramites
+  @reembolsoSaludConBeneficiariosDesdeMenuTramites @ModuloServiciosDeSalud_4_16
   Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas con beneficiarios desde Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -41,7 +40,7 @@ Feature: Servicios de Salud - Reembolso
      ###DATOS###@ServiciosSalud|1@reembolsoConBeneficiarioTramite
       | 0 | tipoID | id | password | productoContratante | paciente | lugarAtencion | tipoCobertura |
 
-  @reembolsoOdontologicoDesdeMenuTramites
+  @reembolsoOdontologicoDesdeMenuTramites @ModuloServiciosDeSalud_4_16
   Scenario Outline: Realizar solicitud de reembolso cliente con cobertura odontologica con beneficiarios desde menu Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -60,7 +59,7 @@ Feature: Servicios de Salud - Reembolso
     ###DATOS###@ServiciosSalud|1@reembolsoOdontologicoDesdeMenuT
       |0|tipoID| id  | password| productoContratante               | paciente                               | lugarAtencion | tipoCobertura |tipoTratamiento |
 
-  @reembolsoSaludSinBeneficiarioaDesdeMenuInicio
+  @reembolsoSaludSinBeneficiarioaDesdeMenuInicio @ModuloServiciosDeSalud_4_16
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde menu Inicio
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -82,7 +81,7 @@ Feature: Servicios de Salud - Reembolso
     ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiarioInicio
       |0|tipoID| id  | password| productoContratante               | lugarAtencion                               | tipoCobertura |
 
-  @reembolsoSaludSinBeneficiariosDesdeSeguros
+  @reembolsoSaludSinBeneficiariosDesdeSeguros @ModuloServiciosDeSalud_4_16
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde detalle de seguro salud
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -99,7 +98,7 @@ Feature: Servicios de Salud - Reembolso
     ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiariosSeguro
       |0|tipoID| id       | password  | seguro             | productoContratante                         | lugarAtencion |tipoCobertura |
 
-  @TiempoInactividadServiciodeSalud
+  @TiempoInactividadServiciodeSalud @TiempoInactAndroid
   Scenario Outline: Esperar 15 min de inactividad en el modulo Servicio de salud
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

@@ -13,14 +13,13 @@ public class DefVentaSOAT {
 
     @Steps
     StepVentaSOAT stepVentaSOAT;
-    @Steps
-    StepMediosdePago stepAgregarMedioPago;
 
     @When("ingreso mis datos bancarios {string},{string} y {string} para generar la compra del SOAT para el vehiculo {string}")
     public void ingresoMisDatosBancariosYParaGenerarLaCompraDelSOATParaElVehiculo(String numTarjeta, String cvv, String fecha, String placa) throws Exception {
         stepVentaSOAT.seleccionarTienda();
         stepVentaSOAT.empezarSoatDosMinutos(placa);
         stepVentaSOAT.eligePlanDigital();
+        stepVentaSOAT.actualizaDatos();
         stepVentaSOAT.agregarTarjeta(numTarjeta,cvv,fecha);
     }
 
@@ -29,6 +28,7 @@ public class DefVentaSOAT {
         stepVentaSOAT.seleccionarTienda();
         stepVentaSOAT.empezarSoatDosMinutos(placa);
         stepVentaSOAT.eligePlanVial();
+        stepVentaSOAT.actualizaDatos();
         stepVentaSOAT.agregarTarjeta(numTarjeta,cvv,fecha);
     }
 
@@ -53,5 +53,27 @@ public class DefVentaSOAT {
     @Then("se valida el mensaje para retornar al Login desde la pantalla de confirmación de compra")
     public void seValidaElMensajeParaRetornarAlLoginDesdeLaPantallaDeConfirmaciónDeCompra() {
         stepVentaSOAT.se_valida_mensaje_de_inactividad();
+    }
+
+    @When("ingreso los datos del adicionales vehiculo")
+    public void ingresoLosDatosDelAdicionalesVehiculo() {
+    }
+
+    @When("ingreso mis datos bancarios {string},{string} y {string} para generar la compra del plan vial para el vehiculo {string}")
+    public void ingresoMisDatosBancariosYParaGenerarLaCompraDelPlanVialParaElVehiculo(String numTarjeta, String cvv, String fecha, String placa) throws Exception {
+        stepVentaSOAT.seleccionarTienda();
+        stepVentaSOAT.empezarSoatDosMinutos(placa);
+        stepVentaSOAT.eligePlanVial();
+        stepVentaSOAT.actualizaDatos();
+        stepVentaSOAT.agregarTarjeta(numTarjeta,cvv,fecha);
+    }
+
+    @When("ingreso mis datos bancarios {string},{string} y {string} para generar la compra del plan plus para el vehiculo {string}")
+    public void ingresoMisDatosBancariosYParaGenerarLaCompraDelPlanPlusParaElVehiculo(String numTarjeta, String cvv, String fecha, String placa) throws Exception {
+        stepVentaSOAT.seleccionarTienda();
+        stepVentaSOAT.empezarSoatDosMinutos(placa);
+        stepVentaSOAT.eligePlanPlus();
+        stepVentaSOAT.actualizaDatos();
+        stepVentaSOAT.agregarTarjeta(numTarjeta,cvv,fecha);
     }
 }

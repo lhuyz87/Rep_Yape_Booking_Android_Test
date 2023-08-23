@@ -22,7 +22,7 @@ public class ScDocRequeridosReembolsoSalud extends BaseDriver{
 
 private long wdwTimeOut = 300L;
 	
-	protected ObjDocRequeridosReembolsoSalud docRequeridosReembolsoSaludObject = ObjDocRequeridosReembolsoSalud.getInstancia();
+	protected ObjDocRequeridosReembolsoSalud objDocRequeridosReembolsoSalud = ObjDocRequeridosReembolsoSalud.getInstancia();
 
 	// util
 	public static Logger looger = Logger.getLogger(ScDocRequeridosReembolsoSalud.class.getName());
@@ -34,26 +34,55 @@ private long wdwTimeOut = 300L;
 	UtilApp util = new UtilApp();
 	AppiumDriver driver;
 	
-	public void continuarDocRequeridos() {
+	public void continuarDocRequeridos() throws Exception {
 		
-		looger.info("Inicia los documentos Requeridos");
+		looger.info("Cargar documentos");
 		util.esperarSegundos(3);
-		try {
-			util.esperarElementoClick(3, docRequeridosReembolsoSaludObject.btnContinuar);
-		}catch(Exception e){
-			System.out.println(e.getMessage());
+		util.esperarElementoVisible(5, objDocRequeridosReembolsoSalud.lblCargaDocumentos);
+	}
+
+	public void ingresar_factura() throws Exception {
+		int contador=0;
+		while(element(objDocRequeridosReembolsoSalud.btnCargarFactura).isCurrentlyVisible()==false && contador<5){
+			util.mobileSwipeScreenAndroid();
+			contador++;
 		}
-		
-		looger.info("Se muestra boton Continuar");
-		util.esperarSegundos(3);
-		element(docRequeridosReembolsoSaludObject.btnContinuar).click();
-//		try {
-//			Thread.sleep(8000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
+		element(objDocRequeridosReembolsoSalud.btnCargarFactura).click();
+		util.esperarElementoVisible(5, objDocRequeridosReembolsoSalud.btnEntendidoComprobantes);
+		element(objDocRequeridosReembolsoSalud.btnEntendidoComprobantes).click();
+	}
+
+	public void ingresar_receta() throws Exception {
+		int contador=0;
+		while(element(objDocRequeridosReembolsoSalud.btnCargarReceta).isCurrentlyVisible()==false && contador<5){
+			util.mobileSwipeScreenAndroid();
+			contador++;
+		}
+		element(objDocRequeridosReembolsoSalud.btnCargarReceta).click();
+		util.esperarElementoVisible(5, objDocRequeridosReembolsoSalud.btnEntendidoSustenta);
+		element(objDocRequeridosReembolsoSalud.btnEntendidoSustenta).click();
+	}
+
+	public void ingresar_solicitud_reemb_odontologico() throws Exception {
+		int contador=0;
+		while(element(objDocRequeridosReembolsoSalud.btnCargarReembOdon).isCurrentlyVisible()==false && contador<7){
+			util.mobileSwipeScreenAndroid();
+			contador++;
+		}
+		element(objDocRequeridosReembolsoSalud.btnCargarReembOdon).click();
+		util.esperarElementoVisible(5, objDocRequeridosReembolsoSalud.btnEntendidoSustenta);
+		element(objDocRequeridosReembolsoSalud.btnEntendidoSustenta).click();
+	}
+
+	public void ingresar_orden_medica() throws Exception {
+		int contador=0;
+		while(element(objDocRequeridosReembolsoSalud.btnOrdenMedica).isCurrentlyVisible()==false && contador<7){
+			util.mobileSwipeScreenAndroid();
+			contador++;
+		}
+		element(objDocRequeridosReembolsoSalud.btnOrdenMedica).click();
+		util.esperarElementoVisible(5, objDocRequeridosReembolsoSalud.btnEntendidoSustenta);
+		element(objDocRequeridosReembolsoSalud.btnEntendidoSustenta).click();
 	}
 	
 }

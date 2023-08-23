@@ -40,4 +40,7 @@ public class ObjEligeTuPlan extends BaseDriver {
     @AndroidFindBy(xpath = "//*[@text='Vial']")
     public WebElement btnVial;
 
+    @AndroidFindBy(xpath = "//*[@text='Plus']")
+    public WebElement btnPlus;
+
 }

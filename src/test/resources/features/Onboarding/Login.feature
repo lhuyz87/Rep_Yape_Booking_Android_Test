@@ -1,7 +1,7 @@
 #Author: your.email@your.domain.com
 Feature: Onboarding - Login
 
-  @Login @ModuloOnboardingFuncional_1_4
+  @Login @ModuloOnboardingFuncional_2_4
   Scenario Outline: Realizar Login Exitoso en Mundo Rimac
     Given realiza el login con credenciales "<tipoID>", "<id>" y "<password>"
 
@@ -22,7 +22,7 @@ Feature: Onboarding - Login
       | tipoID | id       | fechaNacimiento | seguros |
       | DNI    | 10667872 | 08/01/1978      | SOAT    |
 
-    @ValidaVersionMinimaRequerida @ModuloOnboardingNoFuncional1_1_1
+  @ValidaVersionMinimaRequerida @ModuloOnboardingNoFuncional1_1_1
   Scenario: Valida version minima requerida
     Given Se ingresa a la aplicación con una versión menor a la minima requerida
     Then se debe mostar mensaje informativo "Tu App RIMAC necesita actualizarse"
@@ -35,11 +35,16 @@ Feature: Onboarding - Login
     Then  se debe mostar mensaje informativo "Tu App RIMAC necesita actualizarse"
     And seleccionamos opción "Mas tarde"
     And debe permitir el ingreso a la aplicación
-    
 
 
-    
-    
-    
-    
-    
+  @TiempoInactividadOnboarding @TiempoInactAndroid
+  Scenario Outline: Ejecutar los Procesos por Modulo y esperar 15 min y validar el regreso al login por inactividad
+    Given realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
+    And se mantiene inactiva la sesión en el módulo onboarding
+    Then se valida el mensaje para retornar al Login desde el home
+
+    Examples:
+    ###DATOS###@Onboarding|1@Login
+      | 0 | tipoID | id | password |

@@ -21,14 +21,14 @@ public class ScPagos extends BaseDriver {
     }
     UtilApp util = UtilApp.getInstancia();
     protected ObjPagos objPagos = ObjPagos.getInstancia();
+    protected ObjCommons objCommons= ObjCommons.getInstancia();
     protected ObjCuotasPagar objCuotasPagar = ObjCuotasPagar.getInstancia();
     protected ObjMediodePago objMediodePago = ObjMediodePago.getInstancia();
     protected ObjAfiliarPago objAfiliarPago= ObjAfiliarPago.getInstancia();
-    protected ObjCommons objCommons = ObjCommons.getInstancia();
+
 
 
     public void irMediosPago(){
-        util.esperarElemento(4,objPagos.lblMetodoPago);
         int contador=0;
         Dimension dimension = appiumDriver().manage().window().getSize();
         Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.9));
@@ -58,23 +58,27 @@ public class ScPagos extends BaseDriver {
     }
 
     public void irAfiliarTarjeta(){
-        util.esperarElemento(4,objPagos.lblMetodoPago);
+        util.esperarSegundos(2);
         int contador=0;
         Dimension dimension = appiumDriver().manage().window().getSize();
         Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.9));
         Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
         while(element(objPagos.lnkAfiliarTarjeta).isCurrentlyVisible()==false && contador<7){
+            if(element(objPagos.lnkCambiarTarjeta).isCurrentlyVisible()){
+                break;
+            }
             util.doSwipe(appiumDriver(), start, end, 1000);
             contador++;
         }
-        element(objPagos.lnkAfiliarTarjeta).click();
-        new WebDriverWait(androidDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOf(objAfiliarPago.lblAfiliarPago));
+        if(element(objPagos.lnkAfiliarTarjeta).isCurrentlyVisible()){
+            element(objPagos.lnkAfiliarTarjeta).click();
+        }else{
+            element(objPagos.lnkCambiarTarjeta).click();
+        }
     }
 
     public void irHistorialPagos(){
         util.esperarSegundos(1);
-        util.esperarElemento(4,objPagos.lblMetodoPago);
         int contador=0;
         Dimension dimension = appiumDriver().manage().window().getSize();
         Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.9));
@@ -123,7 +127,17 @@ public class ScPagos extends BaseDriver {
         element(objPagos.chkCuota1).click();
         element(objPagos.btnIniciarPago).click();
     }
+    public boolean validarCronograma(){
+        util.esperarVisibilityElement(androidDriver(),objPagos.lblCuotasAPagar,5);
+        boolean existeCronograma= element(objPagos.chkCuota1).isCurrentlyVisible();
+        return existeCronograma;
+    }
 
+    public boolean validarHistorial(){
+        util.esperarVisibilityElement(androidDriver(),objPagos.lblConsultaTusPagos,5);
+        boolean existeHistorial= element(objPagos.lblHistorial).isCurrentlyVisible();
+        return existeHistorial;
+    }
     public boolean obtener_mensaje_confirmacion() {
         try {
             util.esperarElementoVisible(10,objPagos.titHemosRecibidosuPago);
@@ -131,6 +145,10 @@ public class ScPagos extends BaseDriver {
             Serenity.takeScreenshot();
             util.esperarElementoVisible(5,objPagos.btnIrAInicio);
             element(objPagos.btnIrAInicio).click();
+            util.esperarSegundos(2);
+            if(element(objCommons.btnCerrarmodal).isCurrentlyVisible()){
+                element(objCommons.btnCerrarmodal).click();
+            }
             return solicitudExiste;
 
         } catch (Exception e) {
@@ -169,6 +187,5 @@ public class ScPagos extends BaseDriver {
             Serenity.takeScreenshot();
         }
     }
-
 
 }

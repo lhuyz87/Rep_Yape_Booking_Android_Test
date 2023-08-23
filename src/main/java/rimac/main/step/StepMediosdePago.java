@@ -1,5 +1,4 @@
 package rimac.main.step;
-
 import net.thucydides.core.annotations.Steps;
 import rimac.main.screen.*;
 import rimac.main.util.ConstantesDummy;
@@ -17,6 +16,8 @@ public class StepMediosdePago {
     ScMediosDePago scMediosDePago;
     @Steps
     ScPagos scPagos;
+    @Steps
+    ScAlertas scAlertas;
     @Steps
     ScConsultaTusPagos scConsultaTusPagos;
     @Steps
@@ -53,7 +54,7 @@ public class StepMediosdePago {
         mmaa.append(fecha.substring(3,5));
         scMediosDePago.agregarTarjetaNueva();
         scMediosDePago.ingresarDatosTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
-        scMediosDePago.pagar();
+        scMediosDePago.guardarTarjeta();
         scMediosDePago.esperarListadoTarjetas();
     }
 
@@ -80,7 +81,7 @@ public class StepMediosdePago {
         return scMediosDePago.validarEliminarTarjeta(numTarjeta);
     }
 
-    public String validarMensajeAfiliacion(){
+    public boolean validarMensajeAfiliacion(){
         return scMediosDePago.validarAfiliacion();
     }
     public void iraPagos(){
@@ -94,7 +95,7 @@ public class StepMediosdePago {
         scConsultaTusPagos.descargar_historial();
     }
     public boolean validar_historial(){
-        return scConsultaTusPagos.validacion_pdf();
+        return scConsultaTusPagos.validacion_descarga();
     }
 
     public void ver_detalle_SOAT(){
@@ -110,6 +111,7 @@ public class StepMediosdePago {
         scTuSesionExpiro.validacion_mensaje_TimeOut();
     }
     public void irCuotasaPagar_desde_tab_pagos(String placa) throws Exception {
+        scAlertas.omitirAlertas(5);
         scHome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
         scTusSeguros.seleccionar_Placa(placa);
@@ -134,14 +136,14 @@ public class StepMediosdePago {
         scPerfil.irMediosDePago();
     }
 
-    public void anadirTarjeta(String numTarjeta, String cvv, String fecha) throws Exception {
+    public void anadirTarjetaFuturosPagos(String numTarjeta, String cvv, String fecha) throws Exception {
         String nombre = ConstantesDummy.nombre;
         String apellido = ConstantesDummy.apellido;
         String correo = ConstantesDummy.correo;
         StringBuilder mmaa = new StringBuilder(fecha.substring(0,2));
         mmaa.append(fecha.substring(3,5));
         scMediosDePago.ingresarDatosTarjeta(numTarjeta, nombre,apellido,mmaa,cvv,correo);
-        scMediosDePago.guardarTarjeta();
+        scMediosDePago.guardarFuturosPagos();
         scMediosDePago.pagar();
     }
     public void seleccionaPagos() throws Exception {

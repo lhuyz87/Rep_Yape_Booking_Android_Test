@@ -1,7 +1,6 @@
-@ModuloServiciosSoat_1_5
 Feature:Servicios de SOAT
 
-  @TiempoInactividadServiciosSOAT
+  @TiempoInactividadServiciosSOAT @TiempoInactAndroid
   Scenario Outline: Esperar 15 min de inactividad en el modulo Servicios de SOAT
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

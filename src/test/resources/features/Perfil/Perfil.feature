@@ -1,8 +1,6 @@
-@ModuloPerfil_1_5
 Feature: Perfil
 
-  @TiempoInactividadPerfil
-
+  @TiempoInactividadPerfil @TiempoInactAndroid
   Scenario Outline: Esperar 15 min de inactividad en el modulo Perfil
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

@@ -39,6 +39,9 @@ public class StepLogin {
 	ScPerfil scPerfil;
 
 	@Steps
+	ScTuSesionExpiro scTuSesionExpiro;
+
+	@Steps
 	ScTuContraCambiaConExito scTuContraCambiaConExito;
 	public static Logger looger = Logger.getLogger(ScLogin.class.getName());
 	
@@ -130,6 +133,14 @@ public class StepLogin {
 	public void cerrarSesion(){
 		scHome.seleccionarOpcionPrincipal("Perfil");
 		scPerfil.cerrarSesion();
+	}
+
+	public void se_mantiene_la_inactividad_onboarding() throws InterruptedException {
+		scAlertas.omitirAlertas(10);
+		scTuSesionExpiro.inactividad_del_modulo();
+	}
+	public void se_valida_mensaje_de_inactividad(){
+		scTuSesionExpiro.validacion_mensaje_TimeOut();
 	}
 	
 }

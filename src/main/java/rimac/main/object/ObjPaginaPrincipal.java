@@ -69,5 +69,17 @@ public class ObjPaginaPrincipal extends BaseDriver{
 		WebElement we_MontoReembolso = appiumDriver().findElement(By.ByXPath.xpath("//*[@text='Gasto: S/ "+monto+"']"));
 		return we_MontoReembolso;
 	}
-	
+	@AndroidFindBy(xpath = "//*[@text='Conoce más']//ancestor::*[2]")
+	public WebElement btnSoatHome;
+
+	@AndroidFindBy(xpath = "//*[@text='Plan Vida Flexible']//following-sibling::android.widget.Button")
+	public WebElement btnPlanVidaFlexibleHo;
+
+	@AndroidFindBy(xpath = "(//*[@text='Ver detalle'])[1]")
+	public WebElement btnVerDetalleHome1;
+
+	@AndroidFindBy(xpath = "(//*[@text='Ver detalle'])[2]")
+	public WebElement btnVerDetalleHome2;
+
+
 }

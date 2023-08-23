@@ -1,5 +1,4 @@
 package rimac.main.screen;
-
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
@@ -8,7 +7,6 @@ import rimac.main.object.ObjCommons;
 import rimac.main.object.ObjConsultaTusPagos;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.UtilApp;
-
 import java.util.NoSuchElementException;
 
 public class ScConsultaTusPagos extends BaseDriver {
@@ -20,23 +18,31 @@ public class ScConsultaTusPagos extends BaseDriver {
     public void descargar_historial() {
         util.esperarElemento(10, objConsultaTusPagos.btnDescargaHistorial);
         element(objConsultaTusPagos.btnDescargaHistorial).click();
+        util.esperarElemento(10, objConsultaTusPagos.btnDescargaHistorial);
         Serenity.takeScreenshot();
     }
 
-    public boolean validacion_pdf() {
-        util.esperarElemento(8, objConsultaTusPagos.btnDownload);
-        int intentos = 0;
-
+    public boolean validacion_descarga(){
         boolean existePdf = false;
-        while (element(objConsultaTusPagos.btnDownload).isCurrentlyVisible() && intentos < 5) {
-            intentos++;
+        int contador = 0;
+        while(contador<9){
+            try{
+                element(objConsultaTusPagos.btnDescargaHistorial).click();
+                if(element(objConsultaTusPagos.btnAbrir).isCurrentlyVisible()){
+                    element(objConsultaTusPagos.btnAbrir).click();
+                    existePdf = true;
+                    break;
+                 }
+            }catch(Exception e){
+
+            }
+            contador++;
         }
-        existePdf = element(objConsultaTusPagos.btnAbrir).isCurrentlyVisible();
-        try{
-            element(objConsultaTusPagos.btnDescargaHistorial).click();
-            util.esperarElementoVisible(5,objConsultaTusPagos.btnAbrir);
-            element(objConsultaTusPagos.btnAbrir).click();
-        }catch(Exception e){
+        if(element(objConsultaTusPagos.btnDocuments).isCurrentlyVisible()){
+            element(objConsultaTusPagos.btnDocuments).click();
+        }
+        if(element(objCommons.btnAllow).isCurrentlyVisible()){
+            element(objCommons.btnAllow).click();
         }
         Serenity.takeScreenshot();
         return existePdf;
@@ -49,7 +55,7 @@ public class ScConsultaTusPagos extends BaseDriver {
             Point start = new Point((int) (dimension.width * 0.5), (int) (dimension.height * 0.9));
             Point end = new Point((int) (dimension.width * 0.5), (int) (dimension.height * 0.5));
             int contador = 0;
-            util.esperarElemento(10, objConsultaTusPagos.btnDescargaHistorial);
+            util.esperarElemento(5, objConsultaTusPagos.btnDescargaHistorial);
             while (contador < 4) {
                 util.doSwipe(appiumDriver(), start, end, 1000);
                 contador++;

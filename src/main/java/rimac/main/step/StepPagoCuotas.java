@@ -10,6 +10,8 @@ public class StepPagoCuotas {
     @Steps
     ScHome scHome;
     @Steps
+    ScPerfil scPerfil;
+    @Steps
     ScSoat scSoat;
     @Steps
     ScTusSeguros scTusSeguros;
@@ -35,7 +37,8 @@ public class StepPagoCuotas {
     }
 
     public void pagarConTarjetaAsociada() throws Exception {
-        scMediosDePago.pagarTarjetaAsociada();
+        String correo= ConstantesDummy.correo;
+        scMediosDePago.pagarTarjetaAsociada(correo);
     }
 
     public void pagarSinTarjetaAsociada(String numTarjeta, String cvv, String fecha) throws Exception {
@@ -79,4 +82,14 @@ public class StepPagoCuotas {
     public boolean obtiene_mensaje_detallePago() {
         return scSoat.obtener_mensaje_detallePago();
     }
+
+    public void irMedioPago_desde_regresoPerfil() {
+        scMediosDePago.regresarSelecOpcionPerfil();
+        scPerfil.irMediosDePago();
+    }
+    public void eliminarTarjeta(String numTarjeta){
+        scMediosDePago.eliminarTarjeta(numTarjeta);
+    }
+
+
 }

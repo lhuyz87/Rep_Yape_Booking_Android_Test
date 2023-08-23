@@ -48,14 +48,25 @@ public class ObjMediodePago extends BaseDriver {
         WebElement we_opcTarjeta = appiumDriver().findElement(AppiumBy.xpath("//*[@text= '**** "+ultimosNumerosTarjeta+"']"));
         return  we_opcTarjeta;
     }
+
+    public List<WebElement> opcTarjetaSinSeguros(String numTarjeta) {
+        String ultimosNumerosTarjeta=numTarjeta.substring(12,16);
+        List<WebElement> we_opcTarjeta1 = appiumDriver().findElements(AppiumBy.xpath("//*[@text='Ningún seguro asociado']//parent::android.view.ViewGroup//preceding-sibling::android.widget.TextView[@text='**** "+ultimosNumerosTarjeta+"']"));
+        return  we_opcTarjeta1;
+    }
+
+    public WebElement opcTarjetaSinSeguros2 (String numTarjeta) {
+        String ultimosNumerosTarjeta=numTarjeta.substring(12,16);
+        WebElement we_opcTarjeta1 = appiumDriver().findElement(AppiumBy.xpath("//*[@text='Ningún seguro asociado']//parent::android.view.ViewGroup//preceding-sibling::android.widget.TextView[@text='**** "+ultimosNumerosTarjeta+"']"));
+        return  we_opcTarjeta1;
+    }
+
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/card_option_trash")
     public WebElement btnEliminarTarjeta;
 
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/bottom_sheet_negative_button")
     public WebElement btnSiEliminar;
 
-      /*@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/button")
-    public WebElement btnSiEliminar;*/
 
     @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/toolbarMethodPay']//following-sibling::android.widget.ImageButton")
     public WebElement btnVolver;
@@ -86,5 +97,11 @@ public class ObjMediodePago extends BaseDriver {
 
     @AndroidFindBy(xpath="//*[@text='Pagar']")
     public WebElement btnPagar;
+
+    @AndroidFindBy(id="com.rimac.rimac_surrogas.qa:id/bodyEt")
+    public WebElement txtCorreo;
+
+    @AndroidFindBy(id="com.rimac.rimac_surrogas.qa:id/materialBtn")
+    public WebElement btnContinuar;
 
 }

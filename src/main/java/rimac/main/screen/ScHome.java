@@ -77,7 +77,6 @@ public class ScHome extends BaseDriver{
 		case "Tienda":
 			util.esperarElemento(10, objectPrincipal.btnTienda);
 			element(objectPrincipal.btnTienda).click();
-			util.esperarElemento(5, objTienda.lblDescripcion);
 			break;
 			
 		case "Perfil":
@@ -222,5 +221,36 @@ public class ScHome extends BaseDriver{
 
 
 	}
-	
+	public void seleccionaSoatDosMinutos() {
+		try {
+			int contador = 0;
+			while(element(objectPrincipal.btnSoatHome).isCurrentlyVisible()==false && contador<5){
+				util.mobileSwipeScreenAndroidFinal();
+				contador ++;
+			}
+			int ybtnPerfil=objectPrincipal.btnPerfil.getLocation().getY();
+			if ((ybtnPerfil-150) < objectPrincipal.btnSoatHome.getLocation().getY()) {
+				util.mobileSwipeScreenAndroid();
+			}
+			element(objectPrincipal.btnSoatHome).click();
+		} catch (Exception e) {
+			util.scrollDown(appiumDriver());
+		}
+
+	}
+	public void seleccionaSegurosHome() {
+
+		int xVerDetalle=objectPrincipal.btnVerDetalleHome1.getLocation().getX();
+		int yVerDetalle=objectPrincipal.btnVerDetalleHome1.getLocation().getY();
+		int xVerDetalle2=objectPrincipal.btnVerDetalleHome2.getLocation().getX();
+		Point start= new Point(xVerDetalle2, yVerDetalle);
+		Point end= new Point(xVerDetalle,  yVerDetalle);
+		int contador=0;
+		while(element(objectPrincipal.btnPlanVidaFlexibleHo).isCurrentlyVisible()==false && contador<9){
+			util.doSwipe(appiumDriver(), start, end, 1000);
+			contador++;
+		}
+		pageObjectUtil2.tapElement(appiumDriver(),objectPrincipal.btnPlanVidaFlexibleHo);
+		util.esperarSegundos(3);
+	}
 }

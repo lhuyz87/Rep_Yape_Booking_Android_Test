@@ -29,12 +29,11 @@ public class ScPagoConTarjeta extends BaseDriver {
         try{
             int contador=0;
             util.esperarElementoVisible(7,objPagoTarjeta.lblPagaInstante);
-            while(element(objPagoTarjeta.btnAgregaTarjeta).isCurrentlyEnabled() && contador<1){
+            while(element(objPagoTarjeta.btnAgregaTarjeta).isCurrentlyEnabled()==false && contador<7){
                 util.mobileSwipeScreenAndroid();
                 contador++;
             }
             element(objPagoTarjeta.btnAgregaTarjeta).click();
-            //ingresarDatosContacto(dni,correo,celular);
             util.esperarElementoVisible(7,objAnadirTarjeta.lblNumTarjeta);
             Serenity.takeScreenshot();
             element(objAnadirTarjeta.lblNumTarjeta).sendKeys(numtarjeta);
@@ -63,7 +62,7 @@ public class ScPagoConTarjeta extends BaseDriver {
     public String validaMensaje(){
         String mensaje="";
         try{
-            util.esperarElemento(8,objPagoTarjeta.lblCompraSoatExito);
+            util.esperarElemento(5,objPagoTarjeta.lblCompraSoatExito);
             mensaje=element(objPagoTarjeta.lblCompraSoatExito).getText();
             Serenity.takeScreenshot();
         }
