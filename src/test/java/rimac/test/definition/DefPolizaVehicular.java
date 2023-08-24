@@ -53,9 +53,9 @@ public class DefPolizaVehicular {
         stepPolizaVehicular.se_valida_numero_polizaSoat();
     }
 
-    @When("se ingresa al detalle de la {string} del seguro vehicular")
-    public void seIngresaAlDetalleDeLaDelSeguroVehicular(String placa) {
-        stepPolizaVehicular.ver_detalle_SegurosVehicularPlaca(placa);
+    @When("se ingresa al detalle de la {string} {string} del seguro vehicular")
+    public void seIngresaAlDetalleDeLaDelSeguroVehicular(String placa, String vigencia) {
+        stepPolizaVehicular.ver_detalle_SegurosVehicularPlaca(placa,vigencia);
     }
 
     @Then("se valida que muestre el historial de pago")

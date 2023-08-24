@@ -22,10 +22,10 @@ public class StepPagoCuotas {
     @Steps
     ScConsultaTusPagos scConsultaTusPagos;
 
-    public void verDetalleSeguroVehicular(String placa){
+    public void verDetalleSeguroVehicular(String placa, String vigencia){
         scHome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
-        scTusSeguros.ver_detalle_Vehicular_placa(placa);
+        scTusSeguros.ver_detalle_Vehicular_placa(placa, vigencia);
     }
 
     public void pagarCuotas() throws Exception {

@@ -92,6 +92,14 @@ public class ObjTusSeguros extends BaseDriver{
 	@AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Retroceder\"]")
 	public WebElement tbSeguroVehicular;
 
+	public WebElement verDetallePlacaVigenc(String placa, String vigencia) {
+		WebElement  we_tnPlacaSeg = appiumDriver().findElement(AppiumBy.xpath("((//*[@text='Placa: "+placa+"']//parent::*//following-sibling::*//android.widget.TextView[contains(@text, 'Vigencia hasta: "+vigencia+"')])//parent::*//following-sibling::*)[2]"));
+		return we_tnPlacaSeg;
+	}
+	public List<WebElement> verDetallePlacaVigenc2(String placa, String vigencia) {
+		List<WebElement>  we_tnPlacaSeg = appiumDriver().findElements(AppiumBy.xpath("((//*[@text='Placa: "+placa+"']//parent::*//following-sibling::*//android.widget.TextView[contains(@text, 'Vigencia hasta: "+vigencia+"')])//parent::*//following-sibling::*)[2]"));
+		return we_tnPlacaSeg;
+	}
 	public WebElement verDetalleXPlaca(String placa) {
 		WebElement  we_tnPlacaSeg = appiumDriver().findElement(AppiumBy.xpath("(//*[@text='Placa: "+placa+"']//parent::*//following-sibling::*)[3]"));
 		return we_tnPlacaSeg;
