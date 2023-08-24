@@ -37,6 +37,7 @@ Feature: Pagos
     And descargo el historial desde el tab de pagos
     Then debe mostrar el pdf con el historial de pagos
 
+
       Examples:
        ###DATOS###@Pagos|1@PagoConTarjetaAsociada
         | 0 | tipoID | id | password | placa | vigencia |
