@@ -6,7 +6,6 @@ def defTimestamp = defDateFormat.format(defDate).toString()
 
 def secrets = [
   [path: 'AutoRimac/CanalApp-auto-def-Android', engineVersion: 2, secretValues: [
-	    [envVar: 'v_appCloudActual', vaultKey: 'v_appCloudActual'],
 	    [envVar: 'v_appCloudMinRecomendada', vaultKey: 'v_appCloudMinRecomendada'],
 	    [envVar: 'v_appCloudMinRequerida', vaultKey: 'v_appCloudMinRequerida'],
 	    [envVar: 'v_SaucelabsUser', vaultKey: 'v_SaucelabsUser'],
