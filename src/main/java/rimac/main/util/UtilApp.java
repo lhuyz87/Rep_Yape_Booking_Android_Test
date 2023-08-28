@@ -187,7 +187,6 @@ public class UtilApp  extends BaseDriver{
 	}
 
 	public void esperarElementoVisible(int intentos, WebElement elemento) throws Exception {
-		try {
 			int contador=0;
 			System.out.println("Espera Elemento : "  + elemento.toString());
 			Serenity.takeScreenshot();
@@ -201,13 +200,6 @@ public class UtilApp  extends BaseDriver{
 					System.out.println("contador: " + contador + elemento);
 				}
 			}
-		}catch (NoSuchElementException e) {
-			e.printStackTrace();
-			throw new Exception("Se ha producido un error");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-			throw new Exception("Se ha producido un error");
-		}
 	}
 
 	public void esperarElementToClic(WebDriver driver, WebElement element){
