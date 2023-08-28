@@ -1,5 +1,5 @@
 #Author: Candy Espinoza
-Feature: Suscripcion de medios de pago
+Feature: Pagos
 
    @SucripcionDesdePerfil @ModuloPagos_6_7
     Scenario Outline: Suscripcion de Tarjeta desde Mi perfil opcion medios de pagos
@@ -43,7 +43,7 @@ Feature: Suscripcion de medios de pago
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
         | <tipoID> | <id> | <password> |
-      When se ingresa a Seguro Vehicular desde Seguros y se inicia el tramite "<placa>" del vehiculo
+      When se ingresa a Seguro Vehicular desde Seguros y se inicia el tramite "<placa>" "<vigencia>" del vehiculo
       And se realiza el pago añadiendo mi tarjeta "<numtarjeta>" , "<cvv>" y "<fecha>"
       #Then debe mostrar el mensaje de confirmación "Cuota pagada"
       Then debe mostrar el mensaje de confirmación ¡Hemos recibido tu pago!
@@ -51,7 +51,7 @@ Feature: Suscripcion de medios de pago
 
     Examples:
       ###DATOS###@Pagos|1@SuscripcionOpcionPagar
-      | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |
+      | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv | vigencia |
 
   @TiempoInactividadPagos @TiempoInactAndroid
   Scenario Outline: Esperar 15 min de inactividad en el modulo de pagos

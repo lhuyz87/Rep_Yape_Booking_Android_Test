@@ -17,6 +17,8 @@ public class StepMediosdePago {
     @Steps
     ScPagos scPagos;
     @Steps
+    ScAlertas scAlertas;
+    @Steps
     ScConsultaTusPagos scConsultaTusPagos;
     @Steps
     ScTuSesionExpiro scTuSesionExpiro;
@@ -108,10 +110,11 @@ public class StepMediosdePago {
     public void se_valida_mensaje_de_inactividad(){
         scTuSesionExpiro.validacion_mensaje_TimeOut();
     }
-    public void irCuotasaPagar_desde_tab_pagos(String placa) throws Exception {
+    public void irCuotasaPagar_desde_tab_pagos(String placa,String vigencia) throws Exception {
+        scAlertas.omitirAlertas(5);
         scHome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
-        scTusSeguros.seleccionar_Placa(placa);
+        scTusSeguros.ver_detalle_Vehicular_placa(placa,vigencia);
         scTusSeguros.irPagos();
         scPagos.iraPagarCuotas();
         scPagos.seleccionarCuota();

@@ -45,19 +45,19 @@ private long wdwTimeOut = 300L;
 	}
 	
 	public void llenarDatosFactura(String serie, String documento, String moneda, String monto) throws Exception {
-		util.esperarElementoClick(5, agregarNuevoDocumentoObject.txtSerieDocumento);
+		util.esperarElementoClick(8, agregarNuevoDocumentoObject.txtSerieDocumento);
 		element(agregarNuevoDocumentoObject.txtSerieDocumento).click();
 		element(agregarNuevoDocumentoObject.txtSerieDocumento).sendKeys(serie);
 		((HidesKeyboard) appiumDriver()).hideKeyboard();
 		util.mobileSwipeScreenAndroid();
-		util.esperarElementoVisible(3,agregarNuevoDocumentoObject.txtNroDocumento);
+		util.esperarElementoVisible(8,agregarNuevoDocumentoObject.txtNroDocumento);
 		element(agregarNuevoDocumentoObject.txtNroDocumento).click();
 		element(agregarNuevoDocumentoObject.txtNroDocumento).sendKeys(documento);
 		((HidesKeyboard) appiumDriver()).hideKeyboard();
-		util.esperarElementoVisible(3,agregarNuevoDocumentoObject.lstMoneda);
+		util.esperarElementoVisible(8,agregarNuevoDocumentoObject.lstMoneda);
 		element(agregarNuevoDocumentoObject.lstMoneda).click();
 		element(agregarNuevoDocumentoObject.getMoneda(appiumDriver(), moneda)).click();
-		util.esperarElementoVisible(3,agregarNuevoDocumentoObject.txtMonto);
+		util.esperarElementoVisible(8,agregarNuevoDocumentoObject.txtMonto);
 		element(agregarNuevoDocumentoObject.txtMonto).click();
 		element(agregarNuevoDocumentoObject.txtMonto).sendKeys(monto);
 		((HidesKeyboard) appiumDriver()).hideKeyboard();

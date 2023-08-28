@@ -67,9 +67,9 @@ public class DefMediosdePago {
     public void seValidaElMensajeParaRetornarAlLoginDesdeElMóduloDePagos() {
         stepAgregarMedioPago.se_valida_mensaje_de_inactividad();
     }
-    @When("se ingresa a Seguro Vehicular desde Seguros y se inicia el tramite {string} del vehiculo")
-    public void seIngresaASeguroVehicularDesdeSegurosYSeIniciaElTramiteDelVehiculo(String placa) throws Exception {
-        stepAgregarMedioPago.irCuotasaPagar_desde_tab_pagos(placa);
+    @When("se ingresa a Seguro Vehicular desde Seguros y se inicia el tramite {string} {string} del vehiculo")
+    public void seIngresaASeguroVehicularDesdeSegurosYSeIniciaElTramiteDelVehiculo(String placa, String vigencia) throws Exception {
+        stepAgregarMedioPago.irCuotasaPagar_desde_tab_pagos(placa,vigencia);
     }
 
 

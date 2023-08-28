@@ -64,18 +64,18 @@ public class ScTusSeguros extends BaseDriver{
 	}
 
 	public void ver_detalle_seguro(String seguro){
-		Dimension dimension = appiumDriver().manage().window().getSize();
-		Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
-		Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
-		int contador = 0;
-		while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
-			util.mobileSwipeScreenAndroid();
-			contador++;
-		}
-		int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-		if ((ybtnPerfil-150) < objTusSeguros.opcSeguro(seguro).getLocation().getY()) {
-			util.doSwipe(appiumDriver(), start, end, 500);
-		}
+			int contador = 0;
+			Dimension dimension = appiumDriver().manage().window().getSize();
+			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+			while (element(objTusSeguros.opcSeguro(seguro)).isCurrentlyVisible() == false && contador < 8) {
+				util.mobileSwipeScreenAndroid();
+				contador++;
+			}
+			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
+			if ((ybtnPerfil-150) < objTusSeguros.opcSeguro(seguro).getLocation().getY()) {
+				util.doSwipe(appiumDriver(), start, end, 500);
+			}
 		element(objTusSeguros.opcSeguro(seguro)).click();
 	}
 	public void ver_detalle_Vehicular(String seguro){
@@ -107,7 +107,7 @@ public class ScTusSeguros extends BaseDriver{
 		}
 	}
 
-	public void ver_detalle_Vehicular_placa(String placa){
+	public void ver_detalle_Vehicular_placa(String placa, String vigencia){
 		try {
 			int contador = 0;
 			if(element(objTusSeguros.btnTodos).isCurrentlyVisible()){
@@ -124,13 +124,13 @@ public class ScTusSeguros extends BaseDriver{
 
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
 			while (contador < 12) {
-				if(objTusSeguros.verDetalleXPlaca2(placa).size()!=0){
+				if(objTusSeguros.verDetallePlacaVigenc2(placa,vigencia).size()!=0){
 					break;
 				}
 				util.mobileSwipeScreenAndroid();
 				contador++;
 			}
-			if ((ybtnPerfil-150) < objTusSeguros.verDetalleXPlaca(placa).getLocation().getY()) {
+			if ((ybtnPerfil-150) < objTusSeguros.verDetallePlacaVigenc(placa,vigencia).getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();
@@ -313,7 +313,7 @@ public class ScTusSeguros extends BaseDriver{
 		Dimension dimension = appiumDriver().manage().window().getSize();
 		Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
 		Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
-
+		int contador=0;
 		int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
 		while (contador < 8) {
 			if(objTusSeguros.verDetalleXPlaca2(placa).size()!=0){
@@ -327,7 +327,6 @@ public class ScTusSeguros extends BaseDriver{
 		}
 		Serenity.takeScreenshot();
 		element(objTusSeguros.verDetalleXPlaca(placa)).click();
-			System.out.println("objTusSeguros.verDetalleXPlaca(placa)");
 		}catch(NoSuchElementException e){
 		throw new IllegalAccessError("No se encontró placa");
 		}

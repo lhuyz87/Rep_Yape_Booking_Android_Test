@@ -17,16 +17,16 @@ public class DefPagoCuotas {
     @Steps
     StepPagoCuotas stepPagoCuotas;
 
-    @When("se realiza el pago del seguro vehicular de la {string} del vehiculo")
-    public void seRealizaElPagoDelSeguroVehicularDeLaDelVehiculo(String placa) throws Exception {
-        stepPagoCuotas.verDetalleSeguroVehicular(placa);
+    @When("se realiza el pago del seguro vehicular de la {string} {string} del vehiculo")
+    public void seRealizaElPagoDelSeguroVehicularDeLaDelVehiculo(String placa, String vigencia) throws Exception {
+        stepPagoCuotas.verDetalleSeguroVehicular(placa, vigencia);
         stepPagoCuotas.pagarCuotas();
         stepPagoCuotas.pagarConTarjetaAsociada();
     }
 
-    @When("se realiza el pago del seguro vehicular de la {string} del vehiculo con la tarjeta {string} , {string} y {string}")
-    public void seRealizaElPagoDelSeguroVehicularDeLaDelVehiculoConLaTarjetaY(String placa, String numTarjeta, String cvv, String fecha) throws Exception {
-        stepPagoCuotas.verDetalleSeguroVehicular(placa);
+    @When("se realiza el pago del seguro vehicular de la {string} {string} del vehiculo con la tarjeta {string} , {string} y {string}")
+    public void seRealizaElPagoDelSeguroVehicularDeLaDelVehiculoConLaTarjetaY(String placa,String vigencia, String numTarjeta, String cvv, String fecha) throws Exception {
+        stepPagoCuotas.verDetalleSeguroVehicular(placa,vigencia);
         stepPagoCuotas.pagarCuotas();
         stepPagoCuotas.pagarSinTarjetaAsociada(numTarjeta,cvv,fecha);
     }
@@ -43,9 +43,9 @@ public class DefPagoCuotas {
         assertEquals(Variables.montoCuotaPagos, Variables.montoCuotaHistorial);
     }
 
-    @When("se ingresa al detalle de pago de la {string} del vehiculo")
-    public void seIngresaAlDetalleDePagoDeLaDelVehiculo(String placa) throws Exception {
-        stepPagoCuotas.verDetalleSeguroVehicular(placa);
+    @When("se ingresa al detalle de pago de la {string} {string} del vehiculo")
+    public void seIngresaAlDetalleDePagoDeLaDelVehiculo(String placa,String vigencia) throws Exception {
+        stepPagoCuotas.verDetalleSeguroVehicular(placa,vigencia);
         stepPagoCuotas.pagarCuotas();
     }
 
@@ -68,9 +68,9 @@ public class DefPagoCuotas {
         assertTrue(stepPagoCuotas.obtiene_mensaje_detallePago());
     }
 
-    @When("se ingresa a un seguro Vehicular desde el Menù seleccionando la {string} del vehiculo")
-    public void seIngresaAUnSeguroVehicularDesdeElMenùSeleccionandoLaDelVehiculo(String placa) {
-        stepPagoCuotas.verDetalleSeguroVehicular(placa);
+    @When("se ingresa a un seguro Vehicular desde el Menù seleccionando la {string} {string} del vehiculo")
+    public void seIngresaAUnSeguroVehicularDesdeElMenùSeleccionandoLaDelVehiculo(String placa,String vigencia) {
+        stepPagoCuotas.verDetalleSeguroVehicular(placa,vigencia);
     }
 
 

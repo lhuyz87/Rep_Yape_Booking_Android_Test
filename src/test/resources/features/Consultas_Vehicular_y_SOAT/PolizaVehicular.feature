@@ -18,14 +18,14 @@
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
         | <tipoID> | <id> | <password> |
-      When se ingresa al detalle de la "<placa>" del seguro vehicular
+      When se ingresa al detalle de la "<placa>" "<vigencia>" del seguro vehicular
       Then se valida que muestre el historial de pago
 
       Examples:
-      ###DATOS###@ConsultaVehicularSoat|1@ConsultarDeudasSaldosdePoliza
-        | 0 | tipoID | id | password |placa|
+      ###DATOS###@Pagos|1@PagoConTarjetaAsociada
+        | 0 | tipoID | id | password | placa | vigencia |
 
-   @DescargaPolizaVehicularDigital @ModuloConsultasVehicularySoat_4_6
+    @DescargaPolizaVehicularDigital @ModuloConsultasVehicularySoat_4_6
     Scenario Outline: Descarga poliza digital desde el tab poliza
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
