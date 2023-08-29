@@ -71,6 +71,7 @@ public class ScChoferDeReemplazo extends BaseDriver{
         }
     }
 
+
     public void seleccionar_Vehiculo(String placa){
         try {
             util.esperarElemento(15, objChoferReemplazo.titTusVehiculosAfiliados);
