@@ -1,5 +1,6 @@
 package rimac.main.screen;
 
+import io.appium.java_client.HidesKeyboard;
 import io.appium.java_client.MobileBy;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.Dimension;
@@ -93,6 +94,8 @@ public class ScChoferDeReemplazo extends BaseDriver{
         try {
             util.esperarActivoClick(10, objChoferReemplazo.txtPuntoDestino);
             element(objChoferReemplazo.txtPuntoDestino).click();
+            util.esperarSegundos(5);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
             element(objChoferReemplazo.opcSelecPuntoMapa).click();
             util.esperarSegundos(5);
             element(objChoferReemplazo.opcConfirmarPuntoMapa).click();
