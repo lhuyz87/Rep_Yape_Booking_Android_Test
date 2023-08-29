@@ -2,7 +2,7 @@
 @ModuloConsultasVehicularySoat_4_6
   Feature: Consulta Vehicular y Soat - Poliza Vehicular
 
-    @ConsultaNumeroDePolizaVehiSoat
+    @ConsultaNumeroDePolizaVehiSoat @regresion
     Scenario Outline: Consulta el numero de la poliza -Soat
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -26,7 +26,7 @@
       ###DATOS###@ConsultaVehicularSoat|1@ConsultarDeudasSaldosdePoliza
         | 0 | tipoID | id | password |placa|
 
-   @DescargaPolizaVehicularDigital
+   @DescargaPolizaVehicularDigital @regresion
     Scenario Outline: Descarga poliza digital desde el tab poliza
       Given realiza el login con credenciales
         | tipoID   | id   | password   |

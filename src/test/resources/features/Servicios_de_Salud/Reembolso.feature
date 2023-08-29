@@ -2,7 +2,7 @@
 @ModuloServiciosDeSalud_4_16
 Feature: Servicios de Salud - Reembolso
 
-  @reembolsoSaludSinBeneficiarioDesdeMenuTramites
+  @reembolsoSaludSinBeneficiarioDesdeMenuTramites @regresion
   Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas sin beneficiarios desde menu Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -21,7 +21,7 @@ Feature: Servicios de Salud - Reembolso
     ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiarioTramite
       | 0 | tipoID | id | password | productoContratante  | lugarAtencion | tipoCobertura |
 
-  @reembolsoSaludConBeneficiariosDesdeMenuTramites
+  @reembolsoSaludConBeneficiariosDesdeMenuTramites @regresion
   Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas con beneficiarios desde Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -60,7 +60,7 @@ Feature: Servicios de Salud - Reembolso
     ###DATOS###@ServiciosSalud|1@reembolsoOdontologicoDesdeMenuT
       |0|tipoID| id  | password| productoContratante               | paciente                               | lugarAtencion | tipoCobertura |tipoTratamiento |
 
-  @reembolsoSaludSinBeneficiarioaDesdeMenuInicio
+  @reembolsoSaludSinBeneficiarioaDesdeMenuInicio @regresion
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde menu Inicio
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -82,7 +82,7 @@ Feature: Servicios de Salud - Reembolso
     ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiarioInicio
       |0|tipoID| id  | password| productoContratante               | lugarAtencion                               | tipoCobertura |
 
-  @reembolsoSaludSinBeneficiariosDesdeSeguros
+  @reembolsoSaludSinBeneficiariosDesdeSeguros @regresion
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde detalle de seguro salud
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
