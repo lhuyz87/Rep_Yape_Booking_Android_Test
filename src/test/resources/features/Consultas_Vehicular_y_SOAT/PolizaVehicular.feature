@@ -1,7 +1,7 @@
 #Author: Candy Espinoza
   Feature: Consulta Vehicular y Soat - Poliza Vehicular
 
-    @ConsultaNumeroDePolizaVehiSoat @ModuloConsultasVehicularySoat_4_6
+    @ConsultaNumeroDePolizaVehiSoat @ModuloConsultasVehicularySoat_4_6 @regresion
     Scenario Outline: Consulta el numero de la poliza -Soat
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -25,7 +25,7 @@
       ###DATOS###@Pagos|1@PagoConTarjetaAsociada
         | 0 | tipoID | id | password | placa | vigencia |
 
-    @DescargaPolizaVehicularDigital @ModuloConsultasVehicularySoat_4_6
+    @DescargaPolizaVehicularDigital @ModuloConsultasVehicularySoat_4_6 @regresion
     Scenario Outline: Descarga poliza digital desde el tab poliza
       Given realiza el login con credenciales
         | tipoID   | id   | password   |

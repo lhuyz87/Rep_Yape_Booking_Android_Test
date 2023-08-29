@@ -1,5 +1,6 @@
 package rimac.main.screen;
 
+import io.appium.java_client.HidesKeyboard;
 import io.appium.java_client.MobileBy;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.Dimension;
@@ -52,15 +53,16 @@ public class ScChoferDeReemplazo extends BaseDriver{
         }
     }
 
-    public void ingresar_Datos_de_Contacto(String nombre, String celular){
+    public void ingresar_Datos_de_Contacto(String nombre, String celular,String correo){
         try {
             util.esperarElemento(25, objChoferReemplazo.titCelulardeContacto);
             util.esperarElementoVisible(15, objChoferReemplazo.idtxtNombre);
             element(objChoferReemplazo.txtNombre).clear();
             element(objChoferReemplazo.txtNombre).sendKeys(nombre);
-            util.pressEnter(androidDriver());
             element(objChoferReemplazo.txtCelular).clear();
             element(objChoferReemplazo.txtCelular).sendKeys(celular);
+            element(objChoferReemplazo.txtCorreo).clear();
+            element(objChoferReemplazo.txtCorreo).sendKeys(correo);
             util.esperarElemento(20, objChoferReemplazo.btnComenzar);
             Serenity.takeScreenshot();
             element(objChoferReemplazo.btnComenzar).click();
@@ -69,6 +71,7 @@ public class ScChoferDeReemplazo extends BaseDriver{
             throw new IllegalAccessError("Error para ingresar Datos de Contacto");
         }
     }
+
 
     public void seleccionar_Vehiculo(String placa){
         try {
@@ -91,6 +94,8 @@ public class ScChoferDeReemplazo extends BaseDriver{
         try {
             util.esperarActivoClick(10, objChoferReemplazo.txtPuntoDestino);
             element(objChoferReemplazo.txtPuntoDestino).click();
+            util.esperarSegundos(5);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
             element(objChoferReemplazo.opcSelecPuntoMapa).click();
             util.esperarSegundos(5);
             element(objChoferReemplazo.opcConfirmarPuntoMapa).click();

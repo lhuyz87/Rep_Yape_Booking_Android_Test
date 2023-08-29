@@ -1,6 +1,6 @@
 Feature: Servicios Vehiculares - Asistencia Vehicular
 
-  @AsistenciaVehicularRepuesto @ModuloServiciosVehiculares_9_17
+  @AsistenciaVehicularRepuesto @ModuloServiciosVehiculares_9_17 @regresion
   Scenario Outline: Solicitar Auxilio Mecanico - Repuesto
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -15,7 +15,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
        ###DATOS###@ServiciosVehiculares|1@AsistenciaVehicularRepuesto
       | 0 | tipoID | id | password | placa  | problema         |
 
-  @AsistenciaVehicularProblema @ModuloServiciosVehiculares_9_17
+  @AsistenciaVehicularProblema @ModuloServiciosVehiculares_9_17 @regresion
   Scenario Outline: Solicitar Auxilio Mecanico - Problema
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -45,7 +45,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
      ###DATOS###@ServiciosVehiculares|1@AsistenciaVehicularGrua
       | 0 | tipoID | id | password | placa  |
 
-  @NecesitoAyudaAuxilioMecanico @ModuloServiciosVehiculares_9_17
+  @NecesitoAyudaAuxilioMecanico @ModuloServiciosVehiculares_9_17 @regresion
   Scenario Outline: Necesito ayuda para seleccionar la asistencia Vehicular - Auxilio Mecanico
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

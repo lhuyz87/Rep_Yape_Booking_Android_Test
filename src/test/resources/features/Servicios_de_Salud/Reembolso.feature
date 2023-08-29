@@ -1,7 +1,7 @@
 #Author: Luis Retamozo
 Feature: Servicios de Salud - Reembolso
 
-  @reembolsoSaludSinBeneficiarioDesdeMenuTramites @ModuloServiciosDeSalud_4_16
+  @reembolsoSaludSinBeneficiarioDesdeMenuTramites @ModuloServiciosDeSalud_4_16 @regresion
   Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas sin beneficiarios desde menu Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -20,7 +20,7 @@ Feature: Servicios de Salud - Reembolso
     ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiarioTramite
       | 0 | tipoID | id | password | productoContratante  | lugarAtencion | tipoCobertura |
 
-  @reembolsoSaludConBeneficiariosDesdeMenuTramites @ModuloServiciosDeSalud_4_16
+  @reembolsoSaludConBeneficiariosDesdeMenuTramites @ModuloServiciosDeSalud_4_16 @regresion
   Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas con beneficiarios desde Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -59,7 +59,7 @@ Feature: Servicios de Salud - Reembolso
     ###DATOS###@ServiciosSalud|1@reembolsoOdontologicoDesdeMenuT
       |0|tipoID| id  | password| productoContratante               | paciente                               | lugarAtencion | tipoCobertura |tipoTratamiento |
 
-  @reembolsoSaludSinBeneficiarioaDesdeMenuInicio @ModuloServiciosDeSalud_4_16
+  @reembolsoSaludSinBeneficiarioaDesdeMenuInicio @ModuloServiciosDeSalud_4_16 @regresion
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde menu Inicio
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -81,7 +81,7 @@ Feature: Servicios de Salud - Reembolso
     ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiarioInicio
       |0|tipoID| id  | password| productoContratante               | lugarAtencion                               | tipoCobertura |
 
-  @reembolsoSaludSinBeneficiariosDesdeSeguros @ModuloServiciosDeSalud_4_16
+  @reembolsoSaludSinBeneficiariosDesdeSeguros @ModuloServiciosDeSalud_4_16 @regresion
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde detalle de seguro salud
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

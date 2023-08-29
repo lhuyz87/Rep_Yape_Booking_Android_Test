@@ -2,7 +2,7 @@
 @ModuloServiciosDeSalud_4_16
 Feature: Servicios de Salud - Buscador de clinicas
 
-  @BuscadordeClinicasdesdeHome
+  @BuscadordeClinicasdesdeHome @regresion
   Scenario Outline: Buscador de clinicas desde Home
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -15,7 +15,7 @@ Feature: Servicios de Salud - Buscador de clinicas
     ###DATOS###@ServiciosSalud|1@BuscadordeClinicasdesdeHome
       | 0 | tipoID | id | password | nomClinica |
 
-  @BuscadordeClinicasdesdeTramites
+  @BuscadordeClinicasdesdeTramites @regresion
   Scenario Outline: Buscador de clinicas desde menu Tramites
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
