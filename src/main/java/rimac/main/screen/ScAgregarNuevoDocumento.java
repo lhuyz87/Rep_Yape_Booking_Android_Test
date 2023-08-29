@@ -45,6 +45,7 @@ private long wdwTimeOut = 300L;
 	}
 	
 	public void llenarDatosFactura(String serie, String documento, String moneda, String monto) throws Exception {
+		util.esperarSegundos(10);
 		util.esperarElementoClick(8, agregarNuevoDocumentoObject.txtSerieDocumento);
 		element(agregarNuevoDocumentoObject.txtSerieDocumento).click();
 		element(agregarNuevoDocumentoObject.txtSerieDocumento).sendKeys(serie);
