@@ -45,7 +45,7 @@ private long wdwTimeOut = 300L;
 	}
 	
 	public void llenarDatosFactura(String serie, String documento, String moneda, String monto) throws Exception {
-		util.esperarSegundos(10);
+		util.esperarSegundos(8);
 		util.esperarElementoClick(8, agregarNuevoDocumentoObject.txtSerieDocumento);
 		element(agregarNuevoDocumentoObject.txtSerieDocumento).sendKeys(serie);
 		((HidesKeyboard) appiumDriver()).hideKeyboard();
@@ -54,6 +54,7 @@ private long wdwTimeOut = 300L;
 		element(agregarNuevoDocumentoObject.txtNroDocumento).sendKeys(documento);
 		((HidesKeyboard) appiumDriver()).hideKeyboard();
 		util.esperarElementoVisible(8,agregarNuevoDocumentoObject.lstMoneda);
+		element(agregarNuevoDocumentoObject.lstMoneda).click();
 		element(agregarNuevoDocumentoObject.getMoneda(appiumDriver(), moneda)).click();
 		util.esperarElementoVisible(8,agregarNuevoDocumentoObject.txtMonto);
 		element(agregarNuevoDocumentoObject.txtMonto).sendKeys(monto);
