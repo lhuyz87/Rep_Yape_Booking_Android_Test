@@ -94,7 +94,7 @@ public class ScChoferDeReemplazo extends BaseDriver{
             element(objChoferReemplazo.txtPuntoDestino).click();
             util.esperarElementoVisible(5, objChoferReemplazo.opcSelecPuntoMapa);
             element(objChoferReemplazo.opcSelecPuntoMapa).click();
-            util.esperarSegundos(5);
+            util.esperarSegundos(6);
             element(objChoferReemplazo.opcConfirmarPuntoMapa).click();
             util.mobileSwipeScreenAndroid();
             util.esperarSegundos(5);

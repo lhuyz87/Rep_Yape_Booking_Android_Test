@@ -62,7 +62,7 @@ public ObjChoferReemplazo(){}
 
     @AndroidFindBy(xpath = "//*[@text='Chofer de reemplazo']")
     public WebElement opcChoferReemplazo;
-    @AndroidFindBy(xpath= "//*[@text='Seleccionar en el mapa']")
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/selectionText")
     public WebElement opcSelecPuntoMapa;
     @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/addressConfirm")
     public WebElement opcConfirmarPuntoMapa;
