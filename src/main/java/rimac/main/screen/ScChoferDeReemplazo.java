@@ -90,8 +90,9 @@ public class ScChoferDeReemplazo extends BaseDriver{
 
     public void buscardestino() {
         try {
-            util.esperarActivoClick(10, objChoferReemplazo.txtPuntoDestino);
+            util.esperarElementoVisible(10, objChoferReemplazo.txtPuntoDestino);
             element(objChoferReemplazo.txtPuntoDestino).click();
+            util.esperarElementoVisible(5, objChoferReemplazo.opcSelecPuntoMapa);
             element(objChoferReemplazo.opcSelecPuntoMapa).click();
             util.esperarSegundos(5);
             element(objChoferReemplazo.opcConfirmarPuntoMapa).click();
