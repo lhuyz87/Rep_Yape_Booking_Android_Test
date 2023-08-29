@@ -13,7 +13,7 @@ public class ConstantesDummy {
 	public static final String nroCuentaAhorrosBBVA = "653214569874512487";
 	public static final String bancoInterbank = "Interbank";
 	public static final String tipoCuentaAhorrosInterbank = "Cuenta de ahorros";
-	public static final String nroCuentaAhorrosInterbank = "1234567891234";
+	public static final String nroCuentaAhorrosInterbank = "03101012345678";
 	public static final String correo = "abc@gmail.com";
 	public static final String tipoDocRecetaMedica = "Receta médica";
 	public static final String tipoOrdenMedica = "Orden médica";
