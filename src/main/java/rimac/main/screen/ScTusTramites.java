@@ -192,7 +192,7 @@ private long wdwTimeOut = 300L;
 			}
 
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-150) < tramitesObject.btnReembolsoSalud.getLocation().getY()) {
+			if ((ybtnPerfil-175) < tramitesObject.btnReembolsoSalud.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 
@@ -231,7 +231,7 @@ private long wdwTimeOut = 300L;
 			}
 			Serenity.takeScreenshot();
 			int ybtnPerfil=tramitesObject.btnBuscarClinica.getLocation().getY();
-			if ((ybtnPerfil-150) < tramitesObject.btnBuscarClinica.getLocation().getY()) {
+			if ((ybtnPerfil-175) < tramitesObject.btnBuscarClinica.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			element(tramitesObject.btnBuscarClinica).click();
@@ -267,7 +267,7 @@ private long wdwTimeOut = 300L;
 				contador++;
 			}
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-150) < tramitesObject.btnAsisVehiculares.getLocation().getY()) {
+			if ((ybtnPerfil-175) < tramitesObject.btnAsisVehiculares.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();
@@ -299,7 +299,7 @@ private long wdwTimeOut = 300L;
 				contador++;
 			}
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-150) < objChoferReemplazo.opcChoferReemplazo.getLocation().getY()) {
+			if ((ybtnPerfil-175) < objChoferReemplazo.opcChoferReemplazo.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();
@@ -336,7 +336,7 @@ private long wdwTimeOut = 300L;
 				contador++;
 			}
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-150) < tramitesObject.btnDescuentoAsistencias.getLocation().getY()) {
+			if ((ybtnPerfil-175) < tramitesObject.btnDescuentoAsistencias.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();
