@@ -32,8 +32,9 @@ public class StepChoferDeReemplazo {
 
     public void se_ingresa_Datos_de_contacto(){
         String nombre = ConstantesDummy.nombre;
+        String correo = ConstantesDummy.correo;
         String celular = ConstantesDummy.celular;
-        scChoferDeReemplazo.ingresar_Datos_de_Contacto(nombre,celular);
+        scChoferDeReemplazo.ingresar_Datos_de_Contacto(nombre,celular,correo);
 
     }
     public void seleccionarVehiculo(String placa){

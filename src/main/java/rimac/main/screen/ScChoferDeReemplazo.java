@@ -52,15 +52,16 @@ public class ScChoferDeReemplazo extends BaseDriver{
         }
     }
 
-    public void ingresar_Datos_de_Contacto(String nombre, String celular){
+    public void ingresar_Datos_de_Contacto(String nombre, String celular,String correo){
         try {
             util.esperarElemento(25, objChoferReemplazo.titCelulardeContacto);
             util.esperarElementoVisible(15, objChoferReemplazo.idtxtNombre);
             element(objChoferReemplazo.txtNombre).clear();
             element(objChoferReemplazo.txtNombre).sendKeys(nombre);
-            util.pressEnter(androidDriver());
             element(objChoferReemplazo.txtCelular).clear();
             element(objChoferReemplazo.txtCelular).sendKeys(celular);
+            element(objChoferReemplazo.txtCorreo).clear();
+            element(objChoferReemplazo.txtCorreo).sendKeys(correo);
             util.esperarElemento(20, objChoferReemplazo.btnComenzar);
             Serenity.takeScreenshot();
             element(objChoferReemplazo.btnComenzar).click();

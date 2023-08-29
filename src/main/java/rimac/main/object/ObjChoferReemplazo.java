@@ -44,6 +44,8 @@ public ObjChoferReemplazo(){}
     public WebElement txtNombre;
     @AndroidFindBy(xpath= "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/inputPhone']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
     public WebElement txtCelular;
+    @AndroidFindBy(xpath= "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/inputEmail']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
+    public WebElement txtCorreo;
     @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
     public WebElement btnComenzar;
 
