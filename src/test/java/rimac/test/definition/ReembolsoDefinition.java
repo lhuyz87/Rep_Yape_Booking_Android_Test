@@ -35,7 +35,7 @@ public class ReembolsoDefinition {
 	@Given("realiza el login con credenciales {string}, {string} y {string}")
 	public void serealiza_el_login_con_credenciales_y(String tipo, String id, String numero) {
 		// Write code here that turns the phrase above into concrete actions
-		appLoginPage.login(id, numero);
+		appLoginPage.loginDNI(id, numero);
 	}
 	@When("se ingresa a Reembolso de Salud desde Tramites y se inicia el tramite")
 	public void se_ingresa_a_reembolso_de_salud_desde_tramites_y_se_inicia_el_tramite() throws Exception {
