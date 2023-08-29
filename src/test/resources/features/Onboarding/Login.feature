@@ -3,7 +3,9 @@ Feature: Onboarding - Login
 
   @Login @ModuloOnboardingFuncional_2_4
   Scenario Outline: Realizar Login Exitoso en Mundo Rimac
-    Given realiza el login con credenciales "<tipoID>", "<id>" y "<password>"
+    Given realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
 
     Examples:
     ###DATOS###@Onboarding|1@Login

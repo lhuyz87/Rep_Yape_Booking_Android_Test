@@ -46,6 +46,9 @@ public class ObjLogin extends BaseDriver{
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dropdownEditText")
 	public WebElement txtNumDocumento;
 
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dropdownAutoCompleteText")
+	public WebElement cmbTipoDoc;
+
     /*@AndroidFindBy(xpath = "//*[@text='Contraseña']")
 	public WebElement txtPassword;*/
 

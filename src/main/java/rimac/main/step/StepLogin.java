@@ -56,7 +56,10 @@ public class StepLogin {
 			Variables.listaStrings = new ArrayList<String>();
 			Variables.listaStrings.add(id);
 			Variables.listaStrings.add(password);
-			scLogin.login(id, password);
+		    if(tipoID.equalsIgnoreCase("CE"))
+				scLogin.loginCE(id, password);
+			if(tipoID.equalsIgnoreCase("DNI"))
+				scLogin.loginDNI(id, password);
 		    scAlertas.omitirAlertas(7);
 		}
 	public void realiza_el_relogeo(DataTable userCredentials) throws Exception{
