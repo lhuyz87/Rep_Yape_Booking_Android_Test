@@ -95,7 +95,6 @@ public class ScChoferDeReemplazo extends BaseDriver{
             util.esperarActivoClick(10, objChoferReemplazo.txtPuntoDestino);
             element(objChoferReemplazo.txtPuntoDestino).click();
             util.esperarSegundos(5);
-            ((HidesKeyboard) appiumDriver()).hideKeyboard();
             element(objChoferReemplazo.opcSelecPuntoMapa).click();
             util.esperarSegundos(5);
             element(objChoferReemplazo.opcConfirmarPuntoMapa).click();
