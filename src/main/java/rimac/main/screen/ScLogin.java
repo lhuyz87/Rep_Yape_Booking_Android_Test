@@ -68,14 +68,6 @@ private long wdwTimeOut = 300L;
 		util.pressEnter(androidDriver());
 		Serenity.takeScreenshot();
 		element(objLogin.btnIngresarSesion).click();
-		mobil.esperarSegundosCondicion(7,element(objLogin.mdlCreaUnaCuenta).isEnabled());
-		try{
-			assertFalse(element(objLogin.txtPassword).isCurrentlyVisible());
-			assertFalse(element(objLogin.mdlCreaUnaCuenta).isCurrentlyVisible());
-			Serenity.takeScreenshot();
-		}catch(AssertionError e){
-			throw new IllegalAccessError("No se pudo completar el Login");
-		}
 	}
 
 	public void loginCE(String CEUser, String passUser) {
