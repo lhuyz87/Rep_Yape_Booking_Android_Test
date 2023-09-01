@@ -1,7 +1,7 @@
 #Author: Candy Espinoza
 Feature: Consultas Vida - Plan Vida Flexible
 
-  @DescargaEstadoCuentaPlanVidaFlexible @ModuloConsultasVida_3_7
+  @DescargaEstadoCuentaPlanVidaFlexible @ModuloConsultasVida_3_7 @Salud_Vida_Vehicular
   Scenario Outline: Descarga Estado de Cuenta desde el tab poliza del Producto Flexivida "Vida Flexible"
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

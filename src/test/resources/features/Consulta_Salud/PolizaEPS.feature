@@ -1,7 +1,7 @@
 #Author: Candy Espinoza
 Feature: Consulta Salud - Plan Medico EPS
 
-  @ConsultaNumeroDePoliza @ModuloConsultaSalud_2_5
+  @ConsultaNumeroDePoliza @ModuloConsultaSalud_2_5 @Salud_Vida_Vehicular
   Scenario Outline: Consulta el numero de la poliza
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

@@ -2,7 +2,7 @@
 @ModuloConsultasVida_3_7
 Feature: Consultas Vida - Plan Vida Contigo
 
-  @DescargaManualdeUsoPlanVidaContigo
+  @DescargaManualdeUsoPlanVidaContigo @Salud_Vida_Vehicular
   Scenario Outline: Descarga manual de uso de poliza desde el tab poliza del Producto Vida Contigo
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
