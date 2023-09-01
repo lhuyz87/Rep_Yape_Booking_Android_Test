@@ -73,6 +73,9 @@ public class ObjAlertas extends BaseDriver{
 	@AndroidFindBy(xpath="//*[@text='Ocurrió un error']//preceding-sibling::android.widget.ImageButton[@content-desc='Cerrar modal']")
 	public WebElement btnCerrarModalError;
 
+	@AndroidFindBy(xpath="//*[@text='Estar Bien']//preceding-sibling::android.widget.ImageButton[@resource-id='com.rimac.rimac_surrogas.qa:id/dialog_close']")
+	public WebElement btnCerrarModalEstarBien;
+
 	@AndroidFindBy(xpath ="//*[@text='Ya tienes un servicio en proceso']")
 	public WebElement mdlServicioEnProceso;
 

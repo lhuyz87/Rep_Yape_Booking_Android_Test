@@ -42,9 +42,12 @@ public class ScAlertas extends BaseDriver {
                     element(objAlertas.btnCerrarModalInspeccion).click();
                 }
 
-               /* if (element(objAlertas.btnCerrarModalError).isCurrentlyVisible()) {
+                if (element(objAlertas.btnCerrarModalError).isCurrentlyVisible()) {
                     element(objAlertas.btnCerrarModalError).click();
-                }*/
+                }
+                if (element(objAlertas.btnCerrarModalEstarBien).isCurrentlyVisible()) {
+                    element(objAlertas.btnCerrarModalEstarBien).click();
+                }
 
             } catch (Exception e) {
                 System.out.println("Error al omitir la alerta");
