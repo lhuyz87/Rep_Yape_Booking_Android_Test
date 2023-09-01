@@ -55,6 +55,7 @@ private long wdwTimeOut = 300L;
 		looger.info("aplicación iniciada");
 		//util.esperarElemento(20, objLogin.btnIngresarSesion);
 		//element(objLogin.btnIngresarSesion).click();
+		util.esperarElemento(10,objLogin.txtNumDocumento);
 		new WebDriverWait(androidDriver(), Duration.ofSeconds(15))
 				.until(ExpectedConditions.visibilityOf(objLogin.txtNumDocumento));
 		element(objLogin.txtNumDocumento).click();
