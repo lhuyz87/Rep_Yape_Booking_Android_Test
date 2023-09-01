@@ -45,6 +45,9 @@ public class ScAlertas extends BaseDriver {
                 if (element(objAlertas.btnCerrarModalError).isCurrentlyVisible()) {
                     element(objAlertas.btnCerrarModalError).click();
                 }
+                if (element(objAlertas.btnCerrarModalEstarBien).isCurrentlyVisible()) {
+                    element(objAlertas.btnCerrarModalEstarBien).click();
+                }
 
             } catch (Exception e) {
                 System.out.println("Error al omitir la alerta");
