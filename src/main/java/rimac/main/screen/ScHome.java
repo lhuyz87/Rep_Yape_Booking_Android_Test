@@ -89,74 +89,12 @@ public class ScHome extends BaseDriver{
 		}
 		
 	}
-	
 
-	 TimerTask alertas = new TimerTask() {
-
-		@Override
-		public void run() {
-			
-			try {
-				element(alertasObject.btnHuellaPorAhoraNo).click();
-				
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-			
-			
-			try {
-				element(alertasObject.btnCerrarRealizarInspeccion).click();
-				
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-			
-			try {
-				element(alertasObject.btnCerrarVehicularVencer).click();
-				
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-			
-			
-			try {
-				element(alertasObject.btnEnteratePorAhoraNo).click();
-				
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-			
-		
-			try {
-				element(alertasObject.btnHuellaPorAhoraNo).click();
-				
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-			contador++;
-			System.out.println("Timer " + contador);
-	        	if(contador==1000)
-	        		timer.cancel();
-		}
-		 
-	 };
-	 
-	public void cerrarAlertas(int seconds) {
-			
-			timer = new Timer();
-	        System.out.println("Se inicia el JOB de cerrar alertas");
-	        timer.scheduleAtFixedRate(alertas,new Date(),500);
-			
-	}
 	
 	public void seleccionarReembolso() {
 		
 		util.esperarElemento(5, objectPrincipal.btnHome);
 		util.esperarSegundos(3);
-		 System.out.println("Entraaaa");
-//		util.localizarElementoScroll(appiumDriver(), objectPrincipalScreen.btnReembolsoSalud);
-		
-		
 		while(element(objectPrincipal.btnReembolsoSalud).isCurrentlyVisible()==false) {
 			Dimension dimension = appiumDriver().manage().window().getSize();
 			//arrastrar hacia arriba, como deslizando la app para ver más contenido
@@ -164,28 +102,22 @@ public class ScHome extends BaseDriver{
 			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2)); 
 			pageObjectUtil2.doSwipe(appiumDriver(), start, end, 1000); //with duration 1s
 		}
-//		Actions action = new Actions(driver);
-//		action.moveToElement(objectPrincipalScreen.btnReembolsoSalud).click().perform();
-		
 		pageObjectUtil2.tapElement(appiumDriver(),objectPrincipal.btnReembolsoSalud);
-		
-//		element(objectPrincipalScreen.btnReembolsoSalud).click();
 		
 	}
 
 
 	public void seleccionaBuscadorClinicas() {
-		// TODO Auto-generated method stub
 		util.esperarElemento(7, objectPrincipal.btnEmergencia);
 		int contador=0;
 		try {
 			while(element(objectPrincipal.btnBuscadorClinica).isCurrentlyVisible()==false && contador<5){
 				util.mobileSwipeScreenAndroid();
+				contador++;
 			}
 			element(objectPrincipal.btnBuscadorClinica).click();
-			System.out.println("Se encontro elemento  ");
+
 		} catch (Exception e) {
-			// TODO: handle exception
 			util.scrollDown(appiumDriver());
 		}
 	}
@@ -198,7 +130,6 @@ public class ScHome extends BaseDriver{
 		util.doSwipe(appiumDriver(), start, end, 1000);
 		element(objectPrincipal.lnkVerTodas).click();
 		util.esperarSegundos(3);
-		//util.esperarElemento(8,objectPrincipal.lblTusAsistencias);
 	}
 
 	public String getMontoReembolso(String monto) {
