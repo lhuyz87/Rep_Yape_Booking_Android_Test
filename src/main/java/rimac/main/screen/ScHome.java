@@ -160,7 +160,7 @@ public class ScHome extends BaseDriver{
 				contador ++;
 			}
 			int ybtnPerfil=objectPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-150) < objectPrincipal.btnSoatHome.getLocation().getY()) {
+			if ((ybtnPerfil-170) < objectPrincipal.btnSoatHome.getLocation().getY()) {
 				util.mobileSwipeScreenAndroid();
 			}
 			element(objectPrincipal.btnSoatHome).click();
