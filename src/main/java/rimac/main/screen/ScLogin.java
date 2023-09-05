@@ -58,13 +58,11 @@ private long wdwTimeOut = 300L;
 		util.esperarElemento(10,objLogin.txtNumDocumento);
 		new WebDriverWait(androidDriver(), Duration.ofSeconds(15))
 				.until(ExpectedConditions.visibilityOf(objLogin.txtNumDocumento));
-		element(objLogin.txtNumDocumento).click();
 		element(objLogin.txtNumDocumento).sendKeys(dniUser);
 		util.pressEnter(androidDriver());
 		element(objLogin.btnContinuar).click();
 		new WebDriverWait(androidDriver(), Duration.ofSeconds(15))
 				.until(ExpectedConditions.visibilityOf(objLogin.txtPassword));
-		element(objLogin.txtPassword).click();
 		element(objLogin.txtPassword).sendKeys(passUser);
 		util.pressEnter(androidDriver());
 		Serenity.takeScreenshot();
