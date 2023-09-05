@@ -134,7 +134,7 @@ public class ScTusSeguros extends BaseDriver{
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();
-			element(objTusSeguros.verDetalleXPlaca(placa)).click();
+			element(objTusSeguros.verDetallePlacaVigenc(placa,vigencia)).click();
 		}catch(NoSuchElementException e){
 			throw new IllegalAccessError("No se encontró la placa del vehiculo");
 		}
