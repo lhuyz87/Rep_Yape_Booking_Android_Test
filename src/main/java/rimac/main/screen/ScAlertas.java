@@ -11,6 +11,7 @@ import java.util.NoSuchElementException;
 import java.util.logging.Logger;
 
 import static net.serenitybdd.core.pages.WebElementExpectations.elementIsPresent;
+import static org.junit.Assert.assertTrue;
 
 public class ScAlertas extends BaseDriver {
 
@@ -55,7 +56,7 @@ public class ScAlertas extends BaseDriver {
                 System.out.println("Error al omitir la alerta");
             }
         }
-        assert( element(objPaginaPrincipal.btnHome).isCurrentlyVisible());
+        assertTrue( element(objPaginaPrincipal.btnHome).isCurrentlyVisible());
     }
 
 }
