@@ -208,7 +208,7 @@ public class ScMediosDePago extends BaseDriver {
         element(objMediodePago.rdbPrimeraTarjeta).click();
         Serenity.takeScreenshot();
         element(objMediodePago.btnPagar).click();
-        util.esperarSegundos(3);
+        util.esperarSegundos(8);
         if(element(objMediodePago.txtCorreo).isCurrentlyVisible()){
             element(objMediodePago.txtCorreo).sendKeys(correo);
             util.esperarElementoVisible(3,objMediodePago.btnContinuar);
