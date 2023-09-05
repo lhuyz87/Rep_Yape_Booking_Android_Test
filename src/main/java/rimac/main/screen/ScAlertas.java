@@ -1,7 +1,9 @@
 package rimac.main.screen;
 
+import org.apache.groovy.util.ObjectHolder;
 import rimac.main.object.ObjAlertas;
 import rimac.main.object.ObjPaginaPrincipal;
+import rimac.main.object.ObjPerfil;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.UtilApp;
 
@@ -53,6 +55,7 @@ public class ScAlertas extends BaseDriver {
                 System.out.println("Error al omitir la alerta");
             }
         }
+        assert( element(objPaginaPrincipal.btnHome).isCurrentlyVisible());
     }
 
 }

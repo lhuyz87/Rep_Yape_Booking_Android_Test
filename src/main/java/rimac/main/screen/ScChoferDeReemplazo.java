@@ -91,9 +91,9 @@ public class ScChoferDeReemplazo extends BaseDriver{
     }
 
     public void buscardestino() {
-        try {
             util.esperarActivoClick(10, objChoferReemplazo.txtPuntoDestino);
             element(objChoferReemplazo.txtPuntoDestino).click();
+            element(objChoferReemplazo.txtPuntoDestino).sendKeys("Jiron Callao 233, Lima 15106, Perú");
             util.esperarSegundos(5);
             element(objChoferReemplazo.opcSelecPuntoMapa).click();
             util.esperarSegundos(5);
@@ -104,11 +104,6 @@ public class ScChoferDeReemplazo extends BaseDriver{
             Serenity.takeScreenshot();
             util.esperarActivoClick(10, objChoferReemplazo.btnChoferR);
             element(objChoferReemplazo.btnChoferR).click();
-        }
-        catch(Exception e){
-            Serenity.takeScreenshot();
-            throw new IllegalAccessError("Error al ingresar destino");
-        }
     }
 
     public void seleccionfecha() {
