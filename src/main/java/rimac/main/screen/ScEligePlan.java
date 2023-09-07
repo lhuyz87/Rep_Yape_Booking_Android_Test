@@ -24,7 +24,7 @@ public class ScEligePlan extends BaseDriver {
             int intentos = 0;
             while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && intentos < 6) {
                 util.mobileSwipeScreenAndroidFinal();
-                contador++;
+                intentos++;
             }
             element(objEligeTuPlan.btnContinuar).click();
         }catch(Exception e){
@@ -46,7 +46,7 @@ public class ScEligePlan extends BaseDriver {
             int intentos = 0;
             while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && intentos < 6) {
                 util.mobileSwipeScreenAndroidFinal();
-                contador++;
+                intentos++;
             }
             Serenity.takeScreenshot();
             element(objEligeTuPlan.btnContinuar).click();
@@ -69,7 +69,7 @@ public class ScEligePlan extends BaseDriver {
             int intentos=0;
             while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && intentos < 6) {
                 util.mobileSwipeScreenAndroidFinal();
-                contador++;
+                intentos++;
             }
             Serenity.takeScreenshot();
             element(objEligeTuPlan.btnContinuar).click();
