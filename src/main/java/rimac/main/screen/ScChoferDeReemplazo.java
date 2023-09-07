@@ -2,6 +2,7 @@ package rimac.main.screen;
 
 import io.appium.java_client.HidesKeyboard;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
@@ -93,8 +94,11 @@ public class ScChoferDeReemplazo extends BaseDriver{
     public void buscardestino() {
             util.esperarActivoClick(10, objChoferReemplazo.txtPuntoDestino);
             element(objChoferReemplazo.txtPuntoDestino).click();
-            element(objChoferReemplazo.txtPuntoDestino).sendKeys("Jiron Callao 233, Lima 15106, Perú");
             util.esperarSegundos(5);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objChoferReemplazo.txtPuntoPartida).click();
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objChoferReemplazo.txtPuntoDestino).click();
             element(objChoferReemplazo.opcSelecPuntoMapa).click();
             util.esperarSegundos(5);
             element(objChoferReemplazo.opcConfirmarPuntoMapa).click();
@@ -196,7 +200,6 @@ public class ScChoferDeReemplazo extends BaseDriver{
             boolean solicitudExiste;
             util.esperarElemento(10, objChoferReemplazo.msjSolicitudChoferHome(placa));
             solicitudExiste = element(objChoferReemplazo.msjSolicitudChoferHome(placa)).isCurrentlyVisible();
-            System.out.println("muestra el siguiente mensaje"+objChoferReemplazo.msjSolicitudChoferHome(placa));
             return solicitudExiste;
         } catch (Exception e) {
             throw new IllegalAccessError("Error no se puede validar el seguimiento de Chofer de reemplazo en el home");

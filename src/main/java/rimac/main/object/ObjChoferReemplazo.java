@@ -57,12 +57,14 @@ public ObjChoferReemplazo(){}
         WebElement we_btnVehiculo = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+placa+"']"));
         return we_btnVehiculo;
     }
-    @AndroidFindBy(xpath="//*[@text='Punto de destino']")
+    @AndroidFindBy(id="com.rimac.rimac_surrogas.qa:id/addressMapInputDestiny")
     public WebElement txtPuntoDestino;
 
+    @AndroidFindBy(id="com.rimac.rimac_surrogas.qa:id/addressMapInput")
+    public WebElement txtPuntoPartida;
     @AndroidFindBy(xpath = "//*[@text='Chofer de reemplazo']")
     public WebElement opcChoferReemplazo;
-    @AndroidFindBy(xpath= "//*[@text='Seleccionar en el mapa']")
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/selectionText")
     public WebElement opcSelecPuntoMapa;
     @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/addressConfirm")
     public WebElement opcConfirmarPuntoMapa;
@@ -104,7 +106,7 @@ public ObjChoferReemplazo(){}
         String matriculaLetras=placa.substring(0,3);
         String matriculaNumeros=placa.substring(3,6);
 
-        WebElement soli_choferhome = appiumDriver().findElement(AppiumBy.xpath("//*[@text='Solicitud Chofer de reemplazo']//following-sibling::android.widget.TextView[@text='Placa: "+matriculaLetras+"-"+matriculaNumeros+"']"));
+        WebElement soli_choferhome = appiumDriver().findElement(AppiumBy.xpath("//*[@text='Solicitud Chofer de reemplazo']//following-sibling::android.widget.TextView[@text='Placa "+matriculaLetras+"-"+matriculaNumeros+"']"));
         return soli_choferhome;
     }
     @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
