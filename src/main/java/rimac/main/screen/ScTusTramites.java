@@ -37,6 +37,7 @@ private long wdwTimeOut = 300L;
 	protected ObjChoferReemplazo objChoferReemplazo = ObjChoferReemplazo.getInstancia();
 	protected ObjIniciarReembolsoSalud objIniciarReembolsoSalud= ObjIniciarReembolsoSalud.getInstancia();
 	protected MobileObjectUtil mobileObjectUtil = MobileObjectUtil.getInstancia();
+	protected int alturaMenu=100;
 
 	// util
 	public static Logger looger = Logger.getLogger(ScTusTramites.class.getName());
@@ -192,7 +193,7 @@ private long wdwTimeOut = 300L;
 			}
 
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-175) < tramitesObject.btnReembolsoSalud.getLocation().getY()) {
+			if ((ybtnPerfil-alturaMenu) < tramitesObject.btnReembolsoSalud.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 
@@ -231,7 +232,7 @@ private long wdwTimeOut = 300L;
 			}
 			Serenity.takeScreenshot();
 			int ybtnPerfil=tramitesObject.btnBuscarClinica.getLocation().getY();
-			if ((ybtnPerfil-175) < tramitesObject.btnBuscarClinica.getLocation().getY()) {
+			if ((ybtnPerfil-alturaMenu) < tramitesObject.btnBuscarClinica.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			element(tramitesObject.btnBuscarClinica).click();
@@ -267,7 +268,7 @@ private long wdwTimeOut = 300L;
 				contador++;
 			}
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-175) < tramitesObject.btnAsisVehiculares.getLocation().getY()) {
+			if ((ybtnPerfil-alturaMenu) < tramitesObject.btnAsisVehiculares.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();
@@ -299,7 +300,7 @@ private long wdwTimeOut = 300L;
 				contador++;
 			}
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-175) < objChoferReemplazo.opcChoferReemplazo.getLocation().getY()) {
+			if ((ybtnPerfil-alturaMenu) < objChoferReemplazo.opcChoferReemplazo.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();
@@ -336,7 +337,7 @@ private long wdwTimeOut = 300L;
 				contador++;
 			}
 			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-175) < tramitesObject.btnDescuentoAsistencias.getLocation().getY()) {
+			if ((ybtnPerfil-alturaMenu) < tramitesObject.btnDescuentoAsistencias.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();
