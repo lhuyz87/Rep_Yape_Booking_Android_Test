@@ -85,7 +85,7 @@ public class DefMediosdePago {
     }
 
     @And("elimino la tarjeta afiliada {string} desde Mi Perfil")
-    public void eliminoLaTarjetaAfiliadaDesdeMiPerfil(String numTarjeta) {
+    public void eliminoLaTarjetaAfiliadaDesdeMiPerfil(String numTarjeta) throws InterruptedException {
         stepAgregarMedioPago.irMedioPago_desde_regresoPerfil();
         assertTrue(stepAgregarMedioPago.validarExisteTarjeta(numTarjeta));
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
@@ -114,7 +114,7 @@ public class DefMediosdePago {
     }
 
     @And("elimino la tarjeta suscrita {string} desde Mi Perfil")
-    public void eliminoLaTarjetaSuscritaDesdeMiPerfil(String numTarjeta) {
+    public void eliminoLaTarjetaSuscritaDesdeMiPerfil(String numTarjeta) throws InterruptedException {
         stepAgregarMedioPago.irMedioPago_desde_regresoPerfil();
         assertTrue(stepAgregarMedioPago.validarExisteTarjeta(numTarjeta));
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);

@@ -192,13 +192,15 @@ public class ScMediosDePago extends BaseDriver {
         Serenity.takeScreenshot();
     }
 
-    public void regresarSelecOpcionPerfil() {
-        if(element(objTusSeguros.btnCerrarmodal).isCurrentlyVisible())
-        { element(objTusSeguros.btnCerrarmodal).click();}
+    public void regresar_home_desde_pagos(){
+        if(element(objTusSeguros.btnCerrarmodal).isCurrentlyVisible()) {
+            element(objTusSeguros.btnCerrarmodal).click();
+        }
         util.esperarSegundos(10);
-        util.esperarElemento(10, objTusSeguros.tbSeguroVehicular);
-        element(objTusSeguros.tbSeguroVehicular).click();
-        util.esperarSegundos(3);
+        util.esperarElemento(10, objTusSeguros.btnretroceder);
+        element(objTusSeguros.btnretroceder).click();
+    }
+    public void irPerfil() {
         util.esperarElemento(10, objectPrincipal.btnPerfil);
         Serenity.takeScreenshot();
         element(objectPrincipal.btnPerfil).click();

@@ -131,8 +131,10 @@ public class StepMediosdePago {
         return scPagos.obtener_mensaje_pago();
     }
 
-    public void irMedioPago_desde_regresoPerfil() {
-        scMediosDePago.regresarSelecOpcionPerfil();
+    public void irMedioPago_desde_regresoPerfil() throws InterruptedException {
+        scMediosDePago.regresar_home_desde_pagos();
+        scAlertas.omitirAlertas(5);
+        scMediosDePago.irPerfil();
         scPerfil.irMediosDePago();
     }
 

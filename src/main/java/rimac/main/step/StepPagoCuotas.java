@@ -84,7 +84,8 @@ public class StepPagoCuotas {
     }
 
     public void irMedioPago_desde_regresoPerfil() {
-        scMediosDePago.regresarSelecOpcionPerfil();
+        scMediosDePago.regresar_home_desde_pagos();
+        scMediosDePago.irPerfil();
         scPerfil.irMediosDePago();
     }
     public void eliminarTarjeta(String numTarjeta){
