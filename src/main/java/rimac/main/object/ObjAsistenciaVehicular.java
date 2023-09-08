@@ -5,6 +5,8 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import rimac.main.util.BaseDriver;
 
+import java.util.List;
+
 public class ObjAsistenciaVehicular extends BaseDriver {
 
     private static ObjAsistenciaVehicular obj = null;
@@ -44,6 +46,9 @@ public class ObjAsistenciaVehicular extends BaseDriver {
 
     @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/plateTitle")
     public WebElement titTusVehiculosAfiliados;
+
+    @AndroidFindBy(xpath= "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/platesRv']/android.view.ViewGroup")
+    public List<WebElement> listPlacas;
 
     public WebElement btnVehiculo(String placa) {
         WebElement we_btnVehiculo = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+placa+"']"));
