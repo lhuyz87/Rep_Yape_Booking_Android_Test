@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import rimac.main.step.StepChoferDeReemplazo;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class DefChoferReemplazo {
@@ -42,7 +43,18 @@ public class DefChoferReemplazo {
         assertTrue(stepChoferDeReemplazo.se_valida_solicitud_chofer(placa));
     }
 
-    @And("debe mostrar la solicitud de chofer reemplazo de la")
-    public void debeMostrarLaSolicitudDeChoferReemplazoDeLa() {
+    @When("se cancela la solicitud de chofer de reemplazo de la {string}")
+    public void seCancelaLaSolicitudDeChoferDeReemplazoDeLa(String placa) {
+        stepChoferDeReemplazo.cancelar_chofer(placa);
+    }
+
+    @Then("se debe mostrar un mensaje {string}")
+    public void seDebeMostrarUnMensaje(String mensaje) {
+        assertEquals(mensaje,stepChoferDeReemplazo.validar_mensaje_cancelar());
+    }
+
+    @And("se valida que no se muestre en el home la solicitud de la {string}")
+    public void seValidaQueNoSeMuestreEnElHomeLaSolicitudDeLa(String placa) throws InterruptedException {
+        assertTrue(stepChoferDeReemplazo.validar_cancelar_chofer(placa));
     }
 }

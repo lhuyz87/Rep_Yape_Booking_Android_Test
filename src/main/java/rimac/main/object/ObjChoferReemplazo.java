@@ -5,6 +5,8 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import rimac.main.util.BaseDriver;
 
+import java.util.List;
+
 public class ObjChoferReemplazo extends BaseDriver {
 
 private static ObjChoferReemplazo obj = null;
@@ -106,7 +108,15 @@ public ObjChoferReemplazo(){}
         String matriculaLetras=placa.substring(0,3);
         String matriculaNumeros=placa.substring(3,6);
 
-        WebElement soli_choferhome = appiumDriver().findElement(AppiumBy.xpath("//*[@text='Solicitud Chofer de reemplazo']//following-sibling::android.widget.TextView[@text='Placa "+matriculaLetras+"-"+matriculaNumeros+"']"));
+        WebElement soli_choferhome = appiumDriver().findElement(AppiumBy.xpath("//*[@text='Solicitud Chofer de reemplazo']//following-sibling::android.widget.TextView[@text='"+matriculaLetras+"-"+matriculaNumeros+"']"));
+        return soli_choferhome;
+    }
+    public List<WebElement> msjSolicitudChoferHomeExist(String placa) {
+
+        String matriculaLetras=placa.substring(0,3);
+        String matriculaNumeros=placa.substring(3,6);
+
+        List<WebElement> soli_choferhome = appiumDriver().findElements(AppiumBy.xpath("//*[@text='Solicitud Chofer de reemplazo']//following-sibling::android.widget.TextView[@text='"+matriculaLetras+"-"+matriculaNumeros+"']"));
         return soli_choferhome;
     }
     @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
@@ -120,5 +130,17 @@ public ObjChoferReemplazo(){}
 
     @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/csatImageClose")
     public WebElement btnCerrarmodal;
+
+    @AndroidFindBy(id = "assistanceCancelButton")
+    public WebElement btnCancelarChofer;
+
+    @AndroidFindBy(id = "bottom_sheet_negative_button")
+    public WebElement btnSiCancelar;
+
+    @AndroidFindBy(id = "received_request_title")
+    public WebElement lblSolicitudCancelada;
+
+    @AndroidFindBy(id = "backBtn")
+    public WebElement btnRegresar;
 
 }
