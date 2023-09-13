@@ -35,11 +35,7 @@ public class ObjPregunDeVerifi extends BaseDriver{
 	public Object clone() throws CloneNotSupportedException {
 		throw new CloneNotSupportedException();
 	}
-	
-	
 
-	
-	
 	@AndroidFindBy(id = "glyphIv")
 	public WebElement btnCalend;
 	

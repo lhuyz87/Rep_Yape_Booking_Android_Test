@@ -36,7 +36,7 @@ public class ObjConsultaReembolso extends BaseDriver{
 	@AndroidFindBy(id = "tvFilters")
 	public WebElement btnFiltro;
 	
-	@AndroidFindBy(xpath = "//*[@resource-id='refundSpendingPEN']")
+	@AndroidFindBy(xpath = "//*[ends-with(@resource-id,'refundSpendingPEN'])")
 	public List<WebElement> lblMontoReembolso;
 
 }

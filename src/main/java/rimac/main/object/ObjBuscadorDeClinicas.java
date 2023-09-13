@@ -54,7 +54,7 @@ public class ObjBuscadorDeClinicas extends BaseDriver{
 	@AndroidFindBy(id = "input_patient")
 	public WebElement cmbPaciente;
 
-	@AndroidFindBy(xpath = "//*[@resource-id='bottom_sheet_group_insures']/android.widget.RadioButton[1]")
+	@AndroidFindBy(xpath = "//*[ends-with(@resource-id,'bottom_sheet_group_insures')]/android.widget.RadioButton[1]")
 	public WebElement rdbPaciente;
 
 	@AndroidFindBy(id = "materialBtn")

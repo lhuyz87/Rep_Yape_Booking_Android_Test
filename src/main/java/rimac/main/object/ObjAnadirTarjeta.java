@@ -22,32 +22,26 @@ public class ObjAnadirTarjeta extends BaseDriver {
         }
     }
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'editCfNumberCard']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'editCfNumberCard')]//following-sibling::android.widget.EditText")
     public WebElement lblNumTarjeta;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'editCfNameHolder']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'editCfNameHolder')]//following-sibling::android.widget.EditText")
     public WebElement lblNombre;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'editCfLastNameHolder']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'editCfLastNameHolder')]//following-sibling::android.widget.EditText")
     public WebElement lblApellido;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'editCfDateCard']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'editCfDateCard')]//following-sibling::android.widget.EditText")
     public WebElement lblMMAA;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'editCfCvvCard']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'editCfCvvCard')]//following-sibling::android.widget.EditText")
     public WebElement lblCVV;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'editCfEmailHolder']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'editCfEmailHolder')]//following-sibling::android.widget.EditText")
     public WebElement lblCorreo;
 
     @AndroidFindBy(id = "materialBtn")
     public WebElement btnAfiliarTarjeta;
-
-    @AndroidFindBy(id = "paymentCardFrontLayout")
-    public WebElement imgTarjeta;
-
-    @AndroidFindBy(id = "button")
-    public WebElement btnPagar;
 
     @AndroidFindBy(id = "cbCfSaveCard")
     public WebElement chkGuardarTarjeta;
@@ -59,7 +53,5 @@ public class ObjAnadirTarjeta extends BaseDriver {
     public WebElement btnPagarNew;
     @AndroidFindBy(id = "switchSw")
     public WebElement btnPagoAuto;
-
-
 
 }

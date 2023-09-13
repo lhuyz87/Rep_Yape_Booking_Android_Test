@@ -30,10 +30,10 @@ public class ObjActualizaDatos extends BaseDriver {
     @AndroidFindBy(id = "updateDataTitle")
     public WebElement lblActualizaDatos;
 
-    @AndroidFindBy(xpath = "//*[@resource-id='inputPhone']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'inputPhone')]//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
     public WebElement txtCelular;
 
-    @AndroidFindBy(xpath = "//*[@resource-id='inputEmail']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'inputEmail')]//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
     public WebElement txtCorreo;
 
     @AndroidFindBy(id = "materialBtn")

@@ -79,10 +79,10 @@ public class ObjConfirmarDatosReembolsoSalud extends BaseDriver{
 	@AndroidFindBy(xpath = "//*[@text='Continuar']")
 	public WebElement btnContinuar;
 
-	@AndroidFindBy(xpath = "//*[@resource-id='uiEditEmail']//following-sibling::android.widget.EditText")
+	@AndroidFindBy(xpath = "//*[ends-with(@resource-id,'uiEditEmail')]//following-sibling::android.widget.EditText")
 	public WebElement txtCorreo;
 
-	@AndroidFindBy(xpath = "//*[@resource-id='uiEditCellphoneNumber']//following-sibling::android.widget.EditText")
+	@AndroidFindBy(xpath = "//*[ends-with(@resource-id,'uiEditCellphoneNumber')]//following-sibling::android.widget.EditText")
 	public WebElement txtCelular;
 	
 	@AndroidFindBy(xpath = "//*[@text='Departamento']")

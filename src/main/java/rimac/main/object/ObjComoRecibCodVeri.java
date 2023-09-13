@@ -32,9 +32,7 @@ public class ObjComoRecibCodVeri extends BaseDriver{
 	public Object clone() throws CloneNotSupportedException {
 		throw new CloneNotSupportedException();
 	}
-	
-	
-	
+
 	@AndroidFindBy(id = "txtAnswerEventQuestion")
 	public WebElement btnRespoPregun;
 

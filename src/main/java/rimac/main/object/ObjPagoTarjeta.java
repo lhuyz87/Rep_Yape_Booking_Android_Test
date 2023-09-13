@@ -33,10 +33,10 @@ public class ObjPagoTarjeta extends BaseDriver {
     @AndroidFindBy(id = "account_verify_edit_document")
     public WebElement lblDni;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'puTextInputEmail']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'puTextInputEmail')]//following-sibling::android.widget.EditText")
     public WebElement lblCorreo;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'puTextInputPhone']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'puTextInputPhone')]//following-sibling::android.widget.EditText")
     public WebElement lblCelular;
 
     @AndroidFindBy(id = "button")
@@ -45,7 +45,7 @@ public class ObjPagoTarjeta extends BaseDriver {
     @AndroidFindBy(id = "materialBtn")
     public WebElement btnPagar;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'inputCvv']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'inputCvv')]//following-sibling::android.widget.EditText")
     public WebElement lblCvv;
 
     @AndroidFindBy(id = "txtTitlePaymentListCard")

@@ -38,7 +38,7 @@ public class ObjSoatDosMinutos extends BaseDriver {
     public List<WebElement> inputPlaca;
 
     public WebElement inputPlaca(String index) {
-        WebElement we_inputPlaca = appiumDriver().findElement(AppiumBy.xpath("//*[@resource-id= 'inputPlate']/android.widget.EditText["+index+"]"));
+        WebElement we_inputPlaca = appiumDriver().findElement(AppiumBy.xpath("//*[ends-with(@resource-id,'inputPlate')]/android.widget.EditText["+index+"]"));
         return we_inputPlaca;
     }
 
@@ -70,10 +70,13 @@ public class ObjSoatDosMinutos extends BaseDriver {
     }
     @AndroidFindBy(id = "inputYear")
     public WebElement txtAnio;
+
     @AndroidFindBy(id = "inputSerie")
     public WebElement txtSerie;
+
     @AndroidFindBy(id = "inputSeatNumber")
     public WebElement txtNumAsientos;
+
     @AndroidFindBy(id = "materialBtn")
     public WebElement btnContinuar;
 

@@ -34,8 +34,7 @@ public class ObjReemDocCobertMedica extends BaseDriver{
 	public Object clone() throws CloneNotSupportedException {
 		throw new CloneNotSupportedException();
 	}
-	
-	
+
 
 	@AndroidFindBy(xpath = "//*[@text='Adjunta fotos o archivos']")
 	public WebElement selFotosArchivos;
@@ -63,9 +62,5 @@ public class ObjReemDocCobertMedica extends BaseDriver{
 
 	@AndroidFindBy(id = "//*[@text='Ok']")
 	public WebElement btnAceptar;
-	
-	
 
-	
-	
 }

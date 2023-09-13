@@ -54,7 +54,7 @@ public class ObjCuentaDeAbono extends BaseDriver{
 	}
 
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiEditAccountType")
+	@AndroidFindBy(id = "uiEditAccountType")
 	public WebElement lstTipoCuenta;
 
 	public WebElement getTipoCuenta(WebDriver driver, String  tipoCuenta){

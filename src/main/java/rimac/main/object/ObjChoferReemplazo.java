@@ -41,11 +41,11 @@ public ObjChoferReemplazo(){}
 
     @AndroidFindBy(id= "inputName")
     public WebElement idtxtNombre;
-    @AndroidFindBy(xpath= "//*[@resource-id='inputName']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath= "//*[ends-with(@resource-id,'inputName')]//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
     public WebElement txtNombre;
-    @AndroidFindBy(xpath= "//*[@resource-id='inputPhone']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath= "//*[ends-with(@resource-id,'inputPhone')]//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
     public WebElement txtCelular;
-    @AndroidFindBy(xpath= "//*[@resource-id='inputEmail']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath= "//*[ends-with(@resource-id,'inputEmail')]//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
     public WebElement txtCorreo;
     @AndroidFindBy(id= "materialBtn")
     public WebElement btnComenzar;

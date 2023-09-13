@@ -30,12 +30,6 @@ public class ObjConsultaTusPagos extends BaseDriver {
     @AndroidFindBy(id = "materialBtn")
     public WebElement btnAbrir;
 
-    @AndroidFindBy(id = "downloadProgress")
-    public WebElement btnDownloadProgress;
-
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc='']")
-    public WebElement lblPdfHistorial;
-
     @AndroidFindBy(xpath = "(//*[@resource-id='amount'])[last()]")
     public WebElement lblMontoHistorial;
 
