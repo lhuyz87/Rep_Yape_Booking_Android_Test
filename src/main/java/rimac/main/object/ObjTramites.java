@@ -44,17 +44,14 @@ public class ObjTramites extends BaseDriver{
 
 	@AndroidFindBy(xpath = "//*[@text='Todos']")
 	public WebElement btnTodos;
-	
-	
+
 	@AndroidFindBy(xpath = "//*[@text='Buscador de salud']")
 	public WebElement btnBuscarClinica;
-	
-	
+
 	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Seguimiento\"]")
 	public WebElement btnSeguimiento;
-	
 		
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/cardIconTitle")
+	@AndroidFindBy(id = "cardIconTitle")
 	public WebElement btnSegReemSalud;
 
 	@AndroidFindBy(xpath = "//*[@text='Asistencias vehiculares']//parent::android.view.ViewGroup//following-sibling::android.widget.ImageView")
@@ -69,7 +66,7 @@ public class ObjTramites extends BaseDriver{
 	@AndroidFindBy(xpath = "//android.widget.CompoundButton[@text='Salud']")
 	public WebElement opcSalud;
 
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/processTitle")
+	@AndroidFindBy(id = "processTitle")
 	public WebElement lblTramites;
 
 	@AndroidFindBy(xpath = "//*[@text='Descuento en asistencias']//parent::android.view.ViewGroup//following-sibling::android.widget.ImageView")

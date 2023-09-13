@@ -29,7 +29,7 @@ public class ObjNecesitoAyudaAsistencia extends BaseDriver {
         throw new CloneNotSupportedException();
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiEditOption")
+    @AndroidFindBy(id = "uiEditOption")
     public WebElement cmbEligeOpcion;
 
     public WebElement opcEligeOpcion(String opcion){
@@ -37,7 +37,7 @@ public class ObjNecesitoAyudaAsistencia extends BaseDriver {
         return we_opcEligeOpcion;
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnContinuar;
 
     @AndroidFindBy(xpath= "//*[@text='Sí']//preceding-sibling::android.widget.ImageView")
@@ -46,13 +46,13 @@ public class ObjNecesitoAyudaAsistencia extends BaseDriver {
     @AndroidFindBy(xpath = "//*[@text='No']//preceding-sibling::android.widget.ImageView")
     public WebElement btnNo;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnSolicitar;
 
     @AndroidFindBy(xpath = "//*[@text='Sí, por ejemplo la vía pública.']//following-sibling::android.widget.RadioButton")
     public WebElement btnSiViaPublica;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/sinisterTitle")
+    @AndroidFindBy(id = "sinisterTitle")
     public WebElement lblEnciendeLuces;
 
     @AndroidFindBy(xpath= "//*[@text='Asistencia sugerida']")

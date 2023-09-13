@@ -22,7 +22,7 @@ public class ObjEligeTuPlan extends BaseDriver {
         }
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/soatPurchaseHeaderTitle")
+    @AndroidFindBy(id = "soatPurchaseHeaderTitle")
     public WebElement lblEligetuPlan;
 
     @AndroidFindBy(xpath = "//*[@text='Continuar']")
@@ -31,10 +31,10 @@ public class ObjEligeTuPlan extends BaseDriver {
     @AndroidFindBy(accessibility = "No, gracias")
     public WebElement rdbNoAfiliar;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/soatRenewalPrivacyPolicy")
+    @AndroidFindBy(id = "soatRenewalPrivacyPolicy")
     public WebElement rdbPoliticaPrivacidad;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/soatRenewalCheckElectronicPolicy")
+    @AndroidFindBy(id = "soatRenewalCheckElectronicPolicy")
     public WebElement rdbEnvioPoliza;
 
     @AndroidFindBy(xpath = "//*[@text='Vial']")

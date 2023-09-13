@@ -27,13 +27,13 @@ public class ObjTienda extends BaseDriver {
         throw new CloneNotSupportedException();
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/tvDescription")
+    @AndroidFindBy(id = "tvDescription")
     public WebElement lblDescripcion;
 
     @AndroidFindBy(xpath = "//*[@text='SOAT en 2 minutos']")
     public WebElement btnSoatDosminutos;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnConoceMas;
 
     @AndroidFindBy(xpath = "//*[@text='Seguros de Salud']")

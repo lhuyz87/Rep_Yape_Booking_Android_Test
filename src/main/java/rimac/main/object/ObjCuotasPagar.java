@@ -30,15 +30,15 @@ public class ObjCuotasPagar extends BaseDriver {
 
     @AndroidFindBy(xpath= "//*[@text='Cuotas a pagar']")
     public WebElement lblCuotasAPagar;
-    @AndroidFindBy(xpath= "(//android.widget.CheckBox[@resource-id='com.rimac.rimac_surrogas.qa:id/rowPaymentQuoteCheck'])[1]")
+    @AndroidFindBy(xpath= "(//android.widget.CheckBox[@resource-id='rowPaymentQuoteCheck'])[1]")
     public WebElement chkCuota1;
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/toolbarPayQuote']//following-sibling::android.widget.ImageButton")
+    @AndroidFindBy(xpath = "//*[@resource-id= 'toolbarPayQuote']//following-sibling::android.widget.ImageButton")
     public WebElement btnVolver;
-    @AndroidFindBy(xpath = "(//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/rowPaymentQuoteAmount'])[1]")
+    @AndroidFindBy(xpath = "(//*[@resource-id= 'rowPaymentQuoteAmount'])[1]")
     public WebElement lblMontoCuota;
     @AndroidFindBy(xpath= "//*[@text='Iniciar pago']")
     public WebElement btnIniciarPago;
 
-    @AndroidFindBy(xpath= "(//*[@resource-id='com.rimac.rimac_surrogas.qa:id/rowPaymentQuoteValue'])[1]")
+    @AndroidFindBy(xpath= "(//*[@resource-id='rowPaymentQuoteValue'])[1]")
     public WebElement lblNumeroCuotaPagar;
 }

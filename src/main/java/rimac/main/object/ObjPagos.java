@@ -28,7 +28,7 @@ public class ObjPagos extends BaseDriver {
         throw new CloneNotSupportedException();
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/pmTextPaymentMethod")
+    @AndroidFindBy(id = "pmTextPaymentMethod")
     public WebElement lblMetodoPago;
 
     @AndroidFindBy(xpath = "//*[@text='Medios de pago']")
@@ -43,20 +43,20 @@ public class ObjPagos extends BaseDriver {
     public WebElement btnHistorialPagos;
     @AndroidFindBy(xpath= "//*[@text='Pagar cuotas']")
     public WebElement btnPagarCuotas;
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/btnPayQuotePending")
+    @AndroidFindBy(id= "btnPayQuotePending")
     public WebElement btnAdelantarCuotas;
     @AndroidFindBy(xpath= "//*[@text='Cuotas a pagar']")
     public WebElement lblCuotasAPagar;
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/historyTitle")
+    @AndroidFindBy(id= "historyTitle")
     public WebElement lblConsultaTusPagos;
-    @AndroidFindBy(xpath= "(//android.widget.CheckBox[@resource-id='com.rimac.rimac_surrogas.qa:id/rowPaymentQuoteCheck'])[1]")
+    @AndroidFindBy(xpath= "(//android.widget.CheckBox[@resource-id='rowPaymentQuoteCheck'])[1]")
     public WebElement chkCuota1;
-    @AndroidFindBy(xpath= "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/prRecyclerData']//following-sibling::*[@text='Pagado']")
+    @AndroidFindBy(xpath= "//*[@resource-id='prRecyclerData']//following-sibling::*[@text='Pagado']")
     public WebElement lblHistorial;
     @AndroidFindBy(xpath= "//*[@text='Iniciar pago']")
     public WebElement btnIniciarPago;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/pcTextTitle")
+    @AndroidFindBy(id= "pcTextTitle")
     public WebElement titHemosRecibidosuPago;
     @AndroidFindBy(xpath= "//*[@text='Cuota pagada']")
     public WebElement btnCuotaPagada;
@@ -64,7 +64,7 @@ public class ObjPagos extends BaseDriver {
     @AndroidFindBy(xpath= "//*[@text='Entendido']")
     public WebElement btnEntendido;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/btn_back")
+    @AndroidFindBy(id= "btn_back")
     public WebElement tapRegresarSegVehicu;
 
     public WebElement titHemosRecibidosuPago2(String mensaje) {

@@ -27,80 +27,75 @@ public ObjChoferReemplazo(){}
         throw new CloneNotSupportedException();
     }
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/onBoardingTitle")
+    @AndroidFindBy(id= "onBoardingTitle")
     public WebElement titSolicitaChoferR;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/confirmCheckTerms")
+    @AndroidFindBy(id= "confirmCheckTerms")
     public WebElement chktermsChoferR;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id= "materialBtn")
     public WebElement btnChoferR;
 
-
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/phoneUpdateTitle")
+    @AndroidFindBy(id= "phoneUpdateTitle")
     public WebElement titCelulardeContacto;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/inputName")
+    @AndroidFindBy(id= "inputName")
     public WebElement idtxtNombre;
-    @AndroidFindBy(xpath= "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/inputName']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath= "//*[@resource-id='inputName']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
     public WebElement txtNombre;
-    @AndroidFindBy(xpath= "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/inputPhone']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath= "//*[@resource-id='inputPhone']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
     public WebElement txtCelular;
-    @AndroidFindBy(xpath= "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/inputEmail']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath= "//*[@resource-id='inputEmail']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
     public WebElement txtCorreo;
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id= "materialBtn")
     public WebElement btnComenzar;
-
-
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/plateTitle")
+    @AndroidFindBy(id= "plateTitle")
     public WebElement titTusVehiculosAfiliados;
 
     public WebElement btnVehiculo(String placa) {
         WebElement we_btnVehiculo = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+placa+"']"));
         return we_btnVehiculo;
     }
-    @AndroidFindBy(id="com.rimac.rimac_surrogas.qa:id/addressMapInputDestiny")
+    @AndroidFindBy(id="addressMapInputDestiny")
     public WebElement txtPuntoDestino;
 
-    @AndroidFindBy(id="com.rimac.rimac_surrogas.qa:id/addressMapInput")
+    @AndroidFindBy(id="addressMapInput")
     public WebElement txtPuntoPartida;
     @AndroidFindBy(xpath = "//*[@text='Chofer de reemplazo']")
     public WebElement opcChoferReemplazo;
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/selectionText")
+    @AndroidFindBy(id= "selectionText")
     public WebElement opcSelecPuntoMapa;
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/addressConfirm")
+    @AndroidFindBy(id= "addressConfirm")
     public WebElement opcConfirmarPuntoMapa;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id= "materialBtn")
     public WebElement opcContSelecPuntoMapa;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/inputDatePicker")
+    @AndroidFindBy(id= "inputDatePicker")
     public WebElement selecFecha;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/buttonConfirm")
+    @AndroidFindBy(id= "buttonConfirm")
     public WebElement btnAceptarFecha;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/inputTimePicker")
+    @AndroidFindBy(id= "inputTimePicker")
     public WebElement selecHora;
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/buttonConfirm")
+    @AndroidFindBy(id= "buttonConfirm")
     public WebElement btnConfirmarHora;
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id= "materialBtn")
     public WebElement btnConfirmarFechaHora;
-
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/lblTitle")
+    @AndroidFindBy(id= "lblTitle")
     public WebElement titRequisitosServicios;
 
     @AndroidFindBy(xpath= "//*[@text='Revisión técnica']")
     public WebElement chcBoxRevisionTecnica;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id= "materialBtn")
     public WebElement btnContinuarRevtec;
 
-
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/lblTitle")
+    @AndroidFindBy(id= "lblTitle")
     public WebElement titConfirmarChofer;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id= "materialBtn")
     public WebElement btnConfirmarChofer;
 
     public WebElement msjSolicitudChoferHome(String placa) {
@@ -119,7 +114,7 @@ public ObjChoferReemplazo(){}
         List<WebElement> soli_choferhome = appiumDriver().findElements(AppiumBy.xpath("//*[@text='Solicitud Chofer de reemplazo']//following-sibling::android.widget.TextView[@text='"+matriculaLetras+"-"+matriculaNumeros+"']"));
         return soli_choferhome;
     }
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id= "materialBtn")
     public WebElement btnIrInicio;
 
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[@content-desc='Inicio']")
@@ -128,7 +123,7 @@ public ObjChoferReemplazo(){}
     @AndroidFindBy(xpath= "//*[@text='Hemos recibido tu solicitud']")
     public WebElement titChoferReemplazo;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/csatImageClose")
+    @AndroidFindBy(id = "csatImageClose")
     public WebElement btnCerrarmodal;
 
     @AndroidFindBy(id = "assistanceCancelButton")

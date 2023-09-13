@@ -37,35 +37,22 @@ public class ObjConfirmarDatosReembolsoSalud extends BaseDriver{
 	public Object clone() throws CloneNotSupportedException {
 		throw new CloneNotSupportedException();
 	}
-	
-	
-	
+
 	@AndroidFindBy(xpath = "//*[@text='DNI del titular']")
 	public WebElement lblDni;
-	//*[@text='Dirección']/following :: *[3]
-	//*[@class='android.widget.FrameLayout' and ./parent::*[@id='uiEditDepartment'] and ./*[@text]]
-//	@AndroidFindBy(xpath = "//*[@class='android.widget.EditText' and ./parent::*[./parent::*[@id='uiEditDepartment']]]") 
 
-
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/personalDataTitle")
+	@AndroidFindBy(id ="personalDataTitle")
 	public WebElement lblDataTitle;
 
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/uiEditDepartment")
+	@AndroidFindBy(id ="uiEditDepartment")
 	public WebElement selDepartamento;
 
-	public WebElement getDepartamento(WebDriver webDriver) {
-		By by = By.xpath("//*[@class='android.widget.EditText' and ./parent::*[./parent::*[@id='uiEditDepartment']]]");
-		WebElement elementDepar = webDriver.findElement(by);
-		return elementDepar;
-	}
-
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiEditProvince")
+	@AndroidFindBy(id = "uiEditProvince")
 	public WebElement selProvincia;
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiEditDistrict")
+	@AndroidFindBy(id = "uiEditDistrict")
 	public WebElement selDistrito;
 
-	
 	public WebElement departamento(WebDriver webDriver, String departamento) {
 		By by = By.xpath("//*[@text='"+departamento+"']");
 		WebElement diaAtencion = webDriver.findElement(by);
@@ -92,10 +79,10 @@ public class ObjConfirmarDatosReembolsoSalud extends BaseDriver{
 	@AndroidFindBy(xpath = "//*[@text='Continuar']")
 	public WebElement btnContinuar;
 
-	@AndroidFindBy(xpath = "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/uiEditEmail']//following-sibling::android.widget.EditText")
+	@AndroidFindBy(xpath = "//*[@resource-id='uiEditEmail']//following-sibling::android.widget.EditText")
 	public WebElement txtCorreo;
 
-	@AndroidFindBy(xpath = "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/uiEditCellphoneNumber']//following-sibling::android.widget.EditText")
+	@AndroidFindBy(xpath = "//*[@resource-id='uiEditCellphoneNumber']//following-sibling::android.widget.EditText")
 	public WebElement txtCelular;
 	
 	@AndroidFindBy(xpath = "//*[@text='Departamento']")

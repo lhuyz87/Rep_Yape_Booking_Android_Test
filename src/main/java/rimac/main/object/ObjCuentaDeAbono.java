@@ -37,11 +37,9 @@ public class ObjCuentaDeAbono extends BaseDriver{
 		throw new CloneNotSupportedException();
 	}
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiEditBankEntity")
+	@AndroidFindBy(id = "uiEditBankEntity")
 	public WebElement lstEntidadBancaria;
-	
 
-	//Interbank, BBVA, Scotiabank, Scotiabank
 	public WebElement getEntidadBancaria(WebDriver driver, String  entidad){
 			try {
 				By by = By.xpath("//*[@text='"+entidad+"']");
@@ -54,30 +52,20 @@ public class ObjCuentaDeAbono extends BaseDriver{
 			return null;
 
 	}
-	
-	
-	//*[@id="com.rimac.rimac_surrogas:id/uiEditBankEntity"]/child::*[1]/child::*[1]	
-	
-	@AndroidFindBy(xpath = "//*[@id=\"com.rimac.rimac_surrogas.qa:id/uiEditBankEntity\"]/child::*[1]/child::*[1]")
-	public WebElement txtEntidadBancaria;
+
 	
 	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiEditAccountType")
 	public WebElement lstTipoCuenta;
-	
 
-	//Cuenta de ahorros,Cuenta corriente,Cuenta maestra
 	public WebElement getTipoCuenta(WebDriver driver, String  tipoCuenta){
 			By by = By.xpath("//*[@text='"+tipoCuenta+"']");
 			WebElement elementoTipoCuenta = driver.findElement(by);
 			return elementoTipoCuenta;
 	}
-	
 
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiEditCurrencyType")
+	@AndroidFindBy(id = "uiEditCurrencyType")
 	public WebElement lstTipoMoneda;
-	
 
-	//Soles (S/),Dólares ($)
 	public WebElement getTipoMoneda(WebDriver driver, String  moneda){
 			By by = By.xpath("//*[@text='"+moneda+"']");
 			WebElement elementoMoneda = driver.findElement(by);

@@ -35,32 +35,29 @@ public class ObjBuscadorDeClinicas extends BaseDriver{
 	}
 	
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/edtSearch")
+	@AndroidFindBy(id = "edtSearch")
 	public WebElement txtBuscarClinica;
 	
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/text_clinic_name")
+	@AndroidFindBy(id = "text_clinic_name")
 	public WebElement lblClinicaEncontra;
 
 
 	public WebElement lblCopago() {
-		WebElement we_opcProblema1 = appiumDriver().findElement(AppiumBy.xpath("//*[@resource-id='com.rimac.rimac_surrogas.qa:id/container'][1]/android.widget.TextView[1]"));
+		WebElement we_opcProblema1 = appiumDriver().findElement(AppiumBy.xpath("//*[@resource-id='container'][1]/android.widget.TextView[1]"));
 		return we_opcProblema1;
 	}
-	/*
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/text_price")
-	public WebElement lblCopago;
-    */
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/text_step_title")
+
+	@AndroidFindBy(id = "text_step_title")
 	public WebElement lblAntesdeComenzar;
 
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/input_patient")
+	@AndroidFindBy(id = "input_patient")
 	public WebElement cmbPaciente;
 
-	@AndroidFindBy(xpath = "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/bottom_sheet_group_insures']/android.widget.RadioButton[1]")
+	@AndroidFindBy(xpath = "//*[@resource-id='bottom_sheet_group_insures']/android.widget.RadioButton[1]")
 	public WebElement rdbPaciente;
 
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+	@AndroidFindBy(id = "materialBtn")
 	public WebElement btnContinuar;
 	@AndroidFindBy(xpath ="//*[@text='Entendido']")
 	public WebElement btnEntendidoLeerDoc;

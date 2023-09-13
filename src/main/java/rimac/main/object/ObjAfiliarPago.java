@@ -22,12 +22,12 @@ public class ObjAfiliarPago extends BaseDriver {
             obj = new ObjAfiliarPago();
         }
     }
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/txtTitlePaymentListCard")
+    @AndroidFindBy(id= "txtTitlePaymentListCard")
     public WebElement lblAfiliarPago;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/textTitleGenericAffiliate")
+    @AndroidFindBy(id= "textTitleGenericAffiliate")
     public WebElement lblTarjetaAfiliadaExito; //Tarjeta afiliada con éxito
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id= "materialBtn")
     public WebElement btnIrPagos;
 }

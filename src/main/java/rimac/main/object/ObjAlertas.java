@@ -34,37 +34,17 @@ public class ObjAlertas extends BaseDriver{
 	}
 	
 
-	@AndroidFindBy(id ="com.android.permissioncontroller:id/permission_allow_foreground_only_button")
+	@AndroidFindBy(id ="permission_allow_foreground_only_button")
 	public WebElement btnAppEnUso;
-	
-	@AndroidFindBy(xpath = "//*[@text='SOLO ESTA VEZ']")
-	public WebElement btnSoloUnaVez;
-	
-	@AndroidFindBy(id ="com.android.permissioncontroller:id/permission_allow_button")
-	public WebElement btnPermitir;
-	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/materialBtn")
-	public WebElement btnRealizarInspeccion;
-	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/dialog_close")
-	public WebElement btnCerrarRealizarInspeccion;
-	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/dialogClose")
-	public WebElement btnCerrarVehicularVencer;
-	
-	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/btn_not_yet")
-	public WebElement btnEnteratePorAhoraNo;
-	@AndroidFindBy(xpath ="//*[@text='Por ahora no']")
-	public WebElement btnEnteratePorAhoraNo2;
-	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/registerTextNotYet")
-	public WebElement btnHuellaPorAhoraNo;
-	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/dialog_btn_negative")
-	public WebElement btnActualLuego;
 
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/materialBtn")
+	@AndroidFindBy(id ="btn_not_yet")
+	public WebElement btnEnteratePorAhoraNo;
+	
+	@AndroidFindBy(id ="registerTextNotYet")
+	public WebElement btnHuellaPorAhoraNo;
+	@AndroidFindBy(id ="dialog_btn_negative")
+	public WebElement btnActualLuego;
+	@AndroidFindBy(id ="materialBtn")
 	public WebElement btnEntendidoError;
 
 	@AndroidFindBy(xpath="//*[@text='Activa tu seguro vehicular hoy']//preceding-sibling::android.widget.ImageButton[@content-desc='Cerrar modal']")
@@ -73,13 +53,13 @@ public class ObjAlertas extends BaseDriver{
 	@AndroidFindBy(xpath="//*[@text='Ocurrió un error']//preceding-sibling::android.widget.ImageButton[@content-desc='Cerrar modal']")
 	public WebElement btnCerrarModalError;
 
-	@AndroidFindBy(xpath="//*[@text='Estar Bien']//preceding-sibling::android.widget.ImageButton[@resource-id='com.rimac.rimac_surrogas.qa:id/dialog_close']")
+	@AndroidFindBy(xpath="//*[@text='Estar Bien']//preceding-sibling::android.widget.ImageButton[@resource-id='dialog_close']")
 	public WebElement btnCerrarModalEstarBien;
 
 	@AndroidFindBy(xpath ="//*[@text='Ya tienes un servicio en proceso']")
 	public WebElement mdlServicioEnProceso;
 
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/imgCloseEmail")
+	@AndroidFindBy(id ="imgCloseEmail")
 	public WebElement btnCerrarEmail;
 	@AndroidFindBy(id ="bottom_sheet_negative_button")
 	public WebElement btnTalvezMasTarde;

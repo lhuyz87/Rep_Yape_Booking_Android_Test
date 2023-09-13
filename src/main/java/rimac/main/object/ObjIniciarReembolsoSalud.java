@@ -35,19 +35,7 @@ public class ObjIniciarReembolsoSalud extends BaseDriver{
 		throw new CloneNotSupportedException();
 	}
 
-	
-	@AndroidFindBy(xpath = "//[contains(text(),'Antes de iniciar')]")
-	public WebElement lblIniciarReembolso;
-	
-	
 	@AndroidFindBy(xpath = "//*[@text='Empezar reembolso']")
 	public WebElement btnEmpezarReembolso;
-	
-	
-	@AndroidFindBy(xpath = "//*[@text='Descargar']")
-	public WebElement btnDescargarRequisitos;
-	
-	
-	
 	
 }

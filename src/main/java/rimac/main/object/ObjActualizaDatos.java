@@ -27,15 +27,15 @@ public class ObjActualizaDatos extends BaseDriver {
         throw new CloneNotSupportedException();
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/updateDataTitle")
+    @AndroidFindBy(id = "updateDataTitle")
     public WebElement lblActualizaDatos;
 
-    @AndroidFindBy(xpath = "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/inputPhone']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[@resource-id='inputPhone']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
     public WebElement txtCelular;
 
-    @AndroidFindBy(xpath = "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/inputEmail']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[@resource-id='inputEmail']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
     public WebElement txtCorreo;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnContinuar;
 }

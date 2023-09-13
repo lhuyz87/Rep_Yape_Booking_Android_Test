@@ -22,42 +22,42 @@ public class ObjAnadirTarjeta extends BaseDriver {
         }
     }
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/editCfNumberCard']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[@resource-id= 'editCfNumberCard']//following-sibling::android.widget.EditText")
     public WebElement lblNumTarjeta;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/editCfNameHolder']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[@resource-id= 'editCfNameHolder']//following-sibling::android.widget.EditText")
     public WebElement lblNombre;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/editCfLastNameHolder']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[@resource-id= 'editCfLastNameHolder']//following-sibling::android.widget.EditText")
     public WebElement lblApellido;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/editCfDateCard']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[@resource-id= 'editCfDateCard']//following-sibling::android.widget.EditText")
     public WebElement lblMMAA;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/editCfCvvCard']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[@resource-id= 'editCfCvvCard']//following-sibling::android.widget.EditText")
     public WebElement lblCVV;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/editCfEmailHolder']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[@resource-id= 'editCfEmailHolder']//following-sibling::android.widget.EditText")
     public WebElement lblCorreo;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnAfiliarTarjeta;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/paymentCardFrontLayout")
+    @AndroidFindBy(id = "paymentCardFrontLayout")
     public WebElement imgTarjeta;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/button")
+    @AndroidFindBy(id = "button")
     public WebElement btnPagar;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/cbCfSaveCard")
+    @AndroidFindBy(id = "cbCfSaveCard")
     public WebElement chkGuardarTarjeta;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnGuardarTarjetanew;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnPagarNew;
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/switchSw")
+    @AndroidFindBy(id = "switchSw")
     public WebElement btnPagoAuto;
 
 

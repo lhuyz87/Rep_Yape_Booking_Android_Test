@@ -27,10 +27,10 @@ public class ObjActivaTuSeguro extends BaseDriver {
         throw new CloneNotSupportedException();
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dialog_close")
+    @AndroidFindBy(id = "dialog_close")
     public WebElement btnCerrarModal;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dialog_text_title")
+    @AndroidFindBy(id = "dialog_text_title")
     public WebElement titActivatuSeguro;
 
 }

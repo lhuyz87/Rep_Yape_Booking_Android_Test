@@ -37,10 +37,10 @@ public class ObjDocRequeridosReembolsoSalud extends BaseDriver{
 	
 	
 
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/documentInfoTitle")
+	@AndroidFindBy(id = "documentInfoTitle")
 	public WebElement lblCargaDocumentos;
 
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/rowRefundDocumentsTitle")
+	@AndroidFindBy(id = "rowRefundDocumentsTitle")
 	public WebElement btnCargarFactura;
 
 	@AndroidFindBy(xpath = "//*[@text='Receta médica']")

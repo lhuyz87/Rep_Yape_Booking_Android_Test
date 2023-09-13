@@ -12,8 +12,7 @@ import rimac.main.object.ObjReemDocCobertAmbulatoria;
 import rimac.main.util.BaseDriver;
 
 public class ObjReemDocCobertAmbulatoria extends BaseDriver{
-	
-	// singleton
+
 	private static ObjReemDocCobertAmbulatoria obj = null;
 
 	private ObjReemDocCobertAmbulatoria() {
@@ -34,8 +33,6 @@ public class ObjReemDocCobertAmbulatoria extends BaseDriver{
 	public Object clone() throws CloneNotSupportedException {
 		throw new CloneNotSupportedException();
 	}
-	
-	
 
 	@AndroidFindBy(xpath = "//*[@text='Adjunta fotos o archivos']")
 	public WebElement selFotosArchivos;
@@ -45,9 +42,5 @@ public class ObjReemDocCobertAmbulatoria extends BaseDriver{
 	
 	@AndroidFindBy(xpath = "//*[@text='Tomar una foto']")
 	public WebElement selTomarFoto;
-	
-	
 
-	
-	
 }

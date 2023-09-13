@@ -45,6 +45,6 @@ public class ObjDocumentos extends BaseDriver{
 		By by = By.xpath("//*[@text='"+tipoDocumento+"']");
 		WebElement elementoTipoDoc = driver.findElement(by);
 		return elementoTipoDoc;
-}
+	}
 	
 }

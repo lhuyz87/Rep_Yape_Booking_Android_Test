@@ -27,15 +27,15 @@ public class ObjTabPoliza extends BaseDriver {
         throw new CloneNotSupportedException();
     }
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/txtPoliceDomiciliary")
+    @AndroidFindBy(id= "txtPoliceDomiciliary")
     public WebElement lblDetallePoliza;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/policyTextDownload")
+    @AndroidFindBy(id= "policyTextDownload")
     public WebElement btnDescargarPoliza;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/pdf_content")
+    @AndroidFindBy(id= "pdf_content")
     public WebElement pdfDocumento;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/button")
+    @AndroidFindBy(id= "button")
     public WebElement btnEstadoCuenta;
 }

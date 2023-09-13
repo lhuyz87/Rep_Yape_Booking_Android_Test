@@ -37,7 +37,7 @@ public class ObjPerfiladorVehi extends BaseDriver {
         return we_inputPlaca;
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/uiTxtTitle")
+    @AndroidFindBy(id = "uiTxtTitle")
     public WebElement lblIngrPlaca;
 
     @AndroidFindBy(xpath = "//*[@text='Básica']")
