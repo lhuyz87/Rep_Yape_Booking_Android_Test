@@ -49,7 +49,7 @@ public class ObjPagos extends BaseDriver {
     public WebElement lblCuotasAPagar;
     @AndroidFindBy(id= "historyTitle")
     public WebElement lblConsultaTusPagos;
-    @AndroidFindBy(xpath= "(//android.widget.CheckBox[@resource-id='rowPaymentQuoteCheck'])[1]")
+    @AndroidFindBy(xpath= "(//android.widget.CheckBox[ends-with(@resource-id,'rowPaymentQuoteCheck')])[1]")
     public WebElement chkCuota1;
     @AndroidFindBy(xpath= "//*[ends-with(@resource-id,'prRecyclerData')]//following-sibling::*[@text='Pagado']")
     public WebElement lblHistorial;

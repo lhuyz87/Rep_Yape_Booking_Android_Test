@@ -48,7 +48,7 @@ public class ObjPregunDeVerifi extends BaseDriver{
 	@AndroidFindBy(id = "android:id/button1")
 	public WebElement btnAcepta;
 
-	@AndroidFindBy(xpath = "//*[@resource-id='android:id/text1']")
+	@AndroidFindBy(xpath = "//*[ends-with(@resource-id,'android:id/text1')]")
 	public List<WebElement> btnAnioNac;
 
 	@AndroidFindBy(id = "android:id/prev")

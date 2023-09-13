@@ -27,6 +27,6 @@ public class ObjCambioLlanta  extends BaseDriver {
         throw new CloneNotSupportedException();
     }
 
-    @AndroidFindBy(xpath ="//android.view.ViewGroup[@resource-id='containerAnswerCase'][1]")
+    @AndroidFindBy(xpath ="//android.view.ViewGroup[ends-with(@resource-id,'containerAnswerCase')][1]")
     public WebElement opcSiTengoRepuesto;
 }

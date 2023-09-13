@@ -44,7 +44,7 @@ public class ObjBuscadorDeClinicas extends BaseDriver{
 
 
 	public WebElement lblCopago() {
-		WebElement we_opcProblema1 = appiumDriver().findElement(AppiumBy.xpath("//*[@resource-id='container'][1]/android.widget.TextView[1]"));
+		WebElement we_opcProblema1 = appiumDriver().findElement(AppiumBy.xpath("//*[ends-with(@resource-id,'container')][1]/android.widget.TextView[1]"));
 		return we_opcProblema1;
 	}
 
