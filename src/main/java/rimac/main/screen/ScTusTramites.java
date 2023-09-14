@@ -284,8 +284,8 @@ private long wdwTimeOut = 300L;
 	public void seleccionaChoferReemplazo() {
 		try {
 			Dimension dimension = appiumDriver().manage().window().getSize();
-			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
-			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.2));
+			Point start= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.8));
+			Point end= new Point((int)(dimension.width*0.5), (int)(dimension.height*0.5));
 			util.esperarSegundos(2);
 			util.esperarElementoClick(5,tramitesObject.lblTramites);
 			if (element(tramitesObject.opcVehicular).isCurrentlyVisible()) {
@@ -299,8 +299,7 @@ private long wdwTimeOut = 300L;
 				}
 				contador++;
 			}
-			int ybtnPerfil=objPaginaPrincipal.btnPerfil.getLocation().getY();
-			if ((ybtnPerfil-alturaMenu) < objChoferReemplazo.opcChoferReemplazo.getLocation().getY()) {
+			if (dimension.height*0.8 < objChoferReemplazo.opcChoferReemplazo.getLocation().getY()) {
 				util.doSwipe(appiumDriver(), start, end, 500);
 			}
 			Serenity.takeScreenshot();
