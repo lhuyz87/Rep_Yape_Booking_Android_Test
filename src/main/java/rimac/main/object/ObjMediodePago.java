@@ -34,7 +34,7 @@ public class ObjMediodePago extends BaseDriver {
     @AndroidFindBy(xpath = "//*[@text= 'Mis tarjetas']")
     public WebElement lblMisTarjetas;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'ctnListCardRv']/following-sibling::android.widget.TextView")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'ctnListCardRv')]/following-sibling::android.widget.TextView")
     public WebElement lnkAgregarNuevaTarjeta;
 
     public List<WebElement> opcTarjetaList(String numTarjeta) {
@@ -79,7 +79,7 @@ public class ObjMediodePago extends BaseDriver {
     @AndroidFindBy(id= "ctnListCardRv")
     public WebElement listTjetas;
 
-    @AndroidFindBy(xpath= "(//*[@resource-id='rbPaymentCardSelected'])[1]")
+    @AndroidFindBy(xpath= "(//*[ends-with(@resource-id,'rbPaymentCardSelected')])[1]")
     public WebElement rdbPrimeraTarjeta;
 
     @AndroidFindBy(xpath="//*[@text='Pagar']")
