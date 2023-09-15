@@ -16,7 +16,7 @@ Feature: Servicios Vehiculares - Chofer Reemplazo
       | 0 | tipoID | id | password | placa  |
 
   @CancelarChoferReemplazo
-  Scenario Outline: Solicitar Chofer reemplazo
+  Scenario Outline: Cancelar  Chofer de reemplazo
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
