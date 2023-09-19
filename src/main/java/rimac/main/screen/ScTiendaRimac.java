@@ -12,11 +12,9 @@ public class ScTiendaRimac  extends BaseDriver {
     ObjTienda objTienda = ObjTienda.getInstancia();
     ObjPerfiladorVehi objPerfiladorVehi= ObjPerfiladorVehi.getInstancia();
 
-    public void opc_SoatDosMinutos() throws Exception{
+    public void opc_SoatDosMinutos(){
         util.mobileSwipeScreenAndroidFinal();
         element(objTienda.btnSoatDosminutos).click();
-        util.esperarElementoVisible(5,objTienda.btnConoceMas);
-        element(objTienda.btnConoceMas).click();
     }
 
     public void opc_SegurosDeSalud() throws Exception{

@@ -58,4 +58,14 @@ public class DefHistorialPagos {
     public void debeMostrarElListadoDePagosDesdeHistorialDePagos() throws Exception {
         assertTrue(stepHistorialPagos.validarHistorial());
     }
+
+    @When("se ingresa al detalle del Seguro Vehicular {string} {string}")
+    public void seIngresaAlDetalleDelSeguroVehicular(String placa, String vigencia) {
+        stepPolizaVehicular.verDetalleSeguroVehicular(placa,vigencia);
+    }
+
+    @When("se ingresa al detalle del Seguro Planes Medicos EPS")
+    public void seIngresaAlDetalleDelSeguroPlanesMedicosEPS() {
+        stepHistorialPagos.selecciona_detalle_del_seguro_planes_medicos_eps();
+    }
 }

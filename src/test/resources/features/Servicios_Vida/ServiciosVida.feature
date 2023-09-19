@@ -1,7 +1,6 @@
-@ModuloServicioVida_1_7
 Feature: Servicios Vida
 
-  @TiempoInactividadServiciosVida
+  @TiempoInactividadServiciosVida @TiempoInactAndroid
   Scenario Outline: Esperar 15 min de inactividad en el modulo de Consultas Vida desde Home
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

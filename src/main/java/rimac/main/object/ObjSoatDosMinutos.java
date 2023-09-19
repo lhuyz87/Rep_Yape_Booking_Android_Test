@@ -31,50 +31,53 @@ public class ObjSoatDosMinutos extends BaseDriver {
     }
 
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/soatPurchaseHeaderTitle")
+    @AndroidFindBy(id = "soatPurchaseHeaderTitle")
     public WebElement lblTitle;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/inputPlate")
+    @AndroidFindBy(id = "inputPlate")
     public List<WebElement> inputPlaca;
 
     public WebElement inputPlaca(String index) {
-        WebElement we_inputPlaca = appiumDriver().findElement(AppiumBy.xpath("//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/inputPlate']/android.widget.EditText["+index+"]"));
+        WebElement we_inputPlaca = appiumDriver().findElement(AppiumBy.xpath("//*[ends-with(@resource-id,'inputPlate')]/android.widget.EditText["+index+"]"));
         return we_inputPlaca;
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/inputVehicleUse")
+    @AndroidFindBy(id = "inputVehicleUse")
     public WebElement cmbTipoUso;
 
     public WebElement opcTipoUso(String tipo) {
         WebElement we_tipoUso = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+tipo+"']"));
         return we_tipoUso;
     }
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/inputTypeVehicle")
+    @AndroidFindBy(id = "inputTypeVehicle")
     public WebElement cmbTipoVehiculo;
     public WebElement opcVehiculo(String vehiculo) {
         WebElement we_Vehiculo = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+vehiculo+"']"));
         return we_Vehiculo;
     }
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/inputVehicleBrand")
+    @AndroidFindBy(id = "inputVehicleBrand")
     public WebElement cmbMarca;
     public WebElement opcMarca(String marca) {
         WebElement we_Marca = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+marca+"']"));
         return we_Marca;
     }
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/inputVehicleModel")
+    @AndroidFindBy(id = "inputVehicleModel")
     public WebElement cmbModelo;
 
     public WebElement opcModelo(String modelo) {
         WebElement we_Modelo = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+modelo+"']"));
         return we_Modelo;
     }
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/inputYear")
+    @AndroidFindBy(id = "inputYear")
     public WebElement txtAnio;
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/inputSerie")
+
+    @AndroidFindBy(id = "inputSerie")
     public WebElement txtSerie;
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/inputSeatNumber")
+
+    @AndroidFindBy(id = "inputSeatNumber")
     public WebElement txtNumAsientos;
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnContinuar;
 
 }

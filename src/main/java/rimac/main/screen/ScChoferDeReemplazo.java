@@ -1,9 +1,8 @@
 package rimac.main.screen;
 
+import io.appium.java_client.HidesKeyboard;
 import io.appium.java_client.MobileBy;
 import net.serenitybdd.core.Serenity;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
 import rimac.main.object.*;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
@@ -71,6 +70,7 @@ public class ScChoferDeReemplazo extends BaseDriver{
         }
     }
 
+
     public void seleccionar_Vehiculo(String placa){
         try {
             util.esperarElemento(15, objChoferReemplazo.titTusVehiculosAfiliados);
@@ -89,9 +89,14 @@ public class ScChoferDeReemplazo extends BaseDriver{
     }
 
     public void buscardestino() {
-        try {
-            util.esperarElementoVisible(10, objChoferReemplazo.txtPuntoDestino);
+            util.esperarActivoClick(10, objChoferReemplazo.txtPuntoDestino);
             element(objChoferReemplazo.txtPuntoDestino).click();
+            util.esperarSegundos(5);
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objChoferReemplazo.txtPuntoPartida).click();
+            ((HidesKeyboard) appiumDriver()).hideKeyboard();
+            element(objChoferReemplazo.txtPuntoDestino).click();
+            element(objChoferReemplazo.opcSelecPuntoMapa).click();
             util.esperarSegundos(5);
             element(objChoferReemplazo.opcSelecPuntoMapa).click();
             util.esperarSegundos(6);
@@ -102,11 +107,6 @@ public class ScChoferDeReemplazo extends BaseDriver{
             Serenity.takeScreenshot();
             util.esperarActivoClick(10, objChoferReemplazo.btnChoferR);
             element(objChoferReemplazo.btnChoferR).click();
-        }
-        catch(Exception e){
-            Serenity.takeScreenshot();
-            throw new IllegalAccessError("Error al ingresar destino");
-        }
     }
 
     public void seleccionfecha() {
@@ -176,8 +176,6 @@ public class ScChoferDeReemplazo extends BaseDriver{
     }
 
     public void irAlInicio(){
-
-        try {
             util.esperarElemento(15, objChoferReemplazo.titChoferReemplazo);
             util.esperarActivoClick(10, objChoferReemplazo.btnIrInicio);
             element(objChoferReemplazo.btnIrInicio).click();
@@ -185,27 +183,39 @@ public class ScChoferDeReemplazo extends BaseDriver{
             { element(objChoferReemplazo.btnCerrarmodal).click();}
             else{  util.esperarActivoClick(10, objChoferReemplazo.opcHome);
                 element(objChoferReemplazo.opcHome).click();}
-
-        }catch(Exception e){
             Serenity.takeScreenshot();
-            throw new IllegalAccessError("Error para ingresar en opción ir Al Inicio");
-        }
-
     }
 
 
     public boolean validacion_solicitud_chofer(String placa) {
-        try {
-            boolean solicitudExiste;
-            util.esperarElemento(10, objChoferReemplazo.msjSolicitudChoferHome(placa));
-            solicitudExiste = element(objChoferReemplazo.msjSolicitudChoferHome(placa)).isCurrentlyVisible();
-            System.out.println("muestra el siguiente mensaje"+objChoferReemplazo.msjSolicitudChoferHome(placa));
-            return solicitudExiste;
-        } catch (Exception e) {
-            throw new IllegalAccessError("Error no se puede validar el seguimiento de Chofer de reemplazo en el home");
-        } finally {
-            Serenity.takeScreenshot();
-        }
+        boolean solicitudExiste;
+        util.esperarElemento(10, objChoferReemplazo.msjSolicitudChoferHome(placa));
+        solicitudExiste = element(objChoferReemplazo.msjSolicitudChoferHome(placa)).isCurrentlyVisible();
+        Serenity.takeScreenshot();
+        return solicitudExiste;
+    }
+
+    public void cancelar_solicitud(String placa){
+        element(objChoferReemplazo.msjSolicitudChoferHome(placa)).click();
+        util.esperarElemento(8, objChoferReemplazo.btnCancelarChofer);
+        element(objChoferReemplazo.btnCancelarChofer).click();
+        util.esperarElemento(5, objChoferReemplazo.btnSiCancelar);
+        element(objChoferReemplazo.btnSiCancelar).click();
+    }
+
+    public String validar_solicitud_cancelada(){
+        util.esperarElemento(5, objChoferReemplazo.lblSolicitudCancelada);
+        String mensaje;
+        mensaje = element(objChoferReemplazo.lblSolicitudCancelada).getText();
+        util.esperarElemento(5, objChoferReemplazo.btnRegresar);
+        element(objChoferReemplazo.btnRegresar).click();
+        return mensaje;
+    }
+
+    public boolean validar_solicitud_noexis_home(String placa){
+        boolean solicitudExiste;
+        solicitudExiste = objChoferReemplazo.msjSolicitudChoferHomeExist(placa).size()==0;
+        return solicitudExiste;
     }
 
 }

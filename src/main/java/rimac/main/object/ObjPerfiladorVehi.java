@@ -33,11 +33,11 @@ public class ObjPerfiladorVehi extends BaseDriver {
     public WebElement btnContinuar;
 
     public WebElement inputPlaca(String index) {
-        WebElement we_inputPlaca = appiumDriver().findElement(AppiumBy.xpath("//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/inputPlate']/android.widget.EditText["+index+"]"));
+        WebElement we_inputPlaca = appiumDriver().findElement(AppiumBy.xpath("//*[ends-with(@resource-id,'inputPlate')]/android.widget.EditText["+index+"]"));
         return we_inputPlaca;
     }
 
-    @AndroidFindBy(xpath = "//*[@text='Ingresa la placa de tu vehículo']")
+    @AndroidFindBy(id = "uiTxtTitle")
     public WebElement lblIngrPlaca;
 
     @AndroidFindBy(xpath = "//*[@text='Básica']")

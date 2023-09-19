@@ -30,8 +30,7 @@ public class ObjServicioTuSeguro extends BaseDriver{
 	public Object clone() throws CloneNotSupportedException {
 		throw new CloneNotSupportedException();
 	}
-	
-	//android.view.ViewGroup[@content-desc="Reembolso de salud"]
+
 	
 	@AndroidFindBy(xpath = "//*[@content-desc='Reembolso de salud']")
 	public WebElement btnReembolsoSalud;

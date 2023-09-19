@@ -32,10 +32,8 @@ public class ObjComoRecibCodVeri extends BaseDriver{
 	public Object clone() throws CloneNotSupportedException {
 		throw new CloneNotSupportedException();
 	}
-	
-	
-	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/txtAnswerEventQuestion")
+
+	@AndroidFindBy(id = "txtAnswerEventQuestion")
 	public WebElement btnRespoPregun;
 
 	@AndroidFindBy(xpath = "//*[@text='Elige cómo recibir tu código de']")

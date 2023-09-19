@@ -70,4 +70,18 @@ public class StepChoferDeReemplazo {
         return scChoferDeReemplazo.validacion_solicitud_chofer(placa);
     }
 
+    public void cancelar_chofer(String placa){
+        scChoferDeReemplazo.cancelar_solicitud(placa);
+    }
+
+    public String validar_mensaje_cancelar(){
+        return scChoferDeReemplazo.validar_solicitud_cancelada();
+    }
+
+    public boolean validar_cancelar_chofer(String placa) throws InterruptedException {
+        scAlertas.omitirAlertas(3);
+        return scChoferDeReemplazo.validar_solicitud_noexis_home(placa);
+    }
+
+
 }

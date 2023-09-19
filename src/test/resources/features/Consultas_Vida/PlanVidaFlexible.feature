@@ -1,8 +1,7 @@
 #Author: Candy Espinoza
-@ModuloConsultasVida_3_7
 Feature: Consultas Vida - Plan Vida Flexible
 
-  @DescargaEstadoCuentaPlanVidaFlexible
+  @DescargaEstadoCuentaPlanVidaFlexible @ModuloConsultasVida_3_7 @Salud_Vida_Vehicular
   Scenario Outline: Descarga Estado de Cuenta desde el tab poliza del Producto Flexivida "Vida Flexible"
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -14,7 +13,7 @@ Feature: Consultas Vida - Plan Vida Flexible
     ###DATOS###@ConsultasVida|1@DescargaEstadoCuentaPlanVidaFle
       | 0 | tipoID | id | password |mes  | año  |
 
-  @TiempoInactividadConsultasVida
+  @TiempoInactividadConsultasVida @TiempoInactAndroid
   Scenario Outline: Esperar 15 min de inactividad en el modulo de Consultas Vida
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

@@ -33,7 +33,7 @@ public class ObjPoliza extends BaseDriver {
     @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc='Póliza']")
     public WebElement btnPoliza;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/policyTextPlate")
+    @AndroidFindBy(id = "policyTextPlate")
     public WebElement numeroPoliza;
 
     @AndroidFindBy(xpath = "//*[@text='Entendido']")

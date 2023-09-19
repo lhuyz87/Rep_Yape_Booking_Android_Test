@@ -48,13 +48,7 @@ public class ObjComencemosReembolsoSalud extends BaseDriver{
 	
 	@AndroidFindBy(xpath = "//*[@text='Paciente']")
 	public WebElement selPaciente;
-	
-	
-	public WebElement diaAtencion(WebDriver webDriver, String dia) {
-		By by = By.xpath("//*[@text='"+dia+"']");
-		WebElement diaAtencion = webDriver.findElement(by);
-		return diaAtencion;
-	}
+
 	
 	public WebElement productoContratante(WebDriver webDriver, String prodContra) {
 		By by = By.xpath("//*[@text='"+prodContra+"']");
@@ -92,7 +86,7 @@ public class ObjComencemosReembolsoSalud extends BaseDriver{
 	@AndroidFindBy(xpath = "//*[@text='Continuar']")
 	public WebElement btnContinuar;
 	
-	@AndroidFindBy(id ="com.rimac.rimac_surrogas.qa:id/uiEditTreatmentType")
+	@AndroidFindBy(id ="uiEditTreatmentType")
 	public WebElement lstTipoTramiento;
 	
 	public WebElement getTratamiendo(WebDriver driver, String tratamiento) {
@@ -102,8 +96,5 @@ public class ObjComencemosReembolsoSalud extends BaseDriver{
 		return elementoTratamiendo;
 		
 	}
-	
-
-	
 	
 }

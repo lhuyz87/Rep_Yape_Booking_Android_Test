@@ -27,46 +27,34 @@ public class ObjPagoTarjeta extends BaseDriver {
         throw new CloneNotSupportedException();
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/txtAddPaymentListCard")
+    @AndroidFindBy(id = "txtAddPaymentListCard")
     public WebElement btnAgregaTarjeta;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/account_verify_edit_document")
+    @AndroidFindBy(id = "account_verify_edit_document")
     public WebElement lblDni;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/puTextInputEmail']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'puTextInputEmail')]//following-sibling::android.widget.EditText")
     public WebElement lblCorreo;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/puTextInputPhone']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'puTextInputPhone')]//following-sibling::android.widget.EditText")
     public WebElement lblCelular;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/button")
+    @AndroidFindBy(id = "button")
     public WebElement btnContinuar;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/inputCardNumber']//following-sibling::android.widget.EditText")
-    public WebElement lblTarjeta;
-
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/inputCardFirstName']//following-sibling::android.widget.EditText")
-    public WebElement lblNombre;
-
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/inputCardLastName']//following-sibling::android.widget.EditText")
-    public WebElement lblApellido;
-
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/inputCardDate']//following-sibling::android.widget.EditText")
-    public WebElement lblMesAnio;
-
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnPagar;
 
-    @AndroidFindBy(xpath = "//*[@resource-id= 'com.rimac.rimac_surrogas.qa:id/inputCvv']//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[ends-with(@resource-id,'inputCvv')]//following-sibling::android.widget.EditText")
     public WebElement lblCvv;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/txtTitlePaymentListCard")
+    @AndroidFindBy(id = "txtTitlePaymentListCard")
     public WebElement lblPagaInstante;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/congratsTitle")
+    @AndroidFindBy(id = "congratsTitle")
     public WebElement lblCompraSoatExito; //¡Listo! Estamos por enviar tu SOAT
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnFinalizar;
 
 }

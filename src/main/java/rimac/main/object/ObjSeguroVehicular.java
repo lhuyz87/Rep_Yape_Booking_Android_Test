@@ -27,17 +27,17 @@ public class ObjSeguroVehicular extends BaseDriver {
     @AndroidFindBy(accessibility= "Póliza")
     public WebElement opcPoliza;
 
-    @AndroidFindBy(xpath= "//*[@resource-id='android:id/pickers']/android.widget.NumberPicker[2]/android.widget.EditText")
+    @AndroidFindBy(xpath= "//*[ends-with(@resource-id,'android:id/pickers')]/android.widget.NumberPicker[2]/android.widget.EditText")
     public WebElement fechaAnio;
 
-    @AndroidFindBy(xpath= "//*[@resource-id='android:id/pickers']/android.widget.NumberPicker[1]/android.widget.EditText")
+    @AndroidFindBy(xpath= "//*[ends-with(@resource-id,'android:id/pickers')]/android.widget.NumberPicker[1]/android.widget.EditText")
     public WebElement fechaMes;
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/editDateAccountStatus")
+    @AndroidFindBy(id = "editDateAccountStatus")
     public WebElement btnModificarFecha;
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/btnCalendarAccept")
+    @AndroidFindBy(id= "btnCalendarAccept")
     public WebElement btnAceptarFecha;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/button")
+    @AndroidFindBy(id= "button")
     public WebElement btnDescargar;
 
 

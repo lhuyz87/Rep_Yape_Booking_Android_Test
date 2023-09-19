@@ -33,21 +33,10 @@ public class ObjConsultaReembolso extends BaseDriver{
 		throw new CloneNotSupportedException();
 	}
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/tvFilters")
+	@AndroidFindBy(id = "tvFilters")
 	public WebElement btnFiltro;
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/tvOrder")
-	public WebElement btnOrdenar;
-	
-	@AndroidFindBy(xpath = "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/refundStatus']")
-	public List<WebElement> lblEstadoReembolso;
-	
-	
-	@AndroidFindBy(xpath = "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/refundSpendingPEN']")
+	@AndroidFindBy(xpath = "//*[ends-with(@resource-id,'refundSpendingPEN'])")
 	public List<WebElement> lblMontoReembolso;
-	
-	@AndroidFindBy(xpath = "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/refundDate']")
-	public List<WebElement> lblFechaReembolso;
-	
-	
+
 }

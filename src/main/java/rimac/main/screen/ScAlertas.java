@@ -1,7 +1,9 @@
 package rimac.main.screen;
 
+import org.apache.groovy.util.ObjectHolder;
 import rimac.main.object.ObjAlertas;
 import rimac.main.object.ObjPaginaPrincipal;
+import rimac.main.object.ObjPerfil;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.UtilApp;
 
@@ -9,6 +11,7 @@ import java.util.NoSuchElementException;
 import java.util.logging.Logger;
 
 import static net.serenitybdd.core.pages.WebElementExpectations.elementIsPresent;
+import static org.junit.Assert.assertTrue;
 
 public class ScAlertas extends BaseDriver {
 
@@ -53,6 +56,7 @@ public class ScAlertas extends BaseDriver {
                 System.out.println("Error al omitir la alerta");
             }
         }
+        assertTrue( element(objPaginaPrincipal.btnHome).isCurrentlyVisible());
     }
 
 }

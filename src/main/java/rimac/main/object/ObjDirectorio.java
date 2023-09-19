@@ -37,7 +37,6 @@ public class ObjDirectorio extends BaseDriver{
 	public WebElement lblArchivo;
 	
 	public WebElement nombreArchivo(WebDriver webDriver, String nombre) {
-//		By by = By.xpath("//[contains(text(),'Prueba')]");
 		By by = By.xpath("//*[@text='"+nombre+"']");
 		WebElement nombreArchivo = webDriver.findElement(by);
 		System.out.println("Nombre Archivo :" + nombreArchivo.getText());
@@ -46,7 +45,6 @@ public class ObjDirectorio extends BaseDriver{
 	
 	public WebElement nombreArchivo2(WebDriver webDriver, String nombre) {
 		By by = By.xpath("//[contains(text(),'"+nombre+"')]");
-//		By by = By.xpath("//*[@text='"+nombre+"']");
 		WebElement nombreArchivo = webDriver.findElement(by);
 		System.out.println("***" + nombreArchivo.getText());
 		return nombreArchivo;

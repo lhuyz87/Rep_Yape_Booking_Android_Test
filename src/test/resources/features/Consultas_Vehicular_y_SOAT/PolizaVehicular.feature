@@ -1,8 +1,8 @@
 #Author: Candy Espinoza
-@ModuloConsultasVehicularySoat_4_6
   Feature: Consulta Vehicular y Soat - Poliza Vehicular
 
-    @ConsultaNumeroDePolizaVehiSoat @regresion
+
+    @ConsultaNumeroDePolizaVehiSoat @ModuloConsultasVehicularySoat_4_6 @Salud_Vida_Vehicular
     Scenario Outline: Consulta el numero de la poliza -Soat
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -14,19 +14,19 @@
     ###DATOS###@ConsultaVehicularSoat|1@ConsultaNumeroDePolizaVehiSoat
         | 0 | tipoID | id | password |placa|
 
-    @ConsultarDeudasSaldosdePoliza
+    @ConsultarDeudasSaldosdePoliza @ModuloConsultasVehicularySoat_4_6 @Salud_Vida_Vehicular
     Scenario Outline: Consultar Deudas y Saldos de la Poliza - Vehicular
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
         | <tipoID> | <id> | <password> |
-      When se ingresa al detalle de la "<placa>" del seguro vehicular
+      When se ingresa al detalle de la "<placa>" "<vigencia>" del seguro vehicular
       Then se valida que muestre el historial de pago
 
       Examples:
-      ###DATOS###@ConsultaVehicularSoat|1@ConsultarDeudasSaldosdePoliza
-        | 0 | tipoID | id | password |placa|
+      ###DATOS###@Pagos|1@PagoConTarjetaAsociada
+        | 0 | tipoID | id | password | placa | vigencia |
 
-   @DescargaPolizaVehicularDigital @regresion
+    @DescargaPolizaVehicularDigital @ModuloConsultasVehicularySoat_4_6 @Salud_Vida_Vehicular
     Scenario Outline: Descarga poliza digital desde el tab poliza
       Given realiza el login con credenciales
         | tipoID   | id   | password   |
@@ -39,7 +39,7 @@
       ###DATOS###@ConsultaVehicularSoat|1@DescargaPolizaVehicularDigital
       | 0 | tipoID | id | password |
 
-    @TiempoInactividadConsultaVehicularySoat
+    @TiempoInactividadConsultaVehicularySoat @TiempoInactAndroid
     Scenario Outline: Esperar 15 min de inactividad en el modulo de Consulta Vehicular SOAT
       Given realiza el login con credenciales
         | tipoID   | id   | password   |

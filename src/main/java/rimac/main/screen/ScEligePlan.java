@@ -18,14 +18,17 @@ public class ScEligePlan extends BaseDriver {
             int contador = 0;
             while (element(objEligeTuPlan.lblEligetuPlan).isCurrentlyVisible() == false && contador < 8) {
                 util.esperarSegundos(1);
+                contador++;
             }
             util.esperarElementoVisible(7, objEligeTuPlan.lblEligetuPlan);
-            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && contador < 6) {
+            int intentos = 0;
+            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && intentos < 6) {
                 util.mobileSwipeScreenAndroidFinal();
-                contador++;
+                intentos++;
             }
             element(objEligeTuPlan.btnContinuar).click();
         }catch(Exception e){
+            Serenity.takeScreenshot();
             throw new IllegalAccessError("No se encuentra plan digital");
         }
     }
@@ -35,17 +38,20 @@ public class ScEligePlan extends BaseDriver {
             int contador = 0;
             while (element(objEligeTuPlan.lblEligetuPlan).isCurrentlyVisible() == false && contador < 8) {
                 util.esperarSegundos(1);
+                contador++;
             }
             util.esperarElementoVisible(7, objEligeTuPlan.lblEligetuPlan);
             util.esperarElemento(5, objEligeTuPlan.btnVial);
             element(objEligeTuPlan.btnVial).click();
-            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && contador < 6) {
+            int intentos = 0;
+            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && intentos < 6) {
                 util.mobileSwipeScreenAndroidFinal();
-                contador++;
+                intentos++;
             }
             Serenity.takeScreenshot();
             element(objEligeTuPlan.btnContinuar).click();
         }catch(Exception e){
+            Serenity.takeScreenshot();
             throw new IllegalAccessError("No se encuentra plan Vial");
         }
     }
@@ -55,17 +61,20 @@ public class ScEligePlan extends BaseDriver {
             int contador = 0;
             while (element(objEligeTuPlan.lblEligetuPlan).isCurrentlyVisible() == false && contador < 8) {
                 util.esperarSegundos(1);
+                contador++;
             }
             util.esperarElementoVisible(7, objEligeTuPlan.lblEligetuPlan);
             util.esperarElemento(5, objEligeTuPlan.btnPlus);
             element(objEligeTuPlan.btnPlus).click();
-            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && contador < 6) {
+            int intentos=0;
+            while (element(objEligeTuPlan.btnContinuar).isCurrentlyVisible() == false && intentos < 6) {
                 util.mobileSwipeScreenAndroidFinal();
-                contador++;
+                intentos++;
             }
             Serenity.takeScreenshot();
             element(objEligeTuPlan.btnContinuar).click();
         }catch(Exception e){
+            Serenity.takeScreenshot();
             throw new IllegalAccessError("No se encuentra plan Plus");
         }
     }

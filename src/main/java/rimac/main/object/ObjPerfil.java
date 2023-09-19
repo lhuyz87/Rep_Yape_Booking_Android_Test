@@ -30,10 +30,10 @@ public class ObjPerfil extends BaseDriver {
     @AndroidFindBy(xpath = "//*[@text='Mis medios de pago']")
     public WebElement btnMediosPago;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/profile_text_about_me")
+    @AndroidFindBy(id = "profile_text_about_me")
     public WebElement lblMiCuenta;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnCerrarSesion;
 
     @AndroidFindBy(xpath = "//*[@text='Mi información']")

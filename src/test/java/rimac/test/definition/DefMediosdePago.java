@@ -45,6 +45,12 @@ public class DefMediosdePago {
         stepAgregarMedioPago.iraPagos();
     }
 
+    @Then("debe mostrar el mensaje de afiliación exitoso")
+    public void debeMostrarElMensajeDeAfiliaciónExitoso() {
+        assertTrue(stepAgregarMedioPago.validarMensajeAfiliacion());
+        stepAgregarMedioPago.iraPagos();
+    }
+
     @When("se ingresa al detalle del Seguro SOAT desde Seguros")
     public void seIngresaAlDetalleDelSeguroSOATDesdeSeguros() {
         stepAgregarMedioPago.ver_detalle_SOAT();
@@ -61,9 +67,9 @@ public class DefMediosdePago {
     public void seValidaElMensajeParaRetornarAlLoginDesdeElMóduloDePagos() {
         stepAgregarMedioPago.se_valida_mensaje_de_inactividad();
     }
-    @When("se ingresa a Seguro Vehicular desde Seguros y se inicia el tramite {string} del vehiculo")
-    public void seIngresaASeguroVehicularDesdeSegurosYSeIniciaElTramiteDelVehiculo(String placa) throws Exception {
-        stepAgregarMedioPago.irCuotasaPagar_desde_tab_pagos(placa);
+    @When("se ingresa a Seguro Vehicular desde Seguros y se inicia el tramite {string} {string} del vehiculo")
+    public void seIngresaASeguroVehicularDesdeSegurosYSeIniciaElTramiteDelVehiculo(String placa, String vigencia) throws Exception {
+        stepAgregarMedioPago.irCuotasaPagar_desde_tab_pagos(placa,vigencia);
     }
 
 
@@ -79,7 +85,7 @@ public class DefMediosdePago {
     }
 
     @And("elimino la tarjeta afiliada {string} desde Mi Perfil")
-    public void eliminoLaTarjetaAfiliadaDesdeMiPerfil(String numTarjeta) {
+    public void eliminoLaTarjetaAfiliadaDesdeMiPerfil(String numTarjeta) throws InterruptedException {
         stepAgregarMedioPago.irMedioPago_desde_regresoPerfil();
         assertTrue(stepAgregarMedioPago.validarExisteTarjeta(numTarjeta));
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
@@ -108,9 +114,11 @@ public class DefMediosdePago {
     }
 
     @And("elimino la tarjeta suscrita {string} desde Mi Perfil")
-    public void eliminoLaTarjetaSuscritaDesdeMiPerfil(String numTarjeta) {
+    public void eliminoLaTarjetaSuscritaDesdeMiPerfil(String numTarjeta) throws InterruptedException {
         stepAgregarMedioPago.irMedioPago_desde_regresoPerfil();
         assertTrue(stepAgregarMedioPago.validarExisteTarjeta(numTarjeta));
         stepAgregarMedioPago.eliminarTarjeta(numTarjeta);
     }
+
+
 }

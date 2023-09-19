@@ -33,14 +33,11 @@ public class ObjValidaIdentid extends BaseDriver{
 	
 	
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dropdownEditText")
+	@AndroidFindBy(id = "dropdownEditText")
 	public WebElement nroDocume;
 	
 
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dropdownAutoCompleteText")
-	public WebElement btnTipoDoc;
-	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+	@AndroidFindBy(id = "materialBtn")
 	public WebElement btnContinu;	
 
 	

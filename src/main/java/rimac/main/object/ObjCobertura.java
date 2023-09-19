@@ -28,6 +28,6 @@ public class ObjCobertura extends BaseDriver {
         throw new CloneNotSupportedException();
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/coverage_text_title")
+    @AndroidFindBy(id = "coverage_text_title")
     public WebElement lblConoceCobertura;
 }

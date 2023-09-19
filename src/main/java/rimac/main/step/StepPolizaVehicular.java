@@ -25,6 +25,12 @@ public class StepPolizaVehicular {
         scTusSeguros.ver_detalle_Vehicular("Seguro Vehicular");
     }
 
+    public void verDetalleSeguroVehicular(String placa, String vigencia){
+        schome.seleccionarOpcionPrincipal("Seguros");
+        scTusSeguros.esperar_Tus_Seguros();
+        scTusSeguros.ver_detalle_Vehicular_placa(placa, vigencia);
+    }
+
     public void ver_Detalle_Poliza(){
         scSeguroVehicular.opcPoliza();
         scSeguroVehicular.descargarPdf();
@@ -60,10 +66,10 @@ public class StepPolizaVehicular {
 
     }
 
-    public void ver_detalle_SegurosVehicularPlaca(String placa) {
+    public void ver_detalle_SegurosVehicularPlaca(String placa,String vigencia) {
         schome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
-        scTusSeguros.ver_detalle_Vehicular_placa(placa);
+        scTusSeguros.ver_detalle_Vehicular_placa(placa,vigencia);
         scTusSeguros.irPagos();
         scPagos.irHistorialPagos();
     }

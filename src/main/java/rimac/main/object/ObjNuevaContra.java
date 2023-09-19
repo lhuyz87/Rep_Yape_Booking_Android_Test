@@ -31,13 +31,13 @@ public class ObjNuevaContra extends BaseDriver{
 		throw new CloneNotSupportedException();
 	}
 	
-	@AndroidFindBy(xpath = "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/forgetPasswordEditPassword']/child::*[1]/child::*[1]/child::*[1]/child::*[1]/child::*[1]")
+	@AndroidFindBy(xpath = "//*[ends-with(@resource-id,'forgetPasswordEditPassword')]/child::*[1]/child::*[1]/child::*[1]/child::*[1]/child::*[1]")
 	public WebElement txtPasswor;
 	
-	@AndroidFindBy(xpath = "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/forgetPasswordEditPasswordRepeat']/child::*[1]/child::*[1]/child::*[1]/child::*[1]/child::*[1]")
+	@AndroidFindBy(xpath = "//*[ends-with(@resource-id,'forgetPasswordEditPasswordRepeat')]/child::*[1]/child::*[1]/child::*[1]/child::*[1]/child::*[1]")
 	public WebElement txtPassworRep;
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+	@AndroidFindBy(id = "materialBtn")
 	public WebElement btnCambiaContra;
 	
 }

@@ -14,6 +14,7 @@ Feature: Servicios de Salud - Buscador de clinicas
     Examples:
     ###DATOS###@ServiciosSalud|1@BuscadordeClinicasdesdeHome
       | 0 | tipoID | id | password | nomClinica |
+      |1|DNI|76243722|Rimac2020|Clinica Javier Prado|
 
   @BuscadordeClinicasdesdeTramites @regresion
   Scenario Outline: Buscador de clinicas desde menu Tramites
@@ -27,3 +28,4 @@ Feature: Servicios de Salud - Buscador de clinicas
     Examples:
       ###DATOS###@ServiciosSalud|1@BuscadordeClinicasdesdeTramites
       | 0 | tipoID | id | password | nomClinica |
+      |1|DNI|76243722|Rimac2020|Clinica Javier Prado|

@@ -37,19 +37,16 @@ public class ObjLogin extends BaseDriver{
 	@AndroidFindBy(xpath = "//*[@text='Iniciar sesión']")
 	public WebElement btnIngresarSesion;
 
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+	@AndroidFindBy(id = "materialBtn")
 	public WebElement btnContinuar;
 
-   /* @AndroidFindBy(xpath = "//*[@text='Nº de documento']")
-	public WebElement txtNumDocumento;*/
-
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dropdownEditText")
+	@AndroidFindBy(id = "dropdownEditText")
 	public WebElement txtNumDocumento;
 
-    /*@AndroidFindBy(xpath = "//*[@text='Contraseña']")
-	public WebElement txtPassword;*/
+	@AndroidFindBy(id = "dropdownAutoCompleteText")
+	public WebElement cmbTipoDoc;
 
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/bodyEt")
+	@AndroidFindBy(id = "bodyEt")
 	public WebElement txtPassword;
 	
 	public WebElement diaAtencion(WebDriver webDriver, String dia) {
@@ -57,28 +54,19 @@ public class ObjLogin extends BaseDriver{
 		WebElement diaAtencion = webDriver.findElement(by);
 		return diaAtencion;
 	}
-	
-	
-	
-	//Antiguo:
-	
-//	@AndroidFindBy(id = "com.rimac.rimac_surrogas:id/login_text_reset_password")
-//	public WebElement btnOlvideContra;
-	
-	
-	//Nuevo
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/login_text_reset_password")
+
+	@AndroidFindBy(id = "login_text_reset_password")
 	public WebElement btnOlvideContra;
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dialog_text_title")
+	@AndroidFindBy(id = "dialog_text_title")
 	public WebElement lblActualizarVersion;
 	
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+	@AndroidFindBy(id = "materialBtn")
 	public WebElement btnActualizar;
 	
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/dialog_btn_negative")
+	@AndroidFindBy(id = "dialog_btn_negative")
 	public WebElement btnMasTarde;
 
 	@AndroidFindBy(xpath = "//*[@text='Crea una cuenta hoy']")

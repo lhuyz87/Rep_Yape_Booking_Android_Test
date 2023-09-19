@@ -34,17 +34,12 @@ public class ObjTusSeguros extends BaseDriver{
 		throw new CloneNotSupportedException();
 	}
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/btnText")
+	@AndroidFindBy(id = "btnText")
 	public WebElement btnDetalleSeguro;
 
 	public WebElement opcSeguro(String seguro) {
 		WebElement we_opcSeguro = appiumDriver().findElement(AppiumBy.xpath("(//*[@text='"+seguro+"']//parent::android.widget.LinearLayout//following-sibling::android.widget.Button[@text='Ver detalle'])[1]"));
 		return we_opcSeguro;
-	}
-
-	public WebElement tipoSeguro(String seguro) {
-		WebElement we_tipoSeguro = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+seguro+"']"));
-		return we_tipoSeguro;
 	}
 
 	@AndroidFindBy(xpath = "//*[@text='Tus seguros']")
@@ -69,9 +64,6 @@ public class ObjTusSeguros extends BaseDriver{
 	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Pagos\"]")
 	public WebElement btnPagos;
 
-	@AndroidFindBy(xpath = "//*[@text='Seguro Vehicular']")
-	public WebElement titSeguroVehicular;
-
 	public WebElement btnPlacaSeg2(String placa) {
 		WebElement we_tnPlacaSeg = appiumDriver().findElement(AppiumBy.xpath("//*[@text='Placa: "+placa+"']"));
 		return we_tnPlacaSeg;
@@ -90,8 +82,16 @@ public class ObjTusSeguros extends BaseDriver{
 	public WebElement btnVerDetallePlaca;
 
 	@AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Retroceder\"]")
-	public WebElement tbSeguroVehicular;
+	public WebElement btnretroceder;
 
+	public WebElement verDetallePlacaVigenc(String placa, String vigencia) {
+		WebElement  we_tnPlacaSeg = appiumDriver().findElement(AppiumBy.xpath("((//*[@text='Placa: "+placa+"']//parent::*//following-sibling::*//android.widget.TextView[contains(@text, 'Vigencia hasta: "+vigencia+"')])//parent::*//following-sibling::*)[2]"));
+		return we_tnPlacaSeg;
+	}
+	public List<WebElement> verDetallePlacaVigenc2(String placa, String vigencia) {
+		List<WebElement>  we_tnPlacaSeg = appiumDriver().findElements(AppiumBy.xpath("((//*[@text='Placa: "+placa+"']//parent::*//following-sibling::*//android.widget.TextView[contains(@text, 'Vigencia hasta: "+vigencia+"')])//parent::*//following-sibling::*)[2]"));
+		return we_tnPlacaSeg;
+	}
 	public WebElement verDetalleXPlaca(String placa) {
 		WebElement  we_tnPlacaSeg = appiumDriver().findElement(AppiumBy.xpath("(//*[@text='Placa: "+placa+"']//parent::*//following-sibling::*)[3]"));
 		return we_tnPlacaSeg;
@@ -100,7 +100,7 @@ public class ObjTusSeguros extends BaseDriver{
 		List<WebElement>  we_tnPlacaSeg = appiumDriver().findElements(AppiumBy.xpath("(//*[@text='Placa: "+placa+"']//parent::*//following-sibling::*)[3]"));
 		return we_tnPlacaSeg;
 	}
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/csatImageClose")
+	@AndroidFindBy(id = "csatImageClose")
 	public WebElement btnCerrarmodal;
 
 	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Póliza\"]")
@@ -108,10 +108,10 @@ public class ObjTusSeguros extends BaseDriver{
 	@AndroidFindBy(xpath = "//*[@text='Ver resumen']")
 	public WebElement btnResumPoliza;
 
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/policyTextNumber")
+	@AndroidFindBy(id = "policyTextNumber")
 	public WebElement numeroPolizaSoat;
 
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/textBadge")
+	@AndroidFindBy(id = "textBadge")
 	public WebElement numeroCuota;
 
 }

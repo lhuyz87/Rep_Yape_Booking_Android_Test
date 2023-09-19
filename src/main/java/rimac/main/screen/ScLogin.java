@@ -49,7 +49,27 @@ private long wdwTimeOut = 300L;
 	UtilApp util = new UtilApp();
 	protected MobileObjectUtil mobil = MobileObjectUtil.getInstancia();
 	AppiumDriver driver;
-	public void login(String dniUser, String passUser) {
+	public void loginDNI(String dniUser, String passUser) {
+		Location location = new Location(-12.06110283453986, -77.03333258628847, 0);
+		androidDriver().setLocation(location);
+		looger.info("aplicación iniciada");
+		//util.esperarElemento(20, objLogin.btnIngresarSesion);
+		//element(objLogin.btnIngresarSesion).click();
+		util.esperarElemento(10,objLogin.txtNumDocumento);
+		new WebDriverWait(androidDriver(), Duration.ofSeconds(15))
+				.until(ExpectedConditions.visibilityOf(objLogin.txtNumDocumento));
+		element(objLogin.txtNumDocumento).sendKeys(dniUser);
+		util.pressEnter(androidDriver());
+		element(objLogin.btnContinuar).click();
+		new WebDriverWait(androidDriver(), Duration.ofSeconds(15))
+				.until(ExpectedConditions.visibilityOf(objLogin.txtPassword));
+		element(objLogin.txtPassword).sendKeys(passUser);
+		util.pressEnter(androidDriver());
+		Serenity.takeScreenshot();
+		element(objLogin.btnIngresarSesion).click();
+	}
+
+	public void loginCE(String CEUser, String passUser) {
 		Location location = new Location(-12.06110283453986, -77.03333258628847, 0);
 		androidDriver().setLocation(location);
 		looger.info("aplicación iniciada");
@@ -57,8 +77,11 @@ private long wdwTimeOut = 300L;
 		//element(objLogin.btnIngresarSesion).click();
 		new WebDriverWait(androidDriver(), Duration.ofSeconds(15))
 				.until(ExpectedConditions.visibilityOf(objLogin.txtNumDocumento));
+		element(objLogin.cmbTipoDoc).click();
+		element(objLogin.cmbTipoDoc).clear();
+		element(objLogin.cmbTipoDoc).sendKeys("C.E.");
 		element(objLogin.txtNumDocumento).click();
-		element(objLogin.txtNumDocumento).sendKeys(dniUser);
+		element(objLogin.txtNumDocumento).sendKeys(CEUser);
 		util.pressEnter(androidDriver());
 		element(objLogin.btnContinuar).click();
 		new WebDriverWait(androidDriver(), Duration.ofSeconds(15))

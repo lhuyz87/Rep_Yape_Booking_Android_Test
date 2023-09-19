@@ -41,11 +41,11 @@ public class ObjDocumentoComprobantes extends BaseDriver{
 	@AndroidFindBy(xpath = "//*[@text='Adjuntar documento']")
 	public WebElement btnSubirDocumento;	
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/documentVoucherUploadTitle")
+	@AndroidFindBy(id = "documentVoucherUploadTitle")
 	public WebElement btnSubirComprobantes;
 	
 	
-	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/documentUploadTitle")
+	@AndroidFindBy(id = "documentUploadTitle")
 	public WebElement btnSubirDocumentos;
 	
 	
@@ -71,21 +71,14 @@ public class ObjDocumentoComprobantes extends BaseDriver{
 	
 	@AndroidFindBy(xpath = "//*[@text='Monto']")
 	public WebElement txtMonto;
-	
-	
+
 	@AndroidFindBy(xpath = "//*[@text='Fecha de emisión del documento']")
 	public WebElement lstFechaEmision;
 	
 	@AndroidFindBy(id = "android:id/button1")
 	public WebElement btnAceptar;
-	
-	
-	
-	//Receta Médica
-	
+
 	@AndroidFindBy(xpath = "//*[@id='commentInput']")
 	public WebElement txtDescipcion;
-	
-	
-	
+
 }

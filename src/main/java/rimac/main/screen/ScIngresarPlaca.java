@@ -1,5 +1,6 @@
 package rimac.main.screen;
 
+import io.appium.java_client.HidesKeyboard;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import rimac.main.object.ObjCommons;
@@ -18,6 +19,7 @@ public class ScIngresarPlaca extends BaseDriver {
 
     public void ingresarPlaca(String placa1, String placa2, String placa3, String placa4, String placa5, String placa6) throws Exception{
         util.esperarElementoVisible(10,objSoatDosMinutos.lblTitle);
+        ((HidesKeyboard) appiumDriver()).hideKeyboard();
         element(objSoatDosMinutos.inputPlaca("1")).sendKeys(placa1);
         element(objSoatDosMinutos.inputPlaca("2")).sendKeys(placa2);
         element(objSoatDosMinutos.inputPlaca("3")).sendKeys(placa3);

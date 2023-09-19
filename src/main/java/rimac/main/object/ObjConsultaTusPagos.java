@@ -24,19 +24,13 @@ public class ObjConsultaTusPagos extends BaseDriver {
         }
     }
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/downloadIcons")
+    @AndroidFindBy(id = "downloadIcons")
     public WebElement btnDescargaHistorial;
-////*[starts-with(@text, 'historial-pagos')]
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnAbrir;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/downloadProgress")
-    public WebElement btnDownloadProgress;
-
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc='']")
-    public WebElement lblPdfHistorial;
-
-    @AndroidFindBy(xpath = "(//*[@resource-id='com.rimac.rimac_surrogas.qa:id/amount'])[last()]")
+    @AndroidFindBy(xpath = "(//*[ends-with(@resource-id,'amount')])[last()]")
     public WebElement lblMontoHistorial;
 
     @AndroidFindBy(xpath = "(//*[@text='Documents']")

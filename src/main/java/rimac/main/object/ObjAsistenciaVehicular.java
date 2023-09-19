@@ -5,6 +5,8 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import rimac.main.util.BaseDriver;
 
+import java.util.List;
+
 public class ObjAsistenciaVehicular extends BaseDriver {
 
     private static ObjAsistenciaVehicular obj = null;
@@ -26,38 +28,41 @@ public class ObjAsistenciaVehicular extends BaseDriver {
         throw new CloneNotSupportedException();
     }
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/confirmCheckTerms")
+    @AndroidFindBy(id= "confirmCheckTerms")
     public WebElement chktermsAsistencia;
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/phoneUpdateTitle")
+    @AndroidFindBy(id= "phoneUpdateTitle")
     public WebElement titCelulardeContacto;
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/onBoardingTitle")
+    @AndroidFindBy(id= "onBoardingTitle")
     public WebElement titSolicitaAsistencia;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/inputName")
+    @AndroidFindBy(id= "inputName")
     public WebElement idtxtNombre;
-    @AndroidFindBy(xpath= "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/inputName']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath= "//*[ends-with(@resource-id,'inputName')]//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
     public WebElement txtNombre;
-    @AndroidFindBy(xpath= "//*[@resource-id='com.rimac.rimac_surrogas.qa:id/inputPhone']//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
+    @AndroidFindBy(xpath= "//*[ends-with(@resource-id,'inputPhone')]//following-sibling::android.widget.FrameLayout//following-sibling::android.widget.EditText")
     public WebElement txtCelular;
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id= "materialBtn")
     public WebElement btnComenzar;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/plateTitle")
+    @AndroidFindBy(id= "plateTitle")
     public WebElement titTusVehiculosAfiliados;
+
+    @AndroidFindBy(xpath= "//*[ends-with(@resource-id,'platesRv')]/android.view.ViewGroup")
+    public List<WebElement> listPlacas;
 
     public WebElement btnVehiculo(String placa) {
         WebElement we_btnVehiculo = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+placa+"']"));
         return we_btnVehiculo;
     }
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id= "materialBtn")
     public WebElement btnContinuar;
 
     @AndroidFindBy(xpath= "//*[@text='No, thanks']")
     public WebElement btnNoThanks;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/tvOmitir")
+    @AndroidFindBy(id= "tvOmitir")
     public WebElement btnOmitir;
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/sinisterTitle")
+    @AndroidFindBy(id= "sinisterTitle")
     public WebElement titQueNecesitas;
 
     public WebElement btnAsistencia(String asistencia) {
@@ -80,31 +85,25 @@ public class ObjAsistenciaVehicular extends BaseDriver {
     @AndroidFindBy(xpath = "//*[@text='Ayúdame a elegir una']")
     public WebElement btnAyudameElegir;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/additionalTitle")
+    @AndroidFindBy(id = "additionalTitle")
     public WebElement tit_problemas;
     public WebElement opcProblema(String problema) {
         WebElement we_opcProblema = appiumDriver().findElement(AppiumBy.xpath("//*[@text='"+problema+"']"));
         return we_opcProblema;
     }
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/confirmCheckTerms")
+    @AndroidFindBy(id = "confirmCheckTerms")
     public WebElement chk_terminos;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnConfirmarSolicitud;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/congratsTitle")
+    @AndroidFindBy(id = "congratsTitle")
     public WebElement lblSolicitudEnviada;
-
-    @AndroidFindBy(xpath = "//*[@text='En 5 minutos te escribiremos vía Whatsapp para confirmar el auxilio mecánico. Podrás darle seguimiento desde el Inicio.'")
-    public WebElement msjConfirmacionAuxilioM;
-
-    @AndroidFindBy(xpath = "//*[@text='En 5 minutos te escribiremos vía Whatsapp para confirmar el servicio de grúa. Podrás darle seguimiento desde la sección Inicio.']")
-    public WebElement msjConfirmacionGrua;
 
     @AndroidFindBy(xpath = "//*[@text='Ya tienes un servicio en proceso']")
     public WebElement titYaTienesunServicio;
 
-    @AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/materialBtn")
+    @AndroidFindBy(id = "materialBtn")
     public WebElement btnIrAlInicio;
 
 
@@ -127,10 +126,10 @@ public class ObjAsistenciaVehicular extends BaseDriver {
     @AndroidFindBy(xpath= "//*[@text='Sí, por ejemplo la vía pública.']")
     public WebElement opcEspaciofacilAcceso;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/additionalTitle")
+    @AndroidFindBy(id= "additionalTitle")
     public WebElement titTuVehiculoZona;
 
-    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/confirmTitle")
+    @AndroidFindBy(id= "confirmTitle")
     public WebElement titConfirmacionAsistencia;
 
 }

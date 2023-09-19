@@ -30,9 +30,6 @@ public class ObjTuSesionExpiro extends BaseDriver {
     @AndroidFindBy(xpath = "//*[@text='Tu sesión ha expirado']")
     public WebElement titTusesionExpiro;
 
-   // @AndroidFindBy(xpath = "//*[@text='Tu sesión ha expirado']")
-   // public WebElement titTusesionExpiro;
-
     @AndroidFindBy(xpath = "//*[@text='Estuviste inactivo por unos minutos. Por seguridad tu sesión expiró. Por favor, vuelve a iniciar sesión.']")
     public WebElement msjInactividad;
 

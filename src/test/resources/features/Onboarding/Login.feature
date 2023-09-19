@@ -3,7 +3,9 @@ Feature: Onboarding - Login
 
   @Login @ModuloOnboardingFuncional_2_4
   Scenario Outline: Realizar Login Exitoso en Mundo Rimac
-    Given realiza el login con credenciales "<tipoID>", "<id>" y "<password>"
+    Given realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
 
     Examples:
     ###DATOS###@Onboarding|1@Login
@@ -37,7 +39,7 @@ Feature: Onboarding - Login
     And debe permitir el ingreso a la aplicación
 
 
-  @TiempoInactividadOnboarding @ModuloOnboardingFuncional_2_4
+  @TiempoInactividadOnboarding @TiempoInactAndroid
   Scenario Outline: Ejecutar los Procesos por Modulo y esperar 15 min y validar el regreso al login por inactividad
     Given realiza el login con credenciales
       | tipoID   | id   | password   |

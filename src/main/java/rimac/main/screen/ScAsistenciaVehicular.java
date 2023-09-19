@@ -65,20 +65,26 @@ public class  ScAsistenciaVehicular extends BaseDriver {
     }
 
     public void seleccionar_Vehiculo(String placa){
-        try {
-            util.esperarElemento(15, objAsistenciaVehicular.titTusVehiculosAfiliados);
-            util.esperarSegundos(5);
+        util.esperarSegundos(5);
+        int contador=0;
+        while(element(objAsistenciaVehicular.titTusVehiculosAfiliados).isCurrentlyVisible()==false && contador<10){
+            if(element(objAsistenciaVehicular.btnContinuar).isCurrentlyVisible()){
+                break;
+            }
+                contador++;
+        }
+        if(element(objAsistenciaVehicular.titTusVehiculosAfiliados).isCurrentlyVisible()){
+            if(objAsistenciaVehicular.listPlacas.size()==1){
+                Serenity.takeScreenshot();
+                throw new IllegalAccessError("Error, Aparece una sola placa en el listado");
+            }
             if (element(objAsistenciaVehicular.btnVehiculo(placa)).isCurrentlyVisible() == false) {
                 appiumDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"" + placa + "\").instance(0))"));
             }
-            util.esperarElemento(15, objAsistenciaVehicular.btnVehiculo(placa));
+            util.esperarElemento(8, objAsistenciaVehicular.btnVehiculo(placa));
             Serenity.takeScreenshot();
             element(objAsistenciaVehicular.btnVehiculo(placa)).click();
-        }catch(Exception e){
-            Serenity.takeScreenshot();
-            throw new IllegalAccessError("Error para seleccionar la placa del vehiculo");
         }
-
     }
 
     public void confirmar_Ubicacion(){

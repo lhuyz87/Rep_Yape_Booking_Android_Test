@@ -22,10 +22,10 @@ public class StepPagoCuotas {
     @Steps
     ScConsultaTusPagos scConsultaTusPagos;
 
-    public void verDetalleSeguroVehicular(String placa){
+    public void verDetalleSeguroVehicular(String placa, String vigencia){
         scHome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
-        scTusSeguros.ver_detalle_Vehicular_placa(placa);
+        scTusSeguros.ver_detalle_Vehicular_placa(placa, vigencia);
     }
 
     public void pagarCuotas() throws Exception {
@@ -37,7 +37,8 @@ public class StepPagoCuotas {
     }
 
     public void pagarConTarjetaAsociada() throws Exception {
-        scMediosDePago.pagarTarjetaAsociada();
+        String correo= ConstantesDummy.correo;
+        scMediosDePago.pagarTarjetaAsociada(correo);
     }
 
     public void pagarSinTarjetaAsociada(String numTarjeta, String cvv, String fecha) throws Exception {
@@ -83,11 +84,21 @@ public class StepPagoCuotas {
     }
 
     public void irMedioPago_desde_regresoPerfil() {
-        scMediosDePago.regresarSelecOpcionPerfil();
+        scMediosDePago.regresar_home_desde_pagos();
+        scMediosDePago.irPerfil();
         scPerfil.irMediosDePago();
     }
     public void eliminarTarjeta(String numTarjeta){
         scMediosDePago.eliminarTarjeta(numTarjeta);
     }
+
+    public void ir_tab_pagos(){
+        scTusSeguros.irPagos();
+    }
+
+    public String info_pago_no_dis() throws Exception {
+        return scPagos.obtener_mesje_pago_EPS();
+    }
+
 
 }

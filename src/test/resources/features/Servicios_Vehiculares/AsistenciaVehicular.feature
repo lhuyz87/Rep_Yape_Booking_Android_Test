@@ -1,7 +1,6 @@
-@ModuloServiciosVehiculares_9_17
 Feature: Servicios Vehiculares - Asistencia Vehicular
 
-  @AsistenciaVehicularRepuesto @regresion
+  @AsistenciaVehicularRepuesto @ModuloServiciosVehiculares_9_17 @regresion
   Scenario Outline: Solicitar Auxilio Mecanico - Repuesto
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -14,9 +13,9 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
 
     Examples:
        ###DATOS###@ServiciosVehiculares|1@AsistenciaVehicularRepuesto
-      | 0 | tipoID | id | password | placa  | problema         |
+      | 0 | tipoID | id | password | placa | problema |
 
-  @AsistenciaVehicularProblema @regresion
+  @AsistenciaVehicularProblema @ModuloServiciosVehiculares_9_17 @regresion
   Scenario Outline: Solicitar Auxilio Mecanico - Problema
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -31,7 +30,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
      ###DATOS###@ServiciosVehiculares|1@AsistenciaVehicularProblema
       | 0 | tipoID | id | password | placa  | problema         |
 
-  @AsistenciaVehicularGrua
+  @AsistenciaVehicularGrua @ModuloServiciosVehiculares_9_17
   Scenario Outline: Realizar una solicitud de Grua
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -44,9 +43,9 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
 
     Examples:
      ###DATOS###@ServiciosVehiculares|1@AsistenciaVehicularGrua
-      | 0 | tipoID | id | password | placa  |
+      | 0 | tipoID | id | password | placa |
 
-  @NecesitoAyudaAuxilioMecanico @regresion
+  @NecesitoAyudaAuxilioMecanico @ModuloServiciosVehiculares_9_17 @regresion
   Scenario Outline: Necesito ayuda para seleccionar la asistencia Vehicular - Auxilio Mecanico
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -60,7 +59,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     ###DATOS###@ServiciosVehiculares|1@NecesitoAyudaAuxilioMecanico
       | 0 | tipoID | id | password | placa  |opción             |
 
-  @NecesitoAyudaGrua
+  @NecesitoAyudaGrua @ModuloServiciosVehiculares_9_17
   Scenario Outline: Necesito ayuda  Para seleccionar la asistencia Vehicular - Grua
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
@@ -74,7 +73,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
     ###DATOS###@ServiciosVehiculares|1@NecesitoAyudaGrua
       | 0 | tipoID | id | password | placa  |opción             |
 
-  @TiempoInactividadServicioVehicular
+  @TiempoInactividadServicioVehicular @TiempoInactAndroid
   Scenario Outline: Esperar 15 min de inactividad en Asistencias Vehiculares
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
