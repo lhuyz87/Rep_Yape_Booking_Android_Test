@@ -26,19 +26,7 @@ Feature: Pagos
 
     Examples:
     ###DATOS###@Pagos|1@PagoAfiliadoDebitoAuto
-      | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv |vigencia |
-
-  @PagoPolizaSoat
-  Scenario Outline: Validar Pago Poliza Soat en Mundo Rimac
-    Given realiza el login con credenciales
-      | tipoID   | id   | password   |
-      | <tipoID> | <id> | <password> |
-    When ingresamos al seguro SOAT desde el menú
-    Then debe mostrar el detalle del pago anual
-
-    Examples:
-     ###DATOS###@Pagos|1@PagoPolizaSoat
-      | 0 | tipoID | id | password |
+      | 0 | tipoID | id       | password  | placa      | numtarjeta       | fecha | cvv | vigencia   |
 
   @PagoConValidacionHistorial
   Scenario Outline: Realizar Pago Seguro Vehicular Exitoso validando historial de pago en Mundo Rimac
@@ -77,3 +65,28 @@ Feature: Pagos
     Examples:
     ###DATOS###@Pagos|1@PagoConTarjetaAsociada
       | 0 | tipoID | id       | password  | placa      | vigencia |
+
+  @PagoPolizaSoat
+  Scenario Outline: Validar Pago Poliza Soat en Mundo Rimac
+    Given realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
+    When ingresamos al seguro SOAT desde el menú
+    Then debe mostrar el detalle del pago anual
+
+    Examples:
+     ###DATOS###@Pagos|1@PagoPolizaSoat
+      | 0 | tipoID | id       | password  |
+
+  @PagoInfoNoDisponible
+  Scenario Outline: Validar Pantalla Pago Cuando pagador es diferente al asegurado
+    Given realiza el login con credenciales
+      | tipoID   | id   | password   |
+      | <tipoID> | <id> | <password> |
+    When se ingresa al detalle del Seguro Planes Medicos EPS
+    And ingreso al tab de pagos desde Seguros
+    Then debe mostrar mensaje "El estado de cuenta está disponible para el cotratante del seguro. Consulta con esa persona el estado de los pagos."
+
+    Examples:
+     ###DATOS###@Pagos|1@PagoInfoNoDisponible
+      | 0 | tipoID | id | password |

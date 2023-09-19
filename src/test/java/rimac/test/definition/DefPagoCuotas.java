@@ -62,7 +62,6 @@ public class DefPagoCuotas {
         stepPagoCuotas.mostrarDetallePago();
         
     }
-
     @Then("debe mostrar el detalle del pago anual")
     public void debeMostrarElDetalleDelPagoAnual() {
         assertTrue(stepPagoCuotas.obtiene_mensaje_detallePago());
@@ -73,10 +72,19 @@ public class DefPagoCuotas {
         stepPagoCuotas.verDetalleSeguroVehicular(placa,vigencia);
     }
 
-
     @And("elimino la tarjeta del listado {string} desde Mi Perfil")
     public void eliminoLaTarjetaDelListadoDesdeMiPerfil(String numTarjeta) {
         stepPagoCuotas.irMedioPago_desde_regresoPerfil();
         stepPagoCuotas.eliminarTarjeta(numTarjeta);
+    }
+
+    @And("ingreso al tab de pagos desde Seguros")
+    public void ingresoAlTabDePagosDesdeSeguros() {
+        stepPagoCuotas.ir_tab_pagos();
+    }
+
+    @Then("debe mostrar mensaje {string}")
+    public void debeMostrarMensaje(String mensaje) throws Exception {
+        assertEquals(mensaje,stepPagoCuotas.info_pago_no_dis());
     }
 }

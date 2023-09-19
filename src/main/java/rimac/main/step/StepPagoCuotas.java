@@ -92,5 +92,13 @@ public class StepPagoCuotas {
         scMediosDePago.eliminarTarjeta(numTarjeta);
     }
 
+    public void ir_tab_pagos(){
+        scTusSeguros.irPagos();
+    }
+
+    public String info_pago_no_dis() throws Exception {
+        return scPagos.obtener_mesje_pago_EPS();
+    }
+
 
 }

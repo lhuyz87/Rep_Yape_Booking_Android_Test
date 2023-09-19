@@ -81,6 +81,10 @@ public class ObjPagos extends BaseDriver {
     @AndroidFindBy(xpath= "//*[@text='Estás afiliado a Débito Automático']")
     public WebElement titPagoAfiliado;
 
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/paymentDetail")
+    public WebElement lblInfoPagosNoDispo;
 
+    @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/paymentIconCreditCard")
+    public WebElement imgCreditCard;
 
 }

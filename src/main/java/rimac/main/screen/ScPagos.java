@@ -136,6 +136,7 @@ public class ScPagos extends BaseDriver {
     public boolean validarHistorial(){
         util.esperarVisibilityElement(androidDriver(),objPagos.lblConsultaTusPagos,5);
         boolean existeHistorial= element(objPagos.lblHistorial).isCurrentlyVisible();
+        Serenity.takeScreenshot();
         return existeHistorial;
     }
     public boolean obtener_mensaje_confirmacion() {
@@ -186,6 +187,13 @@ public class ScPagos extends BaseDriver {
         finally {
             Serenity.takeScreenshot();
         }
+    }
+
+    public String obtener_mesje_pago_EPS() throws Exception {
+        util.esperarElementoVisible(5,objPagos.imgCreditCard);
+        String mensaje= objPagos.lblInfoPagosNoDispo.getText();
+        Serenity.takeScreenshot();
+        return mensaje;
     }
 
 }

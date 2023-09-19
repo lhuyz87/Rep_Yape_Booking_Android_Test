@@ -207,13 +207,9 @@ public class ScTusSeguros extends BaseDriver{
 	}
 
 	public void irPagos(){
-		if(element(objTusSeguros.btnEntendido).isCurrentlyVisible()){
-			element(objTusSeguros.btnEntendido).click();
-			util.esperarElemento(10,objTusSeguros.btnPagos);
-			element(objTusSeguros.btnPagos).click();
-		}
-		else{util.esperarElemento(10,objTusSeguros.btnPagos);element(objTusSeguros.btnPagos).click();
-		}
+		util.esperarElemento(10,objTusSeguros.btnPagos);
+		element(objTusSeguros.btnPagos).click();
+
 	}
 
 	public void añadir_nueva_tarjeta() {
