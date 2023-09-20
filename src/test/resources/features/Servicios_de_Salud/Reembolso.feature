@@ -19,7 +19,6 @@ Feature: Servicios de Salud - Reembolso
     Examples:
     ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiarioTramite
       | 0 | tipoID | id | password | productoContratante | lugarAtencion | tipoCobertura |
-      |1|DNI|76243722|Rimac2020|AMC COLECTIVA FOLA - Citibank del peru s.a.|Lima|Medicinas|
 
   @reembolsoSaludConBeneficiariosDesdeMenuTramites @ModuloServiciosDeSalud_4_16 @regresion
   Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas con beneficiarios desde Tramites
@@ -40,7 +39,6 @@ Feature: Servicios de Salud - Reembolso
     Examples:
      ###DATOS###@ServiciosSalud|1@reembolsoConBeneficiarioTramite
       | 0 | tipoID | id | password | productoContratante | paciente | lugarAtencion | tipoCobertura |
-      |1|DNI|10392464|Rimac2020|PLANES MEDICOS EPS - Medifarma s a |Madueño Armacanque Herzop Myki - Titular|Lima|Medicinas|
 
   @reembolsoOdontologicoDesdeMenuTramites @ModuloServiciosDeSalud_4_16
   Scenario Outline: Realizar solicitud de reembolso cliente con cobertura odontologica con beneficiarios desde menu Tramites
@@ -60,7 +58,6 @@ Feature: Servicios de Salud - Reembolso
     Examples:
     ###DATOS###@ServiciosSalud|1@reembolsoOdontologicoDesdeMenuT
       | 0 | tipoID | id | password | productoContratante | paciente | lugarAtencion | tipoCobertura | tipoTratamiento |
-      |1|DNI|10392464|Rimac2020|PLANES MEDICOS EPS - Medifarma s a |Madueño Armacanque Herzop Myki - Titular |Lima|Odontología|Ortodoncia|
 
   @reembolsoSaludSinBeneficiarioaDesdeMenuInicio @ModuloServiciosDeSalud_4_16 @regresion
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde menu Inicio
@@ -83,7 +80,6 @@ Feature: Servicios de Salud - Reembolso
     Examples:
     ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiarioInicio
       | 0 | tipoID | id | password | productoContratante | lugarAtencion | tipoCobertura |
-      |1|DNI|76243722|Rimac2020|AMC COLECTIVA FOLA - Citibank del peru s.a.|Lima|Atención ambulatoria |
 
   @reembolsoSaludSinBeneficiariosDesdeSeguros @ModuloServiciosDeSalud_4_16 @regresion
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde detalle de seguro salud
@@ -101,7 +97,6 @@ Feature: Servicios de Salud - Reembolso
     Examples:
     ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiariosSeguro
       |0|tipoID| id       | password  | seguro             | productoContratante                         | lugarAtencion |tipoCobertura |
-      |1|DNI|76243722|Rimac2020|Amc Colectiva Fola|AMC COLECTIVA FOLA - Citibank del peru s.a. |Lima|Hospitalario|
 
   @TiempoInactividadServiciodeSalud @TiempoInactAndroid
   Scenario Outline: Esperar 15 min de inactividad en el modulo Servicio de salud
@@ -122,4 +117,3 @@ Feature: Servicios de Salud - Reembolso
     Examples:
     ###DATOS###@ServiciosSalud|1@TiempoInactividadServiciodeSalu
       |0|tipoID| id       | password  | productoContratante                          | lugarAtencion |tipoCobertura |
-      |1|DNI|76243722|Rimac2020|AMC COLECTIVA FOLA - Citibank del peru s.a.|Lima|Medicinas|
