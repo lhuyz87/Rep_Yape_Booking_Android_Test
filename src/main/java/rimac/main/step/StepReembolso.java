@@ -127,7 +127,29 @@ public class StepReembolso {
 		switch (tipoCobertura) {
 			case "Medicinas":
 			case "Atención ambulatoria":
-				scDocRequeridosReembolsoSalud.ingresar_factura();
+				scReemDocCobertMedica.adjuntarFotoArchivo();
+				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
+					scReemDocCobertMedica.tomarFotoHuawei();
+				}else{
+					scReemDocCobertMedica.subirArchivo();
+				}
+				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
+
+				//scReemDocCobertMedica.omitirOCR();
+
+				scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
+				scReemDocCobertMedica.adjuntarFotoArchivo();
+				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
+					scReemDocCobertMedica.tomarFotoHuawei();
+				}else{
+					scReemDocCobertMedica.subirArchivo();
+				}
+				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocRecetaMedica);
+				scAgregarNuevoDocumento.llenarDatosRecetaMedica("Prueba");
+				break;
+
+			case "Odontología":
+				scReemDocCobertMedica.subirComprobantes();
 				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
 					scReemDocCobertMedica.tomarFotoHuawei();
 				}else{
@@ -136,36 +158,17 @@ public class StepReembolso {
 				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
 				//scReemDocCobertMedica.omitirOCR();
 				scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
-				scDocRequeridosReembolsoSalud.ingresar_receta();
+				scReemDocCobertMedica.subirDocumentos();
 				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
 					scReemDocCobertMedica.tomarFotoHuawei();
 				}else{
 					scReemDocCobertMedica.subirArchivo();
 				}
-				scAgregarNuevoDocumento.adjuntarDocumento();
-			break;
-							
-		case "Odontología":
-			    scDocRequeridosReembolsoSalud.ingresar_factura();
-				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
-					scReemDocCobertMedica.tomarFotoHuawei();
-				}else{
-					scReemDocCobertMedica.subirArchivo();
-				}
-				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
-			   //scReemDocCobertMedica.omitirOCR();
-				scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
-			    scDocRequeridosReembolsoSalud.ingresar_solicitud_reemb_odontologico();
-				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
-					scReemDocCobertMedica.tomarFotoHuawei();
-				}else{
-					scReemDocCobertMedica.subirArchivo();
-				}
-				scAgregarNuevoDocumento.adjuntarDocumento();
+				//			scReemDocCobertMedica.continuar();
 				break;
 
 			case "Hospitalario":
-				scDocRequeridosReembolsoSalud.ingresar_factura();
+				scReemDocCobertMedica.adjuntarFotoArchivo();
 				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
 					scReemDocCobertMedica.tomarFotoHuawei();
 				}else{
@@ -174,22 +177,22 @@ public class StepReembolso {
 				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoDocFactura);
 				//scReemDocCobertMedica.omitirOCR();
 				scAgregarNuevoDocumento.llenarDatosFactura(ConstantesDummy.serieDocumentoFactura, ConstantesDummy.nroDocumentoFactura, ConstantesDummy.monedaSoles, Variables.montoReembolso);
-				scDocRequeridosReembolsoSalud.ingresar_orden_medica();
+				scReemDocCobertMedica.adjuntarFotoArchivo();
 				if(dispositivo.equals("Huawei_P30_Lite_9_real_us")){
 					scReemDocCobertMedica.tomarFotoHuawei();
 				}else{
 					scReemDocCobertMedica.subirArchivo();
 				}
-				scAgregarNuevoDocumento.adjuntarDocumento();
+				scAgregarNuevoDocumento.seleccionarTipoDocuem(ConstantesDummy.tipoOrdenMedica);
+				scAgregarNuevoDocumento.llenarDatosRecetaMedica("Prueba");
 				break;
-		default:
-			break;
+			default:
+				break;
 		}
-		scReemDocCobertMedica.continuar();
 	}
 	
 	public void llenarDatosCuenta() throws Exception {
-
+		   scReemDocCobertMedica.continuar();
 		   scCuentaDeAbono.llenarDatosDeCuenta(ConstantesDummy.bancoInterbank, ConstantesDummy.tipoCuentaAhorrosInterbank, ConstantesDummy.monedaSoles, ConstantesDummy.nroCuentaAhorrosInterbank, ConstantesDummy.correo);
 		   
 

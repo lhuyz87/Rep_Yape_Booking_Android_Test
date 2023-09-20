@@ -33,12 +33,27 @@ private long wdwTimeOut = 300L;
 	
 	UtilApp util = new UtilApp();
 	AppiumDriver driver;
-	
-	public void continuarDocRequeridos() throws Exception {
-		
-		looger.info("Cargar documentos");
+
+	public void continuarDocRequeridos() {
+
+		looger.info("Inicia los documentos Requeridos");
 		util.esperarSegundos(3);
-		util.esperarElementoVisible(5, objDocRequeridosReembolsoSalud.lblCargaDocumentos);
+		try {
+			util.esperarElementoClick(3, objDocRequeridosReembolsoSalud.btnContinuar);
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+
+		looger.info("Se muestra boton Continuar");
+		util.esperarSegundos(3);
+		element(objDocRequeridosReembolsoSalud.btnContinuar).click();
+//		try {
+//			Thread.sleep(8000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+
 	}
 
 	public void ingresar_factura() throws Exception {

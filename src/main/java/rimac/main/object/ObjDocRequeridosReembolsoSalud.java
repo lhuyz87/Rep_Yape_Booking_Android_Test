@@ -34,8 +34,9 @@ public class ObjDocRequeridosReembolsoSalud extends BaseDriver{
 	public Object clone() throws CloneNotSupportedException {
 		throw new CloneNotSupportedException();
 	}
-	
-	
+
+	@AndroidFindBy(xpath = "//*[@text='Continuar']")
+	public WebElement btnContinuar;
 
 	@AndroidFindBy(id = "documentInfoTitle")
 	public WebElement lblCargaDocumentos;

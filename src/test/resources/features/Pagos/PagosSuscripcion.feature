@@ -57,9 +57,9 @@ Feature: Pagos
     Given realiza el login con credenciales
       | tipoID   | id   | password   |
       | <tipoID> | <id> | <password> |
-    When se ingresa al detalle del Seguro Planes Medicos EPS
-    And ingreso a las cuotas por pagar
-    Then debe mostrar el listado de las cuotas
+    When se ingresa al detalle del Seguro SOAT desde Seguros
+    And se mantiene inactivo el módulo en el tab de pagos
+    Then se valida el mensaje para retornar al Login desde el módulo de pagos
 
     Examples:
        ###DATOS###@Pagos|1@TiempoInactividadPagos
