@@ -15,8 +15,10 @@ public class ScTusAsistencias extends BaseDriver {
     protected UtilApp util = UtilApp.getInstancia();
 
     public void seleccionaProductoReembolsoSalud(){
-        while(element(objTusAsistencias.btnReembolsoSalud).isCurrentlyVisible()==false){
+        int contador=0;
+        while(element(objTusAsistencias.btnReembolsoSalud).isCurrentlyVisible()==false && contador<5){
             util.mobileSwipeScreenAndroid();
+            contador++;
         }
         element(objTusAsistencias.btnReembolsoSalud).click();
     }

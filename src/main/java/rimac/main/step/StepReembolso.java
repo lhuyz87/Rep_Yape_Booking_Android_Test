@@ -79,6 +79,10 @@ public class StepReembolso {
 		scTusTramites.seleccionaReembolsoSalud();
 	}
 
+	public void ingresar_onboarding_reembolsos(){
+		scComencemosReembolsoSalud.onboarding_reembolsos();
+	}
+
 	public void seleccionar_ver_todas(){
 		schome.seleccionaVerTodas();
 	}
@@ -104,7 +108,6 @@ public class StepReembolso {
 		String tipoTratamiento = user.get(0).get("tipoTratamiento");
 		
 		if(tipoTratamiento == null) {
-			scIniciarReembolsoSalud.seleccionarEmpezarReembolso();
 			scComencemosReembolsoSalud.llenarDatosTramitesSinBeneficiario(productoContratante, lugarAtencion, lugarAtencion, tipoCobertura);
 			scComencemosReembolsoSalud.continuar();
 		}
@@ -208,7 +211,7 @@ public class StepReembolso {
 	}
 
 	public void completaDatosReembolsoConBeneficiacio(String prodContrat, String paciente,String lugarAtencio,String fechaAtencio, String tipoCobert) {
-		scIniciarReembolsoSalud.seleccionarEmpezarReembolso();
+		//scIniciarReembolsoSalud.seleccionarEmpezarReembolso();
 		scComencemosReembolsoSalud.llenarDatosTramitesConBeneficiario(prodContrat, paciente, lugarAtencio, "", tipoCobert);
 
 	}

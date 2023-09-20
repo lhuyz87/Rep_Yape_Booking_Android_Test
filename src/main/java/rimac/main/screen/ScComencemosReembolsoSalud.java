@@ -10,6 +10,8 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.core.pages.PageObject;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import rimac.main.util.BaseDriver;
 import rimac.main.util.MobileObjectUtil;
 import rimac.main.util.UtilApp;
@@ -33,6 +35,25 @@ private long wdwTimeOut = 300L;
 	
 	UtilApp util = new UtilApp();
 	AppiumDriver driver;
+
+	public void onboarding_reembolsos(){
+		Dimension dimension = appiumDriver().manage().window().getSize();
+		Point start= new Point((int)(dimension.width*0.9), (int)(dimension.height*0.5));
+		Point end= new Point((int)(dimension.width*0.1), (int)(dimension.height*0.5));
+		int contador=0;
+		while(element(comencemosReembolsoSaludObject.lblAntesDeIniciar).isCurrentlyVisible()==false && contador<11) {
+			if(element(comencemosReembolsoSaludObject.lblInformacionUtil).isCurrentlyVisible()){
+				break;
+			}
+			contador++;
+		}
+		contador=0;
+		while(element(comencemosReembolsoSaludObject.btnInciarReembolso).isCurrentlyVisible()==false && contador<4) {
+			util.doSwipe(androidDriver(),start,end,1000);
+			contador++;
+		}
+		element(comencemosReembolsoSaludObject.btnInciarReembolso).click();
+	}
 	
 	public void llenarDatosTramitesSinBeneficiario(String prodContratante, String lugarAtencion, String fechaAtencion, String tipoCobert) {
 		looger.info("Iniciar llenarDatosTramites");
