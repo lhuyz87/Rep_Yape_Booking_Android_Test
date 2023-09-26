@@ -76,13 +76,13 @@ public class ObjAsistenciaVehicular extends BaseDriver {
         return we_opcProblema;
     }
 
-    @AndroidFindBy(xpath = "//*[@text='Necesito auxilio mecánico']")
+    @AndroidFindBy(xpath = "//*[@text='Auxilio mecánico']")
     public WebElement btnAsistenciaAuxilio;
 
-    @AndroidFindBy(xpath = "//*[@text='Necesito una grúa']")
+    @AndroidFindBy(xpath = "//*[@text='Grúa']")
     public WebElement btnAsistenciaGrua;
 
-    @AndroidFindBy(xpath = "//*[@text='Ayúdame a elegir una']")
+    @AndroidFindBy(xpath = "//*[@text='No sabes cuál elegir']")
     public WebElement btnAyudameElegir;
 
     @AndroidFindBy(id = "additionalTitle")
