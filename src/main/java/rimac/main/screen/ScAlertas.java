@@ -44,6 +44,10 @@ public class ScAlertas extends BaseDriver {
                 if (element(objAlertas.btnCerrarModalInspeccion).isCurrentlyVisible()) {
                     element(objAlertas.btnCerrarModalInspeccion).click();
                 }
+
+                if (element(objAlertas.btnCerrarModalError).isCurrentlyVisible()) {
+                    element(objAlertas.btnCerrarModalError).click();
+                }
                 if (element(objAlertas.btnCerrarModalEstarBien).isCurrentlyVisible()) {
                     element(objAlertas.btnCerrarModalEstarBien).click();
                 }
