@@ -18,7 +18,7 @@ Feature: Servicios de Salud - Reembolso
 
     Examples:
     ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiarioTramite
-      | 0 | tipoID | id | password | productoContratante  | lugarAtencion | tipoCobertura |
+      | 0 | tipoID | id | password | productoContratante | lugarAtencion | tipoCobertura |
 
   @reembolsoSaludConBeneficiariosDesdeMenuTramites @ModuloServiciosDeSalud_4_16 @regresion
   Scenario Outline: Realizar solicitud de reembolso con cobertura medicinas con beneficiarios desde Tramites
@@ -57,7 +57,7 @@ Feature: Servicios de Salud - Reembolso
 
     Examples:
     ###DATOS###@ServiciosSalud|1@reembolsoOdontologicoDesdeMenuT
-      |0|tipoID| id  | password| productoContratante               | paciente                               | lugarAtencion | tipoCobertura |tipoTratamiento |
+      | 0 | tipoID | id | password | productoContratante | paciente | lugarAtencion | tipoCobertura | tipoTratamiento |
 
   @reembolsoSaludSinBeneficiarioaDesdeMenuInicio @ModuloServiciosDeSalud_4_16 @regresion
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde menu Inicio
@@ -79,7 +79,7 @@ Feature: Servicios de Salud - Reembolso
 
     Examples:
     ###DATOS###@ServiciosSalud|1@reembolsoSinBeneficiarioInicio
-      |0|tipoID| id  | password| productoContratante               | lugarAtencion                               | tipoCobertura |
+      | 0 | tipoID | id | password | productoContratante | lugarAtencion | tipoCobertura |
 
   @reembolsoSaludSinBeneficiariosDesdeSeguros @ModuloServiciosDeSalud_4_16 @regresion
   Scenario Outline: Realizar solicitud de reembolso sin beneficiarios desde detalle de seguro salud

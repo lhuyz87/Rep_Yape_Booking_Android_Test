@@ -10,9 +10,9 @@ Feature: Pagos
       Then se debe agregar la tarjeta "<numtarjeta>" a Mis Tarjetas
       And elimino la tarjeta agregada "<numtarjeta>" desde Mis Tarjetas
 
-       Examples:
+    Examples:
        ###DATOS###@Pagos|1@SucripcionDesdePerfil
-         | 0 | tipoID | id | password |numtarjeta       | cvv | fecha |
+      | 0 | tipoID | id | password |numtarjeta       | cvv | fecha |
 
     @SucripcionDesdePagos @ModuloPagos_6_7
     Scenario Outline: Suscripcion de Tarjeta desde Tap de Pagos opcion medios de pagos
@@ -23,9 +23,9 @@ Feature: Pagos
       Then se debe agregar la tarjeta "<numtarjeta>" a Mis Tarjetas
       And elimino la tarjeta agregada "<numtarjeta>" desde Mis Tarjetas
 
-      Examples:
+    Examples:
        ###DATOS###@Pagos|1@SucripcionDesdePagos
-        | 0 | tipoID | id | password |numtarjeta       | cvv | fecha |
+      | 0 | tipoID | id | password |numtarjeta       | cvv | fecha |
 
     @SucripcionDesdeAfiliacion @ModuloPagos_6_7
     Scenario Outline: Suscripcion de Tarjetas desde la Afiliacion
@@ -36,7 +36,7 @@ Feature: Pagos
       Then debe mostrar el mensaje de afiliación exitoso
       Examples:
       ###DATOS###@Pagos|1@SucripcionDesdeAfiliacion
-        | 0 | tipoID | id | password |numtarjeta       | cvv | fecha |
+      | 0 | tipoID | id | password |numtarjeta       | cvv | fecha |
 
   @SucripcionDesdeOpcionPagar @ModuloPagos_6_7
     Scenario Outline: Suscripcion de Tarjetas desde la Opcion Pagar, agregar nueva Tarjeta
@@ -48,10 +48,9 @@ Feature: Pagos
       #Then debe mostrar el mensaje de confirmación "Cuota pagada"
       Then debe mostrar el mensaje de confirmación ¡Hemos recibido tu pago!
       And elimino la tarjeta suscrita "<numtarjeta>" desde Mi Perfil
-
-    Examples:
-      ###DATOS###@Pagos|1@SuscripcionOpcionPagar
-      | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv | vigencia |
+      Examples:
+        ###DATOS###@Pagos|1@SuscripcionOpcionPagar
+        | 0 | tipoID | id | password | placa | numtarjeta | fecha | cvv | vigencia |
 
   @TiempoInactividadPagos @TiempoInactAndroid
   Scenario Outline: Esperar 15 min de inactividad en el modulo de pagos
@@ -64,4 +63,4 @@ Feature: Pagos
 
     Examples:
        ###DATOS###@Pagos|1@TiempoInactividadPagos
-      | 0 | tipoID | id       | password  |
+      | 0 | tipoID | id | password |

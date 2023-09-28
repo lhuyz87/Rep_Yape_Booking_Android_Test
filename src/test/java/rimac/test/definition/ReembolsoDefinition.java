@@ -40,6 +40,7 @@ public class ReembolsoDefinition {
 	@When("se ingresa a Reembolso de Salud desde Tramites y se inicia el tramite")
 	public void se_ingresa_a_reembolso_de_salud_desde_tramites_y_se_inicia_el_tramite() throws Exception {
 		stepReembolso.selReembolsoSaludTramite();
+		stepReembolso.ingresar_onboarding_reembolsos();
 	}
 	
 	@And("se registra los datos del reembolso sin beneficiario con tipo de cobertura")
@@ -110,6 +111,7 @@ public class ReembolsoDefinition {
 	public void seIngresaAReembolsoDeSaludDesdeHomeYSeIniciaElTramite() {
 		stepReembolso.seleccionar_ver_todas();
 		stepReembolso.selecciona_reembolso_de_salud_desde_asistencias();
+		stepReembolso.ingresar_onboarding_reembolsos();
 	}
 	@When("se registra los datos del reembolso con beneficiario con tipo de cobertura")
 		public void se_registra_los_datos_del_reembolso_con_beneficiario_con_tipo_de_cobertura_sin_tratamiento(DataTable datosReembolso) {
@@ -136,6 +138,7 @@ public class ReembolsoDefinition {
 
 		stepReembolso.ver_Detalle_Seguros(seguro);
 		stepReembolso.seleccionar_seguro_desde_tus_Servicios();
+		stepReembolso.ingresar_onboarding_reembolsos();
 	}
 	
 	@Then("debe aparecer el monto {string} del reembolso solicitado")

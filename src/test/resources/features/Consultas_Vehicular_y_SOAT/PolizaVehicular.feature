@@ -1,6 +1,7 @@
 #Author: Candy Espinoza
   Feature: Consulta Vehicular y Soat - Poliza Vehicular
 
+
     @ConsultaNumeroDePolizaVehiSoat @ModuloConsultasVehicularySoat_4_6 @Salud_Vida_Vehicular
     Scenario Outline: Consulta el numero de la poliza -Soat
       Given realiza el login con credenciales

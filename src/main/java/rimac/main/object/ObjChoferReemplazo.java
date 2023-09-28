@@ -63,6 +63,7 @@ public ObjChoferReemplazo(){}
     public WebElement txtPuntoPartida;
     @AndroidFindBy(xpath = "//*[@text='Chofer de reemplazo']")
     public WebElement opcChoferReemplazo;
+
     @AndroidFindBy(id= "selectionText")
     public WebElement opcSelecPuntoMapa;
     @AndroidFindBy(id= "addressConfirm")

@@ -2,6 +2,7 @@
 @ModuloPagos_6_7
 Feature: Pagos
 
+
   @PagoAsociandoTarjeta
   Scenario Outline: Realizar Pago exitoso asociado a tarjeta- Tap de Pagos
     Given realiza el login con credenciales
@@ -64,7 +65,7 @@ Feature: Pagos
 
     Examples:
     ###DATOS###@Pagos|1@PagoConTarjetaAsociada
-      | 0 | tipoID | id       | password  | placa      | vigencia |
+      | 0 | tipoID | id | password | placa | vigencia |
 
   @PagoPolizaSoat
   Scenario Outline: Validar Pago Poliza Soat en Mundo Rimac

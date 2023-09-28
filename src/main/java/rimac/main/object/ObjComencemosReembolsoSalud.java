@@ -96,5 +96,13 @@ public class ObjComencemosReembolsoSalud extends BaseDriver{
 		return elementoTratamiendo;
 		
 	}
+
+	@AndroidFindBy(id = "com.rimac.rimac_surrogas.qa:id/title_fixed_screen")
+	public WebElement lblAntesDeIniciar;
+	@AndroidFindBy(xpath = "//*[@text='Información útil']")
+	public WebElement lblInformacionUtil;
+
+	@AndroidFindBy(xpath = "//*[@text='Iniciar reembolso']")
+	public WebElement btnInciarReembolso;
 	
 }

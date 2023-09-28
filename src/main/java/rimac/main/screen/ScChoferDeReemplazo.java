@@ -97,7 +97,9 @@ public class ScChoferDeReemplazo extends BaseDriver{
             ((HidesKeyboard) appiumDriver()).hideKeyboard();
             element(objChoferReemplazo.txtPuntoDestino).click();
             element(objChoferReemplazo.opcSelecPuntoMapa).click();
-            util.esperarSegundos(5);
+           // util.esperarSegundos(5);
+           // element(objChoferReemplazo.opcSelecPuntoMapa).click();
+            util.esperarSegundos(6);
             element(objChoferReemplazo.opcConfirmarPuntoMapa).click();
             util.mobileSwipeScreenAndroid();
             util.esperarSegundos(5);

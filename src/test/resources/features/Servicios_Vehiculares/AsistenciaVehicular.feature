@@ -13,7 +13,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
 
     Examples:
        ###DATOS###@ServiciosVehiculares|1@AsistenciaVehicularRepuesto
-      | 0 | tipoID | id | password | placa  | problema         |
+      | 0 | tipoID | id | password | placa | problema |
 
   @AsistenciaVehicularProblema @ModuloServiciosVehiculares_9_17 @regresion
   Scenario Outline: Solicitar Auxilio Mecanico - Problema
@@ -43,7 +43,7 @@ Feature: Servicios Vehiculares - Asistencia Vehicular
 
     Examples:
      ###DATOS###@ServiciosVehiculares|1@AsistenciaVehicularGrua
-      | 0 | tipoID | id | password | placa  |
+      | 0 | tipoID | id | password | placa |
 
   @NecesitoAyudaAuxilioMecanico @ModuloServiciosVehiculares_9_17 @regresion
   Scenario Outline: Necesito ayuda para seleccionar la asistencia Vehicular - Auxilio Mecanico

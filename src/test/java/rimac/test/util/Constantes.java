@@ -22,10 +22,7 @@ public class Constantes {
     public static String correoDestino = UtilDef.getInstancia().getVarEnvPro("v_correoDestino");
     public static String correoRemitente = UtilDef.getInstancia().getVarEnvPro("v_correoRemitente");
     public static String passCorreoRemitente = UtilDef.getInstancia().getVarEnvPro("v_passCorreoRemitente");
-    //public static final String RutaLocal = "/Users/christianmaurysolis/Documents/Documentos/ANDROID/";
     public static final String RutaLocal = "/home/adminqa/Documents/Auto/Android/";
-    //public static final String RutaLocal = "/Users/candyespinzabaez/Documents/Android/";
-    //public static final String RutaLocal = "/home/adminqa/Documents/data-Android-test-Cloud-v1/";
     public static final String RutaRemota = "smb://01-045923.rimac.com.pe//DataPuebaAutomatizacion//Proy_CanalAPP_iOS//datapool//";
     public static final String fileData_01 = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"Data.xlsx" : RutaRemota+"Data.xlsx");
     public static final String file_ConsultaSalud = (UsarRemota.compareTo("NO")==0 ? RutaLocal+"ConsultaSalud.xlsx" : RutaRemota+"ConsultaSalud.xlsx");

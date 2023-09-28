@@ -57,6 +57,7 @@ public class ScServiciosTuSeguro extends BaseDriver{
 			int contador=0;
 			while(element(objServicioTuSeguro.btnReembolsoSalud).isCurrentlyVisible()==false && contador<5){
 				util.mobileSwipeScreenAndroid();
+				contador++;
 			}
 			util.esperarElemento(5, objServicioTuSeguro.btnReembolsoSalud);
 			element(objServicioTuSeguro.btnReembolsoSalud).click();
