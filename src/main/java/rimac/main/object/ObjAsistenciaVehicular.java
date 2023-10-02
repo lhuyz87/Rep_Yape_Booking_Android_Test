@@ -82,7 +82,7 @@ public class ObjAsistenciaVehicular extends BaseDriver {
     @AndroidFindBy(xpath = "//*[@text='Grúa']")
     public WebElement btnAsistenciaGrua;
 
-    @AndroidFindBy(xpath = "//*[@text='No sabes cuál elegir']")
+    @AndroidFindBy(xpath = "//*[@text='¿No sabes cuál elegir?']")
     public WebElement btnAyudameElegir;
 
     @AndroidFindBy(id = "additionalTitle")
