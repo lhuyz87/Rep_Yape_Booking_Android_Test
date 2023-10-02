@@ -3,6 +3,7 @@ package rimac.main.step;
 import net.thucydides.core.annotations.Steps;
 import rimac.main.object.ObjPoliza;
 import rimac.main.screen.*;
+import rimac.main.util.Variables;
 
 public class StepPolizaVehicular {
 
@@ -16,6 +17,8 @@ public class StepPolizaVehicular {
     ScTuSesionExpiro scTuSesionExpiro;
     @Steps
     ScPagos scPagos;
+    @Steps
+    ScCuotasPagar scCuotasPagar;
 
 
 
@@ -70,11 +73,20 @@ public class StepPolizaVehicular {
         schome.seleccionarOpcionPrincipal("Seguros");
         scTusSeguros.esperar_Tus_Seguros();
         scTusSeguros.ver_detalle_Vehicular_placa(placa,vigencia);
-        scTusSeguros.irPagos();
-        scPagos.irHistorialPagos();
     }
 
     public void se_valida_historial_pago() throws Exception {
         scTusSeguros.se_visualiza_historial_pagos();
+    }
+
+    public void obtener_cuota_pagada() throws Exception {
+        scTusSeguros.irPagos();
+        scPagos.iraPagarCuotas();
+        scCuotasPagar.consultaUltimoPago();
+        scPagos.irHistorialPagos();
+    }
+
+    public void busca_cuota_historial_pago() {
+        scTusSeguros.busca_cuota_en_historial(Variables.cuotaPagada);
     }
 }

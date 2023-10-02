@@ -2,6 +2,7 @@ package rimac.main.object;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import rimac.main.util.BaseDriver;
 
@@ -86,5 +87,13 @@ public class ObjPagos extends BaseDriver {
 
     @AndroidFindBy(id= "com.rimac.rimac_surrogas.qa:id/paymentIconCreditCard")
     public WebElement imgCreditCard;
+
+    @AndroidFindBy(xpath = "(//*[starts-with(@text,'Venció')])[1]")
+    public WebElement lblFechaVenc1;
+
+    @AndroidFindBy(xpath = "(//*[starts-with(@text,'Vencimiento')])[1]")
+    public WebElement lblFechaVenc2;
+    @AndroidFindBy(id = "backBtn")
+    public WebElement btnRetroceder;
 
 }

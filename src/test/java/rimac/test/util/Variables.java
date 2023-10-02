@@ -8,7 +8,6 @@ public class Variables {
 	public static final String res = "src/test/resources/dataDriven/Plantilla/";
 
 	public static final String ruta = res + System.getProperty("user.name") + "/";
-
 	
 }
 

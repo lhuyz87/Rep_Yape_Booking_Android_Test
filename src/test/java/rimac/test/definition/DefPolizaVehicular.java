@@ -62,4 +62,14 @@ public class DefPolizaVehicular {
     public void seValidaQueMuestreElHistorialDePago() throws Exception {
         stepPolizaVehicular.se_valida_historial_pago();
     }
+
+    @And("se consulta la última cuota cancelada")
+    public void seConsultaLaÚltimaCuotaCancelada() throws Exception {
+        stepPolizaVehicular.obtener_cuota_pagada();
+    }
+
+    @Then("se debe visualizar la cuota pagada en el historial")
+    public void seDebeVisualizarLaCuotaPagadaEnElHistorial() {
+        stepPolizaVehicular.busca_cuota_historial_pago();
+    }
 }

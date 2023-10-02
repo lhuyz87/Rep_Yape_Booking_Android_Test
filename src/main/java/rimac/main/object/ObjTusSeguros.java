@@ -1,6 +1,7 @@
 package rimac.main.object;
 
 import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -113,5 +114,10 @@ public class ObjTusSeguros extends BaseDriver{
 
 	@AndroidFindBy(id = "textBadge")
 	public WebElement numeroCuota;
+
+	public WebElement cuotaPagada(String cuotaObtenida) {
+		WebElement we_cuotaPagada = appiumDriver().findElement(By.ByXPath.xpath("//*[@text='"+cuotaObtenida+"']"));
+		return we_cuotaPagada;
+	}
 
 }

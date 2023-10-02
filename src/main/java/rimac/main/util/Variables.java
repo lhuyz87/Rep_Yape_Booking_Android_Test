@@ -13,6 +13,6 @@ public class Variables {
 	public static String cuotaPorPagar="";
 	public static List<String> contador=new ArrayList<String>();
 	public static List<String> listaStrings = new ArrayList<String>();
-
+	public static String cuotaPagada="";
 }
 

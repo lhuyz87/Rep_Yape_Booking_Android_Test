@@ -293,4 +293,14 @@ public class ScTusSeguros extends BaseDriver{
 			Serenity.takeScreenshot();
 		}
 	}
+
+	public void busca_cuota_en_historial(String cuotaObtenida) {
+		int contador=0;
+		while(element(objTusSeguros.cuotaPagada(cuotaObtenida)).isCurrentlyVisible()==false && contador<8){
+			util.mobileSwipeScreenAndroid();
+			contador++;
+		}
+		assertTrue(element(objTusSeguros.cuotaPagada(cuotaObtenida)).isCurrentlyVisible());
+		Serenity.takeScreenshot();
+	}
 }

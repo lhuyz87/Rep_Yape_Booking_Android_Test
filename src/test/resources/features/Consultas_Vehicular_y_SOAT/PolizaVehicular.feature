@@ -20,7 +20,8 @@
         | tipoID   | id   | password   |
         | <tipoID> | <id> | <password> |
       When se ingresa al detalle de la "<placa>" "<vigencia>" del seguro vehicular
-      Then se valida que muestre el historial de pago
+      And se consulta la última cuota cancelada
+      Then se debe visualizar la cuota pagada en el historial
 
       Examples:
       ###DATOS###@Pagos|1@PagoConTarjetaAsociada
