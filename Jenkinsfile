@@ -28,7 +28,7 @@ pipeline {
         			try {
         				
         				bat "mvn test -Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=${ESCENARIO} -Dcucumber.plugin=json:target/cucumber-reports/cucumber.json -Dcucumber.glue=yape"
-        				bat ("mvn serenity:aggregate")
+        				bat "mvn serenity:aggregate"
         				echo 'Ejecucion de pruebas sin errores...'
         			}
         			catch (ex) {
