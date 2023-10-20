@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>auto.def</groupId>
-	<artifactId>CanalApp-Auto-Android-test-v1</artifactId>
+	<artifactId>yape-Auto-Android-test-v1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>CanalApp-Auto-Android-test-v1</name>
+	<name>yape-Auto-Android-test-v1</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
@@ -17,6 +17,9 @@
 		<encoding>UTF-8</encoding>
 		<tags></tags>
 		<parallel.tests>5</parallel.tests>
+				<serenity.version>3.2.4</serenity.version>
+		<serenity.maven.version>3.2.4</serenity.maven.version>
+		<serenity.cucumber.version>3.2.4</serenity.cucumber.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -136,10 +139,10 @@
 
 	<profiles>
 		<profile>
-			<id>installAppCloudActual</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
+			<id>Yape</id>
+			<properties>
+				<webdriver.driver>chrome</webdriver.driver>
+			</properties>
 			<build>
 				<plugins>
 					<plugin>
@@ -147,17 +150,16 @@
 						<artifactId>maven-surefire-plugin</artifactId>
 						<version>3.0.0-M5</version>
 						<configuration>
-							<systemPropertyVariables>
-								<!--suppress UnresolvedMavenProperty -->
-								<appPath>${v_appCloudActual}</appPath>
-							</systemPropertyVariables>
+							<includes>
+								<include>**/**Runner*.*</include>
+							</includes>
 						</configuration>
 					</plugin>
 				</plugins>
 			</build>
 		</profile>
-
 	</profiles>
+
 
 	<build>
 		<plugins>
@@ -167,7 +169,7 @@
 				<version>3.0.0-M5</version>
 				<configuration>
 					<includes>
-						<include>**/**Rimac**.java</include>
+						<include>**/**Runner**.java</include>
 					</includes>
 					<testFailureIgnore>false</testFailureIgnore>
 				</configuration>
@@ -189,7 +191,7 @@
 				<version>3.0.0-M5</version>
 				<configuration>
 					<includes>
-						<include>**/**Rimac*.java</include>
+						<include>**/**Runner*.java</include>
 					</includes>
 					<systemPropertyVariables>
 						<!--suppress UnresolvedMavenProperty -->

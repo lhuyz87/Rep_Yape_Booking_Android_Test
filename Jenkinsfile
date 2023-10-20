@@ -1,98 +1,53 @@
 import java.text.SimpleDateFormat
 
-//currentBuild.displayName="Canal APP-Android-#"+currentBuild.number
 def defDateFormat = new SimpleDateFormat("yyyyMMddHHmm")
 def defDate = new Date()
 def defTimestamp = defDateFormat.format(defDate).toString()
 
-def secrets = [
-  [path: 'AutoRimac/CanalApp-auto-def-Android', engineVersion: 2, secretValues: [
-	    [envVar: 'v_appLocalActual', vaultKey: 'v_appLocalActual'],
-	    [envVar: 'v_appLocalMinRecomendada', vaultKey: 'v_appLocalMinRecomendada'],
-	    [envVar: 'v_appLocalMinRequerida', vaultKey: 'v_appLocalMinRequerida'],
-	    [envVar: 'v_SaucelabsUser', vaultKey: 'v_SaucelabsUser'],
-	    [envVar: 'v_SaucelabsAccessKey', vaultKey: 'v_SaucelabsAccessKey'],
-	    [envVar: 'v_correoDestino', vaultKey: 'v_correoDestino'],
-	    [envVar: 'v_correoRemitente', vaultKey: 'v_correoRemitente'],
-	    [envVar: 'v_passCorreoRemitente', vaultKey: 'v_passCorreoRemitente']
- 	]
-  ]
-]
-
-def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'VaultCredential', engineVersion: 2]
-
 pipeline {
 
     agent any
-
     tools {
-        maven 'M3'
-        jdk 'jdk8.221'
-    }
-
-    options {
-		buildDiscarder(logRotator(numToKeepStr: '20'))
-	    disableConcurrentBuilds()
-	}
-
+            maven 'M3'
+            jdk 'jdk8.221'
+        }
+    
     stages {
     
         stage ('Build') {
             steps {
-            	script{
-            		currentBuild.displayName = "MobileTesting-Android-SauceLabs [#${BUILD_NUMBER}]"
-            	}
-                sh ("mvn -X clean verify")
+            	bat ("mvn clean install -DskipTests")
+                bat ("mvn clean verify")
             }
         }
-
-        stage('Ejecutar Pruebas'){
-            steps{
-                withVault([configuration: configuration, vaultSecrets: secrets]) {
-                    script {
-						catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE', message: 'Test Suite had a failure') {
-							try {
-	                            switch("${ESCENARIO}") {
-	                                case "@InstalarApp":
-	                                    echo 'Se instala App...'
-	                                    sh ("mvn test -Denvironment=saucelabs_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P instalar")
-	                                    break
-	                                case "@ValidaVersionMinimaRequerida":
-	                                    echo 'Se instala App menor a la versión mínima requerida...'
-	                                    sh ("mvn test -Denvironment=saucelabs_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRequerida")
-	                                    break
-	                                case "@ValidaVersionMinimaRecomendada":
-	                                    echo 'Se instala App menor a la versión mínima recomendada...'
-	                                    sh ("mvn test -Denvironment=saucelabs_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P verMinRecomendada")
-	                                    break
-	                                default:
-	                                    sh ("mvn test -Denvironment=saucelabs_Android -Dcucumber.features='src/test/resources/features/' -Dcucumber.filter.tags=\'${ESCENARIO}\' -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue='rimac' -P noInstalar")
-	                                    break
-	                            }
-	                        }
-	                        catch (ex) {
-	                            echo 'Finalizo ejecucion con fallos...'
-	                            error ('Failed')
-	                        }
-						}
+        
+        stage ('Ejecutar Pruebas') {
+        	steps {
+        		script {
+        			try {
+        				
+        				bat ("mvn test -Dcucumber.options=\"src/test/resources/features/ --tags \'${ESCENARIO}\' --glue yape.test.definition --plugin junit:target/cucumber/result.xml --plugin json:target/cucumber/counter.json\"")
+        				bat ("mvn serenity:aggregate")
+        				echo 'Ejecucion de pruebas sin errores...'
+        			}
+        			catch (ex) {
+        				echo 'Finalizo ejecucion con fallos...'
+        				error ('Failed')
                     }
                 }
             }
         }
-                   
+        
         stage ('Reporte') {
-            steps  {
-                script {
-                    try {
-                        sh ("mvn serenity:aggregate")
-                        echo 'Ejecucion de pruebas sin errores...'
-                        //bat ("echo ${WORKSPACE}")
-                        sh ("echo ${defTimestamp}")
-                        publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
-                        //publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}/target/site/serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
-                        //publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}\\target\\site\\serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
+        	steps {
+        		script {
+                     try {
+                    	
+                    	bat ("echo ${defTimestamp}")
+                    	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
                         echo 'Reporte realizado con exito'
                     }
+
                     catch (ex) {
                         echo 'Reporte realizado con Fallos'
                         error ('Failed')
@@ -100,5 +55,8 @@ pipeline {
                 }
             }
         }
+        
+
     }
+
 }
