@@ -12,7 +12,7 @@ import yape.test.util.ExcelUtilPropio;
 
 @RunWith(RunPersonalizar.class)
 
-@CucumberOptions(features = "src/test/resources/features", tags =  "@ValidarMonto", glue = "yape")
+//@CucumberOptions(features = "src/test/resources/features", tags =  "@ValidarMonto", glue = "yape")
 
 public class Runner {
 	

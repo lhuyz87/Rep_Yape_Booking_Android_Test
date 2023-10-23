@@ -21,7 +21,7 @@ Feature: Poder realizar la reserva de un hotel
 
     Examples: 
       | destino | ida             | regreso         | habitaciones | adultos | ninos    | hotel            | monto esperado |
-      | Cuzco   | 21 octubre 2023 | 28 octubre 2023 |            1 |       2 | 1-5 años | Palacio del Inka |           3874 |
+      | Cuzco   | 23 octubre 2023 | 28 octubre 2023 |            1 |       2 | 1-5 años | Palacio del Inka |           3874 |
 
   @ValidarRealizacionReserva
   Scenario Outline: Validar que se genere una reserva correctamente
@@ -43,4 +43,4 @@ Feature: Poder realizar la reserva de un hotel
 
     Examples: 
       | destino | ida             | regreso         | habitaciones | adultos | ninos    | hotel            | mensaje esperado           |
-      | Cuzco   | 21 octubre 2023 | 28 octubre 2023 |            1 |       2 | 1-5 años | Palacio del Inka | Confirmación de la reserva |
+      | Cuzco   | 23 octubre 2023 | 28 octubre 2023 |            1 |       2 | 1-5 años | Palacio del Inka | Confirmación de la reserva |
