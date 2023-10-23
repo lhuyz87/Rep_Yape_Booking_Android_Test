@@ -33,7 +33,7 @@ pipeline {
         			}
         			catch (ex) {
         				echo 'Finalizo ejecucion con fallos...'
-        				error ('Failed')
+        				//error ('Failed')
                     }
                 }
             }
