@@ -28,7 +28,7 @@ pipeline {
         			try {
         				
         				bat "mvn test -Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=${ESCENARIO} -Dcucumber.plugin=json:target/cucumber-reports/cucumber.json -Dcucumber.glue=yape"
-        				
+						bat "mvn serenity:aggregate"
         				echo 'Ejecucion de pruebas sin errores...'
         			}
         			catch (ex) {
@@ -43,7 +43,7 @@ pipeline {
         	steps {
         		script {
                      try {
-                    	bat "mvn serenity:aggregate"
+
                     	bat ("echo ${defTimestamp}")
                     	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
                         echo 'Reporte realizado con exito'
