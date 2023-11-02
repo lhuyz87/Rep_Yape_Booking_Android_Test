@@ -51,7 +51,7 @@ private long wdwTimeOut = 300L;
 		// TODO Auto-generated method stub
 		boolean flag = false;
 		String mensajeConfirmacion="";
-		flag = util.confirmarElementoActivo(3, objConfirmarReserva.lblReservaConfirmada);
+		flag = util.confirmarElementoActivo(2, objConfirmarReserva.lblReservaConfirmada);
 		System.out.println("flag "  + flag);
 		if(flag==true) {
 			mensajeConfirmacion = objConfirmarReserva.lblReservaConfirmada.getText();

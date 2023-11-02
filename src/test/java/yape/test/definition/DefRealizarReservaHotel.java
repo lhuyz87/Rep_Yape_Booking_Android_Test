@@ -122,6 +122,7 @@ public class DefRealizarReservaHotel {
 	    String mensajeObtenito="";
 	    mensajeObtenito = stepRealizarPago.recibirConfirmacion();
 	    utilReport.showStepMessage("Mensaje Esperado " + mensajeEsperado + "  Mensaje Mostrado " + mensajeObtenito);
+	    Serenity.takeScreenshot();
 	    assertEquals(mensajeEsperado, mensajeObtenito);
 	}
 

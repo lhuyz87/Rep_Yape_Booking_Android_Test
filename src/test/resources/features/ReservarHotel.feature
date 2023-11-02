@@ -20,8 +20,8 @@ Feature: Poder realizar la reserva de un hotel
     Then validamos el monto total de la reserva sea correcto "<monto esperado>"
 
     Examples: 
-      | destino | ida             | regreso         | habitaciones | adultos | ninos    | hotel            | monto esperado |
-      | Cuzco   | 23 octubre 2023 | 28 octubre 2023 |            1 |       2 | 1-5 años | Palacio del Inka |           2768 |
+      | destino | ida               | regreso           | habitaciones | adultos | ninos    | hotel            | monto esperado |
+      | Cuzco   | 03 noviembre 2023 | 08 noviembre 2023 |            1 |       2 | 1-5 años | Palacio del Inka |           2918 |
 
   @ValidarRealizacionReserva
   Scenario Outline: Validar que se genere una reserva correctamente
@@ -42,5 +42,5 @@ Feature: Poder realizar la reserva de un hotel
     Then validamos que se muestre el mensaje "<mensaje esperado>"
 
     Examples: 
-      | destino | ida             | regreso         | habitaciones | adultos | ninos    | hotel            | mensaje esperado           |
-      | Cuzco   | 23 octubre 2023 | 28 octubre 2023 |            1 |       2 | 1-5 años | Palacio del Inka | Confirmación de la reserva |
+      | destino | ida               | regreso           | habitaciones | adultos | ninos    | hotel            | mensaje esperado           |
+      | Cuzco   | 03 noviembre 2023 | 08 noviembre 2023 |            1 |       2 | 1-5 años | Palacio del Inka | Confirmación de la reserva |
