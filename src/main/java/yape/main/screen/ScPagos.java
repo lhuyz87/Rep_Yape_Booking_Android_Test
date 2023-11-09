@@ -52,6 +52,7 @@ private long wdwTimeOut = 300L;
 		// TODO Auto-generated method stub
 		util.esperarElemento(3, objDatosPago.txtNumTarjeta);
 		element(objDatosPago.txtNumTarjeta).sendKeys(tarjeta);
+		element(objDatosPago.txtFechaCaducidad).click();
 		element(objDatosPago.txtFechaCaducidad).sendKeys(fechaVencimiento);
 		
 		util.scroll();
