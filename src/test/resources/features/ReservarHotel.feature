@@ -43,4 +43,4 @@ Feature: Poder realizar la reserva de un hotel
 
     Examples: 
       | destino | ida               | regreso           | habitaciones | adultos | ninos    | hotel            | mensaje esperado           |
-      | Cuzco   | 03 noviembre 2023 | 08 noviembre 2023 |            1 |       2 | 1-5 años | Palacio del Inka | Confirmación de la reserva |
+      | Cuzco   | 09 noviembre 2023 | 14 noviembre 2023 |            1 |       2 | 1-5 años | Palacio del Inka | Confirmación de la reserva |
